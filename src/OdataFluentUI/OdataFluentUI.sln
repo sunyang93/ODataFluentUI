@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdataFluentUI", "OdataFluentUI\OdataFluentUI.csproj", "{75931651-6666-46FA-8C98-4D95A1C65165}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdataFluentUI.Data", "OdataFluentUI.Data\OdataFluentUI.Data.csproj", "{D22B0E30-226F-41CC-95FC-7BCAA78ACFDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75931651-6666-46FA-8C98-4D95A1C65165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75931651-6666-46FA-8C98-4D95A1C65165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75931651-6666-46FA-8C98-4D95A1C65165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75931651-6666-46FA-8C98-4D95A1C65165}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D22B0E30-226F-41CC-95FC-7BCAA78ACFDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D22B0E30-226F-41CC-95FC-7BCAA78ACFDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D22B0E30-226F-41CC-95FC-7BCAA78ACFDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D22B0E30-226F-41CC-95FC-7BCAA78ACFDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FDFD5B5B-875B-41DB-B293-5C17B1F500E0}
+	EndGlobalSection
+EndGlobal

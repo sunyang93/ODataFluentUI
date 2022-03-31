@@ -1,0 +1,15 @@
+﻿body {
+}
+
+.bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: linear-gradient(to right top, #0d6efd, #0084f2, #008dce, #008fa3, #008d80, #008374, #007968, #006f5d, #005c5c, #114952, #203640, #212529);
+}
+.inputMaxWidth{
+    max-width:60px;
+}
