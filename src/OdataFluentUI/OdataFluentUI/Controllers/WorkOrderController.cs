@@ -50,7 +50,7 @@ public class WorkOrderController : ControllerBase
         _adventureworks2019Context.WorkOrders.Add(workOrder);
         await _adventureworks2019Context.SaveChangesAsync();
 
-        return Created("",workOrder);
+        return CreatedAtAction("GetOneWorkOrder", workOrder, new { key=workOrder.WorkOrderID});
     }
 
     [HttpPatch("WorkOrders({key})")]
@@ -62,11 +62,9 @@ public class WorkOrderController : ControllerBase
             return BadRequest(ModelState);
         }
 
-        // find a matching record store
         var currentWorkOrder = await _adventureworks2019Context.WorkOrders
             .FirstOrDefaultAsync(p => p.WorkOrderID == key);
 
-        // if the record store isn't found, return NotFound
         if (currentWorkOrder == null)
         {
             return NotFound();
