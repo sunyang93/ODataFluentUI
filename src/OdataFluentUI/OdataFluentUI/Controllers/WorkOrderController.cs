@@ -1,12 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.OData.Deltas;
-using Microsoft.AspNetCore.OData.Query;
-using Microsoft.AspNetCore.OData.Results;
-using Microsoft.EntityFrameworkCore;
-using OdataFluentUI.Data.Models;
-
-namespace OdataFluentUI.Controllers;
+﻿namespace OdataFluentUI.Controllers;
 
 [Route("odata")]
 [ApiController]
@@ -15,7 +7,8 @@ public class WorkOrderController : ControllerBase
     private readonly Adventureworks2019Context _adventureworks2019Context;
     public WorkOrderController(Adventureworks2019Context adventureworks2019Context)
     {
-        _adventureworks2019Context = adventureworks2019Context ?? throw new ArgumentNullException(nameof(adventureworks2019Context));
+        ArgumentNullException.ThrowIfNull(adventureworks2019Context, nameof(adventureworks2019Context));
+        _adventureworks2019Context = adventureworks2019Context;
     }
 
     [EnableQuery(PageSize =20)]
