@@ -1,8 +1,4 @@
-﻿using OdataFluentUI.Data.Models;
-using Microsoft.OData.Edm;
-using Microsoft.OData.ModelBuilder;
-
-namespace OdataFluentUI.OdataModelBuilder;
+﻿namespace OdataFluentUI.OdataModelBuilder;
 
 public class ModelBuilder
 {
