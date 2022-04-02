@@ -378,6 +378,27 @@
         "addon/tern/worker.js",
         "addon/wrap/hardwrap.js"
       ]
+    },
+    {
+      "library": "vue@2.6.14",
+      "destination": "wwwroot/lib/vue/",
+      "files": [
+        "dist/README.md",
+        "dist/vue.common.dev.js",
+        "dist/vue.common.js",
+        "dist/vue.common.prod.js",
+        "dist/vue.esm.browser.js",
+        "dist/vue.esm.browser.min.js",
+        "dist/vue.esm.js",
+        "dist/vue.js",
+        "dist/vue.min.js",
+        "dist/vue.runtime.common.dev.js",
+        "dist/vue.runtime.common.js",
+        "dist/vue.runtime.common.prod.js",
+        "dist/vue.runtime.esm.js",
+        "dist/vue.runtime.js",
+        "dist/vue.runtime.min.js"
+      ]
     }
   ]
 }
