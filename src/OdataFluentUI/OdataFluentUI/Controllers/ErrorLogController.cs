@@ -32,7 +32,7 @@ public class ErrorLogController : ODataController
     }
 
     [HttpPost("ErrorLogs")]
-    public async Task<IActionResult> CreateErrorLog(ErrorLog errorLog)
+    public async Task<IActionResult> CreateErrorLog([FromBody]ErrorLog errorLog)
     {
         if (!ModelState.IsValid)
         {
@@ -46,7 +46,8 @@ public class ErrorLogController : ODataController
     }
 
     [HttpPatch("ErrorLogs({key})")]
-    public async Task<IActionResult> UpdateErrorLogPartially(int key,Delta<ErrorLog> patch)
+    public async Task<IActionResult> UpdateErrorLogPartially(int key,
+        [FromBody]Delta<ErrorLog> patch)
     {
         if (!ModelState.IsValid)
         {
