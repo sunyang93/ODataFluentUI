@@ -399,6 +399,6 @@
         "dist/vue.runtime.js",
         "dist/vue.runtime.min.js"
       ]
-    }
+    }  
   ]
 }

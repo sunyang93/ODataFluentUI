@@ -11,14 +11,14 @@ public class ErrorLogController : ODataController
     }
 
     [EnableQuery(PageSize = 20)]
-    [HttpGet("ErrorLogs")]
+    [HttpGet("ErrorLog")]
     public IActionResult GetAllErrorLogs()
     {
         return Ok(_adventureworks2019Context.ErrorLogs);
     }
 
     [EnableQuery]
-    [HttpGet("ErrorLogs({key})")]
+    [HttpGet("ErrorLog({key})")]
     public IActionResult GetOneErrorLog(int key)
     {
         var errorLogs = _adventureworks2019Context.ErrorLogs.Where(p => p.ErrorLogID == key);
@@ -31,7 +31,7 @@ public class ErrorLogController : ODataController
         return Ok(SingleResult.Create(errorLogs));
     }
 
-    [HttpPost("ErrorLogs")]
+    [HttpPost("ErrorLog")]
     public async Task<IActionResult> CreateErrorLog([FromBody]ErrorLog errorLog)
     {
         if (!ModelState.IsValid)
@@ -45,7 +45,7 @@ public class ErrorLogController : ODataController
         return CreatedAtAction("GetOneErrorLog", new { key = errorLog.ErrorLogID }, errorLog);
     }
 
-    [HttpPatch("ErrorLogs({key})")]
+    [HttpPatch("ErrorLog({key})")]
     public async Task<IActionResult> UpdateErrorLogPartially(int key,
         [FromBody]Delta<ErrorLog> patch)
     {
@@ -68,7 +68,7 @@ public class ErrorLogController : ODataController
         return NoContent();
     }
 
-    [HttpDelete("ErrorLogs({key})")]
+    [HttpDelete("ErrorLog({key})")]
     public async Task<IActionResult> DeleteErrorLog(int key)
     {
         var currentErrorLog = await _adventureworks2019Context.ErrorLogs

@@ -8,10 +8,10 @@ public class ModelBuilder
         builder.Namespace = "AdventureWorks";
         builder.ContainerName = "AdventureWorksContainer";
 
-        builder.EntitySet<ErrorLog>("ErrorLogs");
+        builder.EntitySet<ErrorLog>("ErrorLog");
 
-        builder.EntitySet<WorkOrder>("WorkOrders");
-        builder.EntitySet<WorkOrderRouting>("WorkOrderRoutings");
+        builder.EntitySet<WorkOrder>("WorkOrder");
+        //builder.EntitySet<WorkOrderRouting>("WorkOrderRoutings");
         return builder.GetEdmModel();
     }
 }

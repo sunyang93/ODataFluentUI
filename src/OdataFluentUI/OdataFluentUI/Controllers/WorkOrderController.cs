@@ -12,14 +12,14 @@ public class WorkOrderController : ControllerBase
     }
 
     [EnableQuery(PageSize =20)]
-    [HttpGet("WorkOrders")]
+    [HttpGet("WorkOrder")]
     public IActionResult GetAllWorkOrders()
     {
         return Ok(_adventureworks2019Context.WorkOrders);
     }
 
     [EnableQuery]
-    [HttpGet("WorkOrders({key})")]
+    [HttpGet("WorkOrder({key})")]
     public IActionResult GetOneWorkOrder(int key)
     {
         var workOrders = _adventureworks2019Context.WorkOrders.Where(p => p.WorkOrderID == key);
@@ -32,7 +32,7 @@ public class WorkOrderController : ControllerBase
         return Ok(SingleResult.Create(workOrders));
     }
 
-    [HttpPost("WorkOrders")]
+    [HttpPost("WorkOrder")]
     public async Task<IActionResult> CreateWorkOrder([FromBody] WorkOrder workOrder)
     {
         if (!ModelState.IsValid)
@@ -46,7 +46,7 @@ public class WorkOrderController : ControllerBase
         return CreatedAtAction("GetOneWorkOrder", workOrder, new { key=workOrder.WorkOrderID});
     }
 
-    [HttpPatch("WorkOrders({key})")]
+    [HttpPatch("WorkOrder({key})")]
     public async Task<IActionResult> UpdateWorkOrderPartially(int key,
         [FromBody] Delta<WorkOrder> patch)
     {
@@ -69,7 +69,7 @@ public class WorkOrderController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("WorkOrders({key})")]
+    [HttpDelete("WorkOrder({key})")]
     public async Task<IActionResult> DeleteWorkOrder(int key)
     {
         var currentWorkOrder = await _adventureworks2019Context.WorkOrders
