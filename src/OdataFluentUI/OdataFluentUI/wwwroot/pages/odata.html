@@ -237,8 +237,8 @@
     <script type="text/javascript">
         const defaultOdataApiUrl = 'http://localhost:5201/odata';
         const defaultOdataApiMetadataUrl = `${defaultOdataApiUrl}/$metadata`;
-        $('#odataUri').val(defaultOdataApiMetadataUrl);
-        $('#odataXmlMetadataA').attr('href', defaultOdataApiMetadataUrl);
+        document.getElementById('odataUri').value = defaultOdataApiMetadataUrl;
+        document.getElementById('odataUri').setAttribute('href',defaultOdataApiMetadataUrl);
         let entityVm = new Vue({
             el: '#tableDiv',
             data: {
@@ -286,12 +286,12 @@
         function OnEntityTypeChange(e) {
             let entityName = $(e).val();
             if (entityName !== '') {
-                $("#odataEntityUri").val(`${defaultOdataApiUrl}/${entityName}`);
+                document.getElementById('odataEntityUri').value = `${defaultOdataApiUrl}/${entityName}`;
             } else {
-                $("#odataEntityUri").val('');
+                document.getElementById('odataEntityUri').value = '';
             }
 
-            let entityType = metadata._entity.filter(d => d.name === entityName)[0];
+            let entityType = metadata._entity.find(d => d.name === entityName);
             if (entityType == undefined) {
                 entityVm._data.currentEntityType = {};
             }
@@ -299,7 +299,7 @@
                 entityVm._data.currentEntityType = entityType;
             }
 
-            let accessories = metadata._json.handsonTableAccessories.filter(d => d.entityName === entityName)[0];
+            let accessories = metadata._json.handsonTableAccessories.find(d => d.entityName === entityName);
             if (accessories == undefined) {
                 entityVm._data.currentHandsonTableAccessories = {};
             }
@@ -310,9 +310,9 @@
         }
 
         function QueryEntityDataset() {
-            let url = $("#odataEntityUri").val();
-            let page = $("#pageInput").val();
-            let pageSize = $("#pageSizeInput").val();
+            let url = document.getElementById("odataEntityUri").value;
+            let page = document.getElementById("pageInput").value;
+            let pageSize = document.getElementById("pageSizeInput").value;
             let skip = (page - 1) * pageSize;
             let uri = `${url}?$count=true&$top=${pageSize}&$skip=${skip}`;
             let request = {
@@ -335,7 +335,7 @@
         }
 
         function previousPage() {
-            let page = Number.parseInt($("#pageInput").val());
+            let page = Number.parseInt(document.getElementById("pageInput").value);
             if (page > 1) {
                 $("#pageInput").val(page - 1);
             }
@@ -343,7 +343,7 @@
         }
 
         function nextPage() {
-            let page = Number.parseInt($("#pageInput").val());
+            let page = Number.parseInt(document.getElementById("pageInput").value);
             $("#pageInput").val(page + 1);
             QueryEntityDataset();
         }
