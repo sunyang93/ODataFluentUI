@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,33 +22,39 @@ namespace OdataFluentUI.Data
         /// 物料编码
         /// </summary>
         [Required]
+        [MaxLength(50)]
         public string MaterialCode { get; set; }
 
         /// <summary>
         /// 物料名称
         /// </summary>
         [Required]
+        [MaxLength(100)]
         public string MaterialName { get; set; }
 
         /// <summary>
         /// 物料规格
         /// </summary>
+        [MaxLength(200)]
         public string MaterialSpecification { get; set; }
 
         /// <summary>
         /// 物料型号
         /// </summary>
         [Required]
+        [MaxLength(100)]
         public string MaterialModel { get; set; }
 
         /// <summary>
         /// 物料分类
         /// </summary>
-        public MaterialClassification MaterialType { get; set; }
+        [Column(TypeName = "varchar(20)")]
+        public MaterialClassification MaterialClassification { get; set; }
 
         /// <summary>
         /// 计量单位
         /// </summary>
+        [Column(TypeName = "varchar(10)")]
         public Unit Unit { get; set; }
 
         /// <summary>
@@ -90,17 +97,9 @@ namespace OdataFluentUI.Data
         /// </summary>
         KG=1,
         /// <summary>
-        /// 吨
-        /// </summary>
-        T,
-        /// <summary>
         /// 米
         /// </summary>
         M,
-        /// <summary>
-        /// 千米
-        /// </summary>
-        KM,
         /// <summary>
         /// 包
         /// </summary>

@@ -74,6 +74,11 @@
                             <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
                         </svg>
                     </button>
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                        </svg>
+                    </button>
                 </div>
                 <div class="collapse" id="collapseExample">
                     <div class="card card-body">
@@ -148,6 +153,9 @@
                                         <td v-else-if="property.editorType==='date'">
                                             日期
                                         </td>
+                                        <td v-else-if="property.editorType==='datetime'">
+                                            时间
+                                        </td>
                                         <td v-else-if="property.editorType==='checkbox'">
                                             复选框
                                         </td>
@@ -173,41 +181,58 @@
                         </div>
                     </div>
                 </div>
-                <div>
-                    <template v-for="property in currentEntityType.propertys">                       
-                        <template v-if="property.editor==='input'">
-                            <template v-if="property.editorType==='checkbox'">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" v-bind:id="property.name">
-                                    <label class="form-check-label" v-bind:for="property.name">
-                                        {{ property.name }}
-                                    </label>
-                                </div>
-                            </template>
-                            <template v-else-if="property.editorType==='datetime'">
-                                <div class="mb-3">
-                                    <label class="form-label">{{ property.name }}</label>
-                                    <input v-bind:type="property.editorType" class="form-control" />
-                                </div>
-                            </template>
-                            <template v-else>
-                                <div class="mb-3">
-                                    <label class="form-label">{{ property.name }}</label>
-                                    <input v-bind:type="property.editorType" class="form-control"
-                                           :readonly="property.readonly?'readonly':false" 
-                                           :disabled="property.readonly?'disabled':false"/>
-                                </div>                             
-                            </template>                           
-                        </template>
-                        <template v-else-if="property.editor==='select'">
-                            <div class="mb-3">
-                                <label class="form-label">{{ property.name }}</label>
-                                <select class="form-select">
-                                    <option v-for="enumValue in property.enumValues" v-bind:value="enumValue.value">{{enumValue.name}}</option>
-                                </select>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">新建数据</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                        </template>                        
-                    </template>
+                            <div class="modal-body">
+                                <div>
+                                    <template v-for="property in currentEntityType.propertys">
+                                        <template v-if="property.editor==='input'">
+                                            <template v-if="property.editorType==='checkbox'">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" v-bind:id="property.name">
+                                                    <label class="form-check-label" v-bind:for="property.name">
+                                                        {{ property.name }}
+                                                    </label>
+                                                </div>
+                                            </template>
+                                            <template v-else-if="property.editorType==='datetime'">
+                                                <div class="mb-3">
+                                                    <label class="form-label">{{ property.name }}</label>
+                                                    <input v-bind:type="property.editorType" class="form-control" />
+                                                </div>
+                                            </template>
+                                            <template v-else>
+                                                <div class="mb-3">
+                                                    <label class="form-label">{{ property.name }}</label>
+                                                    <input v-bind:type="property.editorType" class="form-control"
+                                                           :readonly="property.readonly?'readonly':false"
+                                                           :disabled="property.readonly?'disabled':false" />
+                                                </div>
+                                            </template>
+                                        </template>
+                                        <template v-else-if="property.editor==='select'">
+                                            <div class="mb-3">
+                                                <label class="form-label">{{ property.name }}</label>
+                                                <select class="form-select">
+                                                    <option v-for="enumValue in property.enumValues" v-bind:value="enumValue.value">{{enumValue.name}}</option>
+                                                </select>
+                                            </div>
+                                        </template>
+                                    </template>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary">保存</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-sm table-striped table-hover table-borderless table-light">
@@ -220,8 +245,8 @@
                         </thead>
                         <tbody>
                             <tr v-for="entity in currentEntitySet">
-                                <td v-for="header in currentHandsonTableAccessories.colHeaders">   
-                                    {{ entity[header] }}   
+                                <td v-for="header in currentHandsonTableAccessories.colHeaders">
+                                    {{ entity[header] }}
                                 </td>
                             </tr>
                         </tbody>
@@ -285,8 +310,6 @@
                 entityTypes: [],
                 currentEntityType: {},
                 currentEntitySet:[]
-                //enumTypes: [],
-                //currentEnumTypes:[]
             }
         })
 
@@ -386,7 +409,7 @@
             QueryEntityDataset();
         }
 
-        function MapperOdataMetadata(odataXml, printLog = false) {
+        function MapperOdataMetadata(odataXml, printLog = true) {
             let odataXmlDocuments = odataXml;// $.parseXML(odataXml);
             let entityTypes = $(odataXmlDocuments).find('EntityType');
             let handsonTableAccessories = [];
@@ -497,7 +520,7 @@
             return { handsonTableAccessories: handsonTableAccessories, odata: odata };
         };
 
-        function GenerateEditorConfig(odataJson, printLog = false) {
+        function GenerateEditorConfig(odataJson, printLog = true) {
             let configs = odataJson.odata.entityTypes;//JSON.parse(JSON.stringify(odata.entityTypes));
             $(configs).each(function (configIndex, config) {
                 $(config.propertys).each(function (propertyIndex, property) {
@@ -509,13 +532,13 @@
                         property.editorType = 'date'; 
                     }
                     else if (property.dataType === 'Edm.DateTimeOffset') {
-                        property.editorType = 'datetime-local';
+                        property.editorType = 'datetime';
                     }
                     else if (property.dataType === 'Edm.Boolean') {
                         property.editorType = 'checkbox';
                     }
                     else {
-                        var enumType = odataJson.odata.enumTypes.find(d => d.name === property.dataType.split('.')[1])
+                        let enumType = odataJson.odata.enumTypes.find(d => d.name === property.dataType.split('.')[1])
                         if (enumType === undefined) {
                             property.editorType = 'text';
                         }
@@ -532,6 +555,10 @@
                     }
                 });
             });
+
+            if (printLog) {
+                console.log(JSON.stringify(configs));
+            };
             return configs;
         }
     </script>
