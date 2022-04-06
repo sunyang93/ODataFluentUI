@@ -1,11 +1,7 @@
-using Microsoft.EntityFrameworkCore;
-using OdataFluentUI.Data.Models;
-using Microsoft.AspNetCore.OData;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<Adventureworks2019Context>(options =>
+builder.Services.AddDbContext<WarehouseContext>(options =>
               options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")).EnableSensitiveDataLogging());
 
 builder.Services.AddControllers()

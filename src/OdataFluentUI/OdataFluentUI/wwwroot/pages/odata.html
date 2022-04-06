@@ -173,7 +173,43 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive" style="height:530px">
+                <div>
+                    <template v-for="property in currentEntityType.propertys">                       
+                        <template v-if="property.editor==='input'">
+                            <template v-if="property.editorType==='checkbox'">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" v-bind:id="property.name">
+                                    <label class="form-check-label" v-bind:for="property.name">
+                                        {{ property.name }}
+                                    </label>
+                                </div>
+                            </template>
+                            <template v-else-if="property.editorType==='datetime'">
+                                <div class="mb-3">
+                                    <label class="form-label">{{ property.name }}</label>
+                                    <input v-bind:type="property.editorType" class="form-control" />
+                                </div>
+                            </template>
+                            <template v-else>
+                                <div class="mb-3">
+                                    <label class="form-label">{{ property.name }}</label>
+                                    <input v-bind:type="property.editorType" class="form-control"
+                                           :readonly="property.readonly?'readonly':false" 
+                                           :disabled="property.readonly?'disabled':false"/>
+                                </div>                             
+                            </template>                           
+                        </template>
+                        <template v-else-if="property.editor==='select'">
+                            <div class="mb-3">
+                                <label class="form-label">{{ property.name }}</label>
+                                <select class="form-select">
+                                    <option v-for="enumValue in property.enumValues" v-bind:value="enumValue.value">{{enumValue.name}}</option>
+                                </select>
+                            </div>
+                        </template>                        
+                    </template>
+                </div>
+                <div class="table-responsive">
                     <table class="table table-sm table-striped table-hover table-borderless table-light">
                         <thead>
                             <tr>
@@ -235,10 +271,12 @@
     <script src="../lib/odatajs/odatajs-4.0.0.js"></script>
 
     <script type="text/javascript">
+        'use strict';
+
         const defaultOdataApiUrl = 'http://localhost:5201/odata';
         const defaultOdataApiMetadataUrl = `${defaultOdataApiUrl}/$metadata`;
         document.getElementById('odataUri').value = defaultOdataApiMetadataUrl;
-        document.getElementById('odataUri').setAttribute('href',defaultOdataApiMetadataUrl);
+        document.getElementById('odataXmlMetadataA').setAttribute('href',defaultOdataApiMetadataUrl);
         let entityVm = new Vue({
             el: '#tableDiv',
             data: {
@@ -395,9 +433,12 @@
                     if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(propertyAttributeType)) {
                         column.type = 'numeric';
                     }
-                    else if (['Edm.Date', 'Edm.DateTimeOffset'].includes(propertyAttributeType)) {
+                    else if (propertyAttributeType === 'Edm.Date') {
                         column.type = 'date';
                         column.dateFormat = 'YYYY-MM-DD';
+                    }
+                    else if (propertyAttributeType === 'Edm.DateTimeOffset') {
+                        column.type = 'time';
                     }
                     else if (propertyAttributeType === 'Edm.Boolean') {
                         column.type = 'checkbox';
@@ -464,17 +505,24 @@
                     if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(property.dataType)) {
                         property.editorType = 'number';
                     }
-                    else if (['Edm.Date', 'Edm.DateTimeOffset'].includes(property.dataType)) {
-                        property.editorType = 'date';
+                    else if (property.dataType === 'Edm.Date') {
+                        property.editorType = 'date'; 
+                    }
+                    else if (property.dataType === 'Edm.DateTimeOffset') {
+                        property.editorType = 'datetime-local';
                     }
                     else if (property.dataType === 'Edm.Boolean') {
                         property.editorType = 'checkbox';
                     }
-                    else if (property.dataType.endsWith('EnumType')) {
-                        property.editor = 'select';
-                    }
                     else {
-                        property.editorType = 'text';
+                        var enumType = odataJson.odata.enumTypes.find(d => d.name === property.dataType.split('.')[1])
+                        if (enumType === undefined) {
+                            property.editorType = 'text';
+                        }
+                        else {
+                            property.editor = 'select';
+                            property.enumValues = enumType.enums;
+                        }
                     }
                     if (config.keys.includes(property.name)) {
                         property.readonly = true;
