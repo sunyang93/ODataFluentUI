@@ -8,8 +8,8 @@
     <link href="../lib/handsontable/dist/handsontable.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="bg"></div>
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-success">
+    <!--<div class="bg"></div>-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">OdataFluentUI</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="odata.html">
+                        <a class="nav-link active" href="odata.html">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-xml" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992 1.274-2.007Zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999h.706Zm4.71-.674h1.696v.674H8.4V11.85h.791v3.325Z" />
                             </svg>
@@ -26,11 +26,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="openapi.html">
+                        <a class="nav-link" href="odata.html">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-json" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M14 4.5V11h-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM4.151 15.29a1.176 1.176 0 0 1-.111-.449h.764a.578.578 0 0 0 .255.384c.07.049.154.087.25.114.095.028.201.041.319.041.164 0 .301-.023.413-.07a.559.559 0 0 0 .255-.193.507.507 0 0 0 .084-.29.387.387 0 0 0-.152-.326c-.101-.08-.256-.144-.463-.193l-.618-.143a1.72 1.72 0 0 1-.539-.214 1.001 1.001 0 0 1-.352-.367 1.068 1.068 0 0 1-.123-.524c0-.244.064-.457.19-.639.128-.181.304-.322.528-.422.225-.1.484-.149.777-.149.304 0 .564.05.779.152.217.102.384.239.5.41.12.17.186.359.2.566h-.75a.56.56 0 0 0-.12-.258.624.624 0 0 0-.246-.181.923.923 0 0 0-.37-.068c-.216 0-.387.05-.512.152a.472.472 0 0 0-.185.384c0 .121.048.22.144.3a.97.97 0 0 0 .404.175l.621.143c.217.05.406.12.566.211a1 1 0 0 1 .375.358c.09.148.135.335.135.56 0 .247-.063.466-.188.656a1.216 1.216 0 0 1-.539.439c-.234.105-.52.158-.858.158-.254 0-.476-.03-.665-.09a1.404 1.404 0 0 1-.478-.252 1.13 1.13 0 0 1-.29-.375Zm-3.104-.033a1.32 1.32 0 0 1-.082-.466h.764a.576.576 0 0 0 .074.27.499.499 0 0 0 .454.246c.19 0 .33-.055.422-.164.091-.11.137-.265.137-.466v-2.745h.791v2.725c0 .44-.119.774-.357 1.005-.237.23-.565.345-.985.345a1.59 1.59 0 0 1-.568-.094 1.145 1.145 0 0 1-.407-.266 1.14 1.14 0 0 1-.243-.39Zm9.091-1.585v.522c0 .256-.039.47-.117.641a.862.862 0 0 1-.322.387.877.877 0 0 1-.47.126.883.883 0 0 1-.47-.126.87.87 0 0 1-.32-.387 1.55 1.55 0 0 1-.117-.641v-.522c0-.258.039-.471.117-.641a.87.87 0 0 1 .32-.387.868.868 0 0 1 .47-.129c.177 0 .333.043.47.129a.862.862 0 0 1 .322.387c.078.17.117.383.117.641Zm.803.519v-.513c0-.377-.069-.701-.205-.973a1.46 1.46 0 0 0-.59-.63c-.253-.146-.559-.22-.916-.22-.356 0-.662.074-.92.22a1.441 1.441 0 0 0-.589.628c-.137.271-.205.596-.205.975v.513c0 .375.068.699.205.973.137.271.333.48.589.626.258.145.564.217.92.217.357 0 .663-.072.917-.217.256-.146.452-.355.589-.626.136-.274.205-.598.205-.973Zm1.29-.935v2.675h-.746v-3.999h.662l1.752 2.66h.032v-2.66h.75v4h-.656l-1.761-2.676h-.032Z" />
                             </svg>
-                            OpenApi
+                            Config
                         </a>
                     </li>
                 </ul>
@@ -38,47 +38,89 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <div>
-            <div class="input-group">
-                <span class="input-group-text" id="basic-addon1">Url</span>
-                <input id="odataUri" type="url" class="form-control" placeholder="http://website/odata/$metadata">
-                <button class="btn btn-outline-primary" type="button" onclick="SearchOdata()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                    </svg>
-                </button>
-                <a id="odataXmlMetadataA" class="btn btn-outline-primary" href="#" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-xml" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992 1.274-2.007Zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999h.706Zm4.71-.674h1.696v.674H8.4V11.85h.791v3.325Z" />
-                    </svg>
-                </a>
-            </div>
-            <div id="tableDiv">
-                <div class="input-group">
-                    <span class="input-group-text" id="basic-addon1">Entity</span>
-                    <select class="form-select" onchange="OnEntityTypeChange(this)">
-                        <option value="" selected>请选择一个Entity</option>
-                        <option v-for="entityType in entityTypes">
-                            {{entityType.name}}
-                        </option>
-                    </select>
-                    <span class="input-group-text" id="basic-addon1">Url</span>
-                    <input id="odataEntityUri" type="url" class="form-control" placeholder="Search Entity Dataset">
-                    <button class="btn btn-outline-primary" type="button" onclick=" QueryEntityDataset()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                        </svg>
-                    </button>
-                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
-                            <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
-                        </svg>
-                    </button>
-                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
-                            <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
-                        </svg>
-                    </button>
+        <div>           
+            <div id="tableDiv">               
+                <div class="sticky-top bg-light">
+                    <div class="input-group">
+                        <span class="input-group-text">Url</span>
+                        <input id="odataUri" type="url" class="form-control" placeholder="http://website/odata/$metadata">
+                        <button class="btn btn-outline-primary" type="button" onclick="searchOdata()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </button>
+                        <a id="odataXmlMetadataA" class="btn btn-outline-primary" href="#" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-xml" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992 1.274-2.007Zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999h.706Zm4.71-.674h1.696v.674H8.4V11.85h.791v3.325Z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">Entity</span>
+                        <select class="form-select" onchange="onEntityTypeChange(this)">
+                            <option value="" selected>请选择一个Entity</option>
+                            <option v-for="entityType in entityTypes">
+                                {{entityType.name}}
+                            </option>
+                        </select>
+                        <span class="input-group-text">Url</span>
+                        <input id="odataEntityUri" type="url" class="form-control" placeholder="Search Entity Dataset">
+                        <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid-3x3-gap-fill" viewBox="0 0 16 16">
+                                <path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-2zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">Filter</span>
+                        <input id="filterOptions" type="text" class="form-control" value="IsAvailable eq true" placeholder="Filter options">
+                    </div>
+                    <!--<div class="input-group">
+                        <span class="input-group-text">Search</span>
+                        <input id="searchOptions" type="text" class="form-control" placeholder="Search options">
+                    </div>-->
+                    <div class="input-group">
+                        <span class="input-group-text">Select</span>
+                        <input id="selectOptions" type="text" class="form-control" value="*" placeholder="Select options">
+                        <button class="btn btn-outline-primary" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter-square-fill" viewBox="0 0 16 16">
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm.5 5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1 0-1zM4 8.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">OrderBy</span>
+                        <input id="orderByOptions" type="text" class="form-control" value="CreateTime DESC" placeholder="OrderBy options">
+                        <span class="input-group-text">Top</span>
+                        <input id="topOptions" type="number" class="form-control" value="20" min="1" placeholder="Top options" style="max-width:150px">
+                        <span class="input-group-text">Skip</span>
+                        <input id="skipOptions" type="number" class="form-control" value="0" min="0" placeholder="Skip options" style="max-width:150px" readonly disabled>
+                        <span class="input-group-text">Page</span>
+                        <input id="pageOptions" type="number" class="form-control" value="1" min="1" placeholder="Page options" style="max-width:150px">
+                        <button class="btn btn-outline-primary" type="button" onclick=" queryEntityDataset()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
+                        </button>
+                        <span class="input-group-text">
+                            <span id="totalCountSpan" class="badge rounded-pill bg-primary">0</span>
+                        </span>
+                        <button class="btn btn-outline-primary" type="button" onclick="previousPage()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                            </svg>
+                        </button>
+                        <button class="btn btn-outline-primary" type="button" onclick="nextPage()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg>
+                        </button>
+                        <button class="btn btn-outline-primary" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                            </svg>
+                        </button>
+                    </div>
                 </div>
                 <div class="collapse" id="collapseExample">
                     <div class="card card-body">
@@ -195,31 +237,60 @@
                                         <template v-if="property.editor==='input'">
                                             <template v-if="property.editorType==='checkbox'">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" v-bind:id="property.name">
+                                                    <input class="form-check-input add-new" type="checkbox" 
+                                                           v-bind:id="property.name">
                                                     <label class="form-check-label" v-bind:for="property.name">
                                                         {{ property.name }}
+                                                        <template v-if="property.required===true">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                                                                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+                                                            </svg>
+                                                        </template>                                                       
                                                     </label>
                                                 </div>
                                             </template>
                                             <template v-else-if="property.editorType==='datetime'">
                                                 <div class="mb-3">
-                                                    <label class="form-label">{{ property.name }}</label>
-                                                    <input v-bind:type="property.editorType" class="form-control" />
+                                                    <label class="form-label">
+                                                        {{ property.name }}
+                                                        <template v-if="property.required===true">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                                                                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+                                                            </svg>
+                                                        </template>
+                                                    </label>
+                                                    <input v-bind:type="property.editorType" class="form-control add-new" v-bind:id="property.name" />
                                                 </div>
                                             </template>
                                             <template v-else>
                                                 <div class="mb-3">
-                                                    <label class="form-label">{{ property.name }}</label>
-                                                    <input v-bind:type="property.editorType" class="form-control"
-                                                           :readonly="property.readonly?'readonly':false"
-                                                           :disabled="property.readonly?'disabled':false" />
+                                                    <label class="form-label">
+                                                        {{ property.name }}
+                                                        <template v-if="property.required===true">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                                                                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+                                                            </svg>
+                                                        </template>
+                                                    </label>
+                                                    <input v-bind:type="property.editorType" class="form-control add-new"
+                                                           v-bind:readonly="property.readonly?'readonly':false"
+                                                           v-bind:disabled="property.readonly?'disabled':false" 
+                                                           v-bind:maxlength="property.maxLength"
+                                                           v-bind:id="property.name"/>
                                                 </div>
                                             </template>
                                         </template>
                                         <template v-else-if="property.editor==='select'">
                                             <div class="mb-3">
-                                                <label class="form-label">{{ property.name }}</label>
-                                                <select class="form-select">
+                                                <label class="form-label">
+                                                    {{ property.name }}
+                                                    <template v-if="property.required===true">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                                                            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+                                                        </svg>
+                                                    </template>
+                                                </label>
+                                                <select class="form-select add-new" v-bind:id="property.name">
                                                     <option v-for="enumValue in property.enumValues" v-bind:value="enumValue.value">{{enumValue.name}}</option>
                                                 </select>
                                             </div>
@@ -229,7 +300,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
-                                <button type="button" class="btn btn-primary">保存</button>
+                                <button type="button" class="btn btn-primary" onclick="addNew()">保存</button>
                             </div>
                         </div>
                     </div>
@@ -251,25 +322,6 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <p class="text-start text-light">共<span id="totalCountSpan" class="badge rounded-pill bg-success">0</span>条数据</p>
-                    </div>
-                    <div class="col text-center">
-                        <a class="btn btn-outline-primary" href="#" role="button" onclick="previousPage()">
-                            上一页
-                        </a>
-                        <a class="btn btn-outline-primary" href="#" role="button" onclick="nextPage()">
-                            下一页
-                        </a>
-                    </div>
-                    <div class="col">
-                        <p class="text-end text-light">
-                            第【<input id="pageInput" type="number" class="inputMaxWidth text-center" value="1" min="1" />】页，共<span id="totalPageSpan" class="badge rounded-pill bg-success">0</span>页，每页<input id="pageSizeInput" type="number" class="inputMaxWidth text-center" value="15" min="1" max="5000" />条数据
-                        </p>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -295,272 +347,6 @@
 
     <script src="../lib/odatajs/odatajs-4.0.0.js"></script>
 
-    <script type="text/javascript">
-        'use strict';
-
-        const defaultOdataApiUrl = 'http://localhost:5201/odata';
-        const defaultOdataApiMetadataUrl = `${defaultOdataApiUrl}/$metadata`;
-        document.getElementById('odataUri').value = defaultOdataApiMetadataUrl;
-        document.getElementById('odataXmlMetadataA').setAttribute('href',defaultOdataApiMetadataUrl);
-        let entityVm = new Vue({
-            el: '#tableDiv',
-            data: {
-                handsonTableAccessories: [],
-                currentHandsonTableAccessories: {},
-                entityTypes: [],
-                currentEntityType: {},
-                currentEntitySet:[]
-            }
-        })
-
-        $(function () {
-            SearchOdata();
-        });
-
-        let metadata = { _xml: null, _json: null, _entity: null };
-
-        function SearchOdata() {
-            QueryOdataMetadata();
-        }
-
-        function QueryOdataMetadata() {
-            let uri = $('#odataUri').val();
-            $.get(uri, function (data, status, xhr) {
-                metadata._xml = data;
-                metadata._json = MapperOdataMetadata(metadata._xml);
-                metadata._entity = GenerateEditorConfig(metadata._json);
-
-                entityVm._data.handsonTableAccessories = metadata._json.handsonTableAccessories;
-                entityVm._data.entityTypes = metadata._entity;
-
-                ToastQueryResult();
-            }, 'xml');
-        };
-
-        function ToastQueryResult() {
-            let toastLiveExample = document.getElementById('liveToast');
-            let toast = new bootstrap.Toast(toastLiveExample)
-            toast.show();
-        }
-
-
-        function OnEntityTypeChange(e) {
-            let entityName = $(e).val();
-            if (entityName !== '') {
-                document.getElementById('odataEntityUri').value = `${defaultOdataApiUrl}/${entityName}`;
-            } else {
-                document.getElementById('odataEntityUri').value = '';
-            }
-
-            let entityType = metadata._entity.find(d => d.name === entityName);
-            if (entityType == undefined) {
-                entityVm._data.currentEntityType = {};
-            }
-            else {
-                entityVm._data.currentEntityType = entityType;
-            }
-
-            let accessories = metadata._json.handsonTableAccessories.find(d => d.entityName === entityName);
-            if (accessories == undefined) {
-                entityVm._data.currentHandsonTableAccessories = {};
-            }
-            else {
-                entityVm._data.currentHandsonTableAccessories = accessories;
-            }
-            QueryEntityDataset();
-        }
-
-        function QueryEntityDataset() {
-            let url = document.getElementById("odataEntityUri").value;
-            let page = document.getElementById("pageInput").value;
-            let pageSize = document.getElementById("pageSizeInput").value;
-            let skip = (page - 1) * pageSize;
-            let uri = `${url}?$count=true&$top=${pageSize}&$skip=${skip}`;
-            let request = {
-                requestUri: uri,
-                method: "GET",
-                headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true" }
-            };
-
-            odatajs.oData.request(
-                request,
-                function (data, response) {
-                    let count = data['@odata.count'];
-                    $("#totalCountSpan").html(count);
-                    entityVm._data.currentEntitySet = data['value'];
-                },
-                function (err) {
-                    alert("Something went wrong");
-                }
-            );
-        }
-
-        function previousPage() {
-            let page = Number.parseInt(document.getElementById("pageInput").value);
-            if (page > 1) {
-                $("#pageInput").val(page - 1);
-            }
-            QueryEntityDataset();
-        }
-
-        function nextPage() {
-            let page = Number.parseInt(document.getElementById("pageInput").value);
-            $("#pageInput").val(page + 1);
-            QueryEntityDataset();
-        }
-
-        function MapperOdataMetadata(odataXml, printLog = true) {
-            let odataXmlDocuments = odataXml;// $.parseXML(odataXml);
-            let entityTypes = $(odataXmlDocuments).find('EntityType');
-            let handsonTableAccessories = [];
-            let odata = { entityTypes: [], enumTypes: [] };
-            $(entityTypes).each(function (entityTypeIndex, entityType) {
-                let accessories = {}, entityT = { propertys: [] };
-                let entityName = entityType.attributes.Name.value;
-                accessories.entityName = entityName;
-                entityT.name = entityName;
-                let Propertys = $(entityType).find('Property');
-                let colHeaders = [], columns = [];
-                $(Propertys).each(function (propertyIndex, Property) {
-                    let key = $($(entityType).find('Key')).first();
-                    let propertyRefs = $(key).find('PropertyRef');
-                    let keyRefs = [];
-                    $(propertyRefs).each(function (refIndex, propertyRef) {
-                        let keyName = propertyRef.attributes.Name.value;
-                        keyRefs.push(keyName);
-                    });
-                    entityT.keys = keyRefs;
-                    let column = {}, property = {};
-                    let propertyAttributeName = Property.attributes.Name.value;
-                    colHeaders.push(propertyAttributeName);
-                    column.data = propertyAttributeName;
-                    property.name = propertyAttributeName;
-                    let propertyAttributeType = Property.attributes.Type.value;
-                    property.dataType = propertyAttributeType;
-                    if (Property.attributes.hasOwnProperty('Nullable')) {
-                        let propertyAttributeNullable = Property.attributes.Nullable.value;
-                        property.required = propertyAttributeNullable === "false" ? true : false;
-                    }
-                    else {
-                        property.required = false;
-                    }
-                    if (Property.attributes.hasOwnProperty('DefaultValue')) {
-                        let propertyAttributeDefaultValue = Property.attributes.DefaultValue.value;
-                        property.defaultValue = propertyAttributeDefaultValue;
-                    }
-                    if (Property.attributes.hasOwnProperty('MaxLength')) {
-                        let propertyAttributeMaxLength = Property.attributes.MaxLength.value;
-                        property.maxLength = propertyAttributeMaxLength;
-                    }
-                    // https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/os/odata-csdl-xml-v4.01-os.html#sec_PrimitiveTypes
-                    if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(propertyAttributeType)) {
-                        column.type = 'numeric';
-                    }
-                    else if (propertyAttributeType === 'Edm.Date') {
-                        column.type = 'date';
-                        column.dateFormat = 'YYYY-MM-DD';
-                    }
-                    else if (propertyAttributeType === 'Edm.DateTimeOffset') {
-                        column.type = 'time';
-                    }
-                    else if (propertyAttributeType === 'Edm.Boolean') {
-                        column.type = 'checkbox';
-                    }
-                    else if (propertyAttributeType.endsWith('EnumType')) {
-                        column.type = 'dropdown';
-                        let enumTypeName = propertyAttributeType.split('.')[1];
-                        let enumTypes = $(odataXmlDocuments).find('EnumType');
-                        $(enumTypes).each(function (enumTypeIndex, enumType) {
-                            if (enumType.attributes.Name.value === enumTypeName) {
-                                column.source = [];
-                                property.enums = [];
-                                let members = $(enumType).find('Member');
-                                $(members).each(function (memberIndex, member) {
-                                    let memberName = member.attributes.Name.value;
-                                    let memberValue = member.attributes.Value.value;
-                                    column.source.push(memberName);
-
-                                    property.enums.push({ name: memberName, value: memberValue });
-                                });
-                            }
-                        });
-                    }
-                    else {
-                        column.type = 'text';
-                    }
-                    columns.push(column);
-
-                    entityT.propertys.push(property);
-                });
-                accessories.colHeaders = colHeaders;
-                accessories.columns = columns;
-                handsonTableAccessories.push(accessories);
-
-                odata.entityTypes.push(entityT);
-            });
-
-            let enumTypes = $(odataXmlDocuments).find('EnumType');
-            $(enumTypes).each(function (enumTypeIndex, enumType) {
-                let enumT = { enums: [] };
-                let enumName = enumType.attributes.Name.value;
-                enumT.name = enumName;
-                let members = $(enumType).find('Member');
-                $(members).each(function (memberIndex, member) {
-                    let memberName = member.attributes.Name.value;
-                    let memberValue = member.attributes.Value.value;
-                    enumT.enums.push({ name: memberName, value: memberValue });
-                });
-                odata.enumTypes.push(enumT);
-            });
-
-            if (printLog) {
-                console.log(JSON.stringify(handsonTableAccessories));
-                console.log(JSON.stringify(odata));
-            };
-            return { handsonTableAccessories: handsonTableAccessories, odata: odata };
-        };
-
-        function GenerateEditorConfig(odataJson, printLog = true) {
-            let configs = odataJson.odata.entityTypes;//JSON.parse(JSON.stringify(odata.entityTypes));
-            $(configs).each(function (configIndex, config) {
-                $(config.propertys).each(function (propertyIndex, property) {
-                    property.editor = 'input';
-                    if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(property.dataType)) {
-                        property.editorType = 'number';
-                    }
-                    else if (property.dataType === 'Edm.Date') {
-                        property.editorType = 'date'; 
-                    }
-                    else if (property.dataType === 'Edm.DateTimeOffset') {
-                        property.editorType = 'datetime';
-                    }
-                    else if (property.dataType === 'Edm.Boolean') {
-                        property.editorType = 'checkbox';
-                    }
-                    else {
-                        let enumType = odataJson.odata.enumTypes.find(d => d.name === property.dataType.split('.')[1])
-                        if (enumType === undefined) {
-                            property.editorType = 'text';
-                        }
-                        else {
-                            property.editor = 'select';
-                            property.enumValues = enumType.enums;
-                        }
-                    }
-                    if (config.keys.includes(property.name)) {
-                        property.readonly = true;
-                    }
-                    else {
-                        property.readonly = false;
-                    }
-                });
-            });
-
-            if (printLog) {
-                console.log(JSON.stringify(configs));
-            };
-            return configs;
-        }
-    </script>
+    <script src="../js/odata.js"></script>
 </body>
 </html>

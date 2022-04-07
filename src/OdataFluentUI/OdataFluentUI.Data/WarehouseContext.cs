@@ -31,7 +31,7 @@ namespace OdataFluentUI.Data
             int maxMaterialClassification = Enum.GetValues(typeof(MaterialClassification)).Cast<int>().Max();
             int minUnit=Enum.GetValues(typeof(Unit)).Cast<int>().Min();
             int maxUnit = Enum.GetValues(typeof(Unit)).Cast<int>().Max();
-            for (int i = 10000; i < 20000; i++)
+            for (int i = 1000; i < 2000; i++)
             {
                 Material material = new Material()
                 {

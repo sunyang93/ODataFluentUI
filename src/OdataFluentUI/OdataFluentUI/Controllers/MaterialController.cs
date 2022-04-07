@@ -10,7 +10,7 @@ public class MaterialController : ODataController
         _warehouseContext = warehouseContext;
     }
 
-    [EnableQuery(PageSize = 20)]
+    [EnableQuery]
     [HttpGet("Material")]
     public IActionResult GetAllMaterials()
     {

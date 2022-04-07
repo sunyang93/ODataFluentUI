@@ -5,7 +5,7 @@ builder.Services.AddDbContext<WarehouseContext>(options =>
               options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")).EnableSensitiveDataLogging());
 
 builder.Services.AddControllers()
-   .AddOData(opt => opt.EnableQueryFeatures(maxTopValue:5000)
+   .AddOData(opt => opt.EnableQueryFeatures(maxTopValue:500)
    .AddRouteComponents("odata", OdataFluentUI.OdataModelBuilder.ModelBuilder.GetEdmModel()));
 
 
