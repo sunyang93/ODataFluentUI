@@ -38,16 +38,64 @@ function queryOdataMetadata() {
         entityVm._data.handsonTableAccessories = metadata._json.handsonTableAccessories;
         entityVm._data.entityTypes = metadata._entity;
 
-        toastQueryResult();
+        toastNotice('查询OdataWebApi元数据成功');
+
+        queryConfig();
     }, 'xml');
 };
 
 // Toast通知
-function toastQueryResult() {
+function toastNotice(toastText) {
+    document.getElementsByClassName('toast-body')[0].innerHTML = toastText;
     let toastLiveExample = document.getElementById('liveToast');
     let toast = new bootstrap.Toast(toastLiveExample)
     toast.show();
 };
+
+// 上载Config
+async function uploadConfig() {
+    let request = new Request('/api/configs', {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify({
+            ConfigJsonText: JSON.stringify(metadata)
+        })
+    });
+
+    let result = await fetch(request);
+    if (result.ok) {
+        toastNotice('上载Config数据成功');
+    }
+    else {
+        alert("Something went wrong");
+    }
+}
+
+// 查询Config
+async function queryConfig() {
+    let request = new Request('/api/configs', {
+        method: "GET",
+        headers: {
+            "accept": "text/plain"
+        }
+    });
+
+    let result = await fetch(request);
+    if (result.ok) {
+        let configJosnText = await result.text();
+        let config = JSON.parse(configJosnText);
+        metadata._json = config._json;
+        metadata._entity = config._entity;
+
+        entityVm._data.handsonTableAccessories = metadata._json.handsonTableAccessories;
+        entityVm._data.entityTypes = metadata._entity;
+    }
+    else {
+        alert("Something went wrong");
+    }
+}
 
 // Entity下拉列表改变事件
 function onEntityTypeChange(e) {
