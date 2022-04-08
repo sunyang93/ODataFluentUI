@@ -63,6 +63,7 @@ public class MaterialController : ODataController
         }
 
         patch.Patch(currentMaterial);
+        currentMaterial.UpdateTime = DateTime.UtcNow;
         await _warehouseContext.SaveChangesAsync();
 
         return NoContent();

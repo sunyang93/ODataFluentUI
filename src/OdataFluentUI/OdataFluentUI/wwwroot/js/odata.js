@@ -39,8 +39,6 @@ function queryOdataMetadata() {
         entityVm._data.entityTypes = metadata._entity;
 
         toastNotice('查询OdataWebApi元数据成功');
-
-        queryConfig();
     }, 'xml');
 };
 
@@ -51,51 +49,6 @@ function toastNotice(toastText) {
     let toast = new bootstrap.Toast(toastLiveExample)
     toast.show();
 };
-
-// 上载Config
-async function uploadConfig() {
-    let request = new Request('/api/configs', {
-        method: "POST",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify({
-            ConfigJsonText: JSON.stringify(metadata)
-        })
-    });
-
-    let result = await fetch(request);
-    if (result.ok) {
-        toastNotice('上载Config数据成功');
-    }
-    else {
-        alert("Something went wrong");
-    }
-}
-
-// 查询Config
-async function queryConfig() {
-    let request = new Request('/api/configs', {
-        method: "GET",
-        headers: {
-            "accept": "text/plain"
-        }
-    });
-
-    let result = await fetch(request);
-    if (result.ok) {
-        let configJosnText = await result.text();
-        let config = JSON.parse(configJosnText);
-        metadata._json = config._json;
-        metadata._entity = config._entity;
-
-        entityVm._data.handsonTableAccessories = metadata._json.handsonTableAccessories;
-        entityVm._data.entityTypes = metadata._entity;
-    }
-    else {
-        alert("Something went wrong");
-    }
-}
 
 // Entity下拉列表改变事件
 function onEntityTypeChange(e) {
@@ -144,10 +97,6 @@ function queryEntityDataset() {
     if (select !== '') {
         uri += `&$select=${select}`;
     }
-    //let search = document.getElementById('searchOptions').value.trim();
-    //if (search !== '') {
-    //    uri += `&$search=${search}`;
-    //}
     let request = {
         requestUri: uri,
         method: "GET",
@@ -183,41 +132,197 @@ function nextPage() {
     queryEntityDataset();
 };
 
-// 新建数据
-function addNew() {
-    let doms = document.getElementsByClassName('add-new');
-    let props = {};
-    for (let dom of doms) {
-        let propId = dom.id;
-        let propValue = dom.value;
-        if (['MaterialId', 'CreateTime', 'UpdateTime'].includes(propId)) {
-            continue;
+// 当前正在编辑Entity
+let editEntity = {
+    uri: '',
+    original: {} // 原始值
+};
+
+// 显示 新建/编辑数据Modal
+function showEntityDataModal(isEdit = false) {
+    editEntity.uri = '';
+    editEntity.original = {};
+    if (isEdit) {
+        let doms = document.getElementsByClassName('entity-old');
+        let entityUri = '';
+        for (let dom of doms) {
+            if (dom.checked) {
+                entityUri = dom.value;
+                break;
+            }
         }
-        if (dom.type === 'checkbox') {
-            propValue = dom.checked;
+        editEntity.uri = entityUri;
+        if (entityUri === '') {
+            alert('请选择需要编辑的数据');
+            return;
+        } else {
+            queryEntityData(entityUri);
         }
-        let prop = {};
-        prop[propId] = propValue;
-        props = { ...props, ...prop };
     }
 
-    let url = document.getElementById("odataEntityUri").value;
-    var request = {
-        requestUri: url,
-        method: "POST",
-        headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true", "Content-Type": "application/json" },
-        data: props
+    let doms = document.getElementsByClassName('add-new-edit-old');
+    for (let dom of doms) {
+        if (dom.type === 'checkbox') {
+            dom.checked = false;
+        } else if (dom.type === 'select-one') {
+
+        } else {
+            dom.value = '';
+        }
+    }
+
+    let myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+    myModal.show();
+}
+
+// 查询Entity数据
+function queryEntityData(entityUri) {
+    let request = {
+        requestUri: entityUri,
+        method: "GET",
+        headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true", }
     };
 
     odatajs.oData.request(
         request,
         function (data, response) {
+            let doms = document.getElementsByClassName('add-new-edit-old');
+            let entity = {};
+            for (let dom of doms) {
+                let propId = dom.id;
+                let propValue = data[propId];
+                dom.value = propValue;
+                if (dom.type === 'checkbox') {
+                    dom.checked = propValue;
+                }
 
+                let canPostProp = entityVm._data.currentEntityType.propertys.find(d => d.name == propId && !d.readonly);
+                if (canPostProp !== undefined) {
+                    let prop = {};
+                    prop[propId] = propValue;
+                    entity = { ...entity, ...prop };
+                }
+            }          
+            editEntity.original = entity;
         },
         function (err) {
-            alert("Something went wrong.");
+            alert("Something went wrong");
         }
     );
+}
+
+// 新建/编辑Entity数据
+function addNewOrEditOldData() {
+    let doms = document.getElementsByClassName('add-new-edit-old');
+    let newEntity = {};
+    for (let dom of doms) {
+        let propId = dom.id;
+        let propValue = dom.value;
+        if (dom.type === 'checkbox') {
+            propValue = dom.checked;
+        }
+
+        let canPostProp = entityVm._data.currentEntityType.propertys.find(d => d.name == propId && !d.readonly);
+        if (canPostProp !== undefined) {
+            let prop = {};
+            prop[propId] = propValue;
+            newEntity = { ...newEntity, ...prop };
+        }
+    }
+    if (editEntity.uri === '') {
+        let url = document.getElementById("odataEntityUri").value;
+        let request = {
+            requestUri: url,
+            method: "POST",
+            headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true", "Content-Type": "application/json" },
+            data: newEntity
+        };
+
+        odatajs.oData.request(
+            request,
+            function (data, response) {
+                toastNotice('新建数据成功');
+                queryEntityDataset();
+            },
+            function (err) {
+                alert("Something went wrong.");
+            }
+        );
+    } else {
+        let isChanged = false;
+        let changedEntity = {};
+        for (let key in newEntity) {
+            if (newEntity[key] !== editEntity.original[key]) {
+                let prop = {};
+                prop[key] = newEntity[key];
+                changedEntity = { ...changedEntity, ...prop };
+                isChanged = true;
+            }
+        }
+        if (!isChanged) {
+            alert('未检测到任何修改，无需保存');
+            return;
+        }
+        let request = {
+            requestUri: editEntity.uri,
+            method: "PATCH",
+            headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true", "Content-Type": "application/json" },
+            data: changedEntity
+        };
+
+        odatajs.oData.request(
+            request,
+            function (data, response) {
+                toastNotice('编辑数据成功');
+                queryEntityDataset();
+            },
+            function (err) {
+                alert("Something went wrong.");
+            }
+        );
+    }
+};
+
+// 删除Entity数据
+function deleteEntityData() {
+    let doms = document.getElementsByClassName('entity-old');
+    let entityUri = '';
+    for (let dom of doms) {
+        if (dom.checked) {
+            entityUri = dom.value;
+            break;
+        }
+    }
+    if (entityUri === '') {
+        alert('请选择需要删除的数据');
+        return;
+    }
+    if (confirm('确定要删除该条数据么？')) {
+        let request = {
+            requestUri: entityUri,
+            method: "DELETE",
+            headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true" }
+        };
+
+        odatajs.oData.request(
+            request,
+            function (data, response) {
+                toastNotice('删除数据成功');
+                queryEntityDataset();
+            },
+            function (err) {
+                alert("Something went wrong.");
+            }
+        );
+    }
+};
+
+// 选择全部
+function checkAll(e) {
+    let doms = document.getElementsByClassName('entity-old');
+    for (let dom of doms) {
+        dom.checked = e.checked;
+    }
 };
 
 // 解析OData Metadata元数据并生成handsontable配置数据
