@@ -109,12 +109,56 @@ function queryEntityDataset() {
             let count = data['@odata.count'];
             document.getElementById("totalCountSpan").innerHTML = count;
             entityVm._data.currentEntitySet = data['value'];
+
+            handsontableConfig();
         },
         function (err) {
             alert("Something went wrong");
         }
     );
 };
+
+// handsontable
+function handsontableConfig() {
+    let container = document.querySelector('#handsontableContainer');
+    container.innerHTML = '';
+    let hot = new Handsontable(container, {
+        data: entityVm._data.currentEntitySet,
+        language: 'zh-CN',
+        height: 'auto',
+        width: 'auto',
+        manualRowResize: true,
+        className: 'htLeft htMiddle',
+        colHeaders: entityVm._data.currentHandsonTableAccessories.colHeaders,
+        dropdownMenu: true,
+        hiddenColumns: {
+            indicators: true
+        },
+        fixedColumnsLeft: 1,
+        search: true,
+        columns: entityVm._data.currentHandsonTableAccessories.columns,
+        contextMenu: true,
+        multiColumnSorting: true,
+        filters: true,
+        rowHeaders: true,
+        manualRowMove: true,
+        manualColumnMove: true,
+        manualColumnResize: true,
+        licenseKey: "non-commercial-and-evaluation"
+    });
+};
+
+// 切换表格
+function switchTable(tableDivId) {
+    let tableDivIds = ['bootstraptableDiv', 'handsontableDiv'];
+    for (let _tableDivId of tableDivIds) {
+        if (_tableDivId === tableDivId) {
+            document.getElementById(_tableDivId).style.display = 'block';
+        } else {
+            document.getElementById(_tableDivId).style.display = 'none';
+        }
+    }
+}
 
 // 上一页
 function previousPage() {

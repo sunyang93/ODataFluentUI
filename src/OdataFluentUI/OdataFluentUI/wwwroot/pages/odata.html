@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title></title>
     <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <link href="../lib/handsontable/dist/handsontable.css" rel="stylesheet" />
+    <link href="../lib/handsontable/dist/handsontable.min.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
@@ -28,8 +28,8 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <div>           
-            <div id="tableDiv" style="margin-top:6px">               
+        <div>
+            <div id="tableDiv" style="margin-top:6px">
                 <div class="sticky-top bg-light">
                     <div class="input-group">
                         <span class="input-group-text">Url</span>
@@ -118,6 +118,21 @@
                                 <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                             </svg>
                         </button>
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio" id="btTable" autocomplete="off" onclick="switchTable('bootstraptableDiv')" checked>
+                            <label class="btn btn-outline-primary" for="btTable" title="Bootstrap Table">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-table" viewBox="0 0 16 16">
+                                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" />
+                                </svg>
+                            </label>
+
+                            <input type="radio" class="btn-check" name="btnradio" id="hsTable" autocomplete="off" onclick="switchTable('handsontableDiv')">
+                            <label class="btn btn-outline-primary" for="hsTable" title="Handsontable">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-diamond-fill" viewBox="0 0 16 16">
+                                    <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L4.047 3.339 8 7.293l3.954-3.954L9.049.435zm3.61 3.611L8.708 8l3.954 3.954 2.904-2.905c.58-.58.58-1.519 0-2.098l-2.904-2.905zm-.706 8.614L8 8.708l-3.954 3.954 2.905 2.904c.58.58 1.519.58 2.098 0l2.905-2.904zm-8.614-.706L7.292 8 3.339 4.046.435 6.951c-.58.58-.58 1.519 0 2.098l2.904 2.905z" />
+                                </svg>
+                            </label>
+                        </div>
                     </div>
                 </div>
                 <div class="collapse" id="collapseExample">
@@ -205,13 +220,13 @@
                                         </td>
                                         <td>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" 
+                                                <input class="form-check-input" type="checkbox"
                                                        v-model="property.required">
                                             </div>
                                         </td>
-                                        <td>                                       
+                                        <td>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" 
+                                                <input class="form-check-input" type="checkbox"
                                                        v-model="property.readonly">
                                             </div>
                                         </td>
@@ -236,7 +251,7 @@
                                             <template v-if="property.editorType==='checkbox'">
                                                 <div class="form-check">
                                                     <input class="form-check-input add-new-edit-old" type="checkbox"
-                                                           v-bind:disabled="property.readonly?'disabled':false" 
+                                                           v-bind:disabled="property.readonly?'disabled':false"
                                                            v-bind:id="property.name">
                                                     <label class="form-check-label" v-bind:for="property.name">
                                                         {{ property.name }}
@@ -244,7 +259,7 @@
                                                             <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
                                                                 <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
                                                             </svg>
-                                                        </template>                                                       
+                                                        </template>
                                                     </label>
                                                 </div>
                                             </template>
@@ -258,9 +273,9 @@
                                                             </svg>
                                                         </template>
                                                     </label>
-                                                    <input class="form-control add-new-edit-old" 
-                                                           v-bind:type="property.editorType" 
-                                                           v-bind:disabled="property.readonly?'disabled':false" 
+                                                    <input class="form-control add-new-edit-old"
+                                                           v-bind:type="property.editorType"
+                                                           v-bind:disabled="property.readonly?'disabled':false"
                                                            v-bind:id="property.name" />
                                                 </div>
                                             </template>
@@ -275,9 +290,9 @@
                                                         </template>
                                                     </label>
                                                     <input v-bind:type="property.editorType" class="form-control add-new-edit-old"
-                                                           v-bind:disabled="property.readonly?'disabled':false" 
+                                                           v-bind:disabled="property.readonly?'disabled':false"
                                                            v-bind:maxlength="property.maxLength"
-                                                           v-bind:id="property.name"/>
+                                                           v-bind:id="property.name" />
                                                 </div>
                                             </template>
                                         </template>
@@ -291,11 +306,13 @@
                                                         </svg>
                                                     </template>
                                                 </label>
-                                                <select class="form-select add-new-edit-old" 
-                                                        v-bind:disabled="property.readonly?'disabled':false" 
+                                                <select class="form-select add-new-edit-old"
+                                                        v-bind:disabled="property.readonly?'disabled':false"
                                                         v-bind:id="property.name">
-                                                    <option v-for="enumValue in property.enumValues" 
-                                                            v-bind:value="enumValue.name">{{enumValue.name}}</option>
+                                                    <option v-for="enumValue in property.enumValues"
+                                                            v-bind:value="enumValue.name">
+                                                        {{enumValue.name}}
+                                                    </option>
                                                 </select>
                                             </div>
                                         </template>
@@ -309,9 +326,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive">
+                <div id="bootstraptableDiv" class="table-responsive">
                     <table class="table table-sm table-striped table-hover table-borderless table-light">
-                        <thead>                           
+                        <thead>
                             <tr>
                                 <th scope="col">
                                     <input type="checkbox" class="form-check-input" onchange="checkAll(this)" />
@@ -324,7 +341,7 @@
                         <tbody>
                             <tr v-for="entity in currentEntitySet">
                                 <th scope="row">
-                                    <input type="checkbox" class="form-check-input entity-old" 
+                                    <input type="checkbox" class="form-check-input entity-old"
                                            v-bind:value="entity['@odata.id']" />
                                 </th>
                                 <td v-for="header in currentHandsonTableAccessories.colHeaders">
@@ -333,6 +350,11 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div id="handsontableDiv" class="table-responsive" style="display:none">
+                    <div id="handsontableContainer">
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -344,7 +366,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
                 <div class="toast-body">
-                    
+
                 </div>
             </div>
         </div>
@@ -355,6 +377,9 @@
     <script src="../lib/bootstrap/dist/js/bootstrap.js"></script>
 
     <script src="../lib/vue/dist/vue.js"></script>
+
+    <script src="../lib/handsontable/dist/handsontable.full.min.js"></script>
+    <script src="../lib/handsontable/dist/languages/zh-CN.js"></script>
 
     <script src="../lib/odatajs/odatajs-4.0.0.js"></script>
 
