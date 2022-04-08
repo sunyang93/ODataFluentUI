@@ -1,1 +1,2 @@
+一切源于REST的伟大愿景
 ODataApi驱动的UI
