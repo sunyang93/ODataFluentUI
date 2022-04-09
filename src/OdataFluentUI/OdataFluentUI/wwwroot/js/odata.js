@@ -20,7 +20,10 @@ const defaultOdataApiMetadataUrl = `${defaultOdataApiUrl}/$metadata`;
 document.getElementById('odataUri').value = defaultOdataApiMetadataUrl;
 document.getElementById('odataXmlMetadataA').setAttribute('href', defaultOdataApiMetadataUrl);
 
-searchOdata();
+(function () {
+    searchOdata();
+})();
+
 
 // 查询OData
 function searchOdata() {
@@ -86,9 +89,12 @@ function queryEntityDataset() {
     let top = document.getElementById("topOptions").value;
     let page = Number.parseInt(document.getElementById("pageOptions").value);
     let skip = (page - 1) * top;
-    let orderBy = document.getElementById('orderByOptions').value;
     document.getElementById("skipOptions").value = skip;
-    let uri = `${url}?$count=true&$orderby=${orderBy}&$top=${top}&$skip=${skip}`;
+    let uri = `${url}?$count=true&$top=${top}&$skip=${skip}`;
+    let orderBy = document.getElementById('orderByOptions').value.trim();
+    if (orderBy !== ''){
+        uri += `&$orderby=${orderBy}`;
+    }
     let filter = document.getElementById('filterOptions').value.trim();
     if (filter !== '') {
         uri += `&$filter=${filter}`;
@@ -97,6 +103,7 @@ function queryEntityDataset() {
     if (select !== '') {
         uri += `&$select=${select}`;
     }
+    document.getElementById('queryUrl').value = uri;
     let request = {
         requestUri: uri,
         method: "GET",
@@ -109,56 +116,12 @@ function queryEntityDataset() {
             let count = data['@odata.count'];
             document.getElementById("totalCountSpan").innerHTML = count;
             entityVm._data.currentEntitySet = data['value'];
-
-            handsontableConfig();
         },
         function (err) {
             alert("Something went wrong");
         }
     );
 };
-
-// handsontable
-function handsontableConfig() {
-    let container = document.querySelector('#handsontableContainer');
-    container.innerHTML = '';
-    let hot = new Handsontable(container, {
-        data: entityVm._data.currentEntitySet,
-        language: 'zh-CN',
-        height: 'auto',
-        width: 'auto',
-        manualRowResize: true,
-        className: 'htLeft htMiddle',
-        colHeaders: entityVm._data.currentHandsonTableAccessories.colHeaders,
-        dropdownMenu: true,
-        hiddenColumns: {
-            indicators: true
-        },
-        fixedColumnsLeft: 1,
-        search: true,
-        columns: entityVm._data.currentHandsonTableAccessories.columns,
-        contextMenu: true,
-        multiColumnSorting: true,
-        filters: true,
-        rowHeaders: true,
-        manualRowMove: true,
-        manualColumnMove: true,
-        manualColumnResize: true,
-        licenseKey: "non-commercial-and-evaluation"
-    });
-};
-
-// 切换表格
-function switchTable(tableDivId) {
-    let tableDivIds = ['bootstraptableDiv', 'handsontableDiv'];
-    for (let _tableDivId of tableDivIds) {
-        if (_tableDivId === tableDivId) {
-            document.getElementById(_tableDivId).style.display = 'block';
-        } else {
-            document.getElementById(_tableDivId).style.display = 'none';
-        }
-    }
-}
 
 // 上一页
 function previousPage() {
