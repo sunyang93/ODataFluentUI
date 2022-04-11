@@ -71,19 +71,19 @@
                     <div class="row g-1">
                         <div class="col">
                             <div class="form-floating">
-                                <textarea class="form-control" id="filterOptions" placeholder="Filter options"></textarea>
+                                <textarea class="form-control" id="filterOptions" placeholder="Filter options">IsAvailable eq true</textarea>
                                 <label for="filterOptions">Filter</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-floating">
-                                <textarea class="form-control" id="selectOptions" placeholder="Select options"></textarea>
+                                <textarea class="form-control" id="selectOptions" placeholder="Select options">*</textarea>
                                 <label for="selectOptions">Select</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-floating">
-                                <textarea class="form-control" id="orderByOptions" placeholder="OrderBy options"></textarea>
+                                <textarea class="form-control" id="orderByOptions" placeholder="OrderBy options">CreateTime desc,UpdateTime desc</textarea>
                                 <label for="orderByOptions">OrderBy</label>
                             </div>
                         </div>
@@ -111,11 +111,6 @@
                         <button class="btn btn-outline-primary" type="button" title="下一页" onclick="nextPage()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
-                            </svg>
-                        </button>
-                        <button class="btn btn-outline-primary" type="button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter-square-fill" viewBox="0 0 16 16">
-                                <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm.5 5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1 0-1zM4 8.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z" />
                             </svg>
                         </button>
                         <button class="btn btn-outline-primary" type="button" title="新建" onclick="showEntityDataModal()">

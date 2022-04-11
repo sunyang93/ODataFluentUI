@@ -53,9 +53,11 @@ async function queryOdataMetadata() {
             "Accept": "text/xml"
         }
     });
-
     let result = await fetch(request);
     if (result.ok) {
+        entityVm._data.entityTypes = []; 
+        entityVm._data.currentEntityType = {};
+        entityVm._data.currentEntitySet = [];
         var data = await result.text();
         metadata._xml = (new DOMParser()).parseFromString(data, 'text/xml');
         metadata._json = mapperOdataMetadata(metadata._xml);
@@ -126,7 +128,6 @@ function queryEntityDataset() {
         method: "GET",
         headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true" }
     };
-
     odatajs.oData.request(
         request,
         function (data, response) {
@@ -183,7 +184,6 @@ function showEntityDataModal(isEdit = false) {
             queryEntityData(entityUri);
         }
     }
-
     let doms = document.getElementsByClassName('add-new-edit-old');
     for (let dom of doms) {
         if (dom.type === 'checkbox') {
@@ -194,7 +194,6 @@ function showEntityDataModal(isEdit = false) {
             dom.value = '';
         }
     }
-
     let myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
     myModal.show();
 }
@@ -206,7 +205,6 @@ function queryEntityData(entityUri) {
         method: "GET",
         headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true", }
     };
-
     odatajs.oData.request(
         request,
         function (data, response) {
@@ -219,7 +217,6 @@ function queryEntityData(entityUri) {
                 if (dom.type === 'checkbox') {
                     dom.checked = propValue;
                 }
-
                 let canPostProp = entityVm._data.currentEntityType.propertys.find(d => d.name == propId && !d.readonly);
                 if (canPostProp !== undefined) {
                     let prop = {};
@@ -245,7 +242,6 @@ function addNewOrEditOldData() {
         if (dom.type === 'checkbox') {
             propValue = dom.checked;
         }
-
         let canPostProp = entityVm._data.currentEntityType.propertys.find(d => d.name == propId && !d.readonly);
         if (canPostProp !== undefined) {
             let prop = {};
@@ -261,7 +257,6 @@ function addNewOrEditOldData() {
             headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true", "Content-Type": "application/json" },
             data: newEntity
         };
-
         odatajs.oData.request(
             request,
             function (data, response) {
@@ -293,7 +288,6 @@ function addNewOrEditOldData() {
             headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true", "Content-Type": "application/json" },
             data: changedEntity
         };
-
         odatajs.oData.request(
             request,
             function (data, response) {
@@ -327,7 +321,6 @@ function deleteEntityData() {
             method: "DELETE",
             headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true" }
         };
-
         odatajs.oData.request(
             request,
             function (data, response) {
@@ -351,7 +344,7 @@ function checkAll(e) {
 
 // 解析OData Metadata元数据
 function mapperOdataMetadata(odataXml, printLog = true) {
-    let odataXmlDocuments = odataXml;// $.parseXML(odataXml);
+    let odataXmlDocuments = odataXml;
     let entityTypes = odataXmlDocuments.getElementsByTagName('EntityType');
     let odata = { entityTypes: [], enumTypes: [] };
     let enumTypes = odataXmlDocuments.getElementsByTagName('EnumType');
@@ -383,8 +376,7 @@ function mapperOdataMetadata(odataXml, printLog = true) {
                     keyRefs.push(keyName);
                 };
                 entityT.keys = keyRefs;
-            }
-            
+            }           
             let property = {};
             let propertyAttributeName = _property.attributes.Name.value;
             property.name = propertyAttributeName;
@@ -407,10 +399,8 @@ function mapperOdataMetadata(odataXml, printLog = true) {
             }
             entityT.propertys.push(property);
         };
-
         odata.entityTypes.push(entityT);
     };
-
     if (printLog) {
         console.log(odata);
     };
