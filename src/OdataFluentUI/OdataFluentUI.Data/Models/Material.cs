@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OdataFluentUI.Data
 {
@@ -74,6 +69,28 @@ namespace OdataFluentUI.Data
         /// </summary>
         public DateTime? UpdateTime { get; set; }
     }
+
+    /// <summary>
+    /// 库存
+    /// </summary>
+    public class Inventory
+    {
+        /// <summary>
+        /// 主键Id
+        /// </summary>
+        public int InventoryId { get; set; }
+
+        /// <summary>
+        /// 物料Id
+        /// </summary>
+        public int MaterialId { get; set; }
+
+        /// <summary>
+        /// 批次
+        /// </summary>
+        public string Batch { get; set; }
+    }
+
 
     /// <summary>
     /// 物料分类
