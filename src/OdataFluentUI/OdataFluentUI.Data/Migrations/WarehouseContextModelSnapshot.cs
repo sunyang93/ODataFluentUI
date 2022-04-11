@@ -2,7 +2,6 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OdataFluentUI.Data;
 
@@ -16,55 +15,47 @@ namespace OdataFluentUI.Data.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.3")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
-
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.3");
 
             modelBuilder.Entity("OdataFluentUI.Data.Material", b =>
                 {
                     b.Property<int>("MaterialId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaterialId"), 1L, 1);
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.Property<bool>("IsAvailable")
-                        .HasColumnType("bit");
+                        .HasColumnType("INTEGER");
 
-                    b.Property<string>("MaterialClassification")
-                        .IsRequired()
+                    b.Property<int>("MaterialClassification")
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("MaterialCode")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("MaterialModel")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("MaterialName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("MaterialSpecification")
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("TEXT");
 
-                    b.Property<string>("Unit")
-                        .IsRequired()
+                    b.Property<int>("Unit")
                         .HasColumnType("varchar(10)");
 
                     b.Property<DateTime?>("UpdateTime")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("TEXT");
 
                     b.HasKey("MaterialId");
 
@@ -74,12002 +65,12002 @@ namespace OdataFluentUI.Data.Migrations
                         new
                         {
                             MaterialId = 1000,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4361),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6616),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1000",
                             MaterialModel = "Model-1000",
                             MaterialName = "Name-1000",
                             MaterialSpecification = "Spec-1000",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1001,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4460),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6691),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1001",
                             MaterialModel = "Model-1001",
                             MaterialName = "Name-1001",
                             MaterialSpecification = "Spec-1001",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1002,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4466),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6709),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1002",
                             MaterialModel = "Model-1002",
                             MaterialName = "Name-1002",
                             MaterialSpecification = "Spec-1002",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1003,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4474),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6715),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1003",
                             MaterialModel = "Model-1003",
                             MaterialName = "Name-1003",
                             MaterialSpecification = "Spec-1003",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1004,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4479),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6721),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1004",
                             MaterialModel = "Model-1004",
                             MaterialName = "Name-1004",
                             MaterialSpecification = "Spec-1004",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1005,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4488),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6727),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1005",
                             MaterialModel = "Model-1005",
                             MaterialName = "Name-1005",
                             MaterialSpecification = "Spec-1005",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1006,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4493),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6733),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1006",
                             MaterialModel = "Model-1006",
                             MaterialName = "Name-1006",
                             MaterialSpecification = "Spec-1006",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1007,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4500),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6737),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1007",
                             MaterialModel = "Model-1007",
                             MaterialName = "Name-1007",
                             MaterialSpecification = "Spec-1007",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1008,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4504),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6742),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1008",
                             MaterialModel = "Model-1008",
                             MaterialName = "Name-1008",
                             MaterialSpecification = "Spec-1008",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1009,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4511),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6747),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1009",
                             MaterialModel = "Model-1009",
                             MaterialName = "Name-1009",
                             MaterialSpecification = "Spec-1009",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1010,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4516),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6752),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1010",
                             MaterialModel = "Model-1010",
                             MaterialName = "Name-1010",
                             MaterialSpecification = "Spec-1010",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1011,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4558),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6795),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1011",
                             MaterialModel = "Model-1011",
                             MaterialName = "Name-1011",
                             MaterialSpecification = "Spec-1011",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1012,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4564),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6803),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1012",
                             MaterialModel = "Model-1012",
                             MaterialName = "Name-1012",
                             MaterialSpecification = "Spec-1012",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1013,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4571),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6808),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1013",
                             MaterialModel = "Model-1013",
                             MaterialName = "Name-1013",
                             MaterialSpecification = "Spec-1013",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1014,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4575),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6813),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1014",
                             MaterialModel = "Model-1014",
                             MaterialName = "Name-1014",
                             MaterialSpecification = "Spec-1014",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1015,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4582),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6817),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1015",
                             MaterialModel = "Model-1015",
                             MaterialName = "Name-1015",
                             MaterialSpecification = "Spec-1015",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1016,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4586),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6823),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1016",
                             MaterialModel = "Model-1016",
                             MaterialName = "Name-1016",
                             MaterialSpecification = "Spec-1016",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1017,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4594),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6828),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1017",
                             MaterialModel = "Model-1017",
                             MaterialName = "Name-1017",
                             MaterialSpecification = "Spec-1017",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1018,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4599),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6834),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1018",
                             MaterialModel = "Model-1018",
                             MaterialName = "Name-1018",
                             MaterialSpecification = "Spec-1018",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1019,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4605),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6838),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1019",
                             MaterialModel = "Model-1019",
                             MaterialName = "Name-1019",
                             MaterialSpecification = "Spec-1019",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1020,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4610),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6843),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1020",
                             MaterialModel = "Model-1020",
                             MaterialName = "Name-1020",
                             MaterialSpecification = "Spec-1020",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1021,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4616),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6847),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1021",
                             MaterialModel = "Model-1021",
                             MaterialName = "Name-1021",
                             MaterialSpecification = "Spec-1021",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1022,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4620),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6852),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1022",
                             MaterialModel = "Model-1022",
                             MaterialName = "Name-1022",
                             MaterialSpecification = "Spec-1022",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1023,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4626),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6856),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1023",
                             MaterialModel = "Model-1023",
                             MaterialName = "Name-1023",
                             MaterialSpecification = "Spec-1023",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1024,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4631),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6862),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1024",
                             MaterialModel = "Model-1024",
                             MaterialName = "Name-1024",
                             MaterialSpecification = "Spec-1024",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1025,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4637),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6866),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1025",
                             MaterialModel = "Model-1025",
                             MaterialName = "Name-1025",
                             MaterialSpecification = "Spec-1025",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1026,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4641),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6872),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1026",
                             MaterialModel = "Model-1026",
                             MaterialName = "Name-1026",
                             MaterialSpecification = "Spec-1026",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1027,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4648),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6876),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1027",
                             MaterialModel = "Model-1027",
                             MaterialName = "Name-1027",
                             MaterialSpecification = "Spec-1027",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1028,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4653),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6881),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1028",
                             MaterialModel = "Model-1028",
                             MaterialName = "Name-1028",
                             MaterialSpecification = "Spec-1028",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1029,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4659),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6885),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1029",
                             MaterialModel = "Model-1029",
                             MaterialName = "Name-1029",
                             MaterialSpecification = "Spec-1029",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1030,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4664),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6891),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1030",
                             MaterialModel = "Model-1030",
                             MaterialName = "Name-1030",
                             MaterialSpecification = "Spec-1030",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1031,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4731),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6929),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1031",
                             MaterialModel = "Model-1031",
                             MaterialName = "Name-1031",
                             MaterialSpecification = "Spec-1031",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1032,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4737),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6935),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1032",
                             MaterialModel = "Model-1032",
                             MaterialName = "Name-1032",
                             MaterialSpecification = "Spec-1032",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1033,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4745),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6940),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1033",
                             MaterialModel = "Model-1033",
                             MaterialName = "Name-1033",
                             MaterialSpecification = "Spec-1033",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1034,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4750),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6946),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1034",
                             MaterialModel = "Model-1034",
                             MaterialName = "Name-1034",
                             MaterialSpecification = "Spec-1034",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1035,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4756),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6950),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1035",
                             MaterialModel = "Model-1035",
                             MaterialName = "Name-1035",
                             MaterialSpecification = "Spec-1035",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1036,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4760),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6955),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1036",
                             MaterialModel = "Model-1036",
                             MaterialName = "Name-1036",
                             MaterialSpecification = "Spec-1036",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1037,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4766),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6959),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1037",
                             MaterialModel = "Model-1037",
                             MaterialName = "Name-1037",
                             MaterialSpecification = "Spec-1037",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1038,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4771),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6965),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1038",
                             MaterialModel = "Model-1038",
                             MaterialName = "Name-1038",
                             MaterialSpecification = "Spec-1038",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1039,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4777),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6969),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1039",
                             MaterialModel = "Model-1039",
                             MaterialName = "Name-1039",
                             MaterialSpecification = "Spec-1039",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1040,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4781),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6977),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1040",
                             MaterialModel = "Model-1040",
                             MaterialName = "Name-1040",
                             MaterialSpecification = "Spec-1040",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1041,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4788),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6981),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1041",
                             MaterialModel = "Model-1041",
                             MaterialName = "Name-1041",
                             MaterialSpecification = "Spec-1041",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1042,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4792),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6986),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1042",
                             MaterialModel = "Model-1042",
                             MaterialName = "Name-1042",
                             MaterialSpecification = "Spec-1042",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1043,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4798),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6990),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1043",
                             MaterialModel = "Model-1043",
                             MaterialName = "Name-1043",
                             MaterialSpecification = "Spec-1043",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1044,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4802),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6995),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1044",
                             MaterialModel = "Model-1044",
                             MaterialName = "Name-1044",
                             MaterialSpecification = "Spec-1044",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1045,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4808),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(6999),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1045",
                             MaterialModel = "Model-1045",
                             MaterialName = "Name-1045",
                             MaterialSpecification = "Spec-1045",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1046,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4812),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7005),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1046",
                             MaterialModel = "Model-1046",
                             MaterialName = "Name-1046",
                             MaterialSpecification = "Spec-1046",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1047,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4818),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7009),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1047",
                             MaterialModel = "Model-1047",
                             MaterialName = "Name-1047",
                             MaterialSpecification = "Spec-1047",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1048,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4823),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7015),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1048",
                             MaterialModel = "Model-1048",
                             MaterialName = "Name-1048",
                             MaterialSpecification = "Spec-1048",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1049,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4829),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7019),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1049",
                             MaterialModel = "Model-1049",
                             MaterialName = "Name-1049",
                             MaterialSpecification = "Spec-1049",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1050,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4881),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7061),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1050",
                             MaterialModel = "Model-1050",
                             MaterialName = "Name-1050",
                             MaterialSpecification = "Spec-1050",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1051,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4889),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7066),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1051",
                             MaterialModel = "Model-1051",
                             MaterialName = "Name-1051",
                             MaterialSpecification = "Spec-1051",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1052,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4894),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7071),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1052",
                             MaterialModel = "Model-1052",
                             MaterialName = "Name-1052",
                             MaterialSpecification = "Spec-1052",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1053,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4900),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7075),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1053",
                             MaterialModel = "Model-1053",
                             MaterialName = "Name-1053",
                             MaterialSpecification = "Spec-1053",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1054,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4904),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7080),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1054",
                             MaterialModel = "Model-1054",
                             MaterialName = "Name-1054",
                             MaterialSpecification = "Spec-1054",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1055,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4911),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7085),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1055",
                             MaterialModel = "Model-1055",
                             MaterialName = "Name-1055",
                             MaterialSpecification = "Spec-1055",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1056,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4915),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7090),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1056",
                             MaterialModel = "Model-1056",
                             MaterialName = "Name-1056",
                             MaterialSpecification = "Spec-1056",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1057,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4921),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7094),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1057",
                             MaterialModel = "Model-1057",
                             MaterialName = "Name-1057",
                             MaterialSpecification = "Spec-1057",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1058,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4926),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7100),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1058",
                             MaterialModel = "Model-1058",
                             MaterialName = "Name-1058",
                             MaterialSpecification = "Spec-1058",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1059,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4932),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7103),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1059",
                             MaterialModel = "Model-1059",
                             MaterialName = "Name-1059",
                             MaterialSpecification = "Spec-1059",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1060,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4936),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7109),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1060",
                             MaterialModel = "Model-1060",
                             MaterialName = "Name-1060",
                             MaterialSpecification = "Spec-1060",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1061,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4943),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7113),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1061",
                             MaterialModel = "Model-1061",
                             MaterialName = "Name-1061",
                             MaterialSpecification = "Spec-1061",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1062,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4947),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7118),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1062",
                             MaterialModel = "Model-1062",
                             MaterialName = "Name-1062",
                             MaterialSpecification = "Spec-1062",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1063,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4953),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7122),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1063",
                             MaterialModel = "Model-1063",
                             MaterialName = "Name-1063",
                             MaterialSpecification = "Spec-1063",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1064,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4957),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7128),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1064",
                             MaterialModel = "Model-1064",
                             MaterialName = "Name-1064",
                             MaterialSpecification = "Spec-1064",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1065,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4965),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7134),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1065",
                             MaterialModel = "Model-1065",
                             MaterialName = "Name-1065",
                             MaterialSpecification = "Spec-1065",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1066,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4970),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7139),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1066",
                             MaterialModel = "Model-1066",
                             MaterialName = "Name-1066",
                             MaterialSpecification = "Spec-1066",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1067,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(4977),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7143),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1067",
                             MaterialModel = "Model-1067",
                             MaterialName = "Name-1067",
                             MaterialSpecification = "Spec-1067",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1068,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5050),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7206),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1068",
                             MaterialModel = "Model-1068",
                             MaterialName = "Name-1068",
                             MaterialSpecification = "Spec-1068",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1069,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5058),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7211),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1069",
                             MaterialModel = "Model-1069",
                             MaterialName = "Name-1069",
                             MaterialSpecification = "Spec-1069",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1070,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5062),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7216),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1070",
                             MaterialModel = "Model-1070",
                             MaterialName = "Name-1070",
                             MaterialSpecification = "Spec-1070",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1071,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5068),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7220),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1071",
                             MaterialModel = "Model-1071",
                             MaterialName = "Name-1071",
                             MaterialSpecification = "Spec-1071",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1072,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5072),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7226),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1072",
                             MaterialModel = "Model-1072",
                             MaterialName = "Name-1072",
                             MaterialSpecification = "Spec-1072",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1073,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5079),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7230),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1073",
                             MaterialModel = "Model-1073",
                             MaterialName = "Name-1073",
                             MaterialSpecification = "Spec-1073",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1074,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5083),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7235),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1074",
                             MaterialModel = "Model-1074",
                             MaterialName = "Name-1074",
                             MaterialSpecification = "Spec-1074",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1075,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5089),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7239),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1075",
                             MaterialModel = "Model-1075",
                             MaterialName = "Name-1075",
                             MaterialSpecification = "Spec-1075",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1076,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5093),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7245),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1076",
                             MaterialModel = "Model-1076",
                             MaterialName = "Name-1076",
                             MaterialSpecification = "Spec-1076",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1077,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5100),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7249),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1077",
                             MaterialModel = "Model-1077",
                             MaterialName = "Name-1077",
                             MaterialSpecification = "Spec-1077",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1078,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5104),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7254),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1078",
                             MaterialModel = "Model-1078",
                             MaterialName = "Name-1078",
                             MaterialSpecification = "Spec-1078",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1079,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5110),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7258),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1079",
                             MaterialModel = "Model-1079",
                             MaterialName = "Name-1079",
                             MaterialSpecification = "Spec-1079",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1080,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5114),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7264),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1080",
                             MaterialModel = "Model-1080",
                             MaterialName = "Name-1080",
                             MaterialSpecification = "Spec-1080",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1081,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5122),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7268),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1081",
                             MaterialModel = "Model-1081",
                             MaterialName = "Name-1081",
                             MaterialSpecification = "Spec-1081",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1082,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5126),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7273),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1082",
                             MaterialModel = "Model-1082",
                             MaterialName = "Name-1082",
                             MaterialSpecification = "Spec-1082",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1083,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5132),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7277),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1083",
                             MaterialModel = "Model-1083",
                             MaterialName = "Name-1083",
                             MaterialSpecification = "Spec-1083",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1084,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5137),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7283),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1084",
                             MaterialModel = "Model-1084",
                             MaterialName = "Name-1084",
                             MaterialSpecification = "Spec-1084",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1085,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5142),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7287),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1085",
                             MaterialModel = "Model-1085",
                             MaterialName = "Name-1085",
                             MaterialSpecification = "Spec-1085",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1086,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5147),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7292),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1086",
                             MaterialModel = "Model-1086",
                             MaterialName = "Name-1086",
                             MaterialSpecification = "Spec-1086",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1087,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5152),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7296),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1087",
                             MaterialModel = "Model-1087",
                             MaterialName = "Name-1087",
                             MaterialSpecification = "Spec-1087",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1088,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5157),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7336),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1088",
                             MaterialModel = "Model-1088",
                             MaterialName = "Name-1088",
                             MaterialSpecification = "Spec-1088",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1089,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5201),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7341),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1089",
                             MaterialModel = "Model-1089",
                             MaterialName = "Name-1089",
                             MaterialSpecification = "Spec-1089",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1090,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5206),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7347),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1090",
                             MaterialModel = "Model-1090",
                             MaterialName = "Name-1090",
                             MaterialSpecification = "Spec-1090",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1091,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5212),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7352),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1091",
                             MaterialModel = "Model-1091",
                             MaterialName = "Name-1091",
                             MaterialSpecification = "Spec-1091",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1092,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5216),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7357),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1092",
                             MaterialModel = "Model-1092",
                             MaterialName = "Name-1092",
                             MaterialSpecification = "Spec-1092",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1093,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5222),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7361),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1093",
                             MaterialModel = "Model-1093",
                             MaterialName = "Name-1093",
                             MaterialSpecification = "Spec-1093",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1094,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5227),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7367),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1094",
                             MaterialModel = "Model-1094",
                             MaterialName = "Name-1094",
                             MaterialSpecification = "Spec-1094",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1095,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5233),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7371),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1095",
                             MaterialModel = "Model-1095",
                             MaterialName = "Name-1095",
                             MaterialSpecification = "Spec-1095",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1096,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5238),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7376),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1096",
                             MaterialModel = "Model-1096",
                             MaterialName = "Name-1096",
                             MaterialSpecification = "Spec-1096",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1097,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5244),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7380),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1097",
                             MaterialModel = "Model-1097",
                             MaterialName = "Name-1097",
                             MaterialSpecification = "Spec-1097",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1098,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5248),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7385),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1098",
                             MaterialModel = "Model-1098",
                             MaterialName = "Name-1098",
                             MaterialSpecification = "Spec-1098",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1099,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5254),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7389),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1099",
                             MaterialModel = "Model-1099",
                             MaterialName = "Name-1099",
                             MaterialSpecification = "Spec-1099",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1100,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5258),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7395),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1100",
                             MaterialModel = "Model-1100",
                             MaterialName = "Name-1100",
                             MaterialSpecification = "Spec-1100",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1101,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5264),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7399),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1101",
                             MaterialModel = "Model-1101",
                             MaterialName = "Name-1101",
                             MaterialSpecification = "Spec-1101",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1102,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5269),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7404),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1102",
                             MaterialModel = "Model-1102",
                             MaterialName = "Name-1102",
                             MaterialSpecification = "Spec-1102",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1103,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5274),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7408),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1103",
                             MaterialModel = "Model-1103",
                             MaterialName = "Name-1103",
                             MaterialSpecification = "Spec-1103",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1104,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5280),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7413),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1104",
                             MaterialModel = "Model-1104",
                             MaterialName = "Name-1104",
                             MaterialSpecification = "Spec-1104",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1105,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5286),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7417),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1105",
                             MaterialModel = "Model-1105",
                             MaterialName = "Name-1105",
                             MaterialSpecification = "Spec-1105",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1106,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5290),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7422),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1106",
                             MaterialModel = "Model-1106",
                             MaterialName = "Name-1106",
                             MaterialSpecification = "Spec-1106",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1107,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5296),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7426),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1107",
                             MaterialModel = "Model-1107",
                             MaterialName = "Name-1107",
                             MaterialSpecification = "Spec-1107",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1108,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5300),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7432),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1108",
                             MaterialModel = "Model-1108",
                             MaterialName = "Name-1108",
                             MaterialSpecification = "Spec-1108",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1109,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5362),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7470),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1109",
                             MaterialModel = "Model-1109",
                             MaterialName = "Name-1109",
                             MaterialSpecification = "Spec-1109",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1110,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5368),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7476),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1110",
                             MaterialModel = "Model-1110",
                             MaterialName = "Name-1110",
                             MaterialSpecification = "Spec-1110",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1111,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5375),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7480),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1111",
                             MaterialModel = "Model-1111",
                             MaterialName = "Name-1111",
                             MaterialSpecification = "Spec-1111",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1112,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5379),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7486),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1112",
                             MaterialModel = "Model-1112",
                             MaterialName = "Name-1112",
                             MaterialSpecification = "Spec-1112",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1113,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5385),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7489),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1113",
                             MaterialModel = "Model-1113",
                             MaterialName = "Name-1113",
                             MaterialSpecification = "Spec-1113",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1114,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5389),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7495),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1114",
                             MaterialModel = "Model-1114",
                             MaterialName = "Name-1114",
                             MaterialSpecification = "Spec-1114",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1115,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5396),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7499),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1115",
                             MaterialModel = "Model-1115",
                             MaterialName = "Name-1115",
                             MaterialSpecification = "Spec-1115",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1116,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5400),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7505),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1116",
                             MaterialModel = "Model-1116",
                             MaterialName = "Name-1116",
                             MaterialSpecification = "Spec-1116",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1117,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5406),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7508),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1117",
                             MaterialModel = "Model-1117",
                             MaterialName = "Name-1117",
                             MaterialSpecification = "Spec-1117",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1118,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5410),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7514),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1118",
                             MaterialModel = "Model-1118",
                             MaterialName = "Name-1118",
                             MaterialSpecification = "Spec-1118",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1119,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5416),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7519),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1119",
                             MaterialModel = "Model-1119",
                             MaterialName = "Name-1119",
                             MaterialSpecification = "Spec-1119",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1120,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5421),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7524),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1120",
                             MaterialModel = "Model-1120",
                             MaterialName = "Name-1120",
                             MaterialSpecification = "Spec-1120",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1121,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5427),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7528),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1121",
                             MaterialModel = "Model-1121",
                             MaterialName = "Name-1121",
                             MaterialSpecification = "Spec-1121",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1122,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5432),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7533),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1122",
                             MaterialModel = "Model-1122",
                             MaterialName = "Name-1122",
                             MaterialSpecification = "Spec-1122",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1123,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5437),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7537),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1123",
                             MaterialModel = "Model-1123",
                             MaterialName = "Name-1123",
                             MaterialSpecification = "Spec-1123",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1124,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5442),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7542),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1124",
                             MaterialModel = "Model-1124",
                             MaterialName = "Name-1124",
                             MaterialSpecification = "Spec-1124",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1125,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5449),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7546),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1125",
                             MaterialModel = "Model-1125",
                             MaterialName = "Name-1125",
                             MaterialSpecification = "Spec-1125",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1126,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5453),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7552),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1126",
                             MaterialModel = "Model-1126",
                             MaterialName = "Name-1126",
                             MaterialSpecification = "Spec-1126",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1127,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5459),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7556),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1127",
                             MaterialModel = "Model-1127",
                             MaterialName = "Name-1127",
                             MaterialSpecification = "Spec-1127",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1128,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5463),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7561),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1128",
                             MaterialModel = "Model-1128",
                             MaterialName = "Name-1128",
                             MaterialSpecification = "Spec-1128",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1129,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5653),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7600),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1129",
                             MaterialModel = "Model-1129",
                             MaterialName = "Name-1129",
                             MaterialSpecification = "Spec-1129",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1130,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5659),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7606),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1130",
                             MaterialModel = "Model-1130",
                             MaterialName = "Name-1130",
                             MaterialSpecification = "Spec-1130",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1131,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5665),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7610),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1131",
                             MaterialModel = "Model-1131",
                             MaterialName = "Name-1131",
                             MaterialSpecification = "Spec-1131",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1132,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5669),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7616),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1132",
                             MaterialModel = "Model-1132",
                             MaterialName = "Name-1132",
                             MaterialSpecification = "Spec-1132",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1133,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5675),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7619),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1133",
                             MaterialModel = "Model-1133",
                             MaterialName = "Name-1133",
                             MaterialSpecification = "Spec-1133",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1134,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5680),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7625),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1134",
                             MaterialModel = "Model-1134",
                             MaterialName = "Name-1134",
                             MaterialSpecification = "Spec-1134",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1135,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5686),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7629),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1135",
                             MaterialModel = "Model-1135",
                             MaterialName = "Name-1135",
                             MaterialSpecification = "Spec-1135",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1136,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5691),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7634),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1136",
                             MaterialModel = "Model-1136",
                             MaterialName = "Name-1136",
                             MaterialSpecification = "Spec-1136",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1137,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5697),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7638),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1137",
                             MaterialModel = "Model-1137",
                             MaterialName = "Name-1137",
                             MaterialSpecification = "Spec-1137",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1138,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5701),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7643),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1138",
                             MaterialModel = "Model-1138",
                             MaterialName = "Name-1138",
                             MaterialSpecification = "Spec-1138",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1139,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5707),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7647),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1139",
                             MaterialModel = "Model-1139",
                             MaterialName = "Name-1139",
                             MaterialSpecification = "Spec-1139",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1140,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5711),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7653),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1140",
                             MaterialModel = "Model-1140",
                             MaterialName = "Name-1140",
                             MaterialSpecification = "Spec-1140",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1141,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5717),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7658),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1141",
                             MaterialModel = "Model-1141",
                             MaterialName = "Name-1141",
                             MaterialSpecification = "Spec-1141",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1142,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5721),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7663),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1142",
                             MaterialModel = "Model-1142",
                             MaterialName = "Name-1142",
                             MaterialSpecification = "Spec-1142",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1143,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5727),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7667),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1143",
                             MaterialModel = "Model-1143",
                             MaterialName = "Name-1143",
                             MaterialSpecification = "Spec-1143",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1144,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5731),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7705),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1144",
                             MaterialModel = "Model-1144",
                             MaterialName = "Name-1144",
                             MaterialSpecification = "Spec-1144",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1145,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5771),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7710),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1145",
                             MaterialModel = "Model-1145",
                             MaterialName = "Name-1145",
                             MaterialSpecification = "Spec-1145",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1146,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5776),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7716),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1146",
                             MaterialModel = "Model-1146",
                             MaterialName = "Name-1146",
                             MaterialSpecification = "Spec-1146",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1147,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5782),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7720),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1147",
                             MaterialModel = "Model-1147",
                             MaterialName = "Name-1147",
                             MaterialSpecification = "Spec-1147",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1148,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5786),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7726),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1148",
                             MaterialModel = "Model-1148",
                             MaterialName = "Name-1148",
                             MaterialSpecification = "Spec-1148",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1149,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5792),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7729),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1149",
                             MaterialModel = "Model-1149",
                             MaterialName = "Name-1149",
                             MaterialSpecification = "Spec-1149",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1150,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5797),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7735),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1150",
                             MaterialModel = "Model-1150",
                             MaterialName = "Name-1150",
                             MaterialSpecification = "Spec-1150",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1151,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5803),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7739),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1151",
                             MaterialModel = "Model-1151",
                             MaterialName = "Name-1151",
                             MaterialSpecification = "Spec-1151",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1152,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5808),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7744),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1152",
                             MaterialModel = "Model-1152",
                             MaterialName = "Name-1152",
                             MaterialSpecification = "Spec-1152",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1153,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5814),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7748),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1153",
                             MaterialModel = "Model-1153",
                             MaterialName = "Name-1153",
                             MaterialSpecification = "Spec-1153",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1154,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5818),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7753),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1154",
                             MaterialModel = "Model-1154",
                             MaterialName = "Name-1154",
                             MaterialSpecification = "Spec-1154",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1155,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5825),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7758),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1155",
                             MaterialModel = "Model-1155",
                             MaterialName = "Name-1155",
                             MaterialSpecification = "Spec-1155",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1156,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5830),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7763),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1156",
                             MaterialModel = "Model-1156",
                             MaterialName = "Name-1156",
                             MaterialSpecification = "Spec-1156",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1157,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5836),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7767),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1157",
                             MaterialModel = "Model-1157",
                             MaterialName = "Name-1157",
                             MaterialSpecification = "Spec-1157",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1158,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5840),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7772),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1158",
                             MaterialModel = "Model-1158",
                             MaterialName = "Name-1158",
                             MaterialSpecification = "Spec-1158",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1159,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5846),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7776),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1159",
                             MaterialModel = "Model-1159",
                             MaterialName = "Name-1159",
                             MaterialSpecification = "Spec-1159",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1160,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5850),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7781),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1160",
                             MaterialModel = "Model-1160",
                             MaterialName = "Name-1160",
                             MaterialSpecification = "Spec-1160",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1161,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5857),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7785),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1161",
                             MaterialModel = "Model-1161",
                             MaterialName = "Name-1161",
                             MaterialSpecification = "Spec-1161",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1162,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5861),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7790),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1162",
                             MaterialModel = "Model-1162",
                             MaterialName = "Name-1162",
                             MaterialSpecification = "Spec-1162",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1163,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5867),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7795),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1163",
                             MaterialModel = "Model-1163",
                             MaterialName = "Name-1163",
                             MaterialSpecification = "Spec-1163",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1164,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5872),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7800),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1164",
                             MaterialModel = "Model-1164",
                             MaterialName = "Name-1164",
                             MaterialSpecification = "Spec-1164",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1165,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5914),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7839),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1165",
                             MaterialModel = "Model-1165",
                             MaterialName = "Name-1165",
                             MaterialSpecification = "Spec-1165",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1166,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5919),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7845),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1166",
                             MaterialModel = "Model-1166",
                             MaterialName = "Name-1166",
                             MaterialSpecification = "Spec-1166",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1167,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5925),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7849),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1167",
                             MaterialModel = "Model-1167",
                             MaterialName = "Name-1167",
                             MaterialSpecification = "Spec-1167",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1168,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5929),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7854),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1168",
                             MaterialModel = "Model-1168",
                             MaterialName = "Name-1168",
                             MaterialSpecification = "Spec-1168",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1169,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5935),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7858),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1169",
                             MaterialModel = "Model-1169",
                             MaterialName = "Name-1169",
                             MaterialSpecification = "Spec-1169",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1170,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5939),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7864),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1170",
                             MaterialModel = "Model-1170",
                             MaterialName = "Name-1170",
                             MaterialSpecification = "Spec-1170",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1171,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5945),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7868),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1171",
                             MaterialModel = "Model-1171",
                             MaterialName = "Name-1171",
                             MaterialSpecification = "Spec-1171",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1172,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5949),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7873),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1172",
                             MaterialModel = "Model-1172",
                             MaterialName = "Name-1172",
                             MaterialSpecification = "Spec-1172",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1173,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5956),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7877),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1173",
                             MaterialModel = "Model-1173",
                             MaterialName = "Name-1173",
                             MaterialSpecification = "Spec-1173",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1174,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5960),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7882),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1174",
                             MaterialModel = "Model-1174",
                             MaterialName = "Name-1174",
                             MaterialSpecification = "Spec-1174",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1175,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5966),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7887),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1175",
                             MaterialModel = "Model-1175",
                             MaterialName = "Name-1175",
                             MaterialSpecification = "Spec-1175",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1176,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5970),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7893),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1176",
                             MaterialModel = "Model-1176",
                             MaterialName = "Name-1176",
                             MaterialSpecification = "Spec-1176",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1177,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5976),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7897),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1177",
                             MaterialModel = "Model-1177",
                             MaterialName = "Name-1177",
                             MaterialSpecification = "Spec-1177",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1178,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5981),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7902),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1178",
                             MaterialModel = "Model-1178",
                             MaterialName = "Name-1178",
                             MaterialSpecification = "Spec-1178",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1179,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5987),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7906),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1179",
                             MaterialModel = "Model-1179",
                             MaterialName = "Name-1179",
                             MaterialSpecification = "Spec-1179",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1180,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5992),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7911),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1180",
                             MaterialModel = "Model-1180",
                             MaterialName = "Name-1180",
                             MaterialSpecification = "Spec-1180",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1181,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(5998),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7915),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1181",
                             MaterialModel = "Model-1181",
                             MaterialName = "Name-1181",
                             MaterialSpecification = "Spec-1181",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1182,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6003),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7921),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1182",
                             MaterialModel = "Model-1182",
                             MaterialName = "Name-1182",
                             MaterialSpecification = "Spec-1182",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1183,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6009),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7925),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1183",
                             MaterialModel = "Model-1183",
                             MaterialName = "Name-1183",
                             MaterialSpecification = "Spec-1183",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1184,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6013),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7930),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1184",
                             MaterialModel = "Model-1184",
                             MaterialName = "Name-1184",
                             MaterialSpecification = "Spec-1184",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1185,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6052),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7968),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1185",
                             MaterialModel = "Model-1185",
                             MaterialName = "Name-1185",
                             MaterialSpecification = "Spec-1185",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1186,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6057),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7974),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1186",
                             MaterialModel = "Model-1186",
                             MaterialName = "Name-1186",
                             MaterialSpecification = "Spec-1186",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1187,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6064),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7978),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1187",
                             MaterialModel = "Model-1187",
                             MaterialName = "Name-1187",
                             MaterialSpecification = "Spec-1187",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1188,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6068),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7983),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1188",
                             MaterialModel = "Model-1188",
                             MaterialName = "Name-1188",
                             MaterialSpecification = "Spec-1188",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1189,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6074),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7987),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1189",
                             MaterialModel = "Model-1189",
                             MaterialName = "Name-1189",
                             MaterialSpecification = "Spec-1189",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1190,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6078),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7993),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1190",
                             MaterialModel = "Model-1190",
                             MaterialName = "Name-1190",
                             MaterialSpecification = "Spec-1190",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1191,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6085),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(7997),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1191",
                             MaterialModel = "Model-1191",
                             MaterialName = "Name-1191",
                             MaterialSpecification = "Spec-1191",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1192,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6089),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8002),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1192",
                             MaterialModel = "Model-1192",
                             MaterialName = "Name-1192",
                             MaterialSpecification = "Spec-1192",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1193,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6095),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8006),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1193",
                             MaterialModel = "Model-1193",
                             MaterialName = "Name-1193",
                             MaterialSpecification = "Spec-1193",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1194,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6099),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8012),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1194",
                             MaterialModel = "Model-1194",
                             MaterialName = "Name-1194",
                             MaterialSpecification = "Spec-1194",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1195,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6105),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8015),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1195",
                             MaterialModel = "Model-1195",
                             MaterialName = "Name-1195",
                             MaterialSpecification = "Spec-1195",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1196,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6109),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8021),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1196",
                             MaterialModel = "Model-1196",
                             MaterialName = "Name-1196",
                             MaterialSpecification = "Spec-1196",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1197,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6116),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8025),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1197",
                             MaterialModel = "Model-1197",
                             MaterialName = "Name-1197",
                             MaterialSpecification = "Spec-1197",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1198,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6120),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8030),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1198",
                             MaterialModel = "Model-1198",
                             MaterialName = "Name-1198",
                             MaterialSpecification = "Spec-1198",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1199,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6126),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8034),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1199",
                             MaterialModel = "Model-1199",
                             MaterialName = "Name-1199",
                             MaterialSpecification = "Spec-1199",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1200,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6130),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8039),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1200",
                             MaterialModel = "Model-1200",
                             MaterialName = "Name-1200",
                             MaterialSpecification = "Spec-1200",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1201,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6136),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8043),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1201",
                             MaterialModel = "Model-1201",
                             MaterialName = "Name-1201",
                             MaterialSpecification = "Spec-1201",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1202,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6140),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8048),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1202",
                             MaterialModel = "Model-1202",
                             MaterialName = "Name-1202",
                             MaterialSpecification = "Spec-1202",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1203,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6146),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8052),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1203",
                             MaterialModel = "Model-1203",
                             MaterialName = "Name-1203",
                             MaterialSpecification = "Spec-1203",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1204,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6150),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8058),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1204",
                             MaterialModel = "Model-1204",
                             MaterialName = "Name-1204",
                             MaterialSpecification = "Spec-1204",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1205,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6156),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8061),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1205",
                             MaterialModel = "Model-1205",
                             MaterialName = "Name-1205",
                             MaterialSpecification = "Spec-1205",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1206,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6192),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8102),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1206",
                             MaterialModel = "Model-1206",
                             MaterialName = "Name-1206",
                             MaterialSpecification = "Spec-1206",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1207,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6199),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8106),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1207",
                             MaterialModel = "Model-1207",
                             MaterialName = "Name-1207",
                             MaterialSpecification = "Spec-1207",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1208,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6203),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8112),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1208",
                             MaterialModel = "Model-1208",
                             MaterialName = "Name-1208",
                             MaterialSpecification = "Spec-1208",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1209,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6209),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8116),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1209",
                             MaterialModel = "Model-1209",
                             MaterialName = "Name-1209",
                             MaterialSpecification = "Spec-1209",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1210,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6213),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8121),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1210",
                             MaterialModel = "Model-1210",
                             MaterialName = "Name-1210",
                             MaterialSpecification = "Spec-1210",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1211,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6219),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8125),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1211",
                             MaterialModel = "Model-1211",
                             MaterialName = "Name-1211",
                             MaterialSpecification = "Spec-1211",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1212,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6224),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8131),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1212",
                             MaterialModel = "Model-1212",
                             MaterialName = "Name-1212",
                             MaterialSpecification = "Spec-1212",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1213,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6230),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8135),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1213",
                             MaterialModel = "Model-1213",
                             MaterialName = "Name-1213",
                             MaterialSpecification = "Spec-1213",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1214,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6235),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8140),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1214",
                             MaterialModel = "Model-1214",
                             MaterialName = "Name-1214",
                             MaterialSpecification = "Spec-1214",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1215,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6241),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8144),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1215",
                             MaterialModel = "Model-1215",
                             MaterialName = "Name-1215",
                             MaterialSpecification = "Spec-1215",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1216,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6246),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8150),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1216",
                             MaterialModel = "Model-1216",
                             MaterialName = "Name-1216",
                             MaterialSpecification = "Spec-1216",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1217,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6252),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8154),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1217",
                             MaterialModel = "Model-1217",
                             MaterialName = "Name-1217",
                             MaterialSpecification = "Spec-1217",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1218,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6256),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8159),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1218",
                             MaterialModel = "Model-1218",
                             MaterialName = "Name-1218",
                             MaterialSpecification = "Spec-1218",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1219,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6262),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8163),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1219",
                             MaterialModel = "Model-1219",
                             MaterialName = "Name-1219",
                             MaterialSpecification = "Spec-1219",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1220,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6266),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8168),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1220",
                             MaterialModel = "Model-1220",
                             MaterialName = "Name-1220",
                             MaterialSpecification = "Spec-1220",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1221,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6273),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8172),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1221",
                             MaterialModel = "Model-1221",
                             MaterialName = "Name-1221",
                             MaterialSpecification = "Spec-1221",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1222,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6277),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8178),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1222",
                             MaterialModel = "Model-1222",
                             MaterialName = "Name-1222",
                             MaterialSpecification = "Spec-1222",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1223,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6283),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8182),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1223",
                             MaterialModel = "Model-1223",
                             MaterialName = "Name-1223",
                             MaterialSpecification = "Spec-1223",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1224,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6288),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8187),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1224",
                             MaterialModel = "Model-1224",
                             MaterialName = "Name-1224",
                             MaterialSpecification = "Spec-1224",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1225,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6295),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8191),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1225",
                             MaterialModel = "Model-1225",
                             MaterialName = "Name-1225",
                             MaterialSpecification = "Spec-1225",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1226,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6334),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8245),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1226",
                             MaterialModel = "Model-1226",
                             MaterialName = "Name-1226",
                             MaterialSpecification = "Spec-1226",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1227,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6341),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8249),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1227",
                             MaterialModel = "Model-1227",
                             MaterialName = "Name-1227",
                             MaterialSpecification = "Spec-1227",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1228,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6345),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8255),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1228",
                             MaterialModel = "Model-1228",
                             MaterialName = "Name-1228",
                             MaterialSpecification = "Spec-1228",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1229,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6351),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8259),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1229",
                             MaterialModel = "Model-1229",
                             MaterialName = "Name-1229",
                             MaterialSpecification = "Spec-1229",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1230,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6355),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8265),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1230",
                             MaterialModel = "Model-1230",
                             MaterialName = "Name-1230",
                             MaterialSpecification = "Spec-1230",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1231,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6361),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8269),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1231",
                             MaterialModel = "Model-1231",
                             MaterialName = "Name-1231",
                             MaterialSpecification = "Spec-1231",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1232,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6366),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8275),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1232",
                             MaterialModel = "Model-1232",
                             MaterialName = "Name-1232",
                             MaterialSpecification = "Spec-1232",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1233,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6372),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8279),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1233",
                             MaterialModel = "Model-1233",
                             MaterialName = "Name-1233",
                             MaterialSpecification = "Spec-1233",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1234,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6376),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8285),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1234",
                             MaterialModel = "Model-1234",
                             MaterialName = "Name-1234",
                             MaterialSpecification = "Spec-1234",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1235,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6383),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8289),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1235",
                             MaterialModel = "Model-1235",
                             MaterialName = "Name-1235",
                             MaterialSpecification = "Spec-1235",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1236,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6387),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8294),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1236",
                             MaterialModel = "Model-1236",
                             MaterialName = "Name-1236",
                             MaterialSpecification = "Spec-1236",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1237,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6394),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8298),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1237",
                             MaterialModel = "Model-1237",
                             MaterialName = "Name-1237",
                             MaterialSpecification = "Spec-1237",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1238,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6398),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8304),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1238",
                             MaterialModel = "Model-1238",
                             MaterialName = "Name-1238",
                             MaterialSpecification = "Spec-1238",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1239,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6404),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8308),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1239",
                             MaterialModel = "Model-1239",
                             MaterialName = "Name-1239",
                             MaterialSpecification = "Spec-1239",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1240,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6408),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8313),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1240",
                             MaterialModel = "Model-1240",
                             MaterialName = "Name-1240",
                             MaterialSpecification = "Spec-1240",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1241,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6414),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8317),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1241",
                             MaterialModel = "Model-1241",
                             MaterialName = "Name-1241",
                             MaterialSpecification = "Spec-1241",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1242,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6419),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8323),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1242",
                             MaterialModel = "Model-1242",
                             MaterialName = "Name-1242",
                             MaterialSpecification = "Spec-1242",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1243,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6425),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8327),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1243",
                             MaterialModel = "Model-1243",
                             MaterialName = "Name-1243",
                             MaterialSpecification = "Spec-1243",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1244,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6429),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8332),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1244",
                             MaterialModel = "Model-1244",
                             MaterialName = "Name-1244",
                             MaterialSpecification = "Spec-1244",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1245,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6435),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8336),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1245",
                             MaterialModel = "Model-1245",
                             MaterialName = "Name-1245",
                             MaterialSpecification = "Spec-1245",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1246,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6439),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8374),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1246",
                             MaterialModel = "Model-1246",
                             MaterialName = "Name-1246",
                             MaterialSpecification = "Spec-1246",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1247,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6477),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8379),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1247",
                             MaterialModel = "Model-1247",
                             MaterialName = "Name-1247",
                             MaterialSpecification = "Spec-1247",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1248,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6482),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8385),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1248",
                             MaterialModel = "Model-1248",
                             MaterialName = "Name-1248",
                             MaterialSpecification = "Spec-1248",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1249,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6488),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8389),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1249",
                             MaterialModel = "Model-1249",
                             MaterialName = "Name-1249",
                             MaterialSpecification = "Spec-1249",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1250,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6493),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8395),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1250",
                             MaterialModel = "Model-1250",
                             MaterialName = "Name-1250",
                             MaterialSpecification = "Spec-1250",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1251,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6500),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8398),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1251",
                             MaterialModel = "Model-1251",
                             MaterialName = "Name-1251",
                             MaterialSpecification = "Spec-1251",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1252,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6505),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8404),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1252",
                             MaterialModel = "Model-1252",
                             MaterialName = "Name-1252",
                             MaterialSpecification = "Spec-1252",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1253,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6512),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8408),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1253",
                             MaterialModel = "Model-1253",
                             MaterialName = "Name-1253",
                             MaterialSpecification = "Spec-1253",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1254,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6516),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8413),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1254",
                             MaterialModel = "Model-1254",
                             MaterialName = "Name-1254",
                             MaterialSpecification = "Spec-1254",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1255,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6522),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8417),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1255",
                             MaterialModel = "Model-1255",
                             MaterialName = "Name-1255",
                             MaterialSpecification = "Spec-1255",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1256,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6526),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8422),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1256",
                             MaterialModel = "Model-1256",
                             MaterialName = "Name-1256",
                             MaterialSpecification = "Spec-1256",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1257,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6587),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8461),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1257",
                             MaterialModel = "Model-1257",
                             MaterialName = "Name-1257",
                             MaterialSpecification = "Spec-1257",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1258,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6592),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8467),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1258",
                             MaterialModel = "Model-1258",
                             MaterialName = "Name-1258",
                             MaterialSpecification = "Spec-1258",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1259,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6599),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8472),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1259",
                             MaterialModel = "Model-1259",
                             MaterialName = "Name-1259",
                             MaterialSpecification = "Spec-1259",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1260,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6603),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8478),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1260",
                             MaterialModel = "Model-1260",
                             MaterialName = "Name-1260",
                             MaterialSpecification = "Spec-1260",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1261,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6609),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8482),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1261",
                             MaterialModel = "Model-1261",
                             MaterialName = "Name-1261",
                             MaterialSpecification = "Spec-1261",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1262,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6613),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8487),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1262",
                             MaterialModel = "Model-1262",
                             MaterialName = "Name-1262",
                             MaterialSpecification = "Spec-1262",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1263,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6620),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8491),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1263",
                             MaterialModel = "Model-1263",
                             MaterialName = "Name-1263",
                             MaterialSpecification = "Spec-1263",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1264,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6624),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8496),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1264",
                             MaterialModel = "Model-1264",
                             MaterialName = "Name-1264",
                             MaterialSpecification = "Spec-1264",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1265,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6630),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8500),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1265",
                             MaterialModel = "Model-1265",
                             MaterialName = "Name-1265",
                             MaterialSpecification = "Spec-1265",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1266,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6634),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8506),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1266",
                             MaterialModel = "Model-1266",
                             MaterialName = "Name-1266",
                             MaterialSpecification = "Spec-1266",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1267,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6640),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8510),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1267",
                             MaterialModel = "Model-1267",
                             MaterialName = "Name-1267",
                             MaterialSpecification = "Spec-1267",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1268,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6645),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8516),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1268",
                             MaterialModel = "Model-1268",
                             MaterialName = "Name-1268",
                             MaterialSpecification = "Spec-1268",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1269,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6651),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8520),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1269",
                             MaterialModel = "Model-1269",
                             MaterialName = "Name-1269",
                             MaterialSpecification = "Spec-1269",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1270,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6656),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8525),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1270",
                             MaterialModel = "Model-1270",
                             MaterialName = "Name-1270",
                             MaterialSpecification = "Spec-1270",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1271,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6662),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8529),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1271",
                             MaterialModel = "Model-1271",
                             MaterialName = "Name-1271",
                             MaterialSpecification = "Spec-1271",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1272,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6666),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8535),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1272",
                             MaterialModel = "Model-1272",
                             MaterialName = "Name-1272",
                             MaterialSpecification = "Spec-1272",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1273,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6672),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8539),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1273",
                             MaterialModel = "Model-1273",
                             MaterialName = "Name-1273",
                             MaterialSpecification = "Spec-1273",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1274,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6677),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8544),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1274",
                             MaterialModel = "Model-1274",
                             MaterialName = "Name-1274",
                             MaterialSpecification = "Spec-1274",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1275,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6683),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8548),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1275",
                             MaterialModel = "Model-1275",
                             MaterialName = "Name-1275",
                             MaterialSpecification = "Spec-1275",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1276,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6687),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8554),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1276",
                             MaterialModel = "Model-1276",
                             MaterialName = "Name-1276",
                             MaterialSpecification = "Spec-1276",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1277,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6724),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8594),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1277",
                             MaterialModel = "Model-1277",
                             MaterialName = "Name-1277",
                             MaterialSpecification = "Spec-1277",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1278,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6730),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8601),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1278",
                             MaterialModel = "Model-1278",
                             MaterialName = "Name-1278",
                             MaterialSpecification = "Spec-1278",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1279,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6736),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8605),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1279",
                             MaterialModel = "Model-1279",
                             MaterialName = "Name-1279",
                             MaterialSpecification = "Spec-1279",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1280,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6740),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8610),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1280",
                             MaterialModel = "Model-1280",
                             MaterialName = "Name-1280",
                             MaterialSpecification = "Spec-1280",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1281,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6746),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8614),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1281",
                             MaterialModel = "Model-1281",
                             MaterialName = "Name-1281",
                             MaterialSpecification = "Spec-1281",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1282,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6750),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8620),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1282",
                             MaterialModel = "Model-1282",
                             MaterialName = "Name-1282",
                             MaterialSpecification = "Spec-1282",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1283,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6756),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8624),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1283",
                             MaterialModel = "Model-1283",
                             MaterialName = "Name-1283",
                             MaterialSpecification = "Spec-1283",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1284,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6761),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8630),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1284",
                             MaterialModel = "Model-1284",
                             MaterialName = "Name-1284",
                             MaterialSpecification = "Spec-1284",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1285,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6767),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8633),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1285",
                             MaterialModel = "Model-1285",
                             MaterialName = "Name-1285",
                             MaterialSpecification = "Spec-1285",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1286,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6771),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8639),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1286",
                             MaterialModel = "Model-1286",
                             MaterialName = "Name-1286",
                             MaterialSpecification = "Spec-1286",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1287,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6777),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8643),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1287",
                             MaterialModel = "Model-1287",
                             MaterialName = "Name-1287",
                             MaterialSpecification = "Spec-1287",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1288,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6781),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8649),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1288",
                             MaterialModel = "Model-1288",
                             MaterialName = "Name-1288",
                             MaterialSpecification = "Spec-1288",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1289,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6787),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8653),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1289",
                             MaterialModel = "Model-1289",
                             MaterialName = "Name-1289",
                             MaterialSpecification = "Spec-1289",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1290,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6792),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8659),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1290",
                             MaterialModel = "Model-1290",
                             MaterialName = "Name-1290",
                             MaterialSpecification = "Spec-1290",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1291,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6798),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8663),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1291",
                             MaterialModel = "Model-1291",
                             MaterialName = "Name-1291",
                             MaterialSpecification = "Spec-1291",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1292,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6802),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8668),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1292",
                             MaterialModel = "Model-1292",
                             MaterialName = "Name-1292",
                             MaterialSpecification = "Spec-1292",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1293,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6808),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8672),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1293",
                             MaterialModel = "Model-1293",
                             MaterialName = "Name-1293",
                             MaterialSpecification = "Spec-1293",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1294,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6812),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8677),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1294",
                             MaterialModel = "Model-1294",
                             MaterialName = "Name-1294",
                             MaterialSpecification = "Spec-1294",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1295,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6819),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8681),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1295",
                             MaterialModel = "Model-1295",
                             MaterialName = "Name-1295",
                             MaterialSpecification = "Spec-1295",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1296,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6823),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8686),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1296",
                             MaterialModel = "Model-1296",
                             MaterialName = "Name-1296",
                             MaterialSpecification = "Spec-1296",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1297,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6829),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8724),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1297",
                             MaterialModel = "Model-1297",
                             MaterialName = "Name-1297",
                             MaterialSpecification = "Spec-1297",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1298,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6864),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8730),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1298",
                             MaterialModel = "Model-1298",
                             MaterialName = "Name-1298",
                             MaterialSpecification = "Spec-1298",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1299,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6871),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8735),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1299",
                             MaterialModel = "Model-1299",
                             MaterialName = "Name-1299",
                             MaterialSpecification = "Spec-1299",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1300,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6876),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8740),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1300",
                             MaterialModel = "Model-1300",
                             MaterialName = "Name-1300",
                             MaterialSpecification = "Spec-1300",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1301,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6883),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8744),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1301",
                             MaterialModel = "Model-1301",
                             MaterialName = "Name-1301",
                             MaterialSpecification = "Spec-1301",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1302,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6887),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8749),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1302",
                             MaterialModel = "Model-1302",
                             MaterialName = "Name-1302",
                             MaterialSpecification = "Spec-1302",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1303,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6893),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8753),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1303",
                             MaterialModel = "Model-1303",
                             MaterialName = "Name-1303",
                             MaterialSpecification = "Spec-1303",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1304,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6898),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8759),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1304",
                             MaterialModel = "Model-1304",
                             MaterialName = "Name-1304",
                             MaterialSpecification = "Spec-1304",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1305,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6904),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8762),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1305",
                             MaterialModel = "Model-1305",
                             MaterialName = "Name-1305",
                             MaterialSpecification = "Spec-1305",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1306,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6908),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8768),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1306",
                             MaterialModel = "Model-1306",
                             MaterialName = "Name-1306",
                             MaterialSpecification = "Spec-1306",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1307,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6914),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8772),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1307",
                             MaterialModel = "Model-1307",
                             MaterialName = "Name-1307",
                             MaterialSpecification = "Spec-1307",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1308,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6919),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8777),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1308",
                             MaterialModel = "Model-1308",
                             MaterialName = "Name-1308",
                             MaterialSpecification = "Spec-1308",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1309,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6924),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8781),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1309",
                             MaterialModel = "Model-1309",
                             MaterialName = "Name-1309",
                             MaterialSpecification = "Spec-1309",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1310,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6929),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8786),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1310",
                             MaterialModel = "Model-1310",
                             MaterialName = "Name-1310",
                             MaterialSpecification = "Spec-1310",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1311,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6935),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8790),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1311",
                             MaterialModel = "Model-1311",
                             MaterialName = "Name-1311",
                             MaterialSpecification = "Spec-1311",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1312,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6939),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8796),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1312",
                             MaterialModel = "Model-1312",
                             MaterialName = "Name-1312",
                             MaterialSpecification = "Spec-1312",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1313,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6945),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8800),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1313",
                             MaterialModel = "Model-1313",
                             MaterialName = "Name-1313",
                             MaterialSpecification = "Spec-1313",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1314,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6950),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8805),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1314",
                             MaterialModel = "Model-1314",
                             MaterialName = "Name-1314",
                             MaterialSpecification = "Spec-1314",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1315,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6956),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8809),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1315",
                             MaterialModel = "Model-1315",
                             MaterialName = "Name-1315",
                             MaterialSpecification = "Spec-1315",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1316,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6960),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8814),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1316",
                             MaterialModel = "Model-1316",
                             MaterialName = "Name-1316",
                             MaterialSpecification = "Spec-1316",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1317,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(6966),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8818),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1317",
                             MaterialModel = "Model-1317",
                             MaterialName = "Name-1317",
                             MaterialSpecification = "Spec-1317",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1318,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7002),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8858),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1318",
                             MaterialModel = "Model-1318",
                             MaterialName = "Name-1318",
                             MaterialSpecification = "Spec-1318",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1319,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7008),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8863),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1319",
                             MaterialModel = "Model-1319",
                             MaterialName = "Name-1319",
                             MaterialSpecification = "Spec-1319",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1320,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7013),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8868),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1320",
                             MaterialModel = "Model-1320",
                             MaterialName = "Name-1320",
                             MaterialSpecification = "Spec-1320",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1321,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7019),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8872),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1321",
                             MaterialModel = "Model-1321",
                             MaterialName = "Name-1321",
                             MaterialSpecification = "Spec-1321",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1322,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7023),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8878),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1322",
                             MaterialModel = "Model-1322",
                             MaterialName = "Name-1322",
                             MaterialSpecification = "Spec-1322",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1323,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7029),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8882),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1323",
                             MaterialModel = "Model-1323",
                             MaterialName = "Name-1323",
                             MaterialSpecification = "Spec-1323",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1324,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7033),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8887),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1324",
                             MaterialModel = "Model-1324",
                             MaterialName = "Name-1324",
                             MaterialSpecification = "Spec-1324",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1325,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7039),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8892),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1325",
                             MaterialModel = "Model-1325",
                             MaterialName = "Name-1325",
                             MaterialSpecification = "Spec-1325",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1326,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7044),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8897),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1326",
                             MaterialModel = "Model-1326",
                             MaterialName = "Name-1326",
                             MaterialSpecification = "Spec-1326",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1327,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7050),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8902),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1327",
                             MaterialModel = "Model-1327",
                             MaterialName = "Name-1327",
                             MaterialSpecification = "Spec-1327",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1328,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7055),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8907),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1328",
                             MaterialModel = "Model-1328",
                             MaterialName = "Name-1328",
                             MaterialSpecification = "Spec-1328",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1329,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7061),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8911),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1329",
                             MaterialModel = "Model-1329",
                             MaterialName = "Name-1329",
                             MaterialSpecification = "Spec-1329",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1330,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7065),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8917),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1330",
                             MaterialModel = "Model-1330",
                             MaterialName = "Name-1330",
                             MaterialSpecification = "Spec-1330",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1331,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7072),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8920),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1331",
                             MaterialModel = "Model-1331",
                             MaterialName = "Name-1331",
                             MaterialSpecification = "Spec-1331",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1332,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7076),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8926),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1332",
                             MaterialModel = "Model-1332",
                             MaterialName = "Name-1332",
                             MaterialSpecification = "Spec-1332",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1333,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7082),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8930),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1333",
                             MaterialModel = "Model-1333",
                             MaterialName = "Name-1333",
                             MaterialSpecification = "Spec-1333",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1334,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7086),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8936),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1334",
                             MaterialModel = "Model-1334",
                             MaterialName = "Name-1334",
                             MaterialSpecification = "Spec-1334",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1335,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7092),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8940),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1335",
                             MaterialModel = "Model-1335",
                             MaterialName = "Name-1335",
                             MaterialSpecification = "Spec-1335",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1336,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7096),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8945),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1336",
                             MaterialModel = "Model-1336",
                             MaterialName = "Name-1336",
                             MaterialSpecification = "Spec-1336",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1337,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7103),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8949),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1337",
                             MaterialModel = "Model-1337",
                             MaterialName = "Name-1337",
                             MaterialSpecification = "Spec-1337",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1338,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7137),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8989),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1338",
                             MaterialModel = "Model-1338",
                             MaterialName = "Name-1338",
                             MaterialSpecification = "Spec-1338",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1339,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7144),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8994),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1339",
                             MaterialModel = "Model-1339",
                             MaterialName = "Name-1339",
                             MaterialSpecification = "Spec-1339",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1340,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7148),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(8999),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1340",
                             MaterialModel = "Model-1340",
                             MaterialName = "Name-1340",
                             MaterialSpecification = "Spec-1340",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1341,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7154),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9004),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1341",
                             MaterialModel = "Model-1341",
                             MaterialName = "Name-1341",
                             MaterialSpecification = "Spec-1341",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1342,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7158),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9009),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1342",
                             MaterialModel = "Model-1342",
                             MaterialName = "Name-1342",
                             MaterialSpecification = "Spec-1342",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1343,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7164),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9013),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1343",
                             MaterialModel = "Model-1343",
                             MaterialName = "Name-1343",
                             MaterialSpecification = "Spec-1343",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1344,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7168),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9018),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1344",
                             MaterialModel = "Model-1344",
                             MaterialName = "Name-1344",
                             MaterialSpecification = "Spec-1344",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1345,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7174),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9022),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1345",
                             MaterialModel = "Model-1345",
                             MaterialName = "Name-1345",
                             MaterialSpecification = "Spec-1345",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1346,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7179),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9028),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1346",
                             MaterialModel = "Model-1346",
                             MaterialName = "Name-1346",
                             MaterialSpecification = "Spec-1346",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1347,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7184),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9032),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1347",
                             MaterialModel = "Model-1347",
                             MaterialName = "Name-1347",
                             MaterialSpecification = "Spec-1347",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1348,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7189),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9037),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1348",
                             MaterialModel = "Model-1348",
                             MaterialName = "Name-1348",
                             MaterialSpecification = "Spec-1348",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1349,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7195),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9041),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1349",
                             MaterialModel = "Model-1349",
                             MaterialName = "Name-1349",
                             MaterialSpecification = "Spec-1349",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1350,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7199),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9047),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1350",
                             MaterialModel = "Model-1350",
                             MaterialName = "Name-1350",
                             MaterialSpecification = "Spec-1350",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1351,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7205),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9051),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1351",
                             MaterialModel = "Model-1351",
                             MaterialName = "Name-1351",
                             MaterialSpecification = "Spec-1351",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1352,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7210),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9056),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1352",
                             MaterialModel = "Model-1352",
                             MaterialName = "Name-1352",
                             MaterialSpecification = "Spec-1352",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1353,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7216),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9060),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1353",
                             MaterialModel = "Model-1353",
                             MaterialName = "Name-1353",
                             MaterialSpecification = "Spec-1353",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1354,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7220),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9066),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1354",
                             MaterialModel = "Model-1354",
                             MaterialName = "Name-1354",
                             MaterialSpecification = "Spec-1354",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1355,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7226),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9070),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1355",
                             MaterialModel = "Model-1355",
                             MaterialName = "Name-1355",
                             MaterialSpecification = "Spec-1355",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1356,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7231),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9075),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1356",
                             MaterialModel = "Model-1356",
                             MaterialName = "Name-1356",
                             MaterialSpecification = "Spec-1356",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1357,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7237),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9079),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1357",
                             MaterialModel = "Model-1357",
                             MaterialName = "Name-1357",
                             MaterialSpecification = "Spec-1357",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1358,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7241),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9085),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1358",
                             MaterialModel = "Model-1358",
                             MaterialName = "Name-1358",
                             MaterialSpecification = "Spec-1358",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1359,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7282),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9122),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1359",
                             MaterialModel = "Model-1359",
                             MaterialName = "Name-1359",
                             MaterialSpecification = "Spec-1359",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1360,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7287),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9129),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1360",
                             MaterialModel = "Model-1360",
                             MaterialName = "Name-1360",
                             MaterialSpecification = "Spec-1360",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1361,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7293),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9133),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1361",
                             MaterialModel = "Model-1361",
                             MaterialName = "Name-1361",
                             MaterialSpecification = "Spec-1361",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1362,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7298),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9138),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1362",
                             MaterialModel = "Model-1362",
                             MaterialName = "Name-1362",
                             MaterialSpecification = "Spec-1362",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1363,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7303),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9142),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1363",
                             MaterialModel = "Model-1363",
                             MaterialName = "Name-1363",
                             MaterialSpecification = "Spec-1363",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1364,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7308),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9147),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1364",
                             MaterialModel = "Model-1364",
                             MaterialName = "Name-1364",
                             MaterialSpecification = "Spec-1364",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1365,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7314),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9151),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1365",
                             MaterialModel = "Model-1365",
                             MaterialName = "Name-1365",
                             MaterialSpecification = "Spec-1365",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1366,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7318),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9157),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1366",
                             MaterialModel = "Model-1366",
                             MaterialName = "Name-1366",
                             MaterialSpecification = "Spec-1366",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1367,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7324),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9161),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1367",
                             MaterialModel = "Model-1367",
                             MaterialName = "Name-1367",
                             MaterialSpecification = "Spec-1367",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1368,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7328),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9166),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1368",
                             MaterialModel = "Model-1368",
                             MaterialName = "Name-1368",
                             MaterialSpecification = "Spec-1368",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1369,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7334),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9170),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1369",
                             MaterialModel = "Model-1369",
                             MaterialName = "Name-1369",
                             MaterialSpecification = "Spec-1369",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1370,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7338),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9176),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1370",
                             MaterialModel = "Model-1370",
                             MaterialName = "Name-1370",
                             MaterialSpecification = "Spec-1370",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1371,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7344),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9180),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1371",
                             MaterialModel = "Model-1371",
                             MaterialName = "Name-1371",
                             MaterialSpecification = "Spec-1371",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1372,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7348),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9185),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1372",
                             MaterialModel = "Model-1372",
                             MaterialName = "Name-1372",
                             MaterialSpecification = "Spec-1372",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1373,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7354),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9189),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1373",
                             MaterialModel = "Model-1373",
                             MaterialName = "Name-1373",
                             MaterialSpecification = "Spec-1373",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1374,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7358),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9194),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1374",
                             MaterialModel = "Model-1374",
                             MaterialName = "Name-1374",
                             MaterialSpecification = "Spec-1374",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1375,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7364),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9198),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1375",
                             MaterialModel = "Model-1375",
                             MaterialName = "Name-1375",
                             MaterialSpecification = "Spec-1375",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1376,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7368),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9203),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1376",
                             MaterialModel = "Model-1376",
                             MaterialName = "Name-1376",
                             MaterialSpecification = "Spec-1376",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1377,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7374),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9207),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1377",
                             MaterialModel = "Model-1377",
                             MaterialName = "Name-1377",
                             MaterialSpecification = "Spec-1377",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1378,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7378),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9213),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1378",
                             MaterialModel = "Model-1378",
                             MaterialName = "Name-1378",
                             MaterialSpecification = "Spec-1378",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1379,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7419),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9297),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1379",
                             MaterialModel = "Model-1379",
                             MaterialName = "Name-1379",
                             MaterialSpecification = "Spec-1379",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1380,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7424),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9303),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1380",
                             MaterialModel = "Model-1380",
                             MaterialName = "Name-1380",
                             MaterialSpecification = "Spec-1380",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1381,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7430),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9307),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1381",
                             MaterialModel = "Model-1381",
                             MaterialName = "Name-1381",
                             MaterialSpecification = "Spec-1381",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1382,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7435),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9313),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1382",
                             MaterialModel = "Model-1382",
                             MaterialName = "Name-1382",
                             MaterialSpecification = "Spec-1382",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1383,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7441),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9317),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1383",
                             MaterialModel = "Model-1383",
                             MaterialName = "Name-1383",
                             MaterialSpecification = "Spec-1383",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1384,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7445),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9323),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1384",
                             MaterialModel = "Model-1384",
                             MaterialName = "Name-1384",
                             MaterialSpecification = "Spec-1384",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1385,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7451),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9327),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1385",
                             MaterialModel = "Model-1385",
                             MaterialName = "Name-1385",
                             MaterialSpecification = "Spec-1385",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1386,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7455),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9332),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1386",
                             MaterialModel = "Model-1386",
                             MaterialName = "Name-1386",
                             MaterialSpecification = "Spec-1386",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1387,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7461),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9336),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1387",
                             MaterialModel = "Model-1387",
                             MaterialName = "Name-1387",
                             MaterialSpecification = "Spec-1387",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1388,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7465),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9341),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1388",
                             MaterialModel = "Model-1388",
                             MaterialName = "Name-1388",
                             MaterialSpecification = "Spec-1388",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1389,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7471),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9345),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1389",
                             MaterialModel = "Model-1389",
                             MaterialName = "Name-1389",
                             MaterialSpecification = "Spec-1389",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1390,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7475),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9351),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1390",
                             MaterialModel = "Model-1390",
                             MaterialName = "Name-1390",
                             MaterialSpecification = "Spec-1390",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1391,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7481),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9355),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1391",
                             MaterialModel = "Model-1391",
                             MaterialName = "Name-1391",
                             MaterialSpecification = "Spec-1391",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1392,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7485),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9360),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1392",
                             MaterialModel = "Model-1392",
                             MaterialName = "Name-1392",
                             MaterialSpecification = "Spec-1392",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1393,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7492),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9364),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1393",
                             MaterialModel = "Model-1393",
                             MaterialName = "Name-1393",
                             MaterialSpecification = "Spec-1393",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1394,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7496),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9369),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1394",
                             MaterialModel = "Model-1394",
                             MaterialName = "Name-1394",
                             MaterialSpecification = "Spec-1394",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1395,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7503),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9373),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1395",
                             MaterialModel = "Model-1395",
                             MaterialName = "Name-1395",
                             MaterialSpecification = "Spec-1395",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1396,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7507),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9379),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1396",
                             MaterialModel = "Model-1396",
                             MaterialName = "Name-1396",
                             MaterialSpecification = "Spec-1396",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1397,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7513),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9383),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1397",
                             MaterialModel = "Model-1397",
                             MaterialName = "Name-1397",
                             MaterialSpecification = "Spec-1397",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1398,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7518),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9388),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1398",
                             MaterialModel = "Model-1398",
                             MaterialName = "Name-1398",
                             MaterialSpecification = "Spec-1398",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1399,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7524),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9425),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1399",
                             MaterialModel = "Model-1399",
                             MaterialName = "Name-1399",
                             MaterialSpecification = "Spec-1399",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1400,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7562),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9433),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1400",
                             MaterialModel = "Model-1400",
                             MaterialName = "Name-1400",
                             MaterialSpecification = "Spec-1400",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1401,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7568),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9437),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1401",
                             MaterialModel = "Model-1401",
                             MaterialName = "Name-1401",
                             MaterialSpecification = "Spec-1401",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1402,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7572),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9442),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1402",
                             MaterialModel = "Model-1402",
                             MaterialName = "Name-1402",
                             MaterialSpecification = "Spec-1402",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1403,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7579),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9446),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1403",
                             MaterialModel = "Model-1403",
                             MaterialName = "Name-1403",
                             MaterialSpecification = "Spec-1403",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1404,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7584),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9452),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1404",
                             MaterialModel = "Model-1404",
                             MaterialName = "Name-1404",
                             MaterialSpecification = "Spec-1404",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1405,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7590),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9455),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1405",
                             MaterialModel = "Model-1405",
                             MaterialName = "Name-1405",
                             MaterialSpecification = "Spec-1405",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1406,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7594),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9461),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1406",
                             MaterialModel = "Model-1406",
                             MaterialName = "Name-1406",
                             MaterialSpecification = "Spec-1406",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1407,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7601),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9464),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1407",
                             MaterialModel = "Model-1407",
                             MaterialName = "Name-1407",
                             MaterialSpecification = "Spec-1407",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1408,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7605),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9470),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1408",
                             MaterialModel = "Model-1408",
                             MaterialName = "Name-1408",
                             MaterialSpecification = "Spec-1408",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1409,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7611),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9474),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1409",
                             MaterialModel = "Model-1409",
                             MaterialName = "Name-1409",
                             MaterialSpecification = "Spec-1409",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1410,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7615),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9479),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1410",
                             MaterialModel = "Model-1410",
                             MaterialName = "Name-1410",
                             MaterialSpecification = "Spec-1410",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1411,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7621),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9483),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1411",
                             MaterialModel = "Model-1411",
                             MaterialName = "Name-1411",
                             MaterialSpecification = "Spec-1411",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1412,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7625),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9489),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1412",
                             MaterialModel = "Model-1412",
                             MaterialName = "Name-1412",
                             MaterialSpecification = "Spec-1412",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1413,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7631),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9493),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1413",
                             MaterialModel = "Model-1413",
                             MaterialName = "Name-1413",
                             MaterialSpecification = "Spec-1413",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1414,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7635),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9498),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1414",
                             MaterialModel = "Model-1414",
                             MaterialName = "Name-1414",
                             MaterialSpecification = "Spec-1414",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1415,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7641),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9502),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1415",
                             MaterialModel = "Model-1415",
                             MaterialName = "Name-1415",
                             MaterialSpecification = "Spec-1415",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1416,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7645),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9507),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1416",
                             MaterialModel = "Model-1416",
                             MaterialName = "Name-1416",
                             MaterialSpecification = "Spec-1416",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1417,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7652),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9511),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1417",
                             MaterialModel = "Model-1417",
                             MaterialName = "Name-1417",
                             MaterialSpecification = "Spec-1417",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1418,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7656),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9516),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1418",
                             MaterialModel = "Model-1418",
                             MaterialName = "Name-1418",
                             MaterialSpecification = "Spec-1418",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1419,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7662),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9520),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1419",
                             MaterialModel = "Model-1419",
                             MaterialName = "Name-1419",
                             MaterialSpecification = "Spec-1419",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1420,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7708),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9560),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1420",
                             MaterialModel = "Model-1420",
                             MaterialName = "Name-1420",
                             MaterialSpecification = "Spec-1420",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1421,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7716),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9565),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1421",
                             MaterialModel = "Model-1421",
                             MaterialName = "Name-1421",
                             MaterialSpecification = "Spec-1421",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1422,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7720),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9570),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1422",
                             MaterialModel = "Model-1422",
                             MaterialName = "Name-1422",
                             MaterialSpecification = "Spec-1422",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1423,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7726),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9574),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1423",
                             MaterialModel = "Model-1423",
                             MaterialName = "Name-1423",
                             MaterialSpecification = "Spec-1423",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1424,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7730),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9580),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1424",
                             MaterialModel = "Model-1424",
                             MaterialName = "Name-1424",
                             MaterialSpecification = "Spec-1424",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1425,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7736),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9584),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1425",
                             MaterialModel = "Model-1425",
                             MaterialName = "Name-1425",
                             MaterialSpecification = "Spec-1425",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1426,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7741),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9589),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1426",
                             MaterialModel = "Model-1426",
                             MaterialName = "Name-1426",
                             MaterialSpecification = "Spec-1426",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1427,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7748),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9593),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1427",
                             MaterialModel = "Model-1427",
                             MaterialName = "Name-1427",
                             MaterialSpecification = "Spec-1427",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1428,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7752),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9600),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1428",
                             MaterialModel = "Model-1428",
                             MaterialName = "Name-1428",
                             MaterialSpecification = "Spec-1428",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1429,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7758),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9604),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1429",
                             MaterialModel = "Model-1429",
                             MaterialName = "Name-1429",
                             MaterialSpecification = "Spec-1429",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1430,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7762),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9609),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1430",
                             MaterialModel = "Model-1430",
                             MaterialName = "Name-1430",
                             MaterialSpecification = "Spec-1430",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1431,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7768),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9613),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1431",
                             MaterialModel = "Model-1431",
                             MaterialName = "Name-1431",
                             MaterialSpecification = "Spec-1431",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1432,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7772),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9619),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1432",
                             MaterialModel = "Model-1432",
                             MaterialName = "Name-1432",
                             MaterialSpecification = "Spec-1432",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1433,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7778),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9622),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1433",
                             MaterialModel = "Model-1433",
                             MaterialName = "Name-1433",
                             MaterialSpecification = "Spec-1433",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1434,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7782),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9628),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1434",
                             MaterialModel = "Model-1434",
                             MaterialName = "Name-1434",
                             MaterialSpecification = "Spec-1434",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1435,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7789),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9632),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1435",
                             MaterialModel = "Model-1435",
                             MaterialName = "Name-1435",
                             MaterialSpecification = "Spec-1435",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1436,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7794),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9637),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1436",
                             MaterialModel = "Model-1436",
                             MaterialName = "Name-1436",
                             MaterialSpecification = "Spec-1436",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1437,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7800),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9641),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1437",
                             MaterialModel = "Model-1437",
                             MaterialName = "Name-1437",
                             MaterialSpecification = "Spec-1437",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1438,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7805),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9646),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1438",
                             MaterialModel = "Model-1438",
                             MaterialName = "Name-1438",
                             MaterialSpecification = "Spec-1438",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1439,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7811),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9650),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1439",
                             MaterialModel = "Model-1439",
                             MaterialName = "Name-1439",
                             MaterialSpecification = "Spec-1439",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1440,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7815),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9689),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1440",
                             MaterialModel = "Model-1440",
                             MaterialName = "Name-1440",
                             MaterialSpecification = "Spec-1440",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1441,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7852),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9694),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1441",
                             MaterialModel = "Model-1441",
                             MaterialName = "Name-1441",
                             MaterialSpecification = "Spec-1441",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1442,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7857),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9699),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1442",
                             MaterialModel = "Model-1442",
                             MaterialName = "Name-1442",
                             MaterialSpecification = "Spec-1442",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1443,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7863),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9704),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1443",
                             MaterialModel = "Model-1443",
                             MaterialName = "Name-1443",
                             MaterialSpecification = "Spec-1443",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1444,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7867),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9709),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1444",
                             MaterialModel = "Model-1444",
                             MaterialName = "Name-1444",
                             MaterialSpecification = "Spec-1444",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1445,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7873),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9713),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1445",
                             MaterialModel = "Model-1445",
                             MaterialName = "Name-1445",
                             MaterialSpecification = "Spec-1445",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1446,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7877),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9719),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1446",
                             MaterialModel = "Model-1446",
                             MaterialName = "Name-1446",
                             MaterialSpecification = "Spec-1446",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1447,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7884),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9724),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1447",
                             MaterialModel = "Model-1447",
                             MaterialName = "Name-1447",
                             MaterialSpecification = "Spec-1447",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1448,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7888),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9731),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1448",
                             MaterialModel = "Model-1448",
                             MaterialName = "Name-1448",
                             MaterialSpecification = "Spec-1448",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1449,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7894),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9737),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1449",
                             MaterialModel = "Model-1449",
                             MaterialName = "Name-1449",
                             MaterialSpecification = "Spec-1449",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1450,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7899),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9746),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1450",
                             MaterialModel = "Model-1450",
                             MaterialName = "Name-1450",
                             MaterialSpecification = "Spec-1450",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1451,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7905),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9754),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1451",
                             MaterialModel = "Model-1451",
                             MaterialName = "Name-1451",
                             MaterialSpecification = "Spec-1451",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1452,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7909),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9763),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1452",
                             MaterialModel = "Model-1452",
                             MaterialName = "Name-1452",
                             MaterialSpecification = "Spec-1452",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1453,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7915),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9771),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1453",
                             MaterialModel = "Model-1453",
                             MaterialName = "Name-1453",
                             MaterialSpecification = "Spec-1453",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1454,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7919),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9780),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1454",
                             MaterialModel = "Model-1454",
                             MaterialName = "Name-1454",
                             MaterialSpecification = "Spec-1454",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1455,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7925),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9786),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1455",
                             MaterialModel = "Model-1455",
                             MaterialName = "Name-1455",
                             MaterialSpecification = "Spec-1455",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1456,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7929),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9795),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1456",
                             MaterialModel = "Model-1456",
                             MaterialName = "Name-1456",
                             MaterialSpecification = "Spec-1456",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1457,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7936),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9801),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1457",
                             MaterialModel = "Model-1457",
                             MaterialName = "Name-1457",
                             MaterialSpecification = "Spec-1457",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1458,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7940),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9810),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1458",
                             MaterialModel = "Model-1458",
                             MaterialName = "Name-1458",
                             MaterialSpecification = "Spec-1458",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1459,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7946),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9818),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1459",
                             MaterialModel = "Model-1459",
                             MaterialName = "Name-1459",
                             MaterialSpecification = "Spec-1459",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1460,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7950),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9849),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1460",
                             MaterialModel = "Model-1460",
                             MaterialName = "Name-1460",
                             MaterialSpecification = "Spec-1460",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1461,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7987),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9896),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1461",
                             MaterialModel = "Model-1461",
                             MaterialName = "Name-1461",
                             MaterialSpecification = "Spec-1461",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1462,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7991),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9904),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1462",
                             MaterialModel = "Model-1462",
                             MaterialName = "Name-1462",
                             MaterialSpecification = "Spec-1462",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1463,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(7997),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9910),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1463",
                             MaterialModel = "Model-1463",
                             MaterialName = "Name-1463",
                             MaterialSpecification = "Spec-1463",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1464,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8001),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9920),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1464",
                             MaterialModel = "Model-1464",
                             MaterialName = "Name-1464",
                             MaterialSpecification = "Spec-1464",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1465,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8008),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9924),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1465",
                             MaterialModel = "Model-1465",
                             MaterialName = "Name-1465",
                             MaterialSpecification = "Spec-1465",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1466,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8012),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9930),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1466",
                             MaterialModel = "Model-1466",
                             MaterialName = "Name-1466",
                             MaterialSpecification = "Spec-1466",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1467,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8018),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 759, DateTimeKind.Utc).AddTicks(9934),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1467",
                             MaterialModel = "Model-1467",
                             MaterialName = "Name-1467",
                             MaterialSpecification = "Spec-1467",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1468,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8022),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(254),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1468",
                             MaterialModel = "Model-1468",
                             MaterialName = "Name-1468",
                             MaterialSpecification = "Spec-1468",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1469,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8028),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(258),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1469",
                             MaterialModel = "Model-1469",
                             MaterialName = "Name-1469",
                             MaterialSpecification = "Spec-1469",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1470,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8033),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(264),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1470",
                             MaterialModel = "Model-1470",
                             MaterialName = "Name-1470",
                             MaterialSpecification = "Spec-1470",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1471,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8038),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(269),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1471",
                             MaterialModel = "Model-1471",
                             MaterialName = "Name-1471",
                             MaterialSpecification = "Spec-1471",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1472,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8043),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(275),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1472",
                             MaterialModel = "Model-1472",
                             MaterialName = "Name-1472",
                             MaterialSpecification = "Spec-1472",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1473,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8050),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(279),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1473",
                             MaterialModel = "Model-1473",
                             MaterialName = "Name-1473",
                             MaterialSpecification = "Spec-1473",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1474,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8054),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(285),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1474",
                             MaterialModel = "Model-1474",
                             MaterialName = "Name-1474",
                             MaterialSpecification = "Spec-1474",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1475,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8060),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(289),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1475",
                             MaterialModel = "Model-1475",
                             MaterialName = "Name-1475",
                             MaterialSpecification = "Spec-1475",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1476,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8064),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(295),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1476",
                             MaterialModel = "Model-1476",
                             MaterialName = "Name-1476",
                             MaterialSpecification = "Spec-1476",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1477,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8071),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(299),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1477",
                             MaterialModel = "Model-1477",
                             MaterialName = "Name-1477",
                             MaterialSpecification = "Spec-1477",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1478,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8075),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(305),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1478",
                             MaterialModel = "Model-1478",
                             MaterialName = "Name-1478",
                             MaterialSpecification = "Spec-1478",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1479,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8082),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(310),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1479",
                             MaterialModel = "Model-1479",
                             MaterialName = "Name-1479",
                             MaterialSpecification = "Spec-1479",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1480,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8086),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(315),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1480",
                             MaterialModel = "Model-1480",
                             MaterialName = "Name-1480",
                             MaterialSpecification = "Spec-1480",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1481,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8122),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(357),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1481",
                             MaterialModel = "Model-1481",
                             MaterialName = "Name-1481",
                             MaterialSpecification = "Spec-1481",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1482,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8127),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(363),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1482",
                             MaterialModel = "Model-1482",
                             MaterialName = "Name-1482",
                             MaterialSpecification = "Spec-1482",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1483,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8133),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(367),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1483",
                             MaterialModel = "Model-1483",
                             MaterialName = "Name-1483",
                             MaterialSpecification = "Spec-1483",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1484,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8137),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(373),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1484",
                             MaterialModel = "Model-1484",
                             MaterialName = "Name-1484",
                             MaterialSpecification = "Spec-1484",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1485,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8144),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(377),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1485",
                             MaterialModel = "Model-1485",
                             MaterialName = "Name-1485",
                             MaterialSpecification = "Spec-1485",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1486,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8148),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(384),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1486",
                             MaterialModel = "Model-1486",
                             MaterialName = "Name-1486",
                             MaterialSpecification = "Spec-1486",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1487,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8155),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(388),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1487",
                             MaterialModel = "Model-1487",
                             MaterialName = "Name-1487",
                             MaterialSpecification = "Spec-1487",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1488,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8159),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(394),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1488",
                             MaterialModel = "Model-1488",
                             MaterialName = "Name-1488",
                             MaterialSpecification = "Spec-1488",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1489,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8165),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(398),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1489",
                             MaterialModel = "Model-1489",
                             MaterialName = "Name-1489",
                             MaterialSpecification = "Spec-1489",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1490,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8169),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(404),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1490",
                             MaterialModel = "Model-1490",
                             MaterialName = "Name-1490",
                             MaterialSpecification = "Spec-1490",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1491,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8175),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(408),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1491",
                             MaterialModel = "Model-1491",
                             MaterialName = "Name-1491",
                             MaterialSpecification = "Spec-1491",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1492,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8180),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(414),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1492",
                             MaterialModel = "Model-1492",
                             MaterialName = "Name-1492",
                             MaterialSpecification = "Spec-1492",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1493,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8186),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(418),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1493",
                             MaterialModel = "Model-1493",
                             MaterialName = "Name-1493",
                             MaterialSpecification = "Spec-1493",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1494,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8190),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(424),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1494",
                             MaterialModel = "Model-1494",
                             MaterialName = "Name-1494",
                             MaterialSpecification = "Spec-1494",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1495,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8196),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(429),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1495",
                             MaterialModel = "Model-1495",
                             MaterialName = "Name-1495",
                             MaterialSpecification = "Spec-1495",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1496,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8200),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(434),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1496",
                             MaterialModel = "Model-1496",
                             MaterialName = "Name-1496",
                             MaterialSpecification = "Spec-1496",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1497,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8206),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(439),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1497",
                             MaterialModel = "Model-1497",
                             MaterialName = "Name-1497",
                             MaterialSpecification = "Spec-1497",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1498,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8210),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(445),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1498",
                             MaterialModel = "Model-1498",
                             MaterialName = "Name-1498",
                             MaterialSpecification = "Spec-1498",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1499,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8216),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(449),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1499",
                             MaterialModel = "Model-1499",
                             MaterialName = "Name-1499",
                             MaterialSpecification = "Spec-1499",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1500,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8220),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(455),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1500",
                             MaterialModel = "Model-1500",
                             MaterialName = "Name-1500",
                             MaterialSpecification = "Spec-1500",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1501,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8226),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(459),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1501",
                             MaterialModel = "Model-1501",
                             MaterialName = "Name-1501",
                             MaterialSpecification = "Spec-1501",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1502,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8261),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(502),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1502",
                             MaterialModel = "Model-1502",
                             MaterialName = "Name-1502",
                             MaterialSpecification = "Spec-1502",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1503,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8268),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(506),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1503",
                             MaterialModel = "Model-1503",
                             MaterialName = "Name-1503",
                             MaterialSpecification = "Spec-1503",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1504,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8272),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(513),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1504",
                             MaterialModel = "Model-1504",
                             MaterialName = "Name-1504",
                             MaterialSpecification = "Spec-1504",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1505,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8278),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(517),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1505",
                             MaterialModel = "Model-1505",
                             MaterialName = "Name-1505",
                             MaterialSpecification = "Spec-1505",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1506,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8282),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(523),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1506",
                             MaterialModel = "Model-1506",
                             MaterialName = "Name-1506",
                             MaterialSpecification = "Spec-1506",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1507,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8288),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(527),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1507",
                             MaterialModel = "Model-1507",
                             MaterialName = "Name-1507",
                             MaterialSpecification = "Spec-1507",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1508,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8293),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(533),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1508",
                             MaterialModel = "Model-1508",
                             MaterialName = "Name-1508",
                             MaterialSpecification = "Spec-1508",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1509,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8299),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(537),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1509",
                             MaterialModel = "Model-1509",
                             MaterialName = "Name-1509",
                             MaterialSpecification = "Spec-1509",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1510,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8303),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(543),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1510",
                             MaterialModel = "Model-1510",
                             MaterialName = "Name-1510",
                             MaterialSpecification = "Spec-1510",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1511,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8309),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(547),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1511",
                             MaterialModel = "Model-1511",
                             MaterialName = "Name-1511",
                             MaterialSpecification = "Spec-1511",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1512,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8313),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(554),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1512",
                             MaterialModel = "Model-1512",
                             MaterialName = "Name-1512",
                             MaterialSpecification = "Spec-1512",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1513,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8367),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(632),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1513",
                             MaterialModel = "Model-1513",
                             MaterialName = "Name-1513",
                             MaterialSpecification = "Spec-1513",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1514,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8372),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(639),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1514",
                             MaterialModel = "Model-1514",
                             MaterialName = "Name-1514",
                             MaterialSpecification = "Spec-1514",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1515,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8379),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(643),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1515",
                             MaterialModel = "Model-1515",
                             MaterialName = "Name-1515",
                             MaterialSpecification = "Spec-1515",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1516,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8384),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(649),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1516",
                             MaterialModel = "Model-1516",
                             MaterialName = "Name-1516",
                             MaterialSpecification = "Spec-1516",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1517,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8390),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(654),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1517",
                             MaterialModel = "Model-1517",
                             MaterialName = "Name-1517",
                             MaterialSpecification = "Spec-1517",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1518,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8394),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(660),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1518",
                             MaterialModel = "Model-1518",
                             MaterialName = "Name-1518",
                             MaterialSpecification = "Spec-1518",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1519,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8400),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(665),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1519",
                             MaterialModel = "Model-1519",
                             MaterialName = "Name-1519",
                             MaterialSpecification = "Spec-1519",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1520,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8405),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(671),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1520",
                             MaterialModel = "Model-1520",
                             MaterialName = "Name-1520",
                             MaterialSpecification = "Spec-1520",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1521,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8411),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(675),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1521",
                             MaterialModel = "Model-1521",
                             MaterialName = "Name-1521",
                             MaterialSpecification = "Spec-1521",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1522,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8446),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(717),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1522",
                             MaterialModel = "Model-1522",
                             MaterialName = "Name-1522",
                             MaterialSpecification = "Spec-1522",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1523,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8452),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(722),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1523",
                             MaterialModel = "Model-1523",
                             MaterialName = "Name-1523",
                             MaterialSpecification = "Spec-1523",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1524,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8457),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(729),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1524",
                             MaterialModel = "Model-1524",
                             MaterialName = "Name-1524",
                             MaterialSpecification = "Spec-1524",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1525,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8463),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(733),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1525",
                             MaterialModel = "Model-1525",
                             MaterialName = "Name-1525",
                             MaterialSpecification = "Spec-1525",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1526,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8467),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(738),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1526",
                             MaterialModel = "Model-1526",
                             MaterialName = "Name-1526",
                             MaterialSpecification = "Spec-1526",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1527,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8472),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(743),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1527",
                             MaterialModel = "Model-1527",
                             MaterialName = "Name-1527",
                             MaterialSpecification = "Spec-1527",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1528,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8477),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(749),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1528",
                             MaterialModel = "Model-1528",
                             MaterialName = "Name-1528",
                             MaterialSpecification = "Spec-1528",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1529,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8483),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(753),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1529",
                             MaterialModel = "Model-1529",
                             MaterialName = "Name-1529",
                             MaterialSpecification = "Spec-1529",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1530,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8488),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(759),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1530",
                             MaterialModel = "Model-1530",
                             MaterialName = "Name-1530",
                             MaterialSpecification = "Spec-1530",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1531,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8493),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(763),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1531",
                             MaterialModel = "Model-1531",
                             MaterialName = "Name-1531",
                             MaterialSpecification = "Spec-1531",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1532,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8497),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(770),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1532",
                             MaterialModel = "Model-1532",
                             MaterialName = "Name-1532",
                             MaterialSpecification = "Spec-1532",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1533,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8504),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(774),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1533",
                             MaterialModel = "Model-1533",
                             MaterialName = "Name-1533",
                             MaterialSpecification = "Spec-1533",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1534,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8508),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(782),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1534",
                             MaterialModel = "Model-1534",
                             MaterialName = "Name-1534",
                             MaterialSpecification = "Spec-1534",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1535,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8514),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(786),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1535",
                             MaterialModel = "Model-1535",
                             MaterialName = "Name-1535",
                             MaterialSpecification = "Spec-1535",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1536,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8519),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(793),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1536",
                             MaterialModel = "Model-1536",
                             MaterialName = "Name-1536",
                             MaterialSpecification = "Spec-1536",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1537,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8525),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(797),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1537",
                             MaterialModel = "Model-1537",
                             MaterialName = "Name-1537",
                             MaterialSpecification = "Spec-1537",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1538,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8530),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(803),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1538",
                             MaterialModel = "Model-1538",
                             MaterialName = "Name-1538",
                             MaterialSpecification = "Spec-1538",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1539,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8536),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(807),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1539",
                             MaterialModel = "Model-1539",
                             MaterialName = "Name-1539",
                             MaterialSpecification = "Spec-1539",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1540,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8540),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(813),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1540",
                             MaterialModel = "Model-1540",
                             MaterialName = "Name-1540",
                             MaterialSpecification = "Spec-1540",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1541,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8547),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(818),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1541",
                             MaterialModel = "Model-1541",
                             MaterialName = "Name-1541",
                             MaterialSpecification = "Spec-1541",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1542,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8551),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(860),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1542",
                             MaterialModel = "Model-1542",
                             MaterialName = "Name-1542",
                             MaterialSpecification = "Spec-1542",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1543,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8576),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(865),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1543",
                             MaterialModel = "Model-1543",
                             MaterialName = "Name-1543",
                             MaterialSpecification = "Spec-1543",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1544,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8581),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(871),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1544",
                             MaterialModel = "Model-1544",
                             MaterialName = "Name-1544",
                             MaterialSpecification = "Spec-1544",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1545,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8587),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(875),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1545",
                             MaterialModel = "Model-1545",
                             MaterialName = "Name-1545",
                             MaterialSpecification = "Spec-1545",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1546,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8591),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(881),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1546",
                             MaterialModel = "Model-1546",
                             MaterialName = "Name-1546",
                             MaterialSpecification = "Spec-1546",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1547,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8598),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(886),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1547",
                             MaterialModel = "Model-1547",
                             MaterialName = "Name-1547",
                             MaterialSpecification = "Spec-1547",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1548,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8603),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(892),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1548",
                             MaterialModel = "Model-1548",
                             MaterialName = "Name-1548",
                             MaterialSpecification = "Spec-1548",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1549,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8609),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(896),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1549",
                             MaterialModel = "Model-1549",
                             MaterialName = "Name-1549",
                             MaterialSpecification = "Spec-1549",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1550,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8614),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(902),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1550",
                             MaterialModel = "Model-1550",
                             MaterialName = "Name-1550",
                             MaterialSpecification = "Spec-1550",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1551,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8620),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(906),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1551",
                             MaterialModel = "Model-1551",
                             MaterialName = "Name-1551",
                             MaterialSpecification = "Spec-1551",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1552,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8629),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(913),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1552",
                             MaterialModel = "Model-1552",
                             MaterialName = "Name-1552",
                             MaterialSpecification = "Spec-1552",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1553,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8639),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(917),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1553",
                             MaterialModel = "Model-1553",
                             MaterialName = "Name-1553",
                             MaterialSpecification = "Spec-1553",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1554,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8646),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(924),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1554",
                             MaterialModel = "Model-1554",
                             MaterialName = "Name-1554",
                             MaterialSpecification = "Spec-1554",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1555,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8656),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(928),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1555",
                             MaterialModel = "Model-1555",
                             MaterialName = "Name-1555",
                             MaterialSpecification = "Spec-1555",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1556,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8664),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(934),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1556",
                             MaterialModel = "Model-1556",
                             MaterialName = "Name-1556",
                             MaterialSpecification = "Spec-1556",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1557,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8675),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(938),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1557",
                             MaterialModel = "Model-1557",
                             MaterialName = "Name-1557",
                             MaterialSpecification = "Spec-1557",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1558,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8683),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(944),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1558",
                             MaterialModel = "Model-1558",
                             MaterialName = "Name-1558",
                             MaterialSpecification = "Spec-1558",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1559,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8693),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(949),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1559",
                             MaterialModel = "Model-1559",
                             MaterialName = "Name-1559",
                             MaterialSpecification = "Spec-1559",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1560,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8700),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(955),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1560",
                             MaterialModel = "Model-1560",
                             MaterialName = "Name-1560",
                             MaterialSpecification = "Spec-1560",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1561,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8708),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(959),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1561",
                             MaterialModel = "Model-1561",
                             MaterialName = "Name-1561",
                             MaterialSpecification = "Spec-1561",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1562,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8716),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(966),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1562",
                             MaterialModel = "Model-1562",
                             MaterialName = "Name-1562",
                             MaterialSpecification = "Spec-1562",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1563,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8822),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1013),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1563",
                             MaterialModel = "Model-1563",
                             MaterialName = "Name-1563",
                             MaterialSpecification = "Spec-1563",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1564,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8831),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1020),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1564",
                             MaterialModel = "Model-1564",
                             MaterialName = "Name-1564",
                             MaterialSpecification = "Spec-1564",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1565,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8840),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1024),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1565",
                             MaterialModel = "Model-1565",
                             MaterialName = "Name-1565",
                             MaterialSpecification = "Spec-1565",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1566,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8848),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1030),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1566",
                             MaterialModel = "Model-1566",
                             MaterialName = "Name-1566",
                             MaterialSpecification = "Spec-1566",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1567,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8856),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1034),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1567",
                             MaterialModel = "Model-1567",
                             MaterialName = "Name-1567",
                             MaterialSpecification = "Spec-1567",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1568,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8860),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1040),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1568",
                             MaterialModel = "Model-1568",
                             MaterialName = "Name-1568",
                             MaterialSpecification = "Spec-1568",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1569,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8867),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1044),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1569",
                             MaterialModel = "Model-1569",
                             MaterialName = "Name-1569",
                             MaterialSpecification = "Spec-1569",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1570,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8871),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1051),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1570",
                             MaterialModel = "Model-1570",
                             MaterialName = "Name-1570",
                             MaterialSpecification = "Spec-1570",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1571,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8877),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1055),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1571",
                             MaterialModel = "Model-1571",
                             MaterialName = "Name-1571",
                             MaterialSpecification = "Spec-1571",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1572,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8881),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1061),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1572",
                             MaterialModel = "Model-1572",
                             MaterialName = "Name-1572",
                             MaterialSpecification = "Spec-1572",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1573,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8887),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1065),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1573",
                             MaterialModel = "Model-1573",
                             MaterialName = "Name-1573",
                             MaterialSpecification = "Spec-1573",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1574,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8892),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1071),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1574",
                             MaterialModel = "Model-1574",
                             MaterialName = "Name-1574",
                             MaterialSpecification = "Spec-1574",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1575,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8898),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1075),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1575",
                             MaterialModel = "Model-1575",
                             MaterialName = "Name-1575",
                             MaterialSpecification = "Spec-1575",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1576,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8902),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1081),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1576",
                             MaterialModel = "Model-1576",
                             MaterialName = "Name-1576",
                             MaterialSpecification = "Spec-1576",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1577,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8908),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1085),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1577",
                             MaterialModel = "Model-1577",
                             MaterialName = "Name-1577",
                             MaterialSpecification = "Spec-1577",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1578,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8912),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1092),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1578",
                             MaterialModel = "Model-1578",
                             MaterialName = "Name-1578",
                             MaterialSpecification = "Spec-1578",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1579,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8918),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1096),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1579",
                             MaterialModel = "Model-1579",
                             MaterialName = "Name-1579",
                             MaterialSpecification = "Spec-1579",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1580,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8923),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1102),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1580",
                             MaterialModel = "Model-1580",
                             MaterialName = "Name-1580",
                             MaterialSpecification = "Spec-1580",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1581,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8929),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1106),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1581",
                             MaterialModel = "Model-1581",
                             MaterialName = "Name-1581",
                             MaterialSpecification = "Spec-1581",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1582,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8933),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1112),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1582",
                             MaterialModel = "Model-1582",
                             MaterialName = "Name-1582",
                             MaterialSpecification = "Spec-1582",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1583,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8970),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1154),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1583",
                             MaterialModel = "Model-1583",
                             MaterialName = "Name-1583",
                             MaterialSpecification = "Spec-1583",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1584,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8975),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1161),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1584",
                             MaterialModel = "Model-1584",
                             MaterialName = "Name-1584",
                             MaterialSpecification = "Spec-1584",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1585,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8981),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1165),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1585",
                             MaterialModel = "Model-1585",
                             MaterialName = "Name-1585",
                             MaterialSpecification = "Spec-1585",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1586,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8985),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1171),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1586",
                             MaterialModel = "Model-1586",
                             MaterialName = "Name-1586",
                             MaterialSpecification = "Spec-1586",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1587,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8991),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1176),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1587",
                             MaterialModel = "Model-1587",
                             MaterialName = "Name-1587",
                             MaterialSpecification = "Spec-1587",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1588,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(8996),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1182),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1588",
                             MaterialModel = "Model-1588",
                             MaterialName = "Name-1588",
                             MaterialSpecification = "Spec-1588",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1589,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9002),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1186),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1589",
                             MaterialModel = "Model-1589",
                             MaterialName = "Name-1589",
                             MaterialSpecification = "Spec-1589",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1590,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9006),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1192),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1590",
                             MaterialModel = "Model-1590",
                             MaterialName = "Name-1590",
                             MaterialSpecification = "Spec-1590",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1591,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9012),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1196),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1591",
                             MaterialModel = "Model-1591",
                             MaterialName = "Name-1591",
                             MaterialSpecification = "Spec-1591",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1592,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9016),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1202),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1592",
                             MaterialModel = "Model-1592",
                             MaterialName = "Name-1592",
                             MaterialSpecification = "Spec-1592",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1593,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9022),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1206),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1593",
                             MaterialModel = "Model-1593",
                             MaterialName = "Name-1593",
                             MaterialSpecification = "Spec-1593",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1594,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9026),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1212),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1594",
                             MaterialModel = "Model-1594",
                             MaterialName = "Name-1594",
                             MaterialSpecification = "Spec-1594",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1595,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9033),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1216),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1595",
                             MaterialModel = "Model-1595",
                             MaterialName = "Name-1595",
                             MaterialSpecification = "Spec-1595",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1596,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9037),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1222),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1596",
                             MaterialModel = "Model-1596",
                             MaterialName = "Name-1596",
                             MaterialSpecification = "Spec-1596",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1597,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9044),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1227),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1597",
                             MaterialModel = "Model-1597",
                             MaterialName = "Name-1597",
                             MaterialSpecification = "Spec-1597",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1598,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9048),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1232),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1598",
                             MaterialModel = "Model-1598",
                             MaterialName = "Name-1598",
                             MaterialSpecification = "Spec-1598",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1599,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9054),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1237),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1599",
                             MaterialModel = "Model-1599",
                             MaterialName = "Name-1599",
                             MaterialSpecification = "Spec-1599",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1600,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9058),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1560),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1600",
                             MaterialModel = "Model-1600",
                             MaterialName = "Name-1600",
                             MaterialSpecification = "Spec-1600",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1601,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9064),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1566),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1601",
                             MaterialModel = "Model-1601",
                             MaterialName = "Name-1601",
                             MaterialSpecification = "Spec-1601",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1602,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9069),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1571),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1602",
                             MaterialModel = "Model-1602",
                             MaterialName = "Name-1602",
                             MaterialSpecification = "Spec-1602",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1603,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9075),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1575),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1603",
                             MaterialModel = "Model-1603",
                             MaterialName = "Name-1603",
                             MaterialSpecification = "Spec-1603",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1604,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9110),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1617),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1604",
                             MaterialModel = "Model-1604",
                             MaterialName = "Name-1604",
                             MaterialSpecification = "Spec-1604",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1605,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9117),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1621),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1605",
                             MaterialModel = "Model-1605",
                             MaterialName = "Name-1605",
                             MaterialSpecification = "Spec-1605",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1606,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9121),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1627),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1606",
                             MaterialModel = "Model-1606",
                             MaterialName = "Name-1606",
                             MaterialSpecification = "Spec-1606",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1607,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9127),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1632),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1607",
                             MaterialModel = "Model-1607",
                             MaterialName = "Name-1607",
                             MaterialSpecification = "Spec-1607",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1608,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9131),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1637),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1608",
                             MaterialModel = "Model-1608",
                             MaterialName = "Name-1608",
                             MaterialSpecification = "Spec-1608",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1609,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9139),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1642),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1609",
                             MaterialModel = "Model-1609",
                             MaterialName = "Name-1609",
                             MaterialSpecification = "Spec-1609",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1610,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9144),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1648),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1610",
                             MaterialModel = "Model-1610",
                             MaterialName = "Name-1610",
                             MaterialSpecification = "Spec-1610",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1611,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9150),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1652),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1611",
                             MaterialModel = "Model-1611",
                             MaterialName = "Name-1611",
                             MaterialSpecification = "Spec-1611",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1612,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9157),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1657),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1612",
                             MaterialModel = "Model-1612",
                             MaterialName = "Name-1612",
                             MaterialSpecification = "Spec-1612",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1613,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9163),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1662),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1613",
                             MaterialModel = "Model-1613",
                             MaterialName = "Name-1613",
                             MaterialSpecification = "Spec-1613",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1614,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9167),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1668),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1614",
                             MaterialModel = "Model-1614",
                             MaterialName = "Name-1614",
                             MaterialSpecification = "Spec-1614",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1615,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9173),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1672),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1615",
                             MaterialModel = "Model-1615",
                             MaterialName = "Name-1615",
                             MaterialSpecification = "Spec-1615",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1616,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9177),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1677),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1616",
                             MaterialModel = "Model-1616",
                             MaterialName = "Name-1616",
                             MaterialSpecification = "Spec-1616",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1617,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9183),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1681),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1617",
                             MaterialModel = "Model-1617",
                             MaterialName = "Name-1617",
                             MaterialSpecification = "Spec-1617",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1618,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9188),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1686),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1618",
                             MaterialModel = "Model-1618",
                             MaterialName = "Name-1618",
                             MaterialSpecification = "Spec-1618",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1619,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9194),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1691),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1619",
                             MaterialModel = "Model-1619",
                             MaterialName = "Name-1619",
                             MaterialSpecification = "Spec-1619",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1620,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9198),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1696),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1620",
                             MaterialModel = "Model-1620",
                             MaterialName = "Name-1620",
                             MaterialSpecification = "Spec-1620",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1621,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9204),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1700),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1621",
                             MaterialModel = "Model-1621",
                             MaterialName = "Name-1621",
                             MaterialSpecification = "Spec-1621",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1622,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9208),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1706),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1622",
                             MaterialModel = "Model-1622",
                             MaterialName = "Name-1622",
                             MaterialSpecification = "Spec-1622",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1623,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9214),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1710),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1623",
                             MaterialModel = "Model-1623",
                             MaterialName = "Name-1623",
                             MaterialSpecification = "Spec-1623",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1624,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9252),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1749),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1624",
                             MaterialModel = "Model-1624",
                             MaterialName = "Name-1624",
                             MaterialSpecification = "Spec-1624",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1625,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9258),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1754),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1625",
                             MaterialModel = "Model-1625",
                             MaterialName = "Name-1625",
                             MaterialSpecification = "Spec-1625",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1626,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9263),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1759),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1626",
                             MaterialModel = "Model-1626",
                             MaterialName = "Name-1626",
                             MaterialSpecification = "Spec-1626",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1627,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9269),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1763),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1627",
                             MaterialModel = "Model-1627",
                             MaterialName = "Name-1627",
                             MaterialSpecification = "Spec-1627",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1628,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9273),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1769),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1628",
                             MaterialModel = "Model-1628",
                             MaterialName = "Name-1628",
                             MaterialSpecification = "Spec-1628",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1629,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9279),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1773),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1629",
                             MaterialModel = "Model-1629",
                             MaterialName = "Name-1629",
                             MaterialSpecification = "Spec-1629",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1630,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9284),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1778),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1630",
                             MaterialModel = "Model-1630",
                             MaterialName = "Name-1630",
                             MaterialSpecification = "Spec-1630",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1631,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9289),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1782),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1631",
                             MaterialModel = "Model-1631",
                             MaterialName = "Name-1631",
                             MaterialSpecification = "Spec-1631",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1632,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9294),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1788),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1632",
                             MaterialModel = "Model-1632",
                             MaterialName = "Name-1632",
                             MaterialSpecification = "Spec-1632",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1633,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9300),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1792),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1633",
                             MaterialModel = "Model-1633",
                             MaterialName = "Name-1633",
                             MaterialSpecification = "Spec-1633",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1634,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9304),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1797),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1634",
                             MaterialModel = "Model-1634",
                             MaterialName = "Name-1634",
                             MaterialSpecification = "Spec-1634",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1635,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9311),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1801),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1635",
                             MaterialModel = "Model-1635",
                             MaterialName = "Name-1635",
                             MaterialSpecification = "Spec-1635",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1636,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9315),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1807),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1636",
                             MaterialModel = "Model-1636",
                             MaterialName = "Name-1636",
                             MaterialSpecification = "Spec-1636",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1637,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9321),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1810),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1637",
                             MaterialModel = "Model-1637",
                             MaterialName = "Name-1637",
                             MaterialSpecification = "Spec-1637",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1638,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9325),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1816),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1638",
                             MaterialModel = "Model-1638",
                             MaterialName = "Name-1638",
                             MaterialSpecification = "Spec-1638",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1639,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9331),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1820),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1639",
                             MaterialModel = "Model-1639",
                             MaterialName = "Name-1639",
                             MaterialSpecification = "Spec-1639",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1640,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9336),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1825),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1640",
                             MaterialModel = "Model-1640",
                             MaterialName = "Name-1640",
                             MaterialSpecification = "Spec-1640",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1641,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9342),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1829),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1641",
                             MaterialModel = "Model-1641",
                             MaterialName = "Name-1641",
                             MaterialSpecification = "Spec-1641",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1642,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9346),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1835),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1642",
                             MaterialModel = "Model-1642",
                             MaterialName = "Name-1642",
                             MaterialSpecification = "Spec-1642",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1643,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9352),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1838),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1643",
                             MaterialModel = "Model-1643",
                             MaterialName = "Name-1643",
                             MaterialSpecification = "Spec-1643",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1644,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9356),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1844),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1644",
                             MaterialModel = "Model-1644",
                             MaterialName = "Name-1644",
                             MaterialSpecification = "Spec-1644",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1645,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9399),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1882),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1645",
                             MaterialModel = "Model-1645",
                             MaterialName = "Name-1645",
                             MaterialSpecification = "Spec-1645",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1646,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9403),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1888),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1646",
                             MaterialModel = "Model-1646",
                             MaterialName = "Name-1646",
                             MaterialSpecification = "Spec-1646",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1647,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9409),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1892),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1647",
                             MaterialModel = "Model-1647",
                             MaterialName = "Name-1647",
                             MaterialSpecification = "Spec-1647",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1648,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9414),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1898),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1648",
                             MaterialModel = "Model-1648",
                             MaterialName = "Name-1648",
                             MaterialSpecification = "Spec-1648",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1649,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9420),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1903),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1649",
                             MaterialModel = "Model-1649",
                             MaterialName = "Name-1649",
                             MaterialSpecification = "Spec-1649",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1650,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9425),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1909),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1650",
                             MaterialModel = "Model-1650",
                             MaterialName = "Name-1650",
                             MaterialSpecification = "Spec-1650",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1651,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9431),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1912),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1651",
                             MaterialModel = "Model-1651",
                             MaterialName = "Name-1651",
                             MaterialSpecification = "Spec-1651",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1652,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9435),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1918),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1652",
                             MaterialModel = "Model-1652",
                             MaterialName = "Name-1652",
                             MaterialSpecification = "Spec-1652",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1653,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9441),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1921),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1653",
                             MaterialModel = "Model-1653",
                             MaterialName = "Name-1653",
                             MaterialSpecification = "Spec-1653",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1654,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9445),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1927),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1654",
                             MaterialModel = "Model-1654",
                             MaterialName = "Name-1654",
                             MaterialSpecification = "Spec-1654",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1655,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9452),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1931),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1655",
                             MaterialModel = "Model-1655",
                             MaterialName = "Name-1655",
                             MaterialSpecification = "Spec-1655",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1656,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9457),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1937),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1656",
                             MaterialModel = "Model-1656",
                             MaterialName = "Name-1656",
                             MaterialSpecification = "Spec-1656",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1657,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9463),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1941),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1657",
                             MaterialModel = "Model-1657",
                             MaterialName = "Name-1657",
                             MaterialSpecification = "Spec-1657",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1658,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9467),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1947),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1658",
                             MaterialModel = "Model-1658",
                             MaterialName = "Name-1658",
                             MaterialSpecification = "Spec-1658",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1659,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9473),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1951),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1659",
                             MaterialModel = "Model-1659",
                             MaterialName = "Name-1659",
                             MaterialSpecification = "Spec-1659",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1660,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9477),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1956),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1660",
                             MaterialModel = "Model-1660",
                             MaterialName = "Name-1660",
                             MaterialSpecification = "Spec-1660",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1661,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9483),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1960),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1661",
                             MaterialModel = "Model-1661",
                             MaterialName = "Name-1661",
                             MaterialSpecification = "Spec-1661",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1662,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9487),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1966),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1662",
                             MaterialModel = "Model-1662",
                             MaterialName = "Name-1662",
                             MaterialSpecification = "Spec-1662",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1663,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9493),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1969),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1663",
                             MaterialModel = "Model-1663",
                             MaterialName = "Name-1663",
                             MaterialSpecification = "Spec-1663",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1664,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9498),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1975),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1664",
                             MaterialModel = "Model-1664",
                             MaterialName = "Name-1664",
                             MaterialSpecification = "Spec-1664",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1665,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9535),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(1998),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1665",
                             MaterialModel = "Model-1665",
                             MaterialName = "Name-1665",
                             MaterialSpecification = "Spec-1665",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1666,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9540),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2005),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1666",
                             MaterialModel = "Model-1666",
                             MaterialName = "Name-1666",
                             MaterialSpecification = "Spec-1666",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1667,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9546),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2009),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1667",
                             MaterialModel = "Model-1667",
                             MaterialName = "Name-1667",
                             MaterialSpecification = "Spec-1667",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1668,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9550),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2014),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1668",
                             MaterialModel = "Model-1668",
                             MaterialName = "Name-1668",
                             MaterialSpecification = "Spec-1668",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1669,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9556),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2018),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1669",
                             MaterialModel = "Model-1669",
                             MaterialName = "Name-1669",
                             MaterialSpecification = "Spec-1669",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1670,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9560),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2024),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1670",
                             MaterialModel = "Model-1670",
                             MaterialName = "Name-1670",
                             MaterialSpecification = "Spec-1670",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1671,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9567),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2028),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1671",
                             MaterialModel = "Model-1671",
                             MaterialName = "Name-1671",
                             MaterialSpecification = "Spec-1671",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1672,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9571),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2035),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1672",
                             MaterialModel = "Model-1672",
                             MaterialName = "Name-1672",
                             MaterialSpecification = "Spec-1672",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1673,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9577),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2039),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1673",
                             MaterialModel = "Model-1673",
                             MaterialName = "Name-1673",
                             MaterialSpecification = "Spec-1673",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1674,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9582),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2044),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1674",
                             MaterialModel = "Model-1674",
                             MaterialName = "Name-1674",
                             MaterialSpecification = "Spec-1674",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1675,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9588),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2049),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1675",
                             MaterialModel = "Model-1675",
                             MaterialName = "Name-1675",
                             MaterialSpecification = "Spec-1675",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1676,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9592),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2054),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1676",
                             MaterialModel = "Model-1676",
                             MaterialName = "Name-1676",
                             MaterialSpecification = "Spec-1676",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1677,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9598),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2058),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1677",
                             MaterialModel = "Model-1677",
                             MaterialName = "Name-1677",
                             MaterialSpecification = "Spec-1677",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1678,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9602),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2064),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1678",
                             MaterialModel = "Model-1678",
                             MaterialName = "Name-1678",
                             MaterialSpecification = "Spec-1678",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1679,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9608),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2068),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1679",
                             MaterialModel = "Model-1679",
                             MaterialName = "Name-1679",
                             MaterialSpecification = "Spec-1679",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1680,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9613),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2073),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1680",
                             MaterialModel = "Model-1680",
                             MaterialName = "Name-1680",
                             MaterialSpecification = "Spec-1680",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1681,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9619),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2078),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1681",
                             MaterialModel = "Model-1681",
                             MaterialName = "Name-1681",
                             MaterialSpecification = "Spec-1681",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1682,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9623),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2083),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1682",
                             MaterialModel = "Model-1682",
                             MaterialName = "Name-1682",
                             MaterialSpecification = "Spec-1682",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1683,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9629),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2087),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1683",
                             MaterialModel = "Model-1683",
                             MaterialName = "Name-1683",
                             MaterialSpecification = "Spec-1683",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1684,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9633),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2093),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1684",
                             MaterialModel = "Model-1684",
                             MaterialName = "Name-1684",
                             MaterialSpecification = "Spec-1684",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1685,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9639),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2142),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1685",
                             MaterialModel = "Model-1685",
                             MaterialName = "Name-1685",
                             MaterialSpecification = "Spec-1685",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1686,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9674),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2148),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1686",
                             MaterialModel = "Model-1686",
                             MaterialName = "Name-1686",
                             MaterialSpecification = "Spec-1686",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1687,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9681),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2152),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1687",
                             MaterialModel = "Model-1687",
                             MaterialName = "Name-1687",
                             MaterialSpecification = "Spec-1687",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1688,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9685),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2158),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1688",
                             MaterialModel = "Model-1688",
                             MaterialName = "Name-1688",
                             MaterialSpecification = "Spec-1688",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1689,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9691),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2162),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1689",
                             MaterialModel = "Model-1689",
                             MaterialName = "Name-1689",
                             MaterialSpecification = "Spec-1689",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1690,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9696),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2168),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1690",
                             MaterialModel = "Model-1690",
                             MaterialName = "Name-1690",
                             MaterialSpecification = "Spec-1690",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1691,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9703),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2172),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1691",
                             MaterialModel = "Model-1691",
                             MaterialName = "Name-1691",
                             MaterialSpecification = "Spec-1691",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1692,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9707),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2177),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1692",
                             MaterialModel = "Model-1692",
                             MaterialName = "Name-1692",
                             MaterialSpecification = "Spec-1692",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1693,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9713),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2181),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1693",
                             MaterialModel = "Model-1693",
                             MaterialName = "Name-1693",
                             MaterialSpecification = "Spec-1693",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1694,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9718),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2187),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1694",
                             MaterialModel = "Model-1694",
                             MaterialName = "Name-1694",
                             MaterialSpecification = "Spec-1694",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1695,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9724),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2191),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1695",
                             MaterialModel = "Model-1695",
                             MaterialName = "Name-1695",
                             MaterialSpecification = "Spec-1695",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1696,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9728),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2196),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1696",
                             MaterialModel = "Model-1696",
                             MaterialName = "Name-1696",
                             MaterialSpecification = "Spec-1696",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1697,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9734),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2201),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1697",
                             MaterialModel = "Model-1697",
                             MaterialName = "Name-1697",
                             MaterialSpecification = "Spec-1697",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1698,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9738),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2206),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1698",
                             MaterialModel = "Model-1698",
                             MaterialName = "Name-1698",
                             MaterialSpecification = "Spec-1698",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1699,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9744),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2210),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1699",
                             MaterialModel = "Model-1699",
                             MaterialName = "Name-1699",
                             MaterialSpecification = "Spec-1699",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1700,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9748),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2215),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1700",
                             MaterialModel = "Model-1700",
                             MaterialName = "Name-1700",
                             MaterialSpecification = "Spec-1700",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1701,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9755),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2219),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1701",
                             MaterialModel = "Model-1701",
                             MaterialName = "Name-1701",
                             MaterialSpecification = "Spec-1701",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1702,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9759),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2225),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1702",
                             MaterialModel = "Model-1702",
                             MaterialName = "Name-1702",
                             MaterialSpecification = "Spec-1702",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1703,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9765),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2229),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1703",
                             MaterialModel = "Model-1703",
                             MaterialName = "Name-1703",
                             MaterialSpecification = "Spec-1703",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1704,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9770),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2235),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1704",
                             MaterialModel = "Model-1704",
                             MaterialName = "Name-1704",
                             MaterialSpecification = "Spec-1704",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1705,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9776),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2239),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1705",
                             MaterialModel = "Model-1705",
                             MaterialName = "Name-1705",
                             MaterialSpecification = "Spec-1705",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1706,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9813),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2282),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1706",
                             MaterialModel = "Model-1706",
                             MaterialName = "Name-1706",
                             MaterialSpecification = "Spec-1706",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1707,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9821),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2286),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1707",
                             MaterialModel = "Model-1707",
                             MaterialName = "Name-1707",
                             MaterialSpecification = "Spec-1707",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1708,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9825),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2292),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1708",
                             MaterialModel = "Model-1708",
                             MaterialName = "Name-1708",
                             MaterialSpecification = "Spec-1708",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1709,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9832),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2296),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1709",
                             MaterialModel = "Model-1709",
                             MaterialName = "Name-1709",
                             MaterialSpecification = "Spec-1709",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1710,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9836),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2301),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1710",
                             MaterialModel = "Model-1710",
                             MaterialName = "Name-1710",
                             MaterialSpecification = "Spec-1710",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1711,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9842),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2305),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1711",
                             MaterialModel = "Model-1711",
                             MaterialName = "Name-1711",
                             MaterialSpecification = "Spec-1711",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1712,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9847),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2311),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1712",
                             MaterialModel = "Model-1712",
                             MaterialName = "Name-1712",
                             MaterialSpecification = "Spec-1712",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1713,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9853),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2314),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1713",
                             MaterialModel = "Model-1713",
                             MaterialName = "Name-1713",
                             MaterialSpecification = "Spec-1713",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1714,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9857),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2320),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1714",
                             MaterialModel = "Model-1714",
                             MaterialName = "Name-1714",
                             MaterialSpecification = "Spec-1714",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1715,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9863),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2324),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1715",
                             MaterialModel = "Model-1715",
                             MaterialName = "Name-1715",
                             MaterialSpecification = "Spec-1715",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1716,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9867),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2329),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1716",
                             MaterialModel = "Model-1716",
                             MaterialName = "Name-1716",
                             MaterialSpecification = "Spec-1716",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1717,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9874),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2334),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1717",
                             MaterialModel = "Model-1717",
                             MaterialName = "Name-1717",
                             MaterialSpecification = "Spec-1717",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1718,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9878),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2339),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1718",
                             MaterialModel = "Model-1718",
                             MaterialName = "Name-1718",
                             MaterialSpecification = "Spec-1718",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1719,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9884),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2343),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1719",
                             MaterialModel = "Model-1719",
                             MaterialName = "Name-1719",
                             MaterialSpecification = "Spec-1719",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1720,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9888),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2349),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1720",
                             MaterialModel = "Model-1720",
                             MaterialName = "Name-1720",
                             MaterialSpecification = "Spec-1720",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1721,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9894),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2353),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1721",
                             MaterialModel = "Model-1721",
                             MaterialName = "Name-1721",
                             MaterialSpecification = "Spec-1721",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1722,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9898),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2358),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1722",
                             MaterialModel = "Model-1722",
                             MaterialName = "Name-1722",
                             MaterialSpecification = "Spec-1722",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1723,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9904),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2362),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1723",
                             MaterialModel = "Model-1723",
                             MaterialName = "Name-1723",
                             MaterialSpecification = "Spec-1723",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1724,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9909),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2368),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1724",
                             MaterialModel = "Model-1724",
                             MaterialName = "Name-1724",
                             MaterialSpecification = "Spec-1724",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1725,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9915),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2372),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1725",
                             MaterialModel = "Model-1725",
                             MaterialName = "Name-1725",
                             MaterialSpecification = "Spec-1725",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1726,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9961),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2412),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1726",
                             MaterialModel = "Model-1726",
                             MaterialName = "Name-1726",
                             MaterialSpecification = "Spec-1726",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1727,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9969),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2417),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1727",
                             MaterialModel = "Model-1727",
                             MaterialName = "Name-1727",
                             MaterialSpecification = "Spec-1727",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1728,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9974),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2423),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1728",
                             MaterialModel = "Model-1728",
                             MaterialName = "Name-1728",
                             MaterialSpecification = "Spec-1728",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1729,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9980),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2426),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1729",
                             MaterialModel = "Model-1729",
                             MaterialName = "Name-1729",
                             MaterialSpecification = "Spec-1729",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1730,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9984),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2432),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1730",
                             MaterialModel = "Model-1730",
                             MaterialName = "Name-1730",
                             MaterialSpecification = "Spec-1730",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1731,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9990),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2436),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1731",
                             MaterialModel = "Model-1731",
                             MaterialName = "Name-1731",
                             MaterialSpecification = "Spec-1731",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1732,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 888, DateTimeKind.Utc).AddTicks(9994),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2441),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1732",
                             MaterialModel = "Model-1732",
                             MaterialName = "Name-1732",
                             MaterialSpecification = "Spec-1732",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1733,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2445),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1733",
                             MaterialModel = "Model-1733",
                             MaterialName = "Name-1733",
                             MaterialSpecification = "Spec-1733",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1734,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(5),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2451),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1734",
                             MaterialModel = "Model-1734",
                             MaterialName = "Name-1734",
                             MaterialSpecification = "Spec-1734",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1735,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(11),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2455),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1735",
                             MaterialModel = "Model-1735",
                             MaterialName = "Name-1735",
                             MaterialSpecification = "Spec-1735",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1736,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(15),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2460),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1736",
                             MaterialModel = "Model-1736",
                             MaterialName = "Name-1736",
                             MaterialSpecification = "Spec-1736",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1737,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(21),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2465),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1737",
                             MaterialModel = "Model-1737",
                             MaterialName = "Name-1737",
                             MaterialSpecification = "Spec-1737",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1738,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(25),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2470),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1738",
                             MaterialModel = "Model-1738",
                             MaterialName = "Name-1738",
                             MaterialSpecification = "Spec-1738",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1739,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(31),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2474),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1739",
                             MaterialModel = "Model-1739",
                             MaterialName = "Name-1739",
                             MaterialSpecification = "Spec-1739",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1740,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(35),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2479),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1740",
                             MaterialModel = "Model-1740",
                             MaterialName = "Name-1740",
                             MaterialSpecification = "Spec-1740",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1741,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(41),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2483),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1741",
                             MaterialModel = "Model-1741",
                             MaterialName = "Name-1741",
                             MaterialSpecification = "Spec-1741",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1742,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(45),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2489),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1742",
                             MaterialModel = "Model-1742",
                             MaterialName = "Name-1742",
                             MaterialSpecification = "Spec-1742",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1743,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(51),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2493),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1743",
                             MaterialModel = "Model-1743",
                             MaterialName = "Name-1743",
                             MaterialSpecification = "Spec-1743",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1744,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(56),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2498),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1744",
                             MaterialModel = "Model-1744",
                             MaterialName = "Name-1744",
                             MaterialSpecification = "Spec-1744",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1745,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(62),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2503),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1745",
                             MaterialModel = "Model-1745",
                             MaterialName = "Name-1745",
                             MaterialSpecification = "Spec-1745",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1746,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(66),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2542),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1746",
                             MaterialModel = "Model-1746",
                             MaterialName = "Name-1746",
                             MaterialSpecification = "Spec-1746",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1747,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(106),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2547),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1747",
                             MaterialModel = "Model-1747",
                             MaterialName = "Name-1747",
                             MaterialSpecification = "Spec-1747",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1748,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(111),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2552),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1748",
                             MaterialModel = "Model-1748",
                             MaterialName = "Name-1748",
                             MaterialSpecification = "Spec-1748",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1749,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(117),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2556),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1749",
                             MaterialModel = "Model-1749",
                             MaterialName = "Name-1749",
                             MaterialSpecification = "Spec-1749",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1750,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(121),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2561),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1750",
                             MaterialModel = "Model-1750",
                             MaterialName = "Name-1750",
                             MaterialSpecification = "Spec-1750",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1751,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(127),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2565),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1751",
                             MaterialModel = "Model-1751",
                             MaterialName = "Name-1751",
                             MaterialSpecification = "Spec-1751",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1752,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(132),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2571),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1752",
                             MaterialModel = "Model-1752",
                             MaterialName = "Name-1752",
                             MaterialSpecification = "Spec-1752",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1753,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(138),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2575),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1753",
                             MaterialModel = "Model-1753",
                             MaterialName = "Name-1753",
                             MaterialSpecification = "Spec-1753",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1754,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(142),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2580),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1754",
                             MaterialModel = "Model-1754",
                             MaterialName = "Name-1754",
                             MaterialSpecification = "Spec-1754",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1755,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(148),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2584),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1755",
                             MaterialModel = "Model-1755",
                             MaterialName = "Name-1755",
                             MaterialSpecification = "Spec-1755",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1756,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(152),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2590),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1756",
                             MaterialModel = "Model-1756",
                             MaterialName = "Name-1756",
                             MaterialSpecification = "Spec-1756",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1757,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(158),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2594),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1757",
                             MaterialModel = "Model-1757",
                             MaterialName = "Name-1757",
                             MaterialSpecification = "Spec-1757",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1758,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(162),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2599),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1758",
                             MaterialModel = "Model-1758",
                             MaterialName = "Name-1758",
                             MaterialSpecification = "Spec-1758",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1759,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(168),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2603),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1759",
                             MaterialModel = "Model-1759",
                             MaterialName = "Name-1759",
                             MaterialSpecification = "Spec-1759",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1760,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(172),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2608),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1760",
                             MaterialModel = "Model-1760",
                             MaterialName = "Name-1760",
                             MaterialSpecification = "Spec-1760",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1761,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(178),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2612),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1761",
                             MaterialModel = "Model-1761",
                             MaterialName = "Name-1761",
                             MaterialSpecification = "Spec-1761",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1762,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(182),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2618),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1762",
                             MaterialModel = "Model-1762",
                             MaterialName = "Name-1762",
                             MaterialSpecification = "Spec-1762",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1763,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(188),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2622),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1763",
                             MaterialModel = "Model-1763",
                             MaterialName = "Name-1763",
                             MaterialSpecification = "Spec-1763",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1764,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(192),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2627),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1764",
                             MaterialModel = "Model-1764",
                             MaterialName = "Name-1764",
                             MaterialSpecification = "Spec-1764",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1765,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(198),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2631),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1765",
                             MaterialModel = "Model-1765",
                             MaterialName = "Name-1765",
                             MaterialSpecification = "Spec-1765",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1766,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(202),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2637),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1766",
                             MaterialModel = "Model-1766",
                             MaterialName = "Name-1766",
                             MaterialSpecification = "Spec-1766",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1767,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(242),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2678),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1767",
                             MaterialModel = "Model-1767",
                             MaterialName = "Name-1767",
                             MaterialSpecification = "Spec-1767",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1768,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(246),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2684),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1768",
                             MaterialModel = "Model-1768",
                             MaterialName = "Name-1768",
                             MaterialSpecification = "Spec-1768",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1769,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(252),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2687),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1769",
                             MaterialModel = "Model-1769",
                             MaterialName = "Name-1769",
                             MaterialSpecification = "Spec-1769",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1770,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(257),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2693),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1770",
                             MaterialModel = "Model-1770",
                             MaterialName = "Name-1770",
                             MaterialSpecification = "Spec-1770",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1771,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(264),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2697),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1771",
                             MaterialModel = "Model-1771",
                             MaterialName = "Name-1771",
                             MaterialSpecification = "Spec-1771",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1772,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(268),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2703),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1772",
                             MaterialModel = "Model-1772",
                             MaterialName = "Name-1772",
                             MaterialSpecification = "Spec-1772",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1773,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(274),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2707),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1773",
                             MaterialModel = "Model-1773",
                             MaterialName = "Name-1773",
                             MaterialSpecification = "Spec-1773",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1774,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(278),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2712),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1774",
                             MaterialModel = "Model-1774",
                             MaterialName = "Name-1774",
                             MaterialSpecification = "Spec-1774",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1775,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(284),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2717),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1775",
                             MaterialModel = "Model-1775",
                             MaterialName = "Name-1775",
                             MaterialSpecification = "Spec-1775",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1776,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(288),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2722),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1776",
                             MaterialModel = "Model-1776",
                             MaterialName = "Name-1776",
                             MaterialSpecification = "Spec-1776",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1777,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(294),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2726),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1777",
                             MaterialModel = "Model-1777",
                             MaterialName = "Name-1777",
                             MaterialSpecification = "Spec-1777",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1778,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(299),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2732),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1778",
                             MaterialModel = "Model-1778",
                             MaterialName = "Name-1778",
                             MaterialSpecification = "Spec-1778",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1779,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(305),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2736),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1779",
                             MaterialModel = "Model-1779",
                             MaterialName = "Name-1779",
                             MaterialSpecification = "Spec-1779",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1780,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(309),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2741),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1780",
                             MaterialModel = "Model-1780",
                             MaterialName = "Name-1780",
                             MaterialSpecification = "Spec-1780",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1781,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(316),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2745),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1781",
                             MaterialModel = "Model-1781",
                             MaterialName = "Name-1781",
                             MaterialSpecification = "Spec-1781",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1782,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(320),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2751),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1782",
                             MaterialModel = "Model-1782",
                             MaterialName = "Name-1782",
                             MaterialSpecification = "Spec-1782",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1783,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(326),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2755),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1783",
                             MaterialModel = "Model-1783",
                             MaterialName = "Name-1783",
                             MaterialSpecification = "Spec-1783",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1784,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(330),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2761),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1784",
                             MaterialModel = "Model-1784",
                             MaterialName = "Name-1784",
                             MaterialSpecification = "Spec-1784",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1785,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(336),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2764),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1785",
                             MaterialModel = "Model-1785",
                             MaterialName = "Name-1785",
                             MaterialSpecification = "Spec-1785",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1786,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(340),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2770),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1786",
                             MaterialModel = "Model-1786",
                             MaterialName = "Name-1786",
                             MaterialSpecification = "Spec-1786",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1787,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(346),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2809),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1787",
                             MaterialModel = "Model-1787",
                             MaterialName = "Name-1787",
                             MaterialSpecification = "Spec-1787",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1788,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(387),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2816),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1788",
                             MaterialModel = "Model-1788",
                             MaterialName = "Name-1788",
                             MaterialSpecification = "Spec-1788",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1789,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(393),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2820),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1789",
                             MaterialModel = "Model-1789",
                             MaterialName = "Name-1789",
                             MaterialSpecification = "Spec-1789",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1790,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(397),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2826),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1790",
                             MaterialModel = "Model-1790",
                             MaterialName = "Name-1790",
                             MaterialSpecification = "Spec-1790",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1791,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(403),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2830),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1791",
                             MaterialModel = "Model-1791",
                             MaterialName = "Name-1791",
                             MaterialSpecification = "Spec-1791",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1792,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(407),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2835),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1792",
                             MaterialModel = "Model-1792",
                             MaterialName = "Name-1792",
                             MaterialSpecification = "Spec-1792",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1793,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(413),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2839),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1793",
                             MaterialModel = "Model-1793",
                             MaterialName = "Name-1793",
                             MaterialSpecification = "Spec-1793",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1794,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(418),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2845),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1794",
                             MaterialModel = "Model-1794",
                             MaterialName = "Name-1794",
                             MaterialSpecification = "Spec-1794",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1795,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(424),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2849),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1795",
                             MaterialModel = "Model-1795",
                             MaterialName = "Name-1795",
                             MaterialSpecification = "Spec-1795",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1796,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(428),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2854),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1796",
                             MaterialModel = "Model-1796",
                             MaterialName = "Name-1796",
                             MaterialSpecification = "Spec-1796",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1797,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(434),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2858),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1797",
                             MaterialModel = "Model-1797",
                             MaterialName = "Name-1797",
                             MaterialSpecification = "Spec-1797",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1798,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(439),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2863),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1798",
                             MaterialModel = "Model-1798",
                             MaterialName = "Name-1798",
                             MaterialSpecification = "Spec-1798",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1799,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(445),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2867),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1799",
                             MaterialModel = "Model-1799",
                             MaterialName = "Name-1799",
                             MaterialSpecification = "Spec-1799",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1800,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(449),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2873),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1800",
                             MaterialModel = "Model-1800",
                             MaterialName = "Name-1800",
                             MaterialSpecification = "Spec-1800",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1801,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(455),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2877),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1801",
                             MaterialModel = "Model-1801",
                             MaterialName = "Name-1801",
                             MaterialSpecification = "Spec-1801",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1802,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(460),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2882),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1802",
                             MaterialModel = "Model-1802",
                             MaterialName = "Name-1802",
                             MaterialSpecification = "Spec-1802",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1803,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(466),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2886),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1803",
                             MaterialModel = "Model-1803",
                             MaterialName = "Name-1803",
                             MaterialSpecification = "Spec-1803",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1804,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(470),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2892),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1804",
                             MaterialModel = "Model-1804",
                             MaterialName = "Name-1804",
                             MaterialSpecification = "Spec-1804",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1805,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(476),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2896),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1805",
                             MaterialModel = "Model-1805",
                             MaterialName = "Name-1805",
                             MaterialSpecification = "Spec-1805",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1806,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(480),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2901),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1806",
                             MaterialModel = "Model-1806",
                             MaterialName = "Name-1806",
                             MaterialSpecification = "Spec-1806",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1807,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(486),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2905),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1807",
                             MaterialModel = "Model-1807",
                             MaterialName = "Name-1807",
                             MaterialSpecification = "Spec-1807",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1808,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(523),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2945),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1808",
                             MaterialModel = "Model-1808",
                             MaterialName = "Name-1808",
                             MaterialSpecification = "Spec-1808",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1809,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(529),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2949),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1809",
                             MaterialModel = "Model-1809",
                             MaterialName = "Name-1809",
                             MaterialSpecification = "Spec-1809",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1810,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(534),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2955),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1810",
                             MaterialModel = "Model-1810",
                             MaterialName = "Name-1810",
                             MaterialSpecification = "Spec-1810",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1811,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(540),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2959),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1811",
                             MaterialModel = "Model-1811",
                             MaterialName = "Name-1811",
                             MaterialSpecification = "Spec-1811",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1812,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(544),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2964),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1812",
                             MaterialModel = "Model-1812",
                             MaterialName = "Name-1812",
                             MaterialSpecification = "Spec-1812",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1813,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(550),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2968),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1813",
                             MaterialModel = "Model-1813",
                             MaterialName = "Name-1813",
                             MaterialSpecification = "Spec-1813",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1814,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(554),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2973),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1814",
                             MaterialModel = "Model-1814",
                             MaterialName = "Name-1814",
                             MaterialSpecification = "Spec-1814",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1815,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(560),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2977),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1815",
                             MaterialModel = "Model-1815",
                             MaterialName = "Name-1815",
                             MaterialSpecification = "Spec-1815",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1816,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(564),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2982),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1816",
                             MaterialModel = "Model-1816",
                             MaterialName = "Name-1816",
                             MaterialSpecification = "Spec-1816",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1817,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(569),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2986),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1817",
                             MaterialModel = "Model-1817",
                             MaterialName = "Name-1817",
                             MaterialSpecification = "Spec-1817",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1818,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(574),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2992),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1818",
                             MaterialModel = "Model-1818",
                             MaterialName = "Name-1818",
                             MaterialSpecification = "Spec-1818",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1819,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(580),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(2996),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1819",
                             MaterialModel = "Model-1819",
                             MaterialName = "Name-1819",
                             MaterialSpecification = "Spec-1819",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1820,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(584),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3001),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1820",
                             MaterialModel = "Model-1820",
                             MaterialName = "Name-1820",
                             MaterialSpecification = "Spec-1820",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1821,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(590),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3006),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1821",
                             MaterialModel = "Model-1821",
                             MaterialName = "Name-1821",
                             MaterialSpecification = "Spec-1821",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1822,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(594),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3011),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1822",
                             MaterialModel = "Model-1822",
                             MaterialName = "Name-1822",
                             MaterialSpecification = "Spec-1822",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1823,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(599),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3015),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1823",
                             MaterialModel = "Model-1823",
                             MaterialName = "Name-1823",
                             MaterialSpecification = "Spec-1823",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1824,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(604),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3021),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1824",
                             MaterialModel = "Model-1824",
                             MaterialName = "Name-1824",
                             MaterialSpecification = "Spec-1824",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1825,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(611),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3025),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1825",
                             MaterialModel = "Model-1825",
                             MaterialName = "Name-1825",
                             MaterialSpecification = "Spec-1825",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1826,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(615),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3031),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1826",
                             MaterialModel = "Model-1826",
                             MaterialName = "Name-1826",
                             MaterialSpecification = "Spec-1826",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1827,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(621),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3035),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1827",
                             MaterialModel = "Model-1827",
                             MaterialName = "Name-1827",
                             MaterialSpecification = "Spec-1827",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1828,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(654),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3075),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1828",
                             MaterialModel = "Model-1828",
                             MaterialName = "Name-1828",
                             MaterialSpecification = "Spec-1828",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1829,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(662),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3080),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1829",
                             MaterialModel = "Model-1829",
                             MaterialName = "Name-1829",
                             MaterialSpecification = "Spec-1829",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1830,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(666),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3086),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1830",
                             MaterialModel = "Model-1830",
                             MaterialName = "Name-1830",
                             MaterialSpecification = "Spec-1830",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1831,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(672),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3089),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1831",
                             MaterialModel = "Model-1831",
                             MaterialName = "Name-1831",
                             MaterialSpecification = "Spec-1831",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1832,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(677),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3095),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1832",
                             MaterialModel = "Model-1832",
                             MaterialName = "Name-1832",
                             MaterialSpecification = "Spec-1832",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1833,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(683),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3099),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1833",
                             MaterialModel = "Model-1833",
                             MaterialName = "Name-1833",
                             MaterialSpecification = "Spec-1833",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1834,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(688),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3105),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1834",
                             MaterialModel = "Model-1834",
                             MaterialName = "Name-1834",
                             MaterialSpecification = "Spec-1834",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1835,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(693),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3109),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1835",
                             MaterialModel = "Model-1835",
                             MaterialName = "Name-1835",
                             MaterialSpecification = "Spec-1835",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1836,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(698),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3114),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1836",
                             MaterialModel = "Model-1836",
                             MaterialName = "Name-1836",
                             MaterialSpecification = "Spec-1836",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1837,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(704),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3118),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1837",
                             MaterialModel = "Model-1837",
                             MaterialName = "Name-1837",
                             MaterialSpecification = "Spec-1837",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1838,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(708),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3123),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1838",
                             MaterialModel = "Model-1838",
                             MaterialName = "Name-1838",
                             MaterialSpecification = "Spec-1838",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1839,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(714),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3127),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1839",
                             MaterialModel = "Model-1839",
                             MaterialName = "Name-1839",
                             MaterialSpecification = "Spec-1839",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1840,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(719),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3133),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1840",
                             MaterialModel = "Model-1840",
                             MaterialName = "Name-1840",
                             MaterialSpecification = "Spec-1840",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1841,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(725),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3136),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1841",
                             MaterialModel = "Model-1841",
                             MaterialName = "Name-1841",
                             MaterialSpecification = "Spec-1841",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1842,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(729),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3142),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1842",
                             MaterialModel = "Model-1842",
                             MaterialName = "Name-1842",
                             MaterialSpecification = "Spec-1842",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1843,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(735),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3146),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1843",
                             MaterialModel = "Model-1843",
                             MaterialName = "Name-1843",
                             MaterialSpecification = "Spec-1843",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1844,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(739),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3152),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1844",
                             MaterialModel = "Model-1844",
                             MaterialName = "Name-1844",
                             MaterialSpecification = "Spec-1844",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1845,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(745),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3156),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1845",
                             MaterialModel = "Model-1845",
                             MaterialName = "Name-1845",
                             MaterialSpecification = "Spec-1845",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1846,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(749),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3162),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1846",
                             MaterialModel = "Model-1846",
                             MaterialName = "Name-1846",
                             MaterialSpecification = "Spec-1846",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1847,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(755),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3165),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1847",
                             MaterialModel = "Model-1847",
                             MaterialName = "Name-1847",
                             MaterialSpecification = "Spec-1847",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1848,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(760),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3171),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1848",
                             MaterialModel = "Model-1848",
                             MaterialName = "Name-1848",
                             MaterialSpecification = "Spec-1848",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1849,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(798),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3218),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1849",
                             MaterialModel = "Model-1849",
                             MaterialName = "Name-1849",
                             MaterialSpecification = "Spec-1849",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1850,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(803),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3225),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1850",
                             MaterialModel = "Model-1850",
                             MaterialName = "Name-1850",
                             MaterialSpecification = "Spec-1850",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1851,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(809),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3229),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1851",
                             MaterialModel = "Model-1851",
                             MaterialName = "Name-1851",
                             MaterialSpecification = "Spec-1851",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1852,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(813),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3234),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1852",
                             MaterialModel = "Model-1852",
                             MaterialName = "Name-1852",
                             MaterialSpecification = "Spec-1852",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1853,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(820),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3238),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1853",
                             MaterialModel = "Model-1853",
                             MaterialName = "Name-1853",
                             MaterialSpecification = "Spec-1853",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1854,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(824),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3244),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1854",
                             MaterialModel = "Model-1854",
                             MaterialName = "Name-1854",
                             MaterialSpecification = "Spec-1854",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1855,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(830),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3248),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1855",
                             MaterialModel = "Model-1855",
                             MaterialName = "Name-1855",
                             MaterialSpecification = "Spec-1855",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1856,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(834),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3253),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1856",
                             MaterialModel = "Model-1856",
                             MaterialName = "Name-1856",
                             MaterialSpecification = "Spec-1856",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1857,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(840),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3257),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1857",
                             MaterialModel = "Model-1857",
                             MaterialName = "Name-1857",
                             MaterialSpecification = "Spec-1857",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1858,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(844),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3263),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1858",
                             MaterialModel = "Model-1858",
                             MaterialName = "Name-1858",
                             MaterialSpecification = "Spec-1858",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1859,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(850),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3268),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1859",
                             MaterialModel = "Model-1859",
                             MaterialName = "Name-1859",
                             MaterialSpecification = "Spec-1859",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1860,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(854),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3273),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1860",
                             MaterialModel = "Model-1860",
                             MaterialName = "Name-1860",
                             MaterialSpecification = "Spec-1860",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1861,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(860),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3277),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1861",
                             MaterialModel = "Model-1861",
                             MaterialName = "Name-1861",
                             MaterialSpecification = "Spec-1861",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1862,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(864),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3282),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1862",
                             MaterialModel = "Model-1862",
                             MaterialName = "Name-1862",
                             MaterialSpecification = "Spec-1862",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1863,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(870),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3286),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1863",
                             MaterialModel = "Model-1863",
                             MaterialName = "Name-1863",
                             MaterialSpecification = "Spec-1863",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1864,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(874),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3291),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1864",
                             MaterialModel = "Model-1864",
                             MaterialName = "Name-1864",
                             MaterialSpecification = "Spec-1864",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1865,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(881),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3296),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1865",
                             MaterialModel = "Model-1865",
                             MaterialName = "Name-1865",
                             MaterialSpecification = "Spec-1865",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1866,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(885),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3301),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1866",
                             MaterialModel = "Model-1866",
                             MaterialName = "Name-1866",
                             MaterialSpecification = "Spec-1866",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1867,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(891),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3305),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1867",
                             MaterialModel = "Model-1867",
                             MaterialName = "Name-1867",
                             MaterialSpecification = "Spec-1867",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1868,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(895),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3311),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1868",
                             MaterialModel = "Model-1868",
                             MaterialName = "Name-1868",
                             MaterialSpecification = "Spec-1868",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1869,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(933),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3349),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1869",
                             MaterialModel = "Model-1869",
                             MaterialName = "Name-1869",
                             MaterialSpecification = "Spec-1869",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1870,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(939),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3355),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1870",
                             MaterialModel = "Model-1870",
                             MaterialName = "Name-1870",
                             MaterialSpecification = "Spec-1870",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1871,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(946),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3358),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1871",
                             MaterialModel = "Model-1871",
                             MaterialName = "Name-1871",
                             MaterialSpecification = "Spec-1871",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1872,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(952),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3364),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1872",
                             MaterialModel = "Model-1872",
                             MaterialName = "Name-1872",
                             MaterialSpecification = "Spec-1872",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1873,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(959),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3368),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1873",
                             MaterialModel = "Model-1873",
                             MaterialName = "Name-1873",
                             MaterialSpecification = "Spec-1873",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1874,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(964),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3373),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1874",
                             MaterialModel = "Model-1874",
                             MaterialName = "Name-1874",
                             MaterialSpecification = "Spec-1874",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1875,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(972),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3377),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1875",
                             MaterialModel = "Model-1875",
                             MaterialName = "Name-1875",
                             MaterialSpecification = "Spec-1875",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1876,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(977),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3383),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1876",
                             MaterialModel = "Model-1876",
                             MaterialName = "Name-1876",
                             MaterialSpecification = "Spec-1876",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1877,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(985),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3387),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1877",
                             MaterialModel = "Model-1877",
                             MaterialName = "Name-1877",
                             MaterialSpecification = "Spec-1877",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1878,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(991),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3392),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1878",
                             MaterialModel = "Model-1878",
                             MaterialName = "Name-1878",
                             MaterialSpecification = "Spec-1878",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1879,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(998),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3396),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1879",
                             MaterialModel = "Model-1879",
                             MaterialName = "Name-1879",
                             MaterialSpecification = "Spec-1879",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1880,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1004),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3402),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1880",
                             MaterialModel = "Model-1880",
                             MaterialName = "Name-1880",
                             MaterialSpecification = "Spec-1880",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1881,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1011),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3406),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1881",
                             MaterialModel = "Model-1881",
                             MaterialName = "Name-1881",
                             MaterialSpecification = "Spec-1881",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1882,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1017),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3411),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1882",
                             MaterialModel = "Model-1882",
                             MaterialName = "Name-1882",
                             MaterialSpecification = "Spec-1882",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1883,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1024),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3416),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1883",
                             MaterialModel = "Model-1883",
                             MaterialName = "Name-1883",
                             MaterialSpecification = "Spec-1883",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1884,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1030),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3421),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1884",
                             MaterialModel = "Model-1884",
                             MaterialName = "Name-1884",
                             MaterialSpecification = "Spec-1884",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1885,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1037),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3425),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1885",
                             MaterialModel = "Model-1885",
                             MaterialName = "Name-1885",
                             MaterialSpecification = "Spec-1885",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1886,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1043),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3431),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1886",
                             MaterialModel = "Model-1886",
                             MaterialName = "Name-1886",
                             MaterialSpecification = "Spec-1886",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1887,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1050),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3435),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1887",
                             MaterialModel = "Model-1887",
                             MaterialName = "Name-1887",
                             MaterialSpecification = "Spec-1887",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1888,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1056),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3440),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1888",
                             MaterialModel = "Model-1888",
                             MaterialName = "Name-1888",
                             MaterialSpecification = "Spec-1888",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1889,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1063),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3477),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1889",
                             MaterialModel = "Model-1889",
                             MaterialName = "Name-1889",
                             MaterialSpecification = "Spec-1889",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1890,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1111),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3484),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1890",
                             MaterialModel = "Model-1890",
                             MaterialName = "Name-1890",
                             MaterialSpecification = "Spec-1890",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1891,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1118),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3488),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1891",
                             MaterialModel = "Model-1891",
                             MaterialName = "Name-1891",
                             MaterialSpecification = "Spec-1891",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1892,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1123),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3493),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1892",
                             MaterialModel = "Model-1892",
                             MaterialName = "Name-1892",
                             MaterialSpecification = "Spec-1892",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1893,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1130),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3497),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1893",
                             MaterialModel = "Model-1893",
                             MaterialName = "Name-1893",
                             MaterialSpecification = "Spec-1893",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1894,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1136),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3503),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1894",
                             MaterialModel = "Model-1894",
                             MaterialName = "Name-1894",
                             MaterialSpecification = "Spec-1894",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1895,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1143),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3507),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1895",
                             MaterialModel = "Model-1895",
                             MaterialName = "Name-1895",
                             MaterialSpecification = "Spec-1895",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1896,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1149),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3512),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1896",
                             MaterialModel = "Model-1896",
                             MaterialName = "Name-1896",
                             MaterialSpecification = "Spec-1896",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1897,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1156),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3517),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1897",
                             MaterialModel = "Model-1897",
                             MaterialName = "Name-1897",
                             MaterialSpecification = "Spec-1897",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1898,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1161),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3522),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1898",
                             MaterialModel = "Model-1898",
                             MaterialName = "Name-1898",
                             MaterialSpecification = "Spec-1898",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1899,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1168),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3526),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1899",
                             MaterialModel = "Model-1899",
                             MaterialName = "Name-1899",
                             MaterialSpecification = "Spec-1899",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1900,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1174),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3532),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1900",
                             MaterialModel = "Model-1900",
                             MaterialName = "Name-1900",
                             MaterialSpecification = "Spec-1900",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1901,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1181),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3536),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1901",
                             MaterialModel = "Model-1901",
                             MaterialName = "Name-1901",
                             MaterialSpecification = "Spec-1901",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1902,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1187),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3542),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1902",
                             MaterialModel = "Model-1902",
                             MaterialName = "Name-1902",
                             MaterialSpecification = "Spec-1902",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1903,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1194),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3545),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1903",
                             MaterialModel = "Model-1903",
                             MaterialName = "Name-1903",
                             MaterialSpecification = "Spec-1903",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1904,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1199),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3551),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1904",
                             MaterialModel = "Model-1904",
                             MaterialName = "Name-1904",
                             MaterialSpecification = "Spec-1904",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1905,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1207),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3555),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1905",
                             MaterialModel = "Model-1905",
                             MaterialName = "Name-1905",
                             MaterialSpecification = "Spec-1905",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1906,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1212),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3560),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1906",
                             MaterialModel = "Model-1906",
                             MaterialName = "Name-1906",
                             MaterialSpecification = "Spec-1906",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1907,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1220),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3564),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1907",
                             MaterialModel = "Model-1907",
                             MaterialName = "Name-1907",
                             MaterialSpecification = "Spec-1907",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1908,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1225),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3570),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1908",
                             MaterialModel = "Model-1908",
                             MaterialName = "Name-1908",
                             MaterialSpecification = "Spec-1908",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1909,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1233),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3574),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1909",
                             MaterialModel = "Model-1909",
                             MaterialName = "Name-1909",
                             MaterialSpecification = "Spec-1909",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1910,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1269),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3614),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1910",
                             MaterialModel = "Model-1910",
                             MaterialName = "Name-1910",
                             MaterialSpecification = "Spec-1910",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1911,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1276),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3618),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1911",
                             MaterialModel = "Model-1911",
                             MaterialName = "Name-1911",
                             MaterialSpecification = "Spec-1911",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1912,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1282),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3624),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1912",
                             MaterialModel = "Model-1912",
                             MaterialName = "Name-1912",
                             MaterialSpecification = "Spec-1912",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1913,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1289),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3628),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1913",
                             MaterialModel = "Model-1913",
                             MaterialName = "Name-1913",
                             MaterialSpecification = "Spec-1913",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1914,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1294),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3633),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1914",
                             MaterialModel = "Model-1914",
                             MaterialName = "Name-1914",
                             MaterialSpecification = "Spec-1914",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1915,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1301),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3637),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1915",
                             MaterialModel = "Model-1915",
                             MaterialName = "Name-1915",
                             MaterialSpecification = "Spec-1915",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1916,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1307),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3643),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1916",
                             MaterialModel = "Model-1916",
                             MaterialName = "Name-1916",
                             MaterialSpecification = "Spec-1916",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1917,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1314),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3647),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1917",
                             MaterialModel = "Model-1917",
                             MaterialName = "Name-1917",
                             MaterialSpecification = "Spec-1917",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1918,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1319),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3652),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1918",
                             MaterialModel = "Model-1918",
                             MaterialName = "Name-1918",
                             MaterialSpecification = "Spec-1918",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1919,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1326),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3656),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1919",
                             MaterialModel = "Model-1919",
                             MaterialName = "Name-1919",
                             MaterialSpecification = "Spec-1919",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1920,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1332),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3662),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1920",
                             MaterialModel = "Model-1920",
                             MaterialName = "Name-1920",
                             MaterialSpecification = "Spec-1920",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1921,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1339),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3666),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1921",
                             MaterialModel = "Model-1921",
                             MaterialName = "Name-1921",
                             MaterialSpecification = "Spec-1921",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1922,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1345),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3671),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1922",
                             MaterialModel = "Model-1922",
                             MaterialName = "Name-1922",
                             MaterialSpecification = "Spec-1922",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1923,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1352),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3675),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1923",
                             MaterialModel = "Model-1923",
                             MaterialName = "Name-1923",
                             MaterialSpecification = "Spec-1923",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1924,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1357),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3681),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1924",
                             MaterialModel = "Model-1924",
                             MaterialName = "Name-1924",
                             MaterialSpecification = "Spec-1924",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1925,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1365),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3686),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1925",
                             MaterialModel = "Model-1925",
                             MaterialName = "Name-1925",
                             MaterialSpecification = "Spec-1925",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1926,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1370),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3692),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1926",
                             MaterialModel = "Model-1926",
                             MaterialName = "Name-1926",
                             MaterialSpecification = "Spec-1926",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1927,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1377),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3696),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1927",
                             MaterialModel = "Model-1927",
                             MaterialName = "Name-1927",
                             MaterialSpecification = "Spec-1927",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1928,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1383),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3701),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1928",
                             MaterialModel = "Model-1928",
                             MaterialName = "Name-1928",
                             MaterialSpecification = "Spec-1928",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1929,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1391),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3705),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1929",
                             MaterialModel = "Model-1929",
                             MaterialName = "Name-1929",
                             MaterialSpecification = "Spec-1929",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1930,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1396),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3747),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1930",
                             MaterialModel = "Model-1930",
                             MaterialName = "Name-1930",
                             MaterialSpecification = "Spec-1930",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1931,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1433),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3752),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1931",
                             MaterialModel = "Model-1931",
                             MaterialName = "Name-1931",
                             MaterialSpecification = "Spec-1931",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1932,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1439),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3758),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1932",
                             MaterialModel = "Model-1932",
                             MaterialName = "Name-1932",
                             MaterialSpecification = "Spec-1932",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1933,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1446),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3761),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1933",
                             MaterialModel = "Model-1933",
                             MaterialName = "Name-1933",
                             MaterialSpecification = "Spec-1933",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1934,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1451),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3767),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1934",
                             MaterialModel = "Model-1934",
                             MaterialName = "Name-1934",
                             MaterialSpecification = "Spec-1934",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1935,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1458),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3771),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1935",
                             MaterialModel = "Model-1935",
                             MaterialName = "Name-1935",
                             MaterialSpecification = "Spec-1935",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1936,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1464),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3776),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1936",
                             MaterialModel = "Model-1936",
                             MaterialName = "Name-1936",
                             MaterialSpecification = "Spec-1936",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1937,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1471),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3780),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1937",
                             MaterialModel = "Model-1937",
                             MaterialName = "Name-1937",
                             MaterialSpecification = "Spec-1937",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1938,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1476),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3786),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1938",
                             MaterialModel = "Model-1938",
                             MaterialName = "Name-1938",
                             MaterialSpecification = "Spec-1938",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1939,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1484),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3790),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1939",
                             MaterialModel = "Model-1939",
                             MaterialName = "Name-1939",
                             MaterialSpecification = "Spec-1939",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1940,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1489),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3795),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1940",
                             MaterialModel = "Model-1940",
                             MaterialName = "Name-1940",
                             MaterialSpecification = "Spec-1940",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1941,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1496),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3799),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1941",
                             MaterialModel = "Model-1941",
                             MaterialName = "Name-1941",
                             MaterialSpecification = "Spec-1941",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1942,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1501),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3805),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1942",
                             MaterialModel = "Model-1942",
                             MaterialName = "Name-1942",
                             MaterialSpecification = "Spec-1942",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1943,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1509),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3809),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1943",
                             MaterialModel = "Model-1943",
                             MaterialName = "Name-1943",
                             MaterialSpecification = "Spec-1943",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1944,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1514),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3815),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1944",
                             MaterialModel = "Model-1944",
                             MaterialName = "Name-1944",
                             MaterialSpecification = "Spec-1944",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1945,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1521),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3819),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1945",
                             MaterialModel = "Model-1945",
                             MaterialName = "Name-1945",
                             MaterialSpecification = "Spec-1945",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1946,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1526),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3825),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1946",
                             MaterialModel = "Model-1946",
                             MaterialName = "Name-1946",
                             MaterialSpecification = "Spec-1946",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1947,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1533),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3829),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1947",
                             MaterialModel = "Model-1947",
                             MaterialName = "Name-1947",
                             MaterialSpecification = "Spec-1947",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1948,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1539),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3834),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1948",
                             MaterialModel = "Model-1948",
                             MaterialName = "Name-1948",
                             MaterialSpecification = "Spec-1948",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1949,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1546),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3838),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1949",
                             MaterialModel = "Model-1949",
                             MaterialName = "Name-1949",
                             MaterialSpecification = "Spec-1949",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1950,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1551),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3843),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1950",
                             MaterialModel = "Model-1950",
                             MaterialName = "Name-1950",
                             MaterialSpecification = "Spec-1950",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1951,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1589),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3882),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1951",
                             MaterialModel = "Model-1951",
                             MaterialName = "Name-1951",
                             MaterialSpecification = "Spec-1951",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1952,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1595),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3888),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1952",
                             MaterialModel = "Model-1952",
                             MaterialName = "Name-1952",
                             MaterialSpecification = "Spec-1952",
-                            Unit = "PCS"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1953,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1603),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3892),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1953",
                             MaterialModel = "Model-1953",
                             MaterialName = "Name-1953",
                             MaterialSpecification = "Spec-1953",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1954,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1608),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3898),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1954",
                             MaterialModel = "Model-1954",
                             MaterialName = "Name-1954",
                             MaterialSpecification = "Spec-1954",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1955,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1616),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3902),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1955",
                             MaterialModel = "Model-1955",
                             MaterialName = "Name-1955",
                             MaterialSpecification = "Spec-1955",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1956,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1621),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3908),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1956",
                             MaterialModel = "Model-1956",
                             MaterialName = "Name-1956",
                             MaterialSpecification = "Spec-1956",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1957,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1629),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3912),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1957",
                             MaterialModel = "Model-1957",
                             MaterialName = "Name-1957",
                             MaterialSpecification = "Spec-1957",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1958,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1634),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3917),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1958",
                             MaterialModel = "Model-1958",
                             MaterialName = "Name-1958",
                             MaterialSpecification = "Spec-1958",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1959,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1641),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3922),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1959",
                             MaterialModel = "Model-1959",
                             MaterialName = "Name-1959",
                             MaterialSpecification = "Spec-1959",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1960,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1647),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3928),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1960",
                             MaterialModel = "Model-1960",
                             MaterialName = "Name-1960",
                             MaterialSpecification = "Spec-1960",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1961,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1654),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3933),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1961",
                             MaterialModel = "Model-1961",
                             MaterialName = "Name-1961",
                             MaterialSpecification = "Spec-1961",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1962,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1659),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3938),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1962",
                             MaterialModel = "Model-1962",
                             MaterialName = "Name-1962",
                             MaterialSpecification = "Spec-1962",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1963,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1667),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3942),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1963",
                             MaterialModel = "Model-1963",
                             MaterialName = "Name-1963",
                             MaterialSpecification = "Spec-1963",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1964,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1672),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3948),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1964",
                             MaterialModel = "Model-1964",
                             MaterialName = "Name-1964",
                             MaterialSpecification = "Spec-1964",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1965,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1679),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3952),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1965",
                             MaterialModel = "Model-1965",
                             MaterialName = "Name-1965",
                             MaterialSpecification = "Spec-1965",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1966,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1684),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3958),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1966",
                             MaterialModel = "Model-1966",
                             MaterialName = "Name-1966",
                             MaterialSpecification = "Spec-1966",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1967,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1692),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3962),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1967",
                             MaterialModel = "Model-1967",
                             MaterialName = "Name-1967",
                             MaterialSpecification = "Spec-1967",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1968,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1697),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3967),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1968",
                             MaterialModel = "Model-1968",
                             MaterialName = "Name-1968",
                             MaterialSpecification = "Spec-1968",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1969,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1704),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3971),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1969",
                             MaterialModel = "Model-1969",
                             MaterialName = "Name-1969",
                             MaterialSpecification = "Spec-1969",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1970,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1709),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(3977),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1970",
                             MaterialModel = "Model-1970",
                             MaterialName = "Name-1970",
                             MaterialSpecification = "Spec-1970",
-                            Unit = "M"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1971,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1747),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4014),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1971",
                             MaterialModel = "Model-1971",
                             MaterialName = "Name-1971",
                             MaterialSpecification = "Spec-1971",
-                            Unit = "KG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1972,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1753),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4020),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1972",
                             MaterialModel = "Model-1972",
                             MaterialName = "Name-1972",
                             MaterialSpecification = "Spec-1972",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1973,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1760),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4024),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1973",
                             MaterialModel = "Model-1973",
                             MaterialName = "Name-1973",
                             MaterialSpecification = "Spec-1973",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1974,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1765),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4030),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1974",
                             MaterialModel = "Model-1974",
                             MaterialName = "Name-1974",
                             MaterialSpecification = "Spec-1974",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1975,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1772),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4034),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1975",
                             MaterialModel = "Model-1975",
                             MaterialName = "Name-1975",
                             MaterialSpecification = "Spec-1975",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1976,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1778),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4039),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1976",
                             MaterialModel = "Model-1976",
                             MaterialName = "Name-1976",
                             MaterialSpecification = "Spec-1976",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1977,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1785),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4043),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1977",
                             MaterialModel = "Model-1977",
                             MaterialName = "Name-1977",
                             MaterialSpecification = "Spec-1977",
-                            Unit = "PCS"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1978,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1790),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4048),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1978",
                             MaterialModel = "Model-1978",
                             MaterialName = "Name-1978",
                             MaterialSpecification = "Spec-1978",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1979,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1797),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4052),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1979",
                             MaterialModel = "Model-1979",
                             MaterialName = "Name-1979",
                             MaterialSpecification = "Spec-1979",
-                            Unit = "PCS"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1980,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1803),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4058),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1980",
                             MaterialModel = "Model-1980",
                             MaterialName = "Name-1980",
                             MaterialSpecification = "Spec-1980",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1981,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1810),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4062),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1981",
                             MaterialModel = "Model-1981",
                             MaterialName = "Name-1981",
                             MaterialSpecification = "Spec-1981",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1982,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1816),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4067),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1982",
                             MaterialModel = "Model-1982",
                             MaterialName = "Name-1982",
                             MaterialSpecification = "Spec-1982",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1983,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1823),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4071),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1983",
                             MaterialModel = "Model-1983",
                             MaterialName = "Name-1983",
                             MaterialSpecification = "Spec-1983",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1984,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1829),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4076),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1984",
                             MaterialModel = "Model-1984",
                             MaterialName = "Name-1984",
                             MaterialSpecification = "Spec-1984",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1985,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1836),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4081),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1985",
                             MaterialModel = "Model-1985",
                             MaterialName = "Name-1985",
                             MaterialSpecification = "Spec-1985",
-                            Unit = "M"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1986,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1841),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4087),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1986",
                             MaterialModel = "Model-1986",
                             MaterialName = "Name-1986",
                             MaterialSpecification = "Spec-1986",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1987,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1849),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4091),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1987",
                             MaterialModel = "Model-1987",
                             MaterialName = "Name-1987",
                             MaterialSpecification = "Spec-1987",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1988,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1854),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4096),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1988",
                             MaterialModel = "Model-1988",
                             MaterialName = "Name-1988",
                             MaterialSpecification = "Spec-1988",
-                            Unit = "PKG"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1989,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1861),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4100),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1989",
                             MaterialModel = "Model-1989",
                             MaterialName = "Name-1989",
                             MaterialSpecification = "Spec-1989",
-                            Unit = "KG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1990,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1867),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4105),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1990",
                             MaterialModel = "Model-1990",
                             MaterialName = "Name-1990",
                             MaterialSpecification = "Spec-1990",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1991,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1875),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4109),
                             IsAvailable = false,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1991",
                             MaterialModel = "Model-1991",
                             MaterialName = "Name-1991",
                             MaterialSpecification = "Spec-1991",
-                            Unit = "KG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1992,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1911),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4150),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1992",
                             MaterialModel = "Model-1992",
                             MaterialName = "Name-1992",
                             MaterialSpecification = "Spec-1992",
-                            Unit = "PKG"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1993,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1919),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4155),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1993",
                             MaterialModel = "Model-1993",
                             MaterialName = "Name-1993",
                             MaterialSpecification = "Spec-1993",
-                            Unit = "PKG"
+                            Unit = 1
                         },
                         new
                         {
                             MaterialId = 1994,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1924),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4160),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1994",
                             MaterialModel = "Model-1994",
                             MaterialName = "Name-1994",
                             MaterialSpecification = "Spec-1994",
-                            Unit = "M"
+                            Unit = 4
                         },
                         new
                         {
                             MaterialId = 1995,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1931),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4164),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 2,
                             MaterialCode = "Code-1995",
                             MaterialModel = "Model-1995",
                             MaterialName = "Name-1995",
                             MaterialSpecification = "Spec-1995",
-                            Unit = "PCS"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1996,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1936),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4170),
                             IsAvailable = true,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1996",
                             MaterialModel = "Model-1996",
                             MaterialName = "Name-1996",
                             MaterialSpecification = "Spec-1996",
-                            Unit = "KG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1997,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1944),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4174),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1997",
                             MaterialModel = "Model-1997",
                             MaterialName = "Name-1997",
                             MaterialSpecification = "Spec-1997",
-                            Unit = "PKG"
+                            Unit = 3
                         },
                         new
                         {
                             MaterialId = 1998,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1949),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4179),
                             IsAvailable = true,
-                            MaterialClassification = "Accessories",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1998",
                             MaterialModel = "Model-1998",
                             MaterialName = "Name-1998",
                             MaterialSpecification = "Spec-1998",
-                            Unit = "M"
+                            Unit = 2
                         },
                         new
                         {
                             MaterialId = 1999,
-                            CreateTime = new DateTime(2022, 4, 7, 1, 39, 20, 889, DateTimeKind.Utc).AddTicks(1956),
+                            CreateTime = new DateTime(2022, 4, 11, 9, 32, 8, 760, DateTimeKind.Utc).AddTicks(4183),
                             IsAvailable = false,
-                            MaterialClassification = "Raw",
+                            MaterialClassification = 1,
                             MaterialCode = "Code-1999",
                             MaterialModel = "Model-1999",
                             MaterialName = "Name-1999",
                             MaterialSpecification = "Spec-1999",
-                            Unit = "M"
+                            Unit = 3
                         });
                 });
 #pragma warning restore 612, 618

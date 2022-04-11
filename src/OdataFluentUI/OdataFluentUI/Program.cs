@@ -2,7 +2,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<WarehouseContext>(options =>
-              options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")).EnableSensitiveDataLogging());
+              options.UseSqlite(builder.Configuration.GetConnectionString("SQLiteConnection")).EnableSensitiveDataLogging());
 
 builder.Services.AddControllers()
    .AddOData(opt => opt.EnableQueryFeatures(maxTopValue:500)
