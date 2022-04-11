@@ -3,11 +3,10 @@
 let entityVm = new Vue({
     el: '#tableDiv',
     data: {
-        handsonTableAccessories: [],
-        currentHandsonTableAccessories: {},
         entityTypes: [],
         currentEntityType: {},
-        currentEntitySet: []
+        currentEntitySet: [],
+        readonlyProps: ['CreateTime', 'UpdateTime'] // Entity只读属性设置
     }
 });
 
@@ -24,6 +23,21 @@ document.getElementById('odataXmlMetadataA').setAttribute('href', defaultOdataAp
     searchOdata();
 })();
 
+// 移除只读属性
+function removeReadonlyProp(e) {
+    let readonlyProp = e.parentElement.firstChild.value;
+    entityVm._data.readonlyProps.splice(entityVm._data.readonlyProps.indexOf(readonlyProp), 1)
+}
+
+// 添加只读属性
+function addReadonlyProp() {
+    entityVm._data.readonlyProps.push('');
+}
+
+// 重置只读属性
+function resetReadonlyProps() {
+    entityVm._data.readonlyProps = ['CreateTime', 'UpdateTime'];
+}
 
 // 查询OData
 function searchOdata() {
@@ -31,10 +45,19 @@ function searchOdata() {
 };
 
 // 查询OData Metadata元数据
-function queryOdataMetadata() {
+async function queryOdataMetadata() {
     let uri = document.getElementById('odataUri').value;
-    $.get(uri, function (data, status, xhr) {
-        metadata._xml = data;
+    let request = new Request(uri, {
+        method: "GET",
+        headers: {
+            "Accept": "text/xml"
+        }
+    });
+
+    let result = await fetch(request);
+    if (result.ok) {
+        var data = await result.text();
+        metadata._xml = (new DOMParser()).parseFromString(data, 'text/xml');
         metadata._json = mapperOdataMetadata(metadata._xml);
         metadata._entity = generateEditorConfig(metadata._json);
 
@@ -42,7 +65,10 @@ function queryOdataMetadata() {
         entityVm._data.entityTypes = metadata._entity;
 
         toastNotice('查询OdataWebApi元数据成功');
-    }, 'xml');
+    }
+    else {
+        alert("Something went wrong");
+    }
 };
 
 // Toast通知
@@ -64,20 +90,11 @@ function onEntityTypeChange(e) {
         }
         else {
             entityVm._data.currentEntityType = entityType;
-        }
-
-        let accessories = metadata._json.handsonTableAccessories.find(d => d.entityName === entityName);
-        if (accessories == undefined) {
-            entityVm._data.currentHandsonTableAccessories = {};
-        }
-        else {
-            entityVm._data.currentHandsonTableAccessories = accessories;
-        }
+        }  
         queryEntityDataset();
     }
     else {
         document.getElementById('odataEntityUri').value = '';
-        entityVm._data.currentHandsonTableAccessories = {};
         entityVm._data.currentEntityType = {};
         entityVm._data.currentEntitySet = [];
     }
@@ -332,123 +349,79 @@ function checkAll(e) {
     }
 };
 
-// 解析OData Metadata元数据并生成handsontable配置数据
+// 解析OData Metadata元数据
 function mapperOdataMetadata(odataXml, printLog = true) {
     let odataXmlDocuments = odataXml;// $.parseXML(odataXml);
-    let entityTypes = $(odataXmlDocuments).find('EntityType');
-    let handsonTableAccessories = [];
+    let entityTypes = odataXmlDocuments.getElementsByTagName('EntityType');
     let odata = { entityTypes: [], enumTypes: [] };
-    $(entityTypes).each(function (entityTypeIndex, entityType) {
-        let accessories = {}, entityT = { propertys: [] };
+    let enumTypes = odataXmlDocuments.getElementsByTagName('EnumType');
+    for (let enumType of enumTypes) {
+        let enumT = { enums: [] };
+        let enumName = enumType.attributes.Name.value;
+        enumT.name = enumName;
+        let members = enumType.getElementsByTagName('Member');
+        for (let member of members) {
+            let memberName = member.attributes.Name.value;
+            let memberValue = member.attributes.Value.value;
+            enumT.enums.push({ name: memberName, value: memberValue });
+        };
+        odata.enumTypes.push(enumT);
+    };
+    for (let entityType of entityTypes) {
+        let entityT = { propertys: [] };
         let entityName = entityType.attributes.Name.value;
-        accessories.entityName = entityName;
         entityT.name = entityName;
-        let Propertys = $(entityType).find('Property');
-        let colHeaders = [], columns = [];
-        $(Propertys).each(function (propertyIndex, Property) {
-            let key = $($(entityType).find('Key')).first();
-            let propertyRefs = $(key).find('PropertyRef');
-            let keyRefs = [];
-            $(propertyRefs).each(function (refIndex, propertyRef) {
-                let keyName = propertyRef.attributes.Name.value;
-                keyRefs.push(keyName);
-            });
-            entityT.keys = keyRefs;
-            let column = {}, property = {};
-            let propertyAttributeName = Property.attributes.Name.value;
-            colHeaders.push(propertyAttributeName);
-            column.data = propertyAttributeName;
+        let Propertys = entityType.getElementsByTagName('Property');
+        for (let _property of Propertys) {
+            let keyEle = entityType.getElementsByTagName('Key');
+            if (keyEle.length > 0) {
+                let key = keyEle[0];
+                let propertyRefs = key.getElementsByTagName('PropertyRef');
+                let keyRefs = [];
+                for (let propertyRef of propertyRefs) {
+                    let keyName = propertyRef.attributes.Name.value;
+                    keyRefs.push(keyName);
+                };
+                entityT.keys = keyRefs;
+            }
+            
+            let property = {};
+            let propertyAttributeName = _property.attributes.Name.value;
             property.name = propertyAttributeName;
-            let propertyAttributeType = Property.attributes.Type.value;
+            let propertyAttributeType = _property.attributes.Type.value;
             property.dataType = propertyAttributeType;
-            if (Property.attributes.hasOwnProperty('Nullable')) {
-                let propertyAttributeNullable = Property.attributes.Nullable.value;
+            if (_property.attributes.hasOwnProperty('Nullable')) {
+                let propertyAttributeNullable = _property.attributes.Nullable.value;
                 property.required = propertyAttributeNullable === "false" ? true : false;
             }
             else {
                 property.required = false;
             }
-            if (Property.attributes.hasOwnProperty('DefaultValue')) {
-                let propertyAttributeDefaultValue = Property.attributes.DefaultValue.value;
+            if (_property.attributes.hasOwnProperty('DefaultValue')) {
+                let propertyAttributeDefaultValue = _property.attributes.DefaultValue.value;
                 property.defaultValue = propertyAttributeDefaultValue;
             }
-            if (Property.attributes.hasOwnProperty('MaxLength')) {
-                let propertyAttributeMaxLength = Property.attributes.MaxLength.value;
+            if (_property.attributes.hasOwnProperty('MaxLength')) {
+                let propertyAttributeMaxLength = _property.attributes.MaxLength.value;
                 property.maxLength = propertyAttributeMaxLength;
             }
-            // https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/os/odata-csdl-xml-v4.01-os.html#sec_PrimitiveTypes
-            if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(propertyAttributeType)) {
-                column.type = 'numeric';
-            }
-            else if (propertyAttributeType === 'Edm.Date') {
-                column.type = 'date';
-                column.dateFormat = 'YYYY-MM-DD';
-            }
-            else if (propertyAttributeType === 'Edm.DateTimeOffset') {
-                column.type = 'time';
-            }
-            else if (propertyAttributeType === 'Edm.Boolean') {
-                column.type = 'checkbox';
-            }
-            else if (propertyAttributeType.endsWith('EnumType')) {
-                column.type = 'dropdown';
-                let enumTypeName = propertyAttributeType.split('.')[1];
-                let enumTypes = $(odataXmlDocuments).find('EnumType');
-                $(enumTypes).each(function (enumTypeIndex, enumType) {
-                    if (enumType.attributes.Name.value === enumTypeName) {
-                        column.source = [];
-                        property.enums = [];
-                        let members = $(enumType).find('Member');
-                        $(members).each(function (memberIndex, member) {
-                            let memberName = member.attributes.Name.value;
-                            let memberValue = member.attributes.Value.value;
-                            column.source.push(memberName);
-
-                            property.enums.push({ name: memberName, value: memberValue });
-                        });
-                    }
-                });
-            }
-            else {
-                column.type = 'text';
-            }
-            columns.push(column);
-
             entityT.propertys.push(property);
-        });
-        accessories.colHeaders = colHeaders;
-        accessories.columns = columns;
-        handsonTableAccessories.push(accessories);
+        };
 
         odata.entityTypes.push(entityT);
-    });
-
-    let enumTypes = $(odataXmlDocuments).find('EnumType');
-    $(enumTypes).each(function (enumTypeIndex, enumType) {
-        let enumT = { enums: [] };
-        let enumName = enumType.attributes.Name.value;
-        enumT.name = enumName;
-        let members = $(enumType).find('Member');
-        $(members).each(function (memberIndex, member) {
-            let memberName = member.attributes.Name.value;
-            let memberValue = member.attributes.Value.value;
-            enumT.enums.push({ name: memberName, value: memberValue });
-        });
-        odata.enumTypes.push(enumT);
-    });
+    };
 
     if (printLog) {
-        console.log(JSON.stringify(handsonTableAccessories));
-        console.log(JSON.stringify(odata));
+        console.log(odata);
     };
-    return { handsonTableAccessories: handsonTableAccessories, odata: odata };
+    return odata;
 };
 
 // 根据解析后的OData Metadata元数据生成Entity配置数据
 function generateEditorConfig(odataJson, printLog = true) {
-    let configs = odataJson.odata.entityTypes;//JSON.parse(JSON.stringify(odata.entityTypes));
-    $(configs).each(function (configIndex, config) {
-        $(config.propertys).each(function (propertyIndex, property) {
+    let configs = odataJson.entityTypes;
+    for (let config of configs) {
+        for (let property of config.propertys) {
             property.editor = 'input';
             if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(property.dataType)) {
                 property.editorType = 'number';
@@ -463,7 +436,7 @@ function generateEditorConfig(odataJson, printLog = true) {
                 property.editorType = 'checkbox';
             }
             else {
-                let enumType = odataJson.odata.enumTypes.find(d => d.name === property.dataType.split('.')[1])
+                let enumType = odataJson.enumTypes.find(d => d.name === property.dataType.split('.')[1])
                 if (enumType === undefined) {
                     property.editorType = 'text';
                 }
@@ -476,14 +449,18 @@ function generateEditorConfig(odataJson, printLog = true) {
                 property.readonly = true;
                 property.required = false;
             }
+            else if (entityVm._data.readonlyProps.includes(property.name)) {
+                property.readonly = true;
+                property.required = false;
+            }
             else {
                 property.readonly = false;
             }
-        });
-    });
+        };
+    };
 
     if (printLog) {
-        console.log(JSON.stringify(configs));
+        console.log(configs);
     };
     return configs;
 };
