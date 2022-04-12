@@ -1,20 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OdataFluentUI.Data
 {
     /// <summary>
     /// 库存
     /// </summary>
-    public class Inventory
+    public class Inventory : BaseEntity
     {
-        ///// <summary>
-        ///// 主键Id
-        ///// </summary>
-        //public int InventoryId { get; set; }
-
         /// <summary>
         /// 物料Id
         /// </summary>
@@ -37,23 +31,5 @@ namespace OdataFluentUI.Data
         /// 库存数量
         /// </summary>
         public ulong Number { get; set; }
-
-        /// <summary>
-        /// 可用状态
-        /// </summary>
-        [DefaultValue(true)]
-        public bool IsAvailable { get; set; }
-
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        public DateTime CreateTime { get; set; } = DateTime.UtcNow;
-
-        /// <summary>
-        /// 最后更新时间
-        /// </summary>
-        public DateTime? UpdateTime { get; set; }
     }
-
-
 }

@@ -9,7 +9,7 @@ namespace OdataFluentUI.Data
     /// 物料
     /// </summary>
     [Index(nameof(MaterialCode), IsUnique = true)]
-    public class Material
+    public class Material : BaseEntity
     {
         /// <summary>
         /// 主键Id
@@ -54,22 +54,6 @@ namespace OdataFluentUI.Data
         /// </summary>
         [Column(TypeName = "varchar(10)")]
         public Unit Unit { get; set; }
-
-        /// <summary>
-        /// 可用状态
-        /// </summary>
-        [DefaultValue(true)]
-        public bool IsAvailable { get; set; }
-
-        /// <summary>
-        /// 创建时间
-        /// </summary>
-        public DateTime CreateTime { get; set; } = DateTime.UtcNow;
-
-        /// <summary>
-        /// 最后更新时间
-        /// </summary>
-        public DateTime? UpdateTime { get; set; }
     }
 
     /// <summary>

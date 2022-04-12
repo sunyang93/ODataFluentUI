@@ -4,6 +4,14 @@ namespace OdataFluentUI.Data
 {
     public class WarehouseContext : DbContext
     {
+        public DbSet<Material> Materials { get; set; }
+
+        public DbSet<Inventory> Inventorys { get; set; }
+
+        public DbSet<StorageRack> StorageRacks { get; set; }
+
+        public DbSet<CargoSpace> CargoSpaces { get; set; }
+
         public WarehouseContext()
         {
             
@@ -22,6 +30,8 @@ namespace OdataFluentUI.Data
                         .HasKey(c => new { c.MaterialId, c.Batch });
 
             modelBuilder.Entity<Material>().HasData(GenerateMaterials());
+
+
         }
 
         /// <summary>
@@ -51,10 +61,6 @@ namespace OdataFluentUI.Data
                 materials.Add(material);
             }
             return materials;
-        }
-
-        public DbSet<Material> Materials { get; set; }
-
-        public DbSet<Inventory> Inventorys { get; set; } 
+        } 
     }
 }
