@@ -6,7 +6,7 @@ namespace OdataFluentUI.Data
     {
         public WarehouseContext()
         {
-
+            
         }
 
         public WarehouseContext(DbContextOptions<WarehouseContext> options)
@@ -17,6 +17,10 @@ namespace OdataFluentUI.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //base.OnModelCreating(modelBuilder);
+            // 设置复合主键
+            modelBuilder.Entity<Inventory>()
+                        .HasKey(c => new { c.MaterialId, c.Batch });
+
             modelBuilder.Entity<Material>().HasData(GenerateMaterials());
         }
 
@@ -50,5 +54,7 @@ namespace OdataFluentUI.Data
         }
 
         public DbSet<Material> Materials { get; set; }
+
+        public DbSet<Inventory> Inventorys { get; set; } 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,6 +8,7 @@ namespace OdataFluentUI.Data
     /// <summary>
     /// 物料
     /// </summary>
+    [Index(nameof(MaterialCode), IsUnique = true)]
     public class Material
     {
         /// <summary>
@@ -69,28 +71,6 @@ namespace OdataFluentUI.Data
         /// </summary>
         public DateTime? UpdateTime { get; set; }
     }
-
-    /// <summary>
-    /// 库存
-    /// </summary>
-    public class Inventory
-    {
-        /// <summary>
-        /// 主键Id
-        /// </summary>
-        public int InventoryId { get; set; }
-
-        /// <summary>
-        /// 物料Id
-        /// </summary>
-        public int MaterialId { get; set; }
-
-        /// <summary>
-        /// 批次
-        /// </summary>
-        public string Batch { get; set; }
-    }
-
 
     /// <summary>
     /// 物料分类

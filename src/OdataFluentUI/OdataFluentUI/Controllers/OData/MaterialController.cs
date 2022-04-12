@@ -7,7 +7,7 @@ public class MaterialController : ODataController
     public MaterialController(WarehouseContext warehouseContext)
     {
         ArgumentNullException.ThrowIfNull(warehouseContext, nameof(warehouseContext));
-        _warehouseContext = warehouseContext;
+        _warehouseContext = warehouseContext;                         
     }
 
     [EnableQuery]

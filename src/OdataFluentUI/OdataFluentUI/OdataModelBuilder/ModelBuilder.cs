@@ -9,6 +9,7 @@ public class ModelBuilder
         builder.ContainerName = "WarehouseContainer";
 
         builder.EntitySet<Material>(nameof(Material));
+        builder.EntitySet<Inventory>(nameof(Inventory));
         return builder.GetEdmModel();
     }
 }
