@@ -41,8 +41,7 @@ public class InventoryController : ODataController
     [HttpGet("Inventory(Batch={key1},MaterialId={key2})")]
     public IActionResult GetOneInventory(string key1, int key2)
     {
-        var Inventorys = _warehouseContext.Inventorys.Where(p => p.MaterialId == key2 && p.Batch == key1);
-
+        var Inventorys = _warehouseContext.Inventorys.Include(d=>d.Material).Where(p => p.MaterialId == key2 && p.Batch == key1);
         if (!Inventorys.Any())
         {
             return NotFound();
