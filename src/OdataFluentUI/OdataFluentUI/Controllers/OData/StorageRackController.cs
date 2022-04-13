@@ -21,7 +21,7 @@ public class StorageRackController : ODataController
     [HttpGet("StorageRack({key})")]
     public IActionResult GetOneStorageRack(int key)
     {
-        IQueryable<StorageRack>? storageRacks = _warehouseContext.StorageRacks.Where(p => p.StorageRackId == key);
+        IQueryable<StorageRack>? storageRacks = _warehouseContext.StorageRacks.Include(d=>d.CargoSpaces).Where(p => p.StorageRackId == key);
 
         if (!storageRacks.Any())
         {

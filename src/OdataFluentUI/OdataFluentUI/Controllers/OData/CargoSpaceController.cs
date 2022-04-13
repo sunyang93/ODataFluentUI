@@ -37,7 +37,7 @@ public class CargoSpaceController : ODataController
     public IActionResult GetAllCargoSpaces()
     {
         return Ok(_warehouseContext.CargoSpaces);
-    }
+    }  
 
     [EnableQuery]
     [HttpGet("CargoSpace({key})")]
@@ -51,6 +51,20 @@ public class CargoSpaceController : ODataController
         }
 
         return Ok(SingleResult.Create(cargoSpaces));
+    }
+
+    [EnableQuery]
+    [HttpGet("CargoSpace({key})/StorageRack")]
+    public IActionResult GetOneCargoSpaceStorageRack(int key)
+    {
+        CargoSpace? cargoSpaces = _warehouseContext.CargoSpaces.Include(d => d.StorageRack).FirstOrDefault(p => p.CargoSpaceId == key);
+
+        if (cargoSpaces == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(cargoSpaces.StorageRack);
     }
 
     [HttpPost("CargoSpace")]

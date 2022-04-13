@@ -40,13 +40,26 @@ public class InventoryController : ODataController
     [HttpGet("Inventory(Batch={key1},MaterialId={key2})")]
     public IActionResult GetOneInventory(string key1, int key2)
     {
-        IQueryable<Inventory>? Inventorys = _warehouseContext.Inventorys.Include(d=>d.Material).Where(p => p.MaterialId == key2 && p.Batch == key1);
-        if (!Inventorys.Any())
+        IQueryable<Inventory>? inventorys = _warehouseContext.Inventorys.Include(d=>d.Material).Where(p => p.MaterialId == key2 && p.Batch == key1);
+        if (!inventorys.Any())
         {
             return NotFound();
         }
 
-        return Ok(SingleResult.Create(Inventorys));
+        return Ok(SingleResult.Create(inventorys));
+    }
+
+    [EnableQuery]
+    [HttpGet("Inventory(Batch={key1},MaterialId={key2})/Material")]
+    public IActionResult GetOneInventoryMaterial(string key1, int key2)
+    {
+        Inventory? inventory = _warehouseContext.Inventorys.Include(d => d.Material).FirstOrDefault(p => p.MaterialId == key2 && p.Batch == key1);
+        if (inventory == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(inventory.Material);
     }
 
     [HttpPost("Inventory")]
