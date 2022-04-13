@@ -6,7 +6,7 @@ builder.Services.AddDbContext<WarehouseContext>(options =>
 
 builder.Services.AddControllers()
    .AddOData(opt => opt.EnableQueryFeatures(maxTopValue:500)
-   .AddRouteComponents("odata", OdataFluentUI.OdataModelBuilder.ModelBuilder.GetEdmModel()));
+   .AddRouteComponents("odata", OdataFluentUI.OdataModelBuilder.ModelBuilder.GetEdmModel(), new DefaultODataBatchHandler()));
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
