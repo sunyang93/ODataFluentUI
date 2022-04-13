@@ -3,6 +3,7 @@
 let entityVm = new Vue({
     el: '#tableDiv',
     data: {
+        schemaNamespaces: [],
         entityTypes: [],
         currentEntityType: {},
         currentEntitySet: [],
@@ -11,12 +12,11 @@ let entityVm = new Vue({
 });
 
 // OData Metadata元数据
-let metadata = {_xml: null, _json: null, _entity: null };
+let metadata = {_xml: null, _json: null};
 
 // ODataApi地址
 const defaultOdataApiUrl = 'http://localhost:5201/odata';
 const defaultOdataApiMetadataUrl = `${defaultOdataApiUrl}/$metadata`;
-document.getElementById('odataUri').value = defaultOdataApiMetadataUrl;
 document.getElementById('odataXmlMetadataA').setAttribute('href', defaultOdataApiMetadataUrl);
 
 (function () {
@@ -46,7 +46,7 @@ function searchOdata() {
 
 // 查询OData Metadata元数据
 async function queryOdataMetadata() {
-    let uri = document.getElementById('odataUri').value;
+    let uri = `${document.getElementById('odataUri').value}/$metadata`;
     let request = new Request(uri, {
         method: "GET",
         headers: {
@@ -61,9 +61,11 @@ async function queryOdataMetadata() {
         var data = await result.text();
         metadata._xml = (new DOMParser()).parseFromString(data, 'text/xml');
         metadata._json = mapperOdataMetadata(metadata._xml);
-        metadata._entity = generateEditorConfig(metadata._json);
-
-        entityVm._data.entityTypes = metadata._entity;
+        generateEditorConfig(metadata._json);
+        for (let schema of metadata._json) {
+            entityVm._data.schemaNamespaces.push(schema.name);
+        }
+        entityVm._data.entityTypes = metadata._json[0].entityTypes;
 
         toastNotice('查询OdataWebApi元数据成功');
     }
@@ -80,12 +82,14 @@ function toastNotice(toastText) {
     toast.show();
 };
 
-// Entity下拉列表改变事件
+// EntityType下拉列表改变事件
 function onEntityTypeChange(e) {
     let entityName = e.value;
     if (entityName !== '') {
-        document.getElementById('odataEntityUri').value = `${defaultOdataApiUrl}/${entityName}`;
-        let entityType = metadata._entity.find(d => d.name === entityName);
+        let namespace=document.getElementById('schemas').value;
+        let entitySetName = metadata._json.find(d => d.name === namespace).entityContainer.entitySets.find(d => d.entityType === `${namespace}.${entityName}`).name;
+        document.getElementById('odataEntityUri').value = `${document.getElementById('odataUri').value}/${entitySetName}`;
+        let entityType = entityVm._data.entityTypes.find(d => d.name === entityName);
         if (entityType == undefined) {
             entityVm._data.currentEntityType = {};
         }
@@ -100,6 +104,18 @@ function onEntityTypeChange(e) {
         entityVm._data.currentEntitySet = [];
     }
 };
+
+// SchemaNamespace下拉列表改变事件
+function onSchemaNamespaceChange(e) {
+    let schemaNamespaceName = e.value;
+    let schemaNamespace = metadata.find(d => d.name === schemaNamespaceName);
+    if (schemaNamespace == undefined) {
+
+    }
+    else {
+        entityVm._data.entityTypes = schemaNamespace.entityTypes;
+    }
+}
 
 // Entity Dataset查询
 function queryEntityDataset() {
@@ -406,16 +422,18 @@ function mapperOdataMetadata(odataXml, printLog = true) {
             };
             let navigationPropertys = entityType.getElementsByTagName('NavigationProperty');
             if (navigationPropertys.length > 0) {
-                entityT.navigationProperty = [];
-                for (let navigationProperty of navigationPropertys) {
+                entityT.navigationProperty = [];                
+                for (let navigationProperty of navigationPropertys) {                    
                     let odataNavigationProperty = { name: navigationProperty.attributes.Name.value, type: navigationProperty.attributes.Type.value };
                     let referentialConstraints = navigationProperty.getElementsByTagName('ReferentialConstraint');
                     if (referentialConstraints.length > 0) {
+                        entityT.pkeys = [];
                         let referentialConstraint = referentialConstraints[0];
                         odataNavigationProperty.referentialConstraint = {
                             property: referentialConstraint.attributes.Property.value,
                             referencedProperty: referentialConstraint.attributes.ReferencedProperty.value
                         };
+                        entityT.pkeys.push(odataNavigationProperty.referentialConstraint.property);
                     }
                     entityT.navigationProperty.push(odataNavigationProperty);
                 }
@@ -456,7 +474,6 @@ function mapperOdataMetadata(odataXml, printLog = true) {
 
 // 根据解析后的OData Metadata元数据生成Entity配置数据
 function generateEditorConfig(odataSchemas, printLog = true) {
-    let entityConfigs = [];
     for (let odataSchema of odataSchemas) {
         let configs = odataSchema.entityTypes;
         for (let config of configs) {
@@ -497,10 +514,8 @@ function generateEditorConfig(odataSchemas, printLog = true) {
                 }
             };
         };
-        entityConfigs = entityConfigs.concat(configs);
     }
     if (printLog) {
-        console.log(entityConfigs);
+        console.log(odataSchemas);
     };
-    return entityConfigs;
 };

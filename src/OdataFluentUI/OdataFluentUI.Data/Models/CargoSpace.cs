@@ -30,5 +30,10 @@ namespace OdataFluentUI.Data
         /// 货架Id
         /// </summary>
         public int StorageRackId { get; set; }
+
+        /// <summary>
+        /// 货架
+        /// </summary>
+        public StorageRack StorageRack { get; set; }    
     }
 }

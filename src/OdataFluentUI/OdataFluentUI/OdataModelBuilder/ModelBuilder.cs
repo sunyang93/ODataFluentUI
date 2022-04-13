@@ -13,6 +13,8 @@ public class ModelBuilder
         builder.EntitySet<StorageRack>(nameof(StorageRack));
         builder.EntitySet<CargoSpace>(nameof(CargoSpace));
 
+        builder.EntitySet<SuperEntity>("SuperEntities");
+
         return builder.GetEdmModel();
     }
 }
