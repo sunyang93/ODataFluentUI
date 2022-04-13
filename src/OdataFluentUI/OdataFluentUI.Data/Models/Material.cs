@@ -8,12 +8,15 @@ namespace OdataFluentUI.Data
     /// <summary>
     /// 物料
     /// </summary>
+    [Comment("物料")]
     [Index(nameof(MaterialCode), IsUnique = true)]
+   
     public class Material : BaseEntity
     {
         /// <summary>
         /// 主键Id
         /// </summary>
+        [Comment("主键Id")]
         public int MaterialId { get; set; }
 
         /// <summary>
@@ -21,6 +24,7 @@ namespace OdataFluentUI.Data
         /// </summary>
         [Required]
         [MaxLength(50)]
+        [Comment("物料编码")]
         public string MaterialCode { get; set; }
 
         /// <summary>
@@ -28,12 +32,14 @@ namespace OdataFluentUI.Data
         /// </summary>
         [Required]
         [MaxLength(100)]
+        [Comment("物料名称")]
         public string MaterialName { get; set; }
 
         /// <summary>
         /// 物料规格
         /// </summary>
         [MaxLength(200)]
+        [Comment("物料规格")]
         public string MaterialSpecification { get; set; }
 
         /// <summary>
@@ -41,18 +47,21 @@ namespace OdataFluentUI.Data
         /// </summary>
         [Required]
         [MaxLength(100)]
+        [Comment("物料型号")]
         public string MaterialModel { get; set; }
 
         /// <summary>
         /// 物料分类
         /// </summary>
         [Column(TypeName = "varchar(20)")]
+        [Comment("物料分类")]
         public MaterialClassification MaterialClassification { get; set; }
 
         /// <summary>
         /// 计量单位
         /// </summary>
         [Column(TypeName = "varchar(10)")]
+        [Comment("计量单位")]
         public Unit Unit { get; set; }
     }
 

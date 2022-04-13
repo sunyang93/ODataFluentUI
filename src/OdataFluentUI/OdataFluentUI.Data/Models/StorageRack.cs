@@ -9,11 +9,13 @@ namespace OdataFluentUI.Data
     /// 货架
     /// </summary>
     [Index(nameof(StorageRackCode), IsUnique = true)]
+    [Comment("货架")]
     public class StorageRack : BaseEntity
     {
         /// <summary>
         /// 主键Id
         /// </summary>
+        [Comment("主键Id")]
         public int StorageRackId { get; set; }
 
         /// <summary>
@@ -21,6 +23,7 @@ namespace OdataFluentUI.Data
         /// </summary>
         [Required]
         [MaxLength(50)]
+        [Comment("货架名称")]
         public string StorageRackName { get; set; }
 
         /// <summary>
@@ -28,24 +31,28 @@ namespace OdataFluentUI.Data
         /// </summary>
         [Required]
         [MaxLength(50)]
+        [Comment("货架编码")]
         public string StorageRackCode { get; set; }
 
         /// <summary>
         /// 货架规格
         /// </summary>
         [MaxLength(200)]
+        [Comment("货架规格")]
         public string StorageRackSpecification { get; set; }
 
         /// <summary>
         /// 货架型号
         /// </summary>
         [MaxLength(100)]
+        [Comment("货架型号")]
         public string StorageRackModel { get; set; }
 
         /// <summary>
         /// 备注
         /// </summary>
         [MaxLength(500)]
+        [Comment("备注")]
         public string Remark { get; set; }
 
         /// <summary>
