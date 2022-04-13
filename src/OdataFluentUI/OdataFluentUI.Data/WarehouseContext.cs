@@ -30,7 +30,7 @@ namespace OdataFluentUI.Data
                         .HasKey(c => new { c.MaterialId, c.Batch });
 
             modelBuilder.Entity<Material>().HasData(GenerateMaterials());
-
+            modelBuilder.Entity<StorageRack>().HasData(GenerateStorageRacks());
 
         }
 
@@ -38,22 +38,22 @@ namespace OdataFluentUI.Data
         /// 生成种子数据
         /// </summary>
         /// <returns></returns>
-        private List<Material> GenerateMaterials()
+        private static List<Material> GenerateMaterials()
         {
-            List<Material> materials = new List<Material>();
+            List<Material> materials = new();
             int minMaterialClassification = Enum.GetValues(typeof(MaterialClassification)).Cast<int>().Min();
             int maxMaterialClassification = Enum.GetValues(typeof(MaterialClassification)).Cast<int>().Max();
             int minUnit=Enum.GetValues(typeof(Unit)).Cast<int>().Min();
             int maxUnit = Enum.GetValues(typeof(Unit)).Cast<int>().Max();
             for (int i = 1000; i < 2000; i++)
             {
-                Material material = new Material()
+                Material material = new()
                 {
                     MaterialId = i,
                     MaterialCode=$"Code-{i}",
                     MaterialName=$"Name-{i}",
                     MaterialModel=$"Model-{i}",
-                    MaterialSpecification=$"Spec-{i}",
+                    MaterialSpecification=$"Specification-{i}",
                     MaterialClassification = (MaterialClassification)new Random().Next(minMaterialClassification, maxMaterialClassification+1),
                     Unit=(Unit)new Random().Next(minUnit, maxUnit + 1),
                     IsAvailable=i%2==0
@@ -62,5 +62,28 @@ namespace OdataFluentUI.Data
             }
             return materials;
         } 
+
+        /// <summary>
+        /// 生成种子数据
+        /// </summary>
+        /// <returns></returns>
+        private static List<StorageRack> GenerateStorageRacks()
+        {
+            List<StorageRack> storageRacks = new();
+            for(int i = 1000; i < 2000; i++)
+            {
+                StorageRack storageRack = new()
+                {
+                    StorageRackId=i,
+                    StorageRackName=$"Name-{i}",
+                    StorageRackCode=$"Code-{i}",
+                    StorageRackSpecification=$"Specification-{i}",
+                    StorageRackModel=$"Model-{i}",
+                    Remark=$"Remark-{i}"
+                };
+                storageRacks.Add(storageRack);
+            }
+            return storageRacks;
+        }
     }
 }

@@ -11,16 +11,15 @@ public class InventoryController : ODataController
         #region 创建种子数据
         if (!_warehouseContext.Inventorys.Any())
         {
-            foreach (var material in _warehouseContext.Materials.Take(10))
+            foreach (Material material in _warehouseContext.Materials.Take(10))
             {
-                for (var i = 100; i < 200; i++)
+                for (int i = 100; i < 200; i++)
                 {
-                    var inventory = new Inventory()
+                    Inventory inventory = new ()
                     {
                         MaterialId = material.MaterialId,
                         Batch = $"Batch-{i}",
                         Number = (ulong)i,
-                        IsAvailable = true,
                     };
                     _warehouseContext.Inventorys.Add(inventory);
                 }
@@ -41,7 +40,7 @@ public class InventoryController : ODataController
     [HttpGet("Inventory(Batch={key1},MaterialId={key2})")]
     public IActionResult GetOneInventory(string key1, int key2)
     {
-        var Inventorys = _warehouseContext.Inventorys.Include(d=>d.Material).Where(p => p.MaterialId == key2 && p.Batch == key1);
+        IQueryable<Inventory>? Inventorys = _warehouseContext.Inventorys.Include(d=>d.Material).Where(p => p.MaterialId == key2 && p.Batch == key1);
         if (!Inventorys.Any())
         {
             return NotFound();
@@ -73,7 +72,7 @@ public class InventoryController : ODataController
             return BadRequest(ModelState);
         }
 
-        var currentInventory = await _warehouseContext.Inventorys
+        Inventory? currentInventory = await _warehouseContext.Inventorys
             .FirstOrDefaultAsync(p => p.MaterialId == key2 && p.Batch == key1);
 
         if (currentInventory == null)
@@ -91,7 +90,7 @@ public class InventoryController : ODataController
     [HttpDelete("Inventory(Batch={key1},MaterialId={key2})")]
     public async Task<IActionResult> DeleteInventory(string key1, int key2)
     {
-        var currentInventory = await _warehouseContext.Inventorys
+        Inventory? currentInventory = await _warehouseContext.Inventorys
             .FirstOrDefaultAsync(p => p.MaterialId == key2 && p.Batch == key1);
 
         if (currentInventory == null)

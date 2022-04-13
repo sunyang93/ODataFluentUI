@@ -2,7 +2,7 @@
 
 namespace OdataFluentUI.Data
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         /// <summary>
         /// 可用状态

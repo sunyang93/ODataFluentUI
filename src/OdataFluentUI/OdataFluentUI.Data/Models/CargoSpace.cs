@@ -1,10 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace OdataFluentUI.Data
 {
     /// <summary>
     /// 货位
     /// </summary>
+    [Index(nameof(StorageRackId), nameof(CargoSpaceCode), IsUnique = true)]
     public class CargoSpace : BaseEntity
     {
         /// <summary>
@@ -15,6 +17,7 @@ namespace OdataFluentUI.Data
         /// <summary>
         /// 货位编码
         /// </summary>
+        [Required]
         [MaxLength(50)]
         public string CargoSpaceCode { get; set; }
 

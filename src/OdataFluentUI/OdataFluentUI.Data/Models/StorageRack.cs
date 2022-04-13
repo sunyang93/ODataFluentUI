@@ -15,16 +15,18 @@ namespace OdataFluentUI.Data
         /// 主键Id
         /// </summary>
         public int StorageRackId { get; set; }
-        
+
         /// <summary>
         /// 货架名称
         /// </summary>
+        [Required]
         [MaxLength(50)]
         public string StorageRackName { get; set; }
 
         /// <summary>
         /// 货架编码
         /// </summary>
+        [Required]
         [MaxLength(50)]
         public string StorageRackCode { get; set; }
 
@@ -37,7 +39,6 @@ namespace OdataFluentUI.Data
         /// <summary>
         /// 货架型号
         /// </summary>
-        [Required]
         [MaxLength(100)]
         public string StorageRackModel { get; set; }
 
