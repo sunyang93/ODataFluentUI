@@ -15,7 +15,8 @@ let entityVm = new Vue({
 let metadata = {_xml: null, _json: null};
 
 // ODataApi地址
-const defaultOdataApiUrl = 'http://localhost:5201/odata';
+//const defaultOdataApiUrl = 'http://localhost:5201/odata';
+const defaultOdataApiUrl="https://services.odata.org/V4/Northwind/Northwind.svc";
 const defaultOdataApiMetadataUrl = `${defaultOdataApiUrl}/$metadata`;
 document.getElementById('odataXmlMetadataA').setAttribute('href', defaultOdataApiMetadataUrl);
 
@@ -48,10 +49,7 @@ function searchOdata() {
 async function queryOdataMetadata() {
     let uri = `${document.getElementById('odataUri').value}/$metadata`;
     let request = new Request(uri, {
-        method: "GET",
-        headers: {
-            "Accept": "text/xml"
-        }
+        method: "GET"
     });
     let result = await fetch(request);
     if (result.ok) {
@@ -64,7 +62,7 @@ async function queryOdataMetadata() {
         generateEditorConfig(metadata._json);
         for (let schema of metadata._json) {
             entityVm._data.schemaNamespaces.push(schema.name);
-        }
+         }
         entityVm._data.entityTypes = metadata._json[0].entityTypes;
 
         toastNotice('查询OdataWebApi元数据成功');
