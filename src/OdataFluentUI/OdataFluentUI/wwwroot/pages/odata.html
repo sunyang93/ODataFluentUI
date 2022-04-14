@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link href="../css/site.css" rel="stylesheet" />
     <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
+    <!--<div class="bg"></div>-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">OdataFluentUI</a>
@@ -25,7 +27,7 @@
                 </ul>
                 <form class="d-flex">
                     <div class="input-group">
-                        <input id="odataUri" type="url" class="form-control" style="min-width:400px" value="http://localhost:5201/odata" placeholder="ODataServiceUri">
+                        <input id="odataUri" type="url" class="form-control" style="min-width:400px" placeholder="ODataServiceUri">
                         <span class="input-group-text" id="basic-addon1">/$metadata</span>
                     </div>
 
@@ -66,8 +68,8 @@
                         <span class="input-group-text">Entity</span>
                         <select class="form-select" onchange="onEntityTypeChange(this)">
                             <option value="" selected>请选择一个Entity</option>
-                            <option v-for="entityType in entityTypes">
-                                {{entityType.name}}
+                            <option v-for="entityType in entityTypes" v-bind:value="entityType.name">
+                                {{entityType.displayName}}[{{entityType.name}}]
                             </option>
                         </select>
                         <button class="btn btn-outline-primary" type="button" title="展开Entity类型定义" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -75,36 +77,12 @@
                                 <path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882l-7.5-4zM8 9.433 1.562 6 8 2.567 14.438 6 8 9.433z" />
                             </svg>
                         </button>
-                        <span class="input-group-text">EntitySet Url</span>
-                        <input id="odataEntityUri" type="url" class="form-control" placeholder="Entity Dataset Url">
-                    </div>
-                    <div class="row g-1">
-                        <div class="col">
-                            <div class="form-floating">
-                                <textarea class="form-control" id="filterOptions" placeholder="Filter options">IsAvailable eq true</textarea>
-                                <label for="filterOptions">Filter</label>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-floating">
-                                <textarea class="form-control" id="selectOptions" placeholder="Select options">*</textarea>
-                                <label for="selectOptions">Select</label>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-floating">
-                                <textarea class="form-control" id="orderByOptions" placeholder="OrderBy options">CreateTime desc,UpdateTime desc</textarea>
-                                <label for="orderByOptions">OrderBy</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-group">
                         <span class="input-group-text">Top</span>
-                        <input id="topOptions" type="number" class="form-control" value="20" min="1" placeholder="Top options">
+                        <input id="topOptions" type="number" class="form-control" value="20" min="1" placeholder="Top options" style="max-width:100px">
                         <span class="input-group-text">Skip</span>
-                        <input id="skipOptions" type="number" class="form-control" value="0" min="0" placeholder="Skip options" readonly disabled>
+                        <input id="skipOptions" type="number" class="form-control" value="0" min="0" placeholder="Skip options" style="max-width:100px" readonly disabled >
                         <span class="input-group-text">Page</span>
-                        <input id="pageOptions" type="number" class="form-control" value="1" min="1" placeholder="Page options">
+                        <input id="pageOptions" type="number" class="form-control" value="1" min="1" placeholder="Page options" style="max-width:100px">
                         <button class="btn btn-outline-primary" type="button" onclick=" queryEntityDataset()" title="查询EntitySet">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -141,6 +119,30 @@
                             </svg>
                         </button>
                     </div>
+                    <div class="input-group">
+                        <span class="input-group-text">EntitySet Url</span>
+                        <input id="odataEntityUri" type="url" class="form-control" placeholder="Entity Dataset Url">
+                    </div>
+                    <div class="row g-1">
+                        <div class="col">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="filterOptions" placeholder="Filter options">IsAvailable eq true</textarea>
+                                <label for="filterOptions">Filter</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="selectOptions" placeholder="Select options">*</textarea>
+                                <label for="selectOptions">Select</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="orderByOptions" placeholder="OrderBy options">CreateTime desc,UpdateTime desc</textarea>
+                                <label for="orderByOptions">OrderBy</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-floating">
                         <textarea class="form-control" id="queryUrl"></textarea>
                         <label for="floatingTextarea">Query Url</label>
@@ -149,6 +151,14 @@
                 <div class="collapse" id="collapseExample">
                     <div class="card card-body">
                         <div class="table-responsive">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">名称</span>
+                                <input type="text" class="form-control" v-bind:value="currentEntityType.name">
+                                <span class="input-group-text">显示名称</span>
+                                <input type="text" class="form-control" v-bind:value="currentEntityType.displayName">
+                                <span class="input-group-text">备注</span>
+                                <input type="text" class="form-control" v-bind:value="currentEntityType.remark">
+                            </div>
                             <table class="table table-sm table-striped table-hover table-borderless table-light caption-top">
                                 <caption>Entity类型定义</caption>
                                 <thead>
@@ -157,6 +167,7 @@
                                         <th scope="col">主键</th>
                                         <th scope="col">外键</th>
                                         <th scope="col">名称</th>
+                                        <th scope="col">显示名称</th>
                                         <th scope="col">数据类型</th>
                                         <th scope="col">最大长度</th>
                                         <th scope="col">默认值</th>
@@ -164,6 +175,7 @@
                                         <th scope="col">编辑器类型</th>
                                         <th scope="col">必填</th>
                                         <th scope="col">只读</th>
+                                        <th scope="col">备注</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -190,6 +202,9 @@
                                         </template>
                                         <td>
                                             {{ property.name }}
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" v-bind:value="property.displayName" />
                                         </td>
                                         <td>{{ property.dataType }}</td>
                                         <td>{{ property.maxLength }}</td>
@@ -230,6 +245,9 @@
                                                 <input class="form-check-input" type="checkbox"
                                                        v-model="property.readonly">
                                             </div>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" v-bind:value="property.remark" />
                                         </td>
                                     </tr>
                                 </tbody>
@@ -336,7 +354,7 @@
                                     <input type="checkbox" class="form-check-input" onchange="checkAll(this)" />
                                 </th>
                                 <template v-for="prop in currentEntityType.propertys">
-                                    <th scope="col">{{ prop.name }}</th>
+                                    <th scope="col">{{ prop.displayName }}[{{ prop.name }}]</th>
                                 </template>
                             </tr>
                         </thead>

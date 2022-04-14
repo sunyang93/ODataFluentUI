@@ -15,8 +15,9 @@ let entityVm = new Vue({
 let metadata = {_xml: null, _json: null};
 
 // ODataApi地址
-//const defaultOdataApiUrl = 'http://localhost:5201/odata';
-const defaultOdataApiUrl="https://services.odata.org/V4/Northwind/Northwind.svc";
+const defaultOdataApiUrl = 'http://localhost:5201/odata';
+//const defaultOdataApiUrl = "https://services.odata.org/V4/Northwind/Northwind.svc";
+document.getElementById('odataUri').value = defaultOdataApiUrl;
 const defaultOdataApiMetadataUrl = `${defaultOdataApiUrl}/$metadata`;
 document.getElementById('odataXmlMetadataA').setAttribute('href', defaultOdataApiMetadataUrl);
 
@@ -483,7 +484,10 @@ function generateEditorConfig(odataSchemas, printLog = true) {
     for (let odataSchema of odataSchemas) {
         let configs = odataSchema.entityTypes;
         for (let config of configs) {
+            config.displayName = config.name;
+            config.remark = '';
             for (let property of config.propertys) {
+                property.displayName = property.name;
                 property.editor = 'input';
                 if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(property.dataType)) {
                     property.editorType = 'number';
@@ -518,6 +522,7 @@ function generateEditorConfig(odataSchemas, printLog = true) {
                 else {
                     property.readonly = false;
                 }
+                property.remark = '';
             };
         };
     }
