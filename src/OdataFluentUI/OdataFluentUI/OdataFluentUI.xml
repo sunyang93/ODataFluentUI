@@ -4,11 +4,5 @@
         <name>OdataFluentUI</name>
     </assembly>
     <members>
-        <member name="M:OdataFluentUI.Controllers.MaterialController.GetAllMaterials">
-            <summary>
-            测试一下
-            </summary>
-            <returns></returns>
-        </member>
     </members>
 </doc>
