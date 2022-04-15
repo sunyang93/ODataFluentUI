@@ -5,6 +5,7 @@
     <title></title>
     <link href="../css/site.css" rel="stylesheet" />
     <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../lib/handsontable/dist/handsontable.css" rel="stylesheet" />
 </head>
 <body>
     <!--<div class="bg"></div>-->
@@ -361,7 +362,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="bootstraptableDiv" class="table-responsive">
+                <div id="bootstraptableDiv" class="table-responsive" style="display:none">
                     <table class="table table-sm table-striped table-hover table-borderless table-light caption-top">
                         <caption>EntitySet</caption>
                         <thead>
@@ -386,6 +387,11 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div id="handsontableDiv" class="table-responsive">
+                    <div id="handsontableContainer">
+
+                    </div>
                 </div>
                 <!-- offcanvas -->
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -443,7 +449,12 @@
 
     <script src="../lib/vue/dist/vue.js"></script>
 
+    <script src="../lib/handsontable/dist/handsontable.full.min.js"></script>
+    <script src="../lib/handsontable/dist/languages/zh-CN.js"></script>
+
     <script src="../lib/odatajs/odatajs-4.0.0.js"></script>
+
+    <script src="../js/page.js"></script>
 
     <script src="../js/odata.js"></script>
 
