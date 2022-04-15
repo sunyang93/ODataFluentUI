@@ -1,4 +1,4 @@
-WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<WarehouseContext>(options =>
@@ -11,14 +11,18 @@ builder.Services.AddControllers()
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options => {
+    string basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
+    options.IncludeXmlComments(Path.Combine(basePath, "OdataFluentUI.xml"), true);
+    options.IncludeXmlComments(Path.Combine(basePath, "OdataFluentUI.Data.xml"), true); 
+});
 
 builder.Services.AddHttpLogging(options =>
 {
     options.LoggingFields = Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.All;
 });
 
-WebApplication? app = builder.Build();
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

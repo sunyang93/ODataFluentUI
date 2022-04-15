@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OdataFluentUI.Data</name>
+    </assembly>
+    <members>
+        <member name="P:OdataFluentUI.Data.BaseEntity.IsAvailable">
+            <summary>
+            可用状态
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.BaseEntity.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.BaseEntity.UpdateTime">
+            <summary>
+            最后更新时间
+            </summary>
+        </member>
+        <member name="T:OdataFluentUI.Data.CargoSpace">
+            <summary>
+            货位
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.CargoSpace.CargoSpaceId">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.CargoSpace.CargoSpaceCode">
+            <summary>
+            货位编码
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.CargoSpace.MaxAvailableSpace">
+            <summary>
+            最大可用空间
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.CargoSpace.StorageRackId">
+            <summary>
+            货架Id
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.CargoSpace.StorageRack">
+            <summary>
+            货架
+            </summary>
+        </member>
+        <member name="T:OdataFluentUI.Data.Inventory">
+            <summary>
+            库存
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Inventory.MaterialId">
+            <summary>
+            物料Id
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Inventory.Material">
+            <summary>
+            物料
+            </summary>       
+        </member>
+        <member name="P:OdataFluentUI.Data.Inventory.Batch">
+            <summary>
+            批次
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Inventory.Number">
+            <summary>
+            库存数量
+            </summary>
+        </member>
+        <member name="T:OdataFluentUI.Data.Material">
+            <summary>
+            物料
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Material.MaterialId">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Material.MaterialCode">
+            <summary>
+            物料编码
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Material.MaterialName">
+            <summary>
+            物料名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Material.MaterialSpecification">
+            <summary>
+            物料规格
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Material.MaterialModel">
+            <summary>
+            物料型号
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Material.MaterialClassification">
+            <summary>
+            物料分类
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Material.Unit">
+            <summary>
+            计量单位
+            </summary>
+        </member>
+        <member name="T:OdataFluentUI.Data.MaterialClassification">
+            <summary>
+            物料分类
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.MaterialClassification.Raw">
+            <summary>
+            原料
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.MaterialClassification.Accessories">
+            <summary>
+            辅料
+            </summary>
+        </member>
+        <member name="T:OdataFluentUI.Data.Unit">
+            <summary>
+            计量单位
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Unit.KG">
+            <summary>
+            千克
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Unit.M">
+            <summary>
+            米
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Unit.PKG">
+            <summary>
+            包
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Unit.PCS">
+            <summary>
+            个
+            </summary>
+        </member>
+        <member name="T:OdataFluentUI.Data.StorageRack">
+            <summary>
+            货架
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.StorageRack.StorageRackId">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.StorageRack.StorageRackName">
+            <summary>
+            货架名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.StorageRack.StorageRackCode">
+            <summary>
+            货架编码
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.StorageRack.StorageRackSpecification">
+            <summary>
+            货架规格
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.StorageRack.StorageRackModel">
+            <summary>
+            货架型号
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.StorageRack.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.StorageRack.CargoSpaces">
+            <summary>
+            货架的所有货位
+            </summary>
+        </member>
+        <member name="M:OdataFluentUI.Data.WarehouseContext.GenerateMaterials">
+            <summary>
+            生成种子数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OdataFluentUI.Data.WarehouseContext.GenerateStorageRacks">
+            <summary>
+            生成种子数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OdataFluentUI.Data.WarehouseContext.GenerateSuperEntitys">
+            <summary>
+            生成种子数据
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
