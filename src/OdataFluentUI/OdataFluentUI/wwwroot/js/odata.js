@@ -16,11 +16,10 @@ let metadata = {_xml: null, _json: null};
 
 // ODataApi地址
 const defaultOdataApiUrl = 'http://localhost:5201/odata';
-//const defaultOdataApiUrl = "https://services.odata.org/V4/Northwind/Northwind.svc";
 document.getElementById('odataUri').value = defaultOdataApiUrl;
 const defaultOdataApiMetadataUrl = `${defaultOdataApiUrl}/$metadata`;
-document.getElementById('odataXmlMetadataA').setAttribute('href', defaultOdataApiMetadataUrl);
-
+document.getElementById('odataMetadataXML').setAttribute('href', defaultOdataApiMetadataUrl);
+document.getElementById('odataMetadataJSON').setAttribute('href', `${defaultOdataApiMetadataUrl}?$format=json`);
 (function () {
     searchOdata();
 })();

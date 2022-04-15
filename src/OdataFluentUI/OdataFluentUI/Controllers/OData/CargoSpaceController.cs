@@ -33,14 +33,14 @@ public class CargoSpaceController : ODataController
     }
 
     [EnableQuery]
-    [HttpGet("CargoSpace")]
+    [HttpGet("CargoSpaces")]
     public IActionResult GetAllCargoSpaces()
     {
         return Ok(_warehouseContext.CargoSpaces);
     }  
 
     [EnableQuery]
-    [HttpGet("CargoSpace({key})")]
+    [HttpGet("CargoSpaces({key})")]
     public IActionResult GetOneCargoSpace(int key)
     {
         IQueryable<CargoSpace>? cargoSpaces = _warehouseContext.CargoSpaces.Where(p => p.CargoSpaceId == key);
@@ -54,7 +54,7 @@ public class CargoSpaceController : ODataController
     }
 
     [EnableQuery]
-    [HttpGet("CargoSpace({key})/StorageRack")]
+    [HttpGet("CargoSpaces({key})/StorageRack")]
     public IActionResult GetOneCargoSpaceStorageRack(int key)
     {
         CargoSpace? cargoSpaces = _warehouseContext.CargoSpaces.Include(d => d.StorageRack).FirstOrDefault(p => p.CargoSpaceId == key);
@@ -67,7 +67,7 @@ public class CargoSpaceController : ODataController
         return Ok(cargoSpaces.StorageRack);
     }
 
-    [HttpPost("CargoSpace")]
+    [HttpPost("CargoSpaces")]
     public async Task<IActionResult> CreateCargoSpace([FromBody] CargoSpace cargoSpace)
     {
         if (!ModelState.IsValid)
@@ -81,7 +81,7 @@ public class CargoSpaceController : ODataController
         return CreatedAtAction("GetOneCargoSpace", new { key = cargoSpace.CargoSpaceId }, cargoSpace);
     }
 
-    [HttpPatch("CargoSpace({key})")]
+    [HttpPatch("CargoSpaces({key})")]
     public async Task<IActionResult> UpdateCargoSpacePartially(int key,
         [FromBody] Delta<CargoSpace> patch)
     {
@@ -105,7 +105,7 @@ public class CargoSpaceController : ODataController
         return NoContent();
     }
 
-    [HttpDelete("CargoSpace({key})")]
+    [HttpDelete("CargoSpaces({key})")]
     public async Task<IActionResult> DeleteCargoSpace(int key)
     {
         CargoSpace? currentCargoSpace = await _warehouseContext.CargoSpaces

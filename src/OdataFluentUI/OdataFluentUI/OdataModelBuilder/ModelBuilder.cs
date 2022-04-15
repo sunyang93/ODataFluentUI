@@ -8,10 +8,10 @@ public class ModelBuilder
         builder.Namespace = "Warehouse";
         builder.ContainerName = "WarehouseContainer";
 
-        builder.EntitySet<Material>(nameof(Material));
-        builder.EntitySet<Inventory>(nameof(Inventory));
-        builder.EntitySet<StorageRack>(nameof(StorageRack));
-        builder.EntitySet<CargoSpace>(nameof(CargoSpace));
+        builder.EntitySet<Material>("Materials");
+        builder.EntitySet<Inventory>("Inventories");
+        builder.EntitySet<StorageRack>("StorageRacks");
+        builder.EntitySet<CargoSpace>("CargoSpaces");
 
         builder.EntitySet<SuperEntity>("SuperEntities");
 

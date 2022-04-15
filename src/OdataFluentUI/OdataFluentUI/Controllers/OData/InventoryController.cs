@@ -30,7 +30,7 @@ public class InventoryController : ODataController
     }
 
     [EnableQuery]
-    [HttpGet("Inventory")]
+    [HttpGet("Inventories")]
     public IActionResult GetAllInventorys()
     {
         return Ok(_warehouseContext.Inventorys);
@@ -50,7 +50,7 @@ public class InventoryController : ODataController
     }
 
     [EnableQuery]
-    [HttpGet("Inventory(Batch={key1},MaterialId={key2})/Material")]
+    [HttpGet("Inventories(Batch={key1},MaterialId={key2})/Material")]
     public IActionResult GetOneInventoryMaterial(string key1, int key2)
     {
         Inventory? inventory = _warehouseContext.Inventorys.Include(d => d.Material).FirstOrDefault(p => p.MaterialId == key2 && p.Batch == key1);
@@ -62,7 +62,7 @@ public class InventoryController : ODataController
         return Ok(inventory.Material);
     }
 
-    [HttpPost("Inventory")]
+    [HttpPost("Inventories")]
     public async Task<IActionResult> CreateInventory([FromBody] Inventory Inventory)
     {
         if (!ModelState.IsValid)
@@ -76,7 +76,7 @@ public class InventoryController : ODataController
         return CreatedAtAction("GetOneInventory", new { key1 = Inventory.MaterialId, key2 = Inventory.Batch }, Inventory);
     }
 
-    [HttpPatch("Inventory(Batch={key1},MaterialId={key2})")]
+    [HttpPatch("Inventories(Batch={key1},MaterialId={key2})")]
     public async Task<IActionResult> UpdateInventoryPartially(string key1, int key2,
         [FromBody] Delta<Inventory> patch)
     {
@@ -100,7 +100,7 @@ public class InventoryController : ODataController
         return NoContent();
     }
 
-    [HttpDelete("Inventory(Batch={key1},MaterialId={key2})")]
+    [HttpDelete("Inventories(Batch={key1},MaterialId={key2})")]
     public async Task<IActionResult> DeleteInventory(string key1, int key2)
     {
         Inventory? currentInventory = await _warehouseContext.Inventorys

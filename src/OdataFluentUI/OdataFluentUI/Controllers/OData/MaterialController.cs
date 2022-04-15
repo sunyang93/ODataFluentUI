@@ -11,14 +11,14 @@ public class MaterialController : ODataController
     }
 
     [EnableQuery]
-    [HttpGet("Material")]
+    [HttpGet("Materials")]
     public IActionResult GetAllMaterials()
     {
         return Ok(_warehouseContext.Materials);
     }
 
     [EnableQuery]
-    [HttpGet("Material({key})")]
+    [HttpGet("Materials({key})")]
     public IActionResult GetOneMaterial(int key)
     {
         IQueryable<Material>? Materials = _warehouseContext.Materials.Where(p => p.MaterialId == key);
@@ -31,7 +31,7 @@ public class MaterialController : ODataController
         return Ok(SingleResult.Create(Materials));
     }
 
-    [HttpPost("Material")]
+    [HttpPost("Materials")]
     public async Task<IActionResult> CreateMaterial([FromBody]Material Material)
     {
         if (!ModelState.IsValid)
@@ -45,7 +45,7 @@ public class MaterialController : ODataController
         return CreatedAtAction("GetOneMaterial", new { key = Material.MaterialId }, Material);
     }
 
-    [HttpPatch("Material({key})")]
+    [HttpPatch("Materials({key})")]
     public async Task<IActionResult> UpdateMaterialPartially(int key,
         [FromBody]Delta<Material> patch)
     {
@@ -69,7 +69,7 @@ public class MaterialController : ODataController
         return NoContent();
     }
 
-    [HttpDelete("Material({key})")]
+    [HttpDelete("Materials({key})")]
     public async Task<IActionResult> DeleteMaterial(int key)
     {
         Material? currentMaterial = await _warehouseContext.Materials

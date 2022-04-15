@@ -11,14 +11,14 @@ public class StorageRackController : ODataController
     }
 
     [EnableQuery]
-    [HttpGet("StorageRack")]
+    [HttpGet("StorageRacks")]
     public IActionResult GetAllStorageRacks()
     {
         return Ok(_warehouseContext.StorageRacks);
     }
 
     [EnableQuery]
-    [HttpGet("StorageRack({key})")]
+    [HttpGet("StorageRacks({key})")]
     public IActionResult GetOneStorageRack(int key)
     {
         IQueryable<StorageRack>? storageRacks = _warehouseContext.StorageRacks.Include(d=>d.CargoSpaces).Where(p => p.StorageRackId == key);
@@ -31,7 +31,7 @@ public class StorageRackController : ODataController
         return Ok(SingleResult.Create(storageRacks));
     }
 
-    [HttpPost("StorageRack")]
+    [HttpPost("StorageRacks")]
     public async Task<IActionResult> CreateStorageRack([FromBody] StorageRack storageRack)
     {
         if (!ModelState.IsValid)
@@ -45,7 +45,7 @@ public class StorageRackController : ODataController
         return CreatedAtAction("GetOneStorageRack", new { key = storageRack.StorageRackId }, storageRack);
     }
 
-    [HttpPatch("StorageRack({key})")]
+    [HttpPatch("StorageRacks({key})")]
     public async Task<IActionResult> UpdateStorageRackPartially(int key,
         [FromBody] Delta<StorageRack> patch)
     {
@@ -69,7 +69,7 @@ public class StorageRackController : ODataController
         return NoContent();
     }
 
-    [HttpDelete("StorageRack({key})")]
+    [HttpDelete("StorageRacks({key})")]
     public async Task<IActionResult> DeleteStorageRack(int key)
     {
         StorageRack? currentStorageRack = await _warehouseContext.StorageRacks
