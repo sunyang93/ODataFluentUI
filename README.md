@@ -7,7 +7,7 @@
 ## 2 目录
 
 ## 3 REST介绍
-REST是**RE**presentational **S**tate **T**ransfer`表述性状态转移` 的首字母缩写。它是**分布式超媒体系统的**架构风格，最初由Roy Fielding在2000年的着名[论文中提出](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)。
+REST是**RE**presentational **S**tate **T**ransfer`表述性状态转移` 的首字母缩写。它是**分布式超媒体系统的**架构风格，最初由Roy Fielding在2000年的着名[论文](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)中提出。
 
 ### 3.1 REST的指导原则
 1.  **客户端 - 服务器** - 通过将用户接口问题与数据存储问题分开，我们通过简化服务器组件来提高跨多个平台的用户接口的可移植性并提高可伸缩性。
