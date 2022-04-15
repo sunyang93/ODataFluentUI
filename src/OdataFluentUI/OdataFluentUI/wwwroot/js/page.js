@@ -7,6 +7,10 @@ let entityVm = new Vue({
         entityTypes: [],
         currentEntityType: {},
         currentEntitySet: [],
+        handsontable: {
+            colHeaders: [],
+            columns:[],
+        },
         readonlyProps: ['CreateTime', 'UpdateTime'] // Entity只读属性设置
     }
 });
@@ -24,20 +28,20 @@ document.getElementById('odataMetadataJSON').setAttribute('href', `${defaultOdat
 // handsontable
 let container = document.querySelector('#handsontableContainer');
 let hot = new Handsontable(container, {
-    data: [{ a: 1, b: 2, c: 3,d:4 }],
+    data: [],
     language: 'zh-CN',
     height: 'auto',
     width: 'auto',
     manualRowResize: true,
     className: 'htLeft htMiddle',
-    colHeaders: ['a','b','c'],
+    colHeaders: entityVm._data.handsontable.colHeaders,
     dropdownMenu: true,
     hiddenColumns: {
         indicators: true
     },
     fixedColumnsLeft: 1,
     search: true,
-    columns: ['a', 'b', 'c'],
+    columns: entityVm._data.handsontable.columns,
     contextMenu: true,
     multiColumnSorting: true,
     filters: true,
@@ -121,6 +125,43 @@ function onEntityTypeChange(e) {
         }
         else {
             entityVm._data.currentEntityType = entityType;
+            // handsontable
+            entityVm._data.handsontable.colHeaders = [];
+            columns: entityVm._data.handsontable.columns = [];
+            for (let prop of entityVm._data.currentEntityType.propertys) {
+                entityVm._data.handsontable.colHeaders.push(`${prop.displayName}[${prop.name}]`);
+                let column = { data: prop.name };
+                if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(prop.dataType)) {
+                    column.type = 'numeric';
+                }
+                else if (prop.dataType === 'Edm.Date') {
+                    column.type = 'date';
+                    column.dateFormat = 'YYYY-MM-DD';
+                }
+                else if (prop.dataType === 'Edm.DateTimeOffset') {
+                    column.type = 'time';
+                }
+                else if (prop.dataType === 'Edm.Boolean') {
+                    column.type = 'checkbox';
+                }
+                else {
+                    let enumType = metadata._json.find(d => d.name === document.getElementById('schemas').value).enumTypes.find(d => d.name === prop.name);
+                    if (enumType != undefined) {
+                        column.type = 'dropdown';
+                        column.source = [];
+                        enumType.enums.forEach(function (enumItem) {
+                            column.source.push(enumItem.name);
+                        })
+                    } else {
+                        column.type = 'text';
+                    }
+                }
+                entityVm._data.handsontable.columns.push(column);
+            }
+            hot.updateSettings({
+                colHeaders: entityVm._data.handsontable.colHeaders,
+                columns: entityVm._data.handsontable.columns
+            });
         }
         queryEntityDataset();
     }
@@ -175,6 +216,8 @@ function queryEntityDataset() {
             let count = data['@odata.count'];
             document.getElementById("totalCountSpan").innerHTML = count;
             entityVm._data.currentEntitySet = data['value'];
+            // handsontable
+            hot.updateData(entityVm._data.currentEntitySet);
         },
         function (err) {
             alert("Something went wrong");

@@ -8,7 +8,13 @@
             for (let prop of entityType.propertys) {
                 var _prop = props.find(d => d.toUpperCase() === prop.name.toUpperCase())
                 if (_prop != undefined) {
-                    prop.displayName = schemaValue.properties[_prop].description;
+                    if (schemaValue.properties[_prop].hasOwnProperty('$ref')) {
+                        let pathValues = schemaValue.properties[_prop]['$ref'].split('/');
+                        let entityName = pathValues[pathValues.length - 1];
+                        prop.displayName = openApiDocument.components.schemas[entityName].description;
+                    } else {
+                        prop.displayName = schemaValue.properties[_prop].description;
+                    }
                 }
             }
         }
