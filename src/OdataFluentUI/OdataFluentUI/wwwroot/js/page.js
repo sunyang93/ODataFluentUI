@@ -330,10 +330,10 @@ function addNewOrEditOldData() {
         if (canPostProp !== undefined) {
             let prop = {};
             if (['Edm.Decimal', 'Edm.Double'].includes(entityVm._data.currentEntityType.propertys.find(d => d.name === propId).dataType)) {
-                prop[propId] = parseFloat(propValue);
+                prop[propId] = Number.parseFloat(propValue);
             }
             else if (['Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single'].includes(entityVm._data.currentEntityType.propertys.find(d => d.name === propId).dataType)) {
-                prop[propId] = parseInt(propValue);
+                prop[propId] = Number.parseInt(propValue);
             }
             else {
                 prop[propId] = propValue;

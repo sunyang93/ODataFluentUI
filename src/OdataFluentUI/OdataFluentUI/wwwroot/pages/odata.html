@@ -290,7 +290,7 @@
                                                            v-bind:disabled="property.readonly?'disabled':false"
                                                            v-bind:id="property.name">
                                                     <label class="form-check-label" v-bind:for="property.name">
-                                                        {{ property.name }}
+                                                        {{ property.displayName }}[{{ property.name }}]
                                                         <template v-if="property.required===true">
                                                             <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
                                                                 <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
@@ -302,7 +302,7 @@
                                             <template v-else-if="property.editorType==='datetime'">
                                                 <div class="mb-3">
                                                     <label class="form-label">
-                                                        {{ property.name }}
+                                                        {{ property.displayName }}[{{ property.name }}]
                                                         <template v-if="property.required===true">
                                                             <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
                                                                 <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
@@ -318,7 +318,7 @@
                                             <template v-else>
                                                 <div class="mb-3">
                                                     <label class="form-label">
-                                                        {{ property.name }}
+                                                        {{ property.displayName }}[{{ property.name }}]
                                                         <template v-if="property.required===true">
                                                             <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
                                                                 <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
@@ -335,7 +335,7 @@
                                         <template v-else-if="property.editor==='select'">
                                             <div class="mb-3">
                                                 <label class="form-label">
-                                                    {{ property.name }}
+                                                    {{ property.displayName }}[{{ property.name }}]
                                                     <template v-if="property.required===true">
                                                         <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
                                                             <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
@@ -362,7 +362,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="bootstraptableDiv" class="table-responsive" style="display:none">
+                <div id="bootstraptableDiv" class="table-responsive">
                     <table class="table table-sm table-striped table-hover table-borderless table-light caption-top">
                         <caption>EntitySet</caption>
                         <thead>
