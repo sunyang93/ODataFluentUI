@@ -137,8 +137,8 @@
                         </button>
                     </div>
                     <div class="input-group">
-                        <span class="input-group-text">EntitySet Url</span>
-                        <input id="odataEntityUri" type="url" class="form-control" placeholder="Entity Dataset Url">
+                        <span class="input-group-text">EntitySet Uri</span>
+                        <input id="odataEntityUri" type="url" class="form-control" placeholder="Entity Dataset Uri">
                     </div>
                     <div class="row g-1">
                         <div class="col">
@@ -155,7 +155,7 @@
                         </div>
                         <div class="col">
                             <div class="form-floating">
-                                <textarea class="form-control" id="orderByOptions" placeholder="OrderBy options">CreateTime desc,UpdateTime desc</textarea>
+                                <textarea class="form-control" id="orderByOptions" placeholder="OrderBy options">CreateTime desc</textarea>
                                 <label for="orderByOptions">OrderBy</label>
                             </div>
                         </div>
@@ -362,7 +362,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="bootstraptableDiv" class="table-responsive">
+                <div id="bootstraptableDiv" class="table-responsive" style="display:none">
                     <table class="table table-sm table-striped table-hover table-borderless table-light caption-top">
                         <caption>EntitySet</caption>
                         <thead>

@@ -1,4 +1,6 @@
-﻿function analysisOpenApiDocument(openApiDocument, printLog = true) {
+﻿'use strict';
+
+function analysisOpenApiDocument(openApiDocument, printLog = true) {
     for (let schema in openApiDocument.components.schemas) {
         let schemaValue = openApiDocument.components.schemas[schema];
         let entityType = entityVm._data.entityTypes.find(d => d.name === schema);

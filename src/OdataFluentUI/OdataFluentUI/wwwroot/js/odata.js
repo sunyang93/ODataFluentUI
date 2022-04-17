@@ -1,4 +1,6 @@
-﻿// 解析OData Metadata元数据 XML->JSON
+﻿'use strict';
+
+// 解析OData Metadata元数据 XML->JSON
 function mapperOdataMetadata(odataXml, printLog = true) {
     let odataXmlDocument = odataXml;
     let odataSchemas = [];

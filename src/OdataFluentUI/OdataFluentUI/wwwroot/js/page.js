@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-let entityVm = new Vue({
+const entityVm = new Vue({
     el: '#tableDiv',
     data: {
         schemaNamespaces: [],
@@ -78,30 +78,32 @@ function searchOdata() {
 };
 
 // 查询OData Metadata元数据
-async function queryOdataMetadata() {
+function queryOdataMetadata() {
+    entityVm._data.entityTypes = [];
+    entityVm._data.currentEntityType = {};
+    entityVm._data.currentEntitySet = [];
+
     let uri = `${document.getElementById('odataUri').value}/$metadata`;
     let request = new Request(uri, {
         method: "GET"
     });
-    let result = await fetch(request);
-    if (result.ok) {
-        entityVm._data.entityTypes = [];
-        entityVm._data.currentEntityType = {};
-        entityVm._data.currentEntitySet = [];
-        var data = await result.text();
-        metadata._xml = (new DOMParser()).parseFromString(data, 'text/xml');
-        metadata._json = mapperOdataMetadata(metadata._xml);
-        generateEditorConfig(metadata._json);
-        for (let schema of metadata._json) {
-            entityVm._data.schemaNamespaces.push(schema.name);
-        }
-        entityVm._data.entityTypes = metadata._json[0].entityTypes;
+    fetch(request)
+        .then(response => response.text())
+        .then(data => {
+            metadata._xml = (new DOMParser()).parseFromString(data, 'text/xml');
+            metadata._json = mapperOdataMetadata(metadata._xml);
+            generateEditorConfig(metadata._json);
+            for (let schema of metadata._json) {
+                entityVm._data.schemaNamespaces.push(schema.name);
+            }
+            entityVm._data.entityTypes = metadata._json[0].entityTypes;
 
-        toastNotice('查询OdataWebApi元数据成功');
-    }
-    else {
-        alert("Something went wrong");
-    }
+            toastNotice('查询OdataWebApi元数据成功');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert("Something went wrong");
+        });
 };
 
 // Toast通知
@@ -139,7 +141,7 @@ function onEntityTypeChange(e) {
                     column.dateFormat = 'YYYY-MM-DD';
                 }
                 else if (prop.dataType === 'Edm.DateTimeOffset') {
-                    column.type = 'time';
+                    column.type = 'date';
                 }
                 else if (prop.dataType === 'Edm.Boolean') {
                     column.type = 'checkbox';
@@ -435,21 +437,22 @@ function checkAll(e) {
 };
 
 // 获取OpenApiDocument JSON文档
-async function searchOpenApi() {
+function searchOpenApi() {
     let uri = document.getElementById('openApiUri').value;
     let request = new Request(uri, {
         method: "GET"
     });
-    let result = await fetch(request);
-    if (result.ok) {
-        var data = await result.json();
-        analysisOpenApiDocument(data);
-        toastNotice('查询OpenApiDocument成功');
-    }
-    else {
-        alert("Something went wrong");
-    }
-}
+    fetch(request)
+        .then(response => response.json())
+        .then(data => {
+            analysisOpenApiDocument(data);
+            toastNotice('查询OpenApiDocument成功');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            alert("Something went wrong");
+        });
+};
 
 
 // 根据解析后的OData Metadata元数据生成Entity配置数据
