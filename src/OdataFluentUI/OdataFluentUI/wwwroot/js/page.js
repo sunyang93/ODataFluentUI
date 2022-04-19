@@ -32,24 +32,136 @@ let hot = new Handsontable(container, {
     language: 'zh-CN',
     height: 'auto',
     width: 'auto',
-    manualRowResize: true,
     className: 'htLeft htMiddle',
     colHeaders: entityVm._data.handsontable.colHeaders,
     dropdownMenu: true,
-    hiddenColumns: {
-        indicators: true
-    },
     fixedColumnsLeft: 1,
-    search: true,
     columns: entityVm._data.handsontable.columns,
     contextMenu: true,
     multiColumnSorting: true,
     filters: true,
     rowHeaders: true,
     manualRowMove: true,
+    manualRowResize: true,
     manualColumnMove: true,
     manualColumnResize: true,
     licenseKey: "non-commercial-and-evaluation"
+});
+
+// 列排序事件
+hot.addHook('afterColumnSort', function (currentSortConfig, destinationSortConfigs) {
+    console.log(currentSortConfig);
+    console.log(destinationSortConfigs);
+    let currentOrderByOptions = document.getElementById('orderByOptions').value;  
+    if (currentOrderByOptions !== '') {
+        let orderByOptions = currentOrderByOptions.split(',');
+        for (let option of orderByOptions) {
+            if (currentSortConfig.length > 0) {
+                let propertyName = entityVm.currentEntityType.propertys[currentSortConfig[0].column].name;
+                let orderByOption = `${propertyName} ${currentSortConfig[0].sortOrder}`;
+                if (option.toLowerCase() === orderByOption.toLowerCase()) {
+                    orderByOptions.splice(orderByOptions.indexOf(option), 1);
+                }
+            }
+            if (destinationSortConfigs.length > 0) {
+                let propertyName = entityVm.currentEntityType.propertys[destinationSortConfigs[0].column].name;
+                let orderByOption = `${propertyName} ${destinationSortConfigs[0].sortOrder}`;
+                orderByOptions.push(orderByOption);
+            }
+        }
+        document.getElementById('orderByOptions').value = orderByOptions.join(',');
+    }
+    else {
+        let propertyName = entityVm.currentEntityType.propertys[destinationSortConfigs[0].column].name;
+        let orderByOption = `${propertyName} ${destinationSortConfigs[0].sortOrder}`;
+        document.getElementById('orderByOptions').value = orderByOption;
+    }
+    queryEntityDataset();
+});
+
+// 列筛选事件
+hot.addHook('afterFilter', function (conditionsStack) {
+    console.log(conditionsStack);
+    let filterOptions = [];
+
+    for (let conditionStack of conditionsStack) {        
+        let property = entityVm.currentEntityType.propertys[conditionStack.column];
+        let propertyName = property.name;
+        let propertyEditorType = property.editorType;
+        for (let condition of conditionStack.conditions) {
+            switch (condition.name) {
+                case 'begins_with': // startsWith
+                    filterOptions.push(`${propertyName} ge ${condition.args[0].toString()}`);
+                    filterOptions.push(`${propertyName} le ${condition.args[1].toString()}`);
+                    break;
+                case 'between':
+                    filterOptions.push(`${propertyName} ge ${condition.args[0].toString()}`);
+                    break;
+                case 'by_value':// in
+                    let values = '';
+                    if (propertyEditorType === 'number')
+                        values = condition.args[0].join(',');
+                    else {
+                        let _args = [];
+                        for (let arg of condition.args[0]) {
+                            _args.push(`\'${arg}\'`);
+                        }
+                        values = _args.join(',');
+                    }
+                    filterOptions.push(`${propertyName} in (${values})`);
+                    break;
+                case 'contains':
+                    filterOptions.push(`contains(${propertyName},'${condition.args[0].toString()}')`);
+                    break;
+                case 'empty': // eq null
+                    filterOptions.push(`${propertyName} eq null`);
+                    break;
+                case 'ends_with': // endsWith
+                    filterOptions.push(`endsWith(${propertyName},'${condition.args[0].toString()}')`);
+                    break;
+                case 'eq':
+                    if (propertyEditorType === 'number')
+                        filterOptions.push(`${propertyName} eq ${condition.args[0].toString()}`);
+                    else
+                        filterOptions.push(`${propertyName} eq '${condition.args[0].toString()}'`);
+                    break;
+                case 'gt':
+                    filterOptions.push(`${propertyName} gt ${condition.args[0].toString()}`);
+                    break;
+                case 'gte': // ge
+                    filterOptions.push(`${propertyName} ge ${condition.args[0].toString()}`);
+                    break;
+                case 'lt':
+                    filterOptions.push(`${propertyName} lt ${condition.args[0].toString()}`);
+                    break;
+                case 'lte': // le
+                    filterOptions.push(`${propertyName} le ${condition.args[0].toString()}`);
+                    break;
+                case 'none':
+                    break;
+                case 'not_between':
+                    break;
+                case 'not_contains':
+                    filterOptions.push(`not contains(${propertyName},'${condition.args[0].toString()}')`);
+                    break;
+                case 'not_empty':// ne null
+                    filterOptions.push(`${propertyName} ne null`);
+                    break;
+                case 'neq': // ne
+                    if (propertyEditorType === 'number')
+                        filterOptions.push(`${propertyName} ne ${condition.args[0].toString()}`);
+                    else
+                        filterOptions.push(`${propertyName} ne '${condition.args[0].toString()}'`);
+                    break;
+                default:
+                    break;
+            }
+        }        
+    }
+    document.getElementById('filterOptions').value = filterOptions.join(' and ');
+    //hot.getPlugin('filters').disablePlugin();
+    queryEntityDataset();
+    //hot.getPlugin('filters').enablePlugin();
 });
 
 (function () {
@@ -59,7 +171,7 @@ let hot = new Handsontable(container, {
 // 移除只读属性
 function removeReadonlyProp(e) {
     let readonlyProp = e.parentElement.firstChild.value;
-    entityVm._data.readonlyProps.splice(entityVm._data.readonlyProps.indexOf(readonlyProp), 1)
+    entityVm._data.readonlyProps.splice(entityVm._data.readonlyProps.indexOf(readonlyProp), 1);
 }
 
 // 添加只读属性
@@ -116,6 +228,7 @@ function toastNotice(toastText) {
 
 // EntityType下拉列表改变事件
 function onEntityTypeChange(e) {
+    ResetQueryOptions();
     let entityName = e.value;
     if (entityName !== '') {
         let namespace = document.getElementById('schemas').value;
@@ -141,7 +254,7 @@ function onEntityTypeChange(e) {
                     column.dateFormat = 'YYYY-MM-DD';
                 }
                 else if (prop.dataType === 'Edm.DateTimeOffset') {
-                    column.type = 'date';
+                    column.type = 'time';
                 }
                 else if (prop.dataType === 'Edm.Boolean') {
                     column.type = 'checkbox';
@@ -226,6 +339,15 @@ function queryEntityDataset() {
         }
     );
 };
+
+// 重置查询选项
+function ResetQueryOptions() {
+    document.getElementById("pageOptions").value = 1;
+    document.getElementById("skipOptions").value = 0;
+    document.getElementById('orderByOptions').value = '';
+    document.getElementById('filterOptions').value = '';
+    document.getElementById('selectOptions').value = '';
+}
 
 // 上一页
 function previousPage() {
