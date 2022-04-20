@@ -79,6 +79,19 @@ hot.addHook('afterColumnSort', function (currentSortConfig, destinationSortConfi
     queryEntityDataset();
 });
 
+// 列移动事件
+hot.addHook("afterColumnMove", function (movedColumns, finalIndex, dropIndex, movePossible, orderChanged) {
+    console.log(movedColumns);
+    console.log(finalIndex);
+    console.log(dropIndex);
+    console.log(movePossible);
+    console.log(orderChanged);
+    if (orderChanged) {
+        let duplicatedEntityPropertys = entityVm._data.currentEntityType.propertys.slice();       
+    }
+});
+
+
 // 列筛选事件
 hot.addHook('afterFilter', function (conditionsStack) {
     console.log(conditionsStack);
@@ -91,11 +104,10 @@ hot.addHook('afterFilter', function (conditionsStack) {
         for (let condition of conditionStack.conditions) {
             switch (condition.name) {
                 case 'begins_with': // startsWith
-                    filterOptions.push(`${propertyName} ge ${condition.args[0].toString()}`);
-                    filterOptions.push(`${propertyName} le ${condition.args[1].toString()}`);
+                    filterOptions.push(`startsWith(${propertyName},'${condition.args[0].toString()}')`);
                     break;
                 case 'between':
-                    filterOptions.push(`${propertyName} ge ${condition.args[0].toString()}`);
+                    filterOptions.push(`${propertyName} ge ${condition.args[0].toString()} and ${propertyName} le ${condition.args[1].toString()}`);
                     break;
                 case 'by_value':// in
                     let values = '';
@@ -159,9 +171,7 @@ hot.addHook('afterFilter', function (conditionsStack) {
         }        
     }
     document.getElementById('filterOptions').value = filterOptions.join(' and ');
-    //hot.getPlugin('filters').disablePlugin();
     queryEntityDataset();
-    //hot.getPlugin('filters').enablePlugin();
 });
 
 (function () {
@@ -245,7 +255,7 @@ function onEntityTypeChange(e) {
             columns: entityVm._data.handsontable.columns = [];
             for (let prop of entityVm._data.currentEntityType.propertys) {
                 entityVm._data.handsontable.colHeaders.push(`${prop.displayName}[${prop.name}]`);
-                let column = { data: prop.name };
+                let column = { data: prop.name, filteringCaseSensitive: true};
                 if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(prop.dataType)) {
                     column.type = 'numeric';
                 }
