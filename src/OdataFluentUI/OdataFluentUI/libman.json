@@ -747,6 +747,10 @@
         "dist/ag-grid-community.min.noStyle.js",
         "dist/ag-grid-community.noStyle.js"
       ]
+    },
+    {
+      "library": "sortablejs@1.15.0",
+      "destination": "wwwroot/lib/sortablejs/"
     }
   ]
 }
