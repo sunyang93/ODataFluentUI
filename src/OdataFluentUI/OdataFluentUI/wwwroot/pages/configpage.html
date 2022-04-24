@@ -76,17 +76,17 @@
             <form id="entitySetConfig">
                 <div class="row">
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-primary m-1" title="撤销">
+                        <button type="button" class="btn btn-primary m-1" title="撤销" onclick="undo()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z" />
                             </svg>
                         </button>
-                        <button type="button" class="btn btn-primary m-1" title="重做">
+                        <button type="button" class="btn btn-primary m-1" title="重做" onclick="redo()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-right" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M14.854 4.854a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 4H3.5A2.5 2.5 0 0 0 1 6.5v8a.5.5 0 0 0 1 0v-8A1.5 1.5 0 0 1 3.5 5h9.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4z" />
                             </svg>
                         </button>
-                        <button type="button" class="btn btn-primary m-1" title="重置">
+                        <button type="button" class="btn btn-primary m-1" title="重置" onclick="reset()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
                                 <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
@@ -121,13 +121,13 @@
                     <div class="col-sm">
                         <div class="mb-3">
                             <label class="col-form-label">显示名称</label>
-                            <input type="text" class="form-control" placeholder="displayName" v-model="config.displayName">
+                            <input type="text" class="form-control" placeholder="displayName" v-model="config.displayName" onchange="afterChange()">
                         </div>
                     </div>
                     <div class="col-sm">
                         <div class="mb-3">
                             <label class="col-form-label">描述</label>
-                            <input type="text" class="form-control" placeholder="description" v-model="config.description">
+                            <input type="text" class="form-control" placeholder="description" v-model="config.description" onchange="afterChange()">
                         </div>
                     </div>
                 </div>
@@ -173,7 +173,8 @@
                                 </td>
                                 <td>
                                     <input type="text" class="form-control" placeholder="displayName"
-                                           v-model="property.displayName" />
+                                           v-model="property.displayName" 
+                                           onchange="afterChange()"/>
                                 </td>
                                 <td v-if="property.dataType==='text'">
                                     <span class="badge bg-dark" title="文本">
@@ -204,7 +205,8 @@
                                 <td>
                                     <div class="form-check">
                                         <input class="form-check-input float-none" type="checkbox" placeholder="isVisible"
-                                               v-model="property.isVisible" />
+                                               v-model="property.isVisible" 
+                                               onchange="afterChange()"/>
                                     </div>
                                 </td>
                             </tr>
@@ -223,7 +225,8 @@
                             <div class="modal-body">
                                 <ul id="sortItems" class="list-group">
                                     <li class="list-group-item fs-4" v-for="(property,index) in config.properties">
-                                        <span class="badge bg-primary" style="cursor:grab">
+                                        <input type="hidden" v-bind:value="property.name"/>
+                                        <span class="badge bg-primary" style="cursor: move;">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-move" viewBox="0 0 16 16">
                                                 <path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10zM.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708l-2-2zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8z" />
                                             </svg>
@@ -234,7 +237,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
-                                <button type="button" class="btn btn-primary" onclick="addNewOrEditOldData()">应用排序</button>
+                                <button type="button" class="btn btn-primary" onclick="applySort()">应用排序</button>
                             </div>
                         </div>
                     </div>
@@ -258,7 +261,7 @@
                     properties: [
                         {
                             name: "sgesea",
-                            displayName: "gsfwea",
+                            displayName: "a",
                             dataType: "text",
                             isPKey: true,
                             isFKey: false,
@@ -266,7 +269,7 @@
                         },
                         {
                             name: "gwf",
-                            displayName: "gewebs",
+                            displayName: "b",
                             dataType: "number",
                             isPKey: false,
                             isFKey: true,
@@ -274,7 +277,7 @@
                         },
                         {
                             name: "gwf",
-                            displayName: "gewebs",
+                            displayName: "c",
                             dataType: "date",
                             isPKey: false,
                             isFKey: false,
@@ -285,16 +288,121 @@
             }
         });
 
-        var el = document.getElementById('sortItems');
-        var sortable = Sortable.create(el, {
-            handle: '.badge', // handle's class
-            animation: 150
+        // 原始的配置
+        let originalConfig =
+        {
+            name: "Hello",
+            displayName: "Jack",
+            description: "today is a nice day",
+            properties: [
+                {
+                    name: "sgesea",
+                    displayName: "a",
+                    dataType: "text",
+                    isPKey: true,
+                    isFKey: false,
+                    isVisible: true
+                },
+                {
+                    name: "gwf",
+                    displayName: "b",
+                    dataType: "number",
+                    isPKey: false,
+                    isFKey: true,
+                    isVisible: false
+                },
+                {
+                    name: "gwf",
+                    displayName: "c",
+                    dataType: "date",
+                    isPKey: false,
+                    isFKey: false,
+                    isVisible: false
+                }
+            ]
+        };
+
+        // sortable
+        let el = document.getElementById('sortItems');
+        let sortable = Sortable.create(el, {
+            handle: '.badge',
+            animation: 150,
         });
 
-        function sortTable() {
-            let myModal = new bootstrap.Modal(document.getElementById('sortModal'));
+        // memento
+        let undo_redo = {
+            undoStack: [],
+            currentState: null,
+            redoStack: []
+        };
+
+        // 录入框内容改变事件
+        function afterChange() {
+            let copyConfig = JSON.parse(JSON.stringify(entitySetVm._data.config));
+            undo_redo.currentState = copyConfig;
+            undo_redo.undoStack.unshift(copyConfig);
+            console.log(undo_redo);
+        }
+
+        // 撤销
+        function undo() {
+            if (undo_redo.currentState !== null) {
+                let copyConfig = undo_redo.undoStack.shift();
+                if (copyConfig == undefined) {
+                    console.log('已全部撤销');
+                    undo_redo.currentState = originalConfig;
+                    entitySetVm._data.config = JSON.parse(JSON.stringify(originalConfig));
+                }
+                else {
+                    undo_redo.currentState = copyConfig;
+                    undo_redo.redoStack.unshift(copyConfig);
+                    entitySetVm._data.config = JSON.parse(JSON.stringify(copyConfig));
+                }
+                console.log(undo_redo);
+            }
+        }
+
+        // 重做
+        function redo() {
+            if (undo_redo.currentState !== null) {
+                let copyConfig = undo_redo.redoStack.shift();
+                if (copyConfig == undefined) {
+                    console.log('已全部重做');
+                } else {
+                    undo_redo.currentState = copyConfig;
+                    undo_redo.undoStack.unshift(copyConfig);
+                    entitySetVm._data.config = JSON.parse(JSON.stringify(copyConfig));
+                }
+                console.log(undo_redo);
+            }
+        }
+
+        // 重置
+        function reset() {
+            undo_redo = {
+                undoStack: [],
+                currentState: null,
+                redoStack: []
+            };
+        }
+
+        var myModal = new bootstrap.Modal(document.getElementById('sortModal'));
+
+        // 弹出 排序 Modal
+        function sortTable() {           
             myModal.show();
         }
+
+        // 应用排序
+        function applySort() {
+            let sortItems = el.getElementsByTagName('input');
+            let _properties = [];
+            for (let item of sortItems) {
+                _properties.push(entitySetVm._data.config.properties.find(d => d.name === item.value));
+            }
+            entitySetVm._data.config.properties = _properties;
+            myModal.hide();
+        }       
     </script>
 </body>
 </html>
