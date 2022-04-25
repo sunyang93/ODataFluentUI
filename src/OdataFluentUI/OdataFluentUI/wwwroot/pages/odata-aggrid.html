@@ -473,14 +473,17 @@
                     },
                     buttons: ['reset', 'apply'],
                 }
+            },
+            {
+                field: "isreal", filter: true,
             }
         ];
 
         // specify the data
         const rowData = [
-            { id: 21, make: "Toyota", model: "Celica", price: 35000, birthday:'2000-02-01'},
-            { id: 22, make: "Ford", model: "Mondeo", price: 32000, birthday: '2010-02-01'},
-            { id: 23, make: "Porsche", model: "Boxster", price: 72000, birthday: '2020-12-01'}
+            { id: 21, make: "Toyota", model: "Celica", price: 35000, birthday: '2000-02-01', isreal:true},
+            { id: 22, make: "Ford", model: "Mondeo", price: 32000, birthday: '2010-02-01', isreal: false },
+            { id: 23, make: "Porsche", model: "Boxster", price: 72000, birthday: '2020-12-01', isreal: true }
         ];
 
         // let the grid know which columns and what data to use

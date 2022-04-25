@@ -49,6 +49,86 @@
             货架
             </summary>
         </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.IsVisible">
+            <summary>
+            是否可见
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.IsPKey">
+            <summary>
+            是否为主键
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.IsFKey">
+            <summary>
+            是否为外键
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.CanSort">
+            <summary>
+            是否可以排序
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.CanFilter">
+            <summary>
+            是否可以筛选
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.IsVisible">
+            <summary>
+            是否可见
+            </summary>
+        </member>
+        <member name="T:OdataFluentUI.Data.Models.ConfigDataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.ConfigDataType.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.ConfigDataType.Number">
+            <summary>
+            数字
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.ConfigDataType.Date">
+            <summary>
+            日期
+            </summary>
+        </member>
         <member name="T:OdataFluentUI.Data.Inventory">
             <summary>
             库存

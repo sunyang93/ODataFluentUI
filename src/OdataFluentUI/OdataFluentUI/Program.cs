@@ -22,6 +22,8 @@ builder.Services.AddHttpLogging(options =>
     options.LoggingFields = Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.All;
 });
 
+builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
+
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.

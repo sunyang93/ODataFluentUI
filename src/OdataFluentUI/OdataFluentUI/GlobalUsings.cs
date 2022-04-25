@@ -11,3 +11,6 @@ global using OdataFluentUI.Data;
 
 global using Microsoft.OData.Edm;
 global using Microsoft.OData.ModelBuilder;
+
+global using OdataFluentUI.Core.Infrastructure;
+global using OdataFluentUI.Data.Infrastructure;
