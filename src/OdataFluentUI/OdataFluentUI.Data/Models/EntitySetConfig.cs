@@ -38,6 +38,12 @@ namespace OdataFluentUI.Data.Models
         public string DisplayName { get; set; }
 
         /// <summary>
+        /// EntityType
+        /// </summary>
+        [Required]
+        public string EntityType { get; set; }
+
+        /// <summary>
         /// 描述
         /// </summary>
         public string Description { get; set; }

@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>配置页</title>
+    <link href="../css/site.css" rel="stylesheet" />
+    <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <link href="../css/sidebars.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-success">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">OdataFluentUI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="odata.html">
+                                Odata
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="odata.html">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                                    <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                                </svg>
+                                配置
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main">
+        <div class="container-fluid mt-2">
+            <div class="row">
+                <div class="col-xl d-flex">
+                    <div class="input-group">
+                        <span class="input-group-text">OData服务元数据链接地址</span>
+                        <input id="odataUri" type="url" class="form-control" placeholder="ODataService MetadataUri">
+                    </div>
+                    <a id="odataMetadataXML" class="btn btn-primary" href="#" target="_blank" title="OData元数据(XML)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-xml" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992 1.274-2.007Zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999h.706Zm4.71-.674h1.696v.674H8.4V11.85h.791v3.325Z" />
+                        </svg>
+                    </a>
+                    <div class="vr"></div>
+                    <a id="odataMetadataJSON" class="btn btn-primary" href="#" target="_blank" title="OData元数据(JSON)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-json" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14 4.5V11h-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM4.151 15.29a1.176 1.176 0 0 1-.111-.449h.764a.578.578 0 0 0 .255.384c.07.049.154.087.25.114.095.028.201.041.319.041.164 0 .301-.023.413-.07a.559.559 0 0 0 .255-.193.507.507 0 0 0 .084-.29.387.387 0 0 0-.152-.326c-.101-.08-.256-.144-.463-.193l-.618-.143a1.72 1.72 0 0 1-.539-.214 1.001 1.001 0 0 1-.352-.367 1.068 1.068 0 0 1-.123-.524c0-.244.064-.457.19-.639.128-.181.304-.322.528-.422.225-.1.484-.149.777-.149.304 0 .564.05.779.152.217.102.384.239.5.41.12.17.186.359.2.566h-.75a.56.56 0 0 0-.12-.258.624.624 0 0 0-.246-.181.923.923 0 0 0-.37-.068c-.216 0-.387.05-.512.152a.472.472 0 0 0-.185.384c0 .121.048.22.144.3a.97.97 0 0 0 .404.175l.621.143c.217.05.406.12.566.211a1 1 0 0 1 .375.358c.09.148.135.335.135.56 0 .247-.063.466-.188.656a1.216 1.216 0 0 1-.539.439c-.234.105-.52.158-.858.158-.254 0-.476-.03-.665-.09a1.404 1.404 0 0 1-.478-.252 1.13 1.13 0 0 1-.29-.375Zm-3.104-.033a1.32 1.32 0 0 1-.082-.466h.764a.576.576 0 0 0 .074.27.499.499 0 0 0 .454.246c.19 0 .33-.055.422-.164.091-.11.137-.265.137-.466v-2.745h.791v2.725c0 .44-.119.774-.357 1.005-.237.23-.565.345-.985.345a1.59 1.59 0 0 1-.568-.094 1.145 1.145 0 0 1-.407-.266 1.14 1.14 0 0 1-.243-.39Zm9.091-1.585v.522c0 .256-.039.47-.117.641a.862.862 0 0 1-.322.387.877.877 0 0 1-.47.126.883.883 0 0 1-.47-.126.87.87 0 0 1-.32-.387 1.55 1.55 0 0 1-.117-.641v-.522c0-.258.039-.471.117-.641a.87.87 0 0 1 .32-.387.868.868 0 0 1 .47-.129c.177 0 .333.043.47.129a.862.862 0 0 1 .322.387c.078.17.117.383.117.641Zm.803.519v-.513c0-.377-.069-.701-.205-.973a1.46 1.46 0 0 0-.59-.63c-.253-.146-.559-.22-.916-.22-.356 0-.662.074-.92.22a1.441 1.441 0 0 0-.589.628c-.137.271-.205.596-.205.975v.513c0 .375.068.699.205.973.137.271.333.48.589.626.258.145.564.217.92.217.357 0 .663-.072.917-.217.256-.146.452-.355.589-.626.136-.274.205-.598.205-.973Zm1.29-.935v2.675h-.746v-3.999h.662l1.752 2.66h.032v-2.66h.75v4h-.656l-1.761-2.676h-.032Z" />
+                        </svg>
+                    </a>
+                    <div class="vr"></div>
+                    <button class="btn btn-primary" title="解析元数据配置" onclick="queryOdataMetadata()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-square" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                            <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div id="configs" class="row">
+                <div class="col-auto">
+                    <div class="flex-shrink-0 p-3 bg-white">
+                        <a href="#" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                            <span class="fs-5 fw-semibold">OdataMetadata</span>
+                        </a>
+                        <ul class="list-unstyled ps-0">
+                            <li class="mb-1">
+                                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                                    EntityType
+                                </button>
+                                <div class="collapse show" id="home-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li v-for="(entityType,index) in entityTypes">
+                                            <a href="#" class="link-dark rounded">{{entityType.name}}[{{entityType.displayName}}]</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mb-1">
+                                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                                    EnumType
+                                </button>
+                                <div class="collapse show" id="dashboard-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li v-for="(enumType,index) in enumTypes">
+                                            <a href="#" class="link-dark rounded">{{enumType.name}}[{{enumType.displayName}}]</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="mb-1">
+                                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
+                                    EntitySet
+                                </button>
+                                <div class="collapse show" id="orders-collapse">
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li v-for="(entitySet,index) in entitySets">
+                                            <a href="#" class="link-dark rounded">{{entitySet.name}}[{{entitySet.displayName}}]</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-auto">
+
+
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../js/app.js"></script>
+    <script src="../js/odata.js"></script>
+    <script src="../js/openapi.js"></script>
+    <script src="../lib/vue/dist/vue.js"></script>
+    <script src="../lib/sortablejs/Sortable.js"></script>
+    <script>
+        'use strict';
+        document.getElementById("odataUri").value = odataServiceUri;
+        document.getElementById("odataMetadataXML").setAttribute('href', `${odataServiceUri}/$metadata`);
+        document.getElementById("odataMetadataJSON").setAttribute('href', `${odataServiceUri}/$metadata?$format=json`);
+
+        const configVm = new Vue({
+            el: '#configs',
+            data: {
+                entityTypes: [],
+                enumTypes: [],
+                entitySets: [],
+                currentEntityType: {},
+                currentEnumType: {},
+                currentEntitySet: {},
+            }
+        });
+
+        // 查询OData Metadata元数据
+        function queryOdataMetadata() {
+            let uri = `${document.getElementById('odataUri').value}/$metadata`;
+            let request = new Request(uri, {
+                method: "GET"
+            });
+            fetch(request)
+                .then(response => response.text())
+                .then(data => {
+                    let xmlDoc = (new DOMParser()).parseFromString(data, 'text/xml');
+                    let jsonDoc = mapperOdataMetadata(xmlDoc);
+                    generateEditorConfig(jsonDoc);
+                    configVm._data.entityTypes = jsonDoc[0].entityTypes;
+                    configVm._data.enumTypes = jsonDoc[0].enumTypes;
+                    configVm._data.entitySets = jsonDoc[0].entityContainer.entitySets;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert("Something went wrong");
+                });
+        };
+
+        // 根据解析后的OData Metadata元数据生成配置数据
+        function generateEditorConfig(odataSchemas) {
+            for (let odataSchema of odataSchemas) {
+                let entityTypeConfigs = odataSchema.entityTypes;
+                for (let config of entityTypeConfigs) {
+                    config.displayName = config.name;
+                    config.description = '';
+                    for (let property of config.propertys) {
+                        property.displayName = property.name;
+                        property.editor = 'input';
+                        if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(property.dataType)) {
+                            property.editorType = 'number';
+                        }
+                        else if (property.dataType === 'Edm.Date') {
+                            property.editorType = 'date';
+                        }
+                        else if (property.dataType === 'Edm.DateTimeOffset') {
+                            property.editorType = 'datetime';
+                        }
+                        else if (property.dataType === 'Edm.Boolean') {
+                            property.editorType = 'checkbox';
+                        }
+                        else {
+                            let enumType = odataSchema.enumTypes.find(d => d.name === property.dataType.split('.')[1])
+                            if (enumType === undefined) {
+                                property.editorType = 'text';
+                            }
+                            else {
+                                property.editor = 'select';
+                                property.enumValues = enumType.enums;
+                            }
+                        }
+                        if (config.keys.includes(property.name)) {
+                            property.readonly = true;
+                            property.required = false;
+                        }
+                        else {
+                            property.readonly = false;
+                        }
+                        property.description = '';
+                    };
+                };
+                let enumTypeConfigs = odataSchema.enumTypes;
+                for (let config of enumTypeConfigs) {
+                    config.displayName = config.name;
+                    config.description = '';
+                }
+                let entitySetConfigs = odataSchema.entityContainer.entitySets;
+                for (let config of entitySetConfigs) {
+                    config.displayName = config.name;
+                    config.description = '';
+                    config.isVisible = true;
+                    config.properties = [];
+                    let et = JSON.parse(JSON.stringify(entityTypeConfigs.find(d => d.name === config.entityType.split('.')[1])));
+                    let fKeys = [];
+                    if (et.hasOwnProperty("navigationProperty")) {
+                        fKeys = et.navigationProperty.map(d => {
+                            if (d.hasOwnProperty("referentialConstraint"))
+                                d.referentialConstraint.property;
+                        });
+                    }
+                    for (let prop of et.propertys) {
+                        let property = {
+                            name: prop.name,
+                            displayName: prop.displayName,
+                            dataType: ["text", "number", "date"].includes(prop.editorType) ? prop.editorType : "text",
+                            isPKey: et.keys.includes(prop.name),
+                            isFKey: fKeys.includes(prop.name),
+                            canSort: true,
+                            canFilter: true,
+                            isVisible: true
+                        };
+                        config.properties.push(property);
+                    }
+                }
+            }
+            console.log(odataSchemas);
+        };
+    </script>
+</body>
+</html>

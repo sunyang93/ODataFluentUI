@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 // 解析OData Metadata元数据 XML->JSON
-function mapperOdataMetadata(odataXml, printLog = true) {
+function mapperOdataMetadata(odataXml) {
     let odataXmlDocument = odataXml;
     let odataSchemas = [];
     // Schema
@@ -109,9 +109,7 @@ function mapperOdataMetadata(odataXml, printLog = true) {
         }
         odataSchemas.push(odataSchema);
     }
-    if (printLog) {
-        console.log(odataSchemas);
-    };
+    console.log(odataSchemas);
     return odataSchemas;
 };
 
