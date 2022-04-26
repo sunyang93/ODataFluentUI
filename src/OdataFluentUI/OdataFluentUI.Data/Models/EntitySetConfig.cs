@@ -9,9 +9,15 @@ namespace OdataFluentUI.Data.Models
 {
     public class EntitySetConfig
     {
+        /// <summary>
+        /// 主键Id
+        /// </summary>
         [BsonId]
         public ObjectId EntitySetConfigId{get;set;}
 
+        /// <summary>
+        /// 主键Id(冗余字段)
+        /// </summary>
         [BsonIgnore]
         public string Id
         {

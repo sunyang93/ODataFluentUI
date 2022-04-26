@@ -1,6 +1,7 @@
 ﻿namespace OdataFluentUI.Controllers;
 
 [Route("odata")]
+[ApiExplorerSettings(GroupName = "odata")]
 public class InventoryController : ODataController
 {
     private readonly WarehouseContext _warehouseContext;

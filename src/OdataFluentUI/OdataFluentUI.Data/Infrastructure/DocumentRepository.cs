@@ -19,11 +19,11 @@ namespace OdataFluentUI.Data.Infrastructure
             _liteDatabase = liteDatabase;
         }
 
-        public void CreateEntitySetConfig(EntitySetConfig entitySetConfig)
+        public void CreateEntitySetConfigs(List<EntitySetConfig> entitySetConfigs)
         {
             ILiteCollection<EntitySetConfig> dataSet = _liteDatabase.GetCollection<EntitySetConfig>("EntitySetConfigs");
-            dataSet.EnsureIndex(x => x.Name);
-            dataSet.Insert(entitySetConfig);
+            dataSet.EnsureIndex(x => x.Name,true);
+            dataSet.InsertBulk(entitySetConfigs);
         }
 
         public bool DeleteEntitySetConfig(string id)
@@ -37,6 +37,18 @@ namespace OdataFluentUI.Data.Infrastructure
             ILiteCollection<EntitySetConfig> dataSet = _liteDatabase.GetCollection<EntitySetConfig>("EntitySetConfigs");
             EntitySetConfig entitySetConfig = dataSet.FindById(new ObjectId(id));
             return entitySetConfig;
+        }
+
+        public List<EntitySetConfig> GetEntitySetConfigs(List<string> ids)
+        {
+            List<ObjectId> _ids = new List<ObjectId>();
+            ids.ForEach(id =>
+            {
+                _ids.Add(new ObjectId(id));
+            });
+            ILiteCollection<EntitySetConfig> dataSet = _liteDatabase.GetCollection<EntitySetConfig>("EntitySetConfigs");
+            List<EntitySetConfig> entitySetConfigs = dataSet.Query().Where(d=> _ids.Contains(d.EntitySetConfigId)).ToList();
+            return entitySetConfigs;
         }
 
         public bool UpdateEntitySetConfig(EntitySetConfig entitySetConfig)

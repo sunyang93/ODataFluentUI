@@ -4,5 +4,61 @@
         <name>OdataFluentUI</name>
     </assembly>
     <members>
+        <member name="M:OdataFluentUI.Controllers.ConfigController.CreateEntitySetConfigs(System.Collections.Generic.List{OdataFluentUI.ViewModels.EntitySetConfigModel})">
+            <summary>
+            新建EntitySetConfig
+            </summary>
+            <param name="entitySetConfigs">EntitySetConfigs</param>
+            <returns></returns>
+        </member>
+        <member name="M:OdataFluentUI.Controllers.ConfigController.UpdateEntitySetConfig(System.String,OdataFluentUI.ViewModels.EntitySetConfigModel)">
+            <summary>
+            更新EntitySetConfig
+            </summary>
+            <param name="id">id</param>
+            <param name="entitySetConfig">EntitySetConfig</param>
+            <returns></returns>
+        </member>
+        <member name="M:OdataFluentUI.Controllers.ConfigController.GetEntitySetConfig(System.String)">
+            <summary>
+            查询EntitySetConfig
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
+        <member name="M:OdataFluentUI.Controllers.ConfigController.GetEntitySetConfigs(System.Collections.Generic.List{System.String})">
+            <summary>
+            查询EntitySetConfigs
+            </summary>
+            <param name="ids">ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:OdataFluentUI.Controllers.ConfigController.DeleteEntitySetConfig(System.String)">
+            <summary>
+            删除EntitySetConfig
+            </summary>
+            <param name="id">id</param>
+            <returns></returns>
+        </member>
+        <member name="P:OdataFluentUI.ViewModels.EntitySetConfigModel.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.ViewModels.EntitySetConfigModel.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.ViewModels.EntitySetConfigModel.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.ViewModels.EntitySetConfigModel.IsVisible">
+            <summary>
+            是否可见
+            </summary>
+        </member>
     </members>
 </doc>

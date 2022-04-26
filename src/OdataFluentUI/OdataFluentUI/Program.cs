@@ -1,4 +1,6 @@
-using LiteDB;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Reflection;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,21 @@ builder.Services.AddControllers()
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => {
+    options.SwaggerDoc("odata", new OpenApiInfo() { Title = "OdataApi", Version = "v1" });
+    options.SwaggerDoc("document", new OpenApiInfo() { Title = "WebApi", Version = "v1" });
+    //设置要展示的接口
+    options.DocInclusionPredicate((docName, apiDes) =>
+    {
+        if (!apiDes.TryGetMethodInfo(out MethodInfo method))
+            return false;
+        var version = method.DeclaringType.GetCustomAttributes(true).OfType<ApiExplorerSettingsAttribute>().Select(m => m.GroupName);
+        if (docName == "v1" && !version.Any())
+            return true;
+        var actionVersion = method.GetCustomAttributes(true).OfType<ApiExplorerSettingsAttribute>().Select(m => m.GroupName);
+        if (actionVersion.Any())
+            return actionVersion.Any(v => v == docName);
+        return version.Any(v => v == docName);
+    });
     string basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
     options.IncludeXmlComments(Path.Combine(basePath, "OdataFluentUI.xml"), true);
     options.IncludeXmlComments(Path.Combine(basePath, "OdataFluentUI.Data.xml"), true); 
@@ -23,6 +40,8 @@ builder.Services.AddHttpLogging(options =>
 {
     options.LoggingFields = Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.All;
 });
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<LiteDatabase>((provider) =>
 {
@@ -36,7 +55,11 @@ WebApplication app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(o =>
+    {
+        o.SwaggerEndpoint("/swagger/odata/swagger.json", "OdataApi");
+        o.SwaggerEndpoint("/swagger/document/swagger.json", "WebApi");
+    });
 
     app.UseHttpLogging();
 }

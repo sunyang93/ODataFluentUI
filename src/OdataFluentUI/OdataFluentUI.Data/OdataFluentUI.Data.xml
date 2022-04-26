@@ -49,6 +49,16 @@
             货架
             </summary>
         </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.EntitySetConfigId">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.Id">
+            <summary>
+            主键Id(冗余字段)
+            </summary>
+        </member>
         <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.Name">
             <summary>
             名称
