@@ -1,3 +1,5 @@
+using LiteDB;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -22,6 +24,10 @@ builder.Services.AddHttpLogging(options =>
     options.LoggingFields = Microsoft.AspNetCore.HttpLogging.HttpLoggingFields.All;
 });
 
+builder.Services.AddScoped<LiteDatabase>((provider) =>
+{
+    return new LiteDatabase(builder.Configuration.GetConnectionString("LiteDbConnection"));
+});
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 
 WebApplication app = builder.Build();

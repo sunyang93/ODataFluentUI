@@ -9,5 +9,13 @@ namespace OdataFluentUI.Core.Infrastructure
     public interface IDocumentRepository
     {
         void Test();
+
+        void CreateEntitySetConfig();
+
+        void UpdateEntitySetConfig();
+
+        EntitySetConfig GetEntitySetConfig();
+
+        void DeleteEntitySetConfig();
     }
 }

@@ -19,8 +19,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\OdataFluentUI.Core\OdataFluentUI.Core.csproj" />
-  </ItemGroup>
-
 </Project>

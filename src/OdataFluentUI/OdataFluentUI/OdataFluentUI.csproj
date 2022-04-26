@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\OdataFluentUI.Core\OdataFluentUI.Core.csproj" />
     <ProjectReference Include="..\OdataFluentUI.Data\OdataFluentUI.Data.csproj" />
   </ItemGroup>
 
