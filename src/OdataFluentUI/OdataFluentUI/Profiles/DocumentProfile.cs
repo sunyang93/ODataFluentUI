@@ -7,6 +7,7 @@ namespace OdataFluentUI.Profiles
         public DocumentProfile()
         {
             CreateMap<EntitySetConfigModel, EntitySetConfig>();
+            CreateMap<EnumTypeConfigModel, EnumTypeConfig>();
         }
     }
 }

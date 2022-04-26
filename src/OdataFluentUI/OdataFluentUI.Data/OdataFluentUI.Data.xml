@@ -69,6 +69,11 @@
             显示名称
             </summary>
         </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.EntityType">
+            <summary>
+            EntityType
+            </summary>
+        </member>
         <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.Description">
             <summary>
             描述
@@ -137,6 +142,46 @@
         <member name="F:OdataFluentUI.Data.Models.ConfigDataType.Date">
             <summary>
             日期
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EnumTypeConfig.EnumTypeConfigId">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EnumTypeConfig.Id">
+            <summary>
+            主键Id(冗余字段)
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EnumTypeConfig.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EnumTypeConfig.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EnumTypeConfig.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EnumType.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EnumType.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EnumType.Value">
+            <summary>
+            枚举值
             </summary>
         </member>
         <member name="T:OdataFluentUI.Data.Inventory">

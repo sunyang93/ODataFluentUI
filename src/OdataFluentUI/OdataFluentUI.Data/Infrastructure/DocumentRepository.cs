@@ -13,11 +13,11 @@ namespace OdataFluentUI.Data.Infrastructure
         }
 
         #region EnumType
-        public void CreateEnumTypeConfigs(List<EnumTypeConfig> entitySetConfigs)
+        public void CreateEnumTypeConfigs(List<EnumTypeConfig> enumTypeConfigs)
         {
             ILiteCollection<EnumTypeConfig> dataSet = _liteDatabase.GetCollection<EnumTypeConfig>("EnumTypeConfigs");
             dataSet.EnsureIndex(x => x.Name, true);
-            dataSet.InsertBulk(entitySetConfigs);
+            dataSet.InsertBulk(enumTypeConfigs);
         }
 
         public bool DeleteEnumTypeConfig(string id)
@@ -29,8 +29,8 @@ namespace OdataFluentUI.Data.Infrastructure
         public EnumTypeConfig GetEnumTypeConfig(string id)
         {
             ILiteCollection<EnumTypeConfig> dataSet = _liteDatabase.GetCollection<EnumTypeConfig>("EnumTypeConfigs");
-            EnumTypeConfig entitySetConfig = dataSet.FindById(new ObjectId(id));
-            return entitySetConfig;
+            EnumTypeConfig enumTypeConfig = dataSet.FindById(new ObjectId(id));
+            return enumTypeConfig;
         }
 
         public List<EnumTypeConfig> GetEnumTypeConfigs(List<string> ids)
@@ -41,14 +41,14 @@ namespace OdataFluentUI.Data.Infrastructure
                 _ids.Add(new ObjectId(id));
             });
             ILiteCollection<EnumTypeConfig> dataSet = _liteDatabase.GetCollection<EnumTypeConfig>("EnumTypeConfigs");
-            List<EnumTypeConfig> entitySetConfigs = dataSet.Query().Where(d => _ids.Contains(d.EnumTypeConfigId)).ToList();
-            return entitySetConfigs;
+            List<EnumTypeConfig> enumTypeConfigs = dataSet.Query().Where(d => _ids.Contains(d.EnumTypeConfigId)).ToList();
+            return enumTypeConfigs;
         }
 
-        public bool UpdateEnumTypeConfig(EnumTypeConfig entitySetConfig)
+        public bool UpdateEnumTypeConfig(EnumTypeConfig enumTypeConfig)
         {
             ILiteCollection<EnumTypeConfig> dataSet = _liteDatabase.GetCollection<EnumTypeConfig>("EnumTypeConfigs");
-            return dataSet.Update(entitySetConfig);
+            return dataSet.Update(enumTypeConfig);
         }
         #endregion
 
