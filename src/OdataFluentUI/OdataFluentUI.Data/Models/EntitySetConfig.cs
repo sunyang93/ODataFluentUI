@@ -1,6 +1,7 @@
 ﻿using LiteDB;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,11 +28,13 @@ namespace OdataFluentUI.Data.Models
         /// <summary>
         /// 名称
         /// </summary>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>
         /// 显示名称
         /// </summary>
+        [Required]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -52,11 +55,13 @@ namespace OdataFluentUI.Data.Models
         /// <summary>
         /// 名称
         /// </summary>
+        [Required]
         public string Name { get; set; }
 
         /// <summary>
         /// 显示名称
         /// </summary>
+        [Required]
         public string DisplayName { get; set; }
 
         /// <summary>

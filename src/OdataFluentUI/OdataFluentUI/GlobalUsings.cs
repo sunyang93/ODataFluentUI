@@ -14,5 +14,7 @@ global using OdataFluentUI.Data.Models;
 global using OdataFluentUI.ViewModels;
 global using OdataFluentUI.Data.Infrastructure;
 
+global using System.ComponentModel.DataAnnotations;
+
 global using AutoMapper;
 global using LiteDB;
