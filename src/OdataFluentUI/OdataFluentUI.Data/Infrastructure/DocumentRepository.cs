@@ -12,6 +12,46 @@ namespace OdataFluentUI.Data.Infrastructure
             _liteDatabase = liteDatabase;
         }
 
+        #region EntityType
+        public void CreateEntityTypeConfigs(List<EntityTypeConfig> entityTypeConfigs)
+        {
+            ILiteCollection<EntityTypeConfig> dataSet = _liteDatabase.GetCollection<EntityTypeConfig>("EntityTypeConfigs");
+            dataSet.EnsureIndex(x => x.Name, true);
+            dataSet.InsertBulk(entityTypeConfigs);
+        }
+
+        public bool DeleteEntityTypeConfig(string id)
+        {
+            ILiteCollection<EntityTypeConfig> dataSet = _liteDatabase.GetCollection<EntityTypeConfig>("EntityTypeConfigs");
+            return dataSet.Delete(new ObjectId(id));
+        }
+
+        public EntityTypeConfig GetEntityTypeConfig(string id)
+        {
+            ILiteCollection<EntityTypeConfig> dataSet = _liteDatabase.GetCollection<EntityTypeConfig>("EntityTypeConfigs");
+            EntityTypeConfig entityTypeConfig = dataSet.FindById(new ObjectId(id));
+            return entityTypeConfig;
+        }
+
+        public List<EntityTypeConfig> GetEntityTypeConfigs(List<string> ids)
+        {
+            List<ObjectId> _ids = new List<ObjectId>();
+            ids.ForEach(id =>
+            {
+                _ids.Add(new ObjectId(id));
+            });
+            ILiteCollection<EntityTypeConfig> dataSet = _liteDatabase.GetCollection<EntityTypeConfig>("EntityTypeConfigs");
+            List<EntityTypeConfig> entityTypeConfigs = dataSet.Query().Where(d => _ids.Contains(d.EntityTypeConfigId)).ToList();
+            return entityTypeConfigs;
+        }
+
+        public bool UpdateEntityTypeConfig(EntityTypeConfig entityTypeConfig)
+        {
+            ILiteCollection<EntityTypeConfig> dataSet = _liteDatabase.GetCollection<EntityTypeConfig>("EntityTypeConfigs");
+            return dataSet.Update(entityTypeConfig);
+        }
+        #endregion
+
         #region EnumType
         public void CreateEnumTypeConfigs(List<EnumTypeConfig> enumTypeConfigs)
         {

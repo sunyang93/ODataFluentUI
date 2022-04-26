@@ -4,6 +4,18 @@ namespace OdataFluentUI.Data.Infrastructure
 {
     public interface IDocumentRepository
     {
+        #region EntityType
+        void CreateEntityTypeConfigs(List<EntityTypeConfig> entityTypeConfigs);
+
+        bool UpdateEntityTypeConfig(EntityTypeConfig entityTypeConfig);
+
+        EntityTypeConfig GetEntityTypeConfig(string id);
+
+        List<EntityTypeConfig> GetEntityTypeConfigs(List<string> ids);
+
+        bool DeleteEntityTypeConfig(string id);
+        #endregion
+
         #region EnumType
         void CreateEnumTypeConfigs(List<EnumTypeConfig> enumTypeConfigs);
 

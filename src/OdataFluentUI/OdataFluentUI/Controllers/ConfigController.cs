@@ -13,6 +13,91 @@ public class ConfigController : ControllerBase
         _mapper = mapper;
     }
 
+    #region EntityType
+    /// <summary>
+    /// 新建EntityTypeConfig
+    /// </summary>
+    /// <param name="entityTypeConfigs">EntityTypeConfigs</param>
+    /// <returns></returns>
+    [HttpPost("entityTypeConfigs")]
+    public ActionResult<EntityTypeConfig> CreateEntityTypeConfigs(List<EntityTypeConfigModel> entityTypeConfigs)
+    {
+        try
+        {
+            List<EntityTypeConfig> _EntityTypeConfigs = _mapper.Map<List<EntityTypeConfig>>(entityTypeConfigs);
+            _documentRepository.CreateEntityTypeConfigs(_EntityTypeConfigs);
+            return CreatedAtAction("GetEntityTypeConfigs", new { ids = _EntityTypeConfigs.Select(d => d.Id) }, _EntityTypeConfigs);
+        }
+        catch (LiteException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    /// <summary>
+    /// 更新EntityTypeConfig
+    /// </summary>
+    /// <param name="id">id</param>
+    /// <param name="entityTypeConfig">EntityTypeConfig</param>
+    /// <returns></returns>
+    [HttpPut("entityTypeConfigs/{id}")]
+    public IActionResult UpdateEntityTypeConfig(string id, EntityTypeConfigModel entityTypeConfig)
+    {
+        EntityTypeConfig _EntityTypeConfig = _documentRepository.GetEntityTypeConfig(id);
+        _mapper.Map(entityTypeConfig, _EntityTypeConfig);
+        if (_documentRepository.UpdateEntityTypeConfig(_EntityTypeConfig))
+        {
+            return NoContent();
+        }
+        else
+        {
+            return StatusCode(500);
+        }
+    }
+
+    /// <summary>
+    /// 查询EntityTypeConfig
+    /// </summary>
+    /// <param name="id">id</param>
+    /// <returns></returns>
+    [HttpGet("entityTypeConfigs/{id}", Name = "GetEntityTypeConfig")]
+    public ActionResult<EntityTypeConfig> GetEntityTypeConfig(string id)
+    {
+        EntityTypeConfig EntityTypeConfig = _documentRepository.GetEntityTypeConfig(id);
+        return Ok(EntityTypeConfig);
+    }
+
+    /// <summary>
+    /// 查询EntityTypeConfigs
+    /// </summary>
+    /// <param name="ids">ids</param>
+    /// <returns></returns>
+    [HttpGet("entityTypeConfigs", Name = "GetEntityTypeConfigs")]
+    public ActionResult<List<EntityTypeConfig>> GetEntityTypeConfigs([FromQuery] List<string> ids)
+    {
+        List<EntityTypeConfig> EntityTypeConfigs = _documentRepository.GetEntityTypeConfigs(ids);
+        return Ok(EntityTypeConfigs);
+    }
+
+    /// <summary>
+    /// 删除EntityTypeConfig
+    /// </summary>
+    /// <param name="id">id</param>
+    /// <returns></returns>
+    [HttpDelete("entityTypeConfigs/{id}")]
+    public IActionResult DeleteEntityTypeConfig(string id)
+    {
+        if (_documentRepository.DeleteEntityTypeConfig(id))
+        {
+            return NoContent();
+        }
+        else
+        {
+            return StatusCode(500);
+        }
+    }
+    #endregion
+
     #region EnumType
     /// <summary>
     /// 新建EnumTypeConfig
