@@ -1,5 +1,8 @@
 ﻿namespace OdataFluentUI.Data
 {
+    /// <summary>
+    /// 超级Entity
+    /// </summary>
     public class SuperEntity : BaseEntity
     {
         public int SuperEntityId { get; set; }

@@ -24,13 +24,15 @@
                                 Odata
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="odata.html">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
-                                    <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
-                                </svg>
-                                配置
-                            </a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">设置</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="config-entitytype.html">EntityType</a></li>
+                                <li><a class="dropdown-item" href="config-enumtype.html">EnumType</a></li>
+                                <li><a class="dropdown-item" href="config-entityset.html">EntitySet</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="config.html">OdataMetadata</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -61,12 +63,6 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-square" viewBox="0 0 16 16">
                             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                             <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z" />
-                        </svg>
-                    </button>
-                    <button class="btn btn-primary" title="上载元数据配置" onclick="uploadOdataMetadata()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
-                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
                         </svg>
                     </button>
                 </div>
@@ -291,6 +287,10 @@
             }
         });
 
+        (function () {
+            queryOdataMetadata();
+        })();
+
         // 显示选中的EntityType
         function setCurrentEntityType(e) {
             showOrHideDiv("entityTypeDiv");
@@ -407,6 +407,22 @@
                 });
         }
 
+        // 获取OpenApiDocument JSON文档
+        function searchOpenApi(jsonDoc) {
+            let request = new Request(odataWebApiOpenApiDocumentUri, {
+                method: "GET"
+            });
+            fetch(request)
+                .then(response => response.json())
+                .then(data => {
+                    analysisOpenApiDocument(data, jsonDoc);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert("Something went wrong");
+                });
+        };
+
         // 查询OData Metadata元数据
         function queryOdataMetadata() {
             let uri = `${document.getElementById('odataUri').value}/$metadata`;
@@ -419,6 +435,7 @@
                     let xmlDoc = (new DOMParser()).parseFromString(data, 'text/xml');
                     let jsonDoc = mapperOdataMetadata(xmlDoc);
                     generateEditorConfig(jsonDoc);
+                    searchOpenApi(jsonDoc);
                     configVm._data.entityTypes = jsonDoc[0].entityTypes;
                     configVm._data.enumTypes = jsonDoc[0].enumTypes;
                     configVm._data.entitySets = jsonDoc[0].entityContainer.entitySets;

@@ -454,6 +454,11 @@
             货架的所有货位
             </summary>
         </member>
+        <member name="T:OdataFluentUI.Data.SuperEntity">
+            <summary>
+            超类
+            </summary>
+        </member>
         <member name="M:OdataFluentUI.Data.WarehouseContext.GenerateMaterials">
             <summary>
             生成种子数据
