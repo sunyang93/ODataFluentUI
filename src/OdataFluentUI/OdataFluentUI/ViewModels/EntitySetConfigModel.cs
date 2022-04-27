@@ -16,7 +16,6 @@ public class EntitySetConfigModel
     /// <summary>
     /// 描述
     /// </summary>
-    [Required]
     public string Description { get; set; }
 
     /// <summary>

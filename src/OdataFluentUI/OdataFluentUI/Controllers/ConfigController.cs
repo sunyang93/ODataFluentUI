@@ -24,9 +24,9 @@ public class ConfigController : ControllerBase
     {
         try
         {
-            List<EntityTypeConfig> _EntityTypeConfigs = _mapper.Map<List<EntityTypeConfig>>(entityTypeConfigs);
-            _documentRepository.CreateEntityTypeConfigs(_EntityTypeConfigs);
-            return CreatedAtAction("GetEntityTypeConfigs", new { ids = _EntityTypeConfigs.Select(d => d.Id) }, _EntityTypeConfigs);
+            List<EntityTypeConfig> _entityTypeConfigs = _mapper.Map<List<EntityTypeConfig>>(entityTypeConfigs);
+            _documentRepository.CreateEntityTypeConfigs(_entityTypeConfigs);
+            return CreatedAtAction("GetEntityTypeConfigs", new { ids = _entityTypeConfigs.Select(d => d.Id) }, _entityTypeConfigs);
         }
         catch (LiteException ex)
         {
@@ -43,9 +43,9 @@ public class ConfigController : ControllerBase
     [HttpPut("entityTypeConfigs/{id}")]
     public IActionResult UpdateEntityTypeConfig(string id, EntityTypeConfigModel entityTypeConfig)
     {
-        EntityTypeConfig _EntityTypeConfig = _documentRepository.GetEntityTypeConfig(id);
-        _mapper.Map(entityTypeConfig, _EntityTypeConfig);
-        if (_documentRepository.UpdateEntityTypeConfig(_EntityTypeConfig))
+        EntityTypeConfig _entityTypeConfig = _documentRepository.GetEntityTypeConfig(id);
+        _mapper.Map(entityTypeConfig, _entityTypeConfig);
+        if (_documentRepository.UpdateEntityTypeConfig(_entityTypeConfig))
         {
             return NoContent();
         }
@@ -63,8 +63,8 @@ public class ConfigController : ControllerBase
     [HttpGet("entityTypeConfigs/{id}", Name = "GetEntityTypeConfig")]
     public ActionResult<EntityTypeConfig> GetEntityTypeConfig(string id)
     {
-        EntityTypeConfig EntityTypeConfig = _documentRepository.GetEntityTypeConfig(id);
-        return Ok(EntityTypeConfig);
+        EntityTypeConfig entityTypeConfig = _documentRepository.GetEntityTypeConfig(id);
+        return Ok(entityTypeConfig);
     }
 
     /// <summary>
@@ -75,8 +75,28 @@ public class ConfigController : ControllerBase
     [HttpGet("entityTypeConfigs", Name = "GetEntityTypeConfigs")]
     public ActionResult<List<EntityTypeConfig>> GetEntityTypeConfigs([FromQuery] List<string> ids)
     {
-        List<EntityTypeConfig> EntityTypeConfigs = _documentRepository.GetEntityTypeConfigs(ids);
-        return Ok(EntityTypeConfigs);
+        if (ids == null || ids.Count == 0)
+        {
+            List<EntityTypeConfig> entityTypeConfigs = _documentRepository.GetAllEntityTypeConfigs();
+            return Ok(entityTypeConfigs);
+        }
+        else
+        {
+            List<EntityTypeConfig> entityTypeConfigs = _documentRepository.GetEntityTypeConfigs(ids);
+            return Ok(entityTypeConfigs);
+        }
+    }
+
+    /// <summary>
+    /// 查询所有的EntityTypeConfigs视图
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("entityTypeConfigs/viewModel")]
+    public ActionResult<List<EntityTypeConfigViewModel>> GetAllEntityTypeConfigsViewModel()
+    {
+        List<EntityTypeConfig> entityTypeConfigs = _documentRepository.GetAllEntityTypeConfigs();
+        List<EntityTypeConfigViewModel> viewModels = _mapper.Map<List<EntityTypeConfigViewModel>>(entityTypeConfigs);
+        return Ok(viewModels);
     }
 
     /// <summary>
@@ -109,9 +129,9 @@ public class ConfigController : ControllerBase
     {
         try
         {
-            List<EnumTypeConfig> _EnumTypeConfigs = _mapper.Map<List<EnumTypeConfig>>(enumTypeConfigs);
-            _documentRepository.CreateEnumTypeConfigs(_EnumTypeConfigs);
-            return CreatedAtAction("GetEnumTypeConfigs", new { ids = _EnumTypeConfigs.Select(d => d.Id) }, _EnumTypeConfigs);
+            List<EnumTypeConfig> _enumTypeConfigs = _mapper.Map<List<EnumTypeConfig>>(enumTypeConfigs);
+            _documentRepository.CreateEnumTypeConfigs(_enumTypeConfigs);
+            return CreatedAtAction("GetEnumTypeConfigs", new { ids = _enumTypeConfigs.Select(d => d.Id) }, _enumTypeConfigs);
         }
         catch (LiteException ex)
         {
@@ -128,9 +148,9 @@ public class ConfigController : ControllerBase
     [HttpPut("enumTypeConfigs/{id}")]
     public IActionResult UpdateEnumTypeConfig(string id, EnumTypeConfigModel enumTypeConfig)
     {
-        EnumTypeConfig _EnumTypeConfig = _documentRepository.GetEnumTypeConfig(id);
-        _mapper.Map(enumTypeConfig, _EnumTypeConfig);
-        if (_documentRepository.UpdateEnumTypeConfig(_EnumTypeConfig))
+        EnumTypeConfig _enumTypeConfig = _documentRepository.GetEnumTypeConfig(id);
+        _mapper.Map(enumTypeConfig, _enumTypeConfig);
+        if (_documentRepository.UpdateEnumTypeConfig(_enumTypeConfig))
         {
             return NoContent();
         }
@@ -148,8 +168,8 @@ public class ConfigController : ControllerBase
     [HttpGet("enumTypeConfigs/{id}", Name = "GetEnumTypeConfig")]
     public ActionResult<EnumTypeConfig> GetEnumTypeConfig(string id)
     {
-        EnumTypeConfig EnumTypeConfig = _documentRepository.GetEnumTypeConfig(id);
-        return Ok(EnumTypeConfig);
+        EnumTypeConfig enumTypeConfig = _documentRepository.GetEnumTypeConfig(id);
+        return Ok(enumTypeConfig);
     }
 
     /// <summary>
@@ -160,8 +180,28 @@ public class ConfigController : ControllerBase
     [HttpGet("enumTypeConfigs", Name = "GetEnumTypeConfigs")]
     public ActionResult<List<EnumTypeConfig>> GetEnumTypeConfigs([FromQuery] List<string> ids)
     {
-        List<EnumTypeConfig> EnumTypeConfigs = _documentRepository.GetEnumTypeConfigs(ids);
-        return Ok(EnumTypeConfigs);
+        if (ids == null || ids.Count == 0)
+        {
+            List<EnumTypeConfig> enumTypeConfigs = _documentRepository.GetAllEnumTypeConfigs();
+            return Ok(enumTypeConfigs);
+        }
+        else
+        {
+            List<EnumTypeConfig> enumTypeConfigs = _documentRepository.GetEnumTypeConfigs(ids);
+            return Ok(enumTypeConfigs);
+        }
+    }
+
+    /// <summary>
+    /// 查询EnumTypeConfig视图
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("enumTypeConfigs/viewModel")]
+    public ActionResult<List<EnumTypeConfigViewModel>> GetAlEnumTypeConfigsViewModel()
+    {
+        List<EnumTypeConfig> enumTypeConfigs = _documentRepository.GetAllEnumTypeConfigs();
+        List<EnumTypeConfigViewModel> viewModels = _mapper.Map<List<EnumTypeConfigViewModel>>(enumTypeConfigs);
+        return Ok(viewModels);
     }
 
     /// <summary>
@@ -245,8 +285,28 @@ public class ConfigController : ControllerBase
     [HttpGet("entitySetConfigs", Name = "GetEntitySetConfigs")]
     public ActionResult<List<EntitySetConfig>> GetEntitySetConfigs([FromQuery]List<string> ids)
     {
-        List<EntitySetConfig> entitySetConfigs = _documentRepository.GetEntitySetConfigs(ids);
-        return Ok(entitySetConfigs);
+        if (ids == null || ids.Count == 0)
+        {
+            List<EntitySetConfig> entitySetConfigs = _documentRepository.GetAllEntitySetConfigs();
+            return Ok(entitySetConfigs);
+        }
+        else
+        {
+            List<EntitySetConfig> entitySetConfigs = _documentRepository.GetEntitySetConfigs(ids);
+            return Ok(entitySetConfigs);
+        }
+    }
+
+    /// <summary>
+    /// 查询EntitySetConfig视图
+    /// </summary>
+    /// <returns></returns>
+    [HttpGet("entitySetConfigs/viewModel")]
+    public ActionResult<List<EnumTypeConfigViewModel>> GetAlEntitySetConfigsViewModel()
+    {
+        List<EntitySetConfig> entitySetConfigs = _documentRepository.GetAllEntitySetConfigs();
+        List<EntitySetConfigViewModel> viewModels = _mapper.Map<List<EntitySetConfigViewModel>>(entitySetConfigs);
+        return Ok(viewModels);
     }
 
     /// <summary>

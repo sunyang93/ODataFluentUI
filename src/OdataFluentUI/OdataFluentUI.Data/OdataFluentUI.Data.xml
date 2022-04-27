@@ -169,6 +169,106 @@
             描述
             </summary>
         </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfig.Keys">
+            <summary>
+            Entity主键
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.DataType">
+            <summary>
+            数据类型
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.Editor">
+            <summary>
+            编辑器
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.EditorType">
+            <summary>
+            编辑器类型
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.MaxLength">
+            <summary>
+            最大长度
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.IsReadOnly">
+            <summary>
+            是否只读
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.IsRequired">
+            <summary>
+            是否必填
+            </summary>
+        </member>
+        <member name="T:OdataFluentUI.Data.Models.Editor">
+            <summary>
+            编辑器
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.Editor.Input">
+            <summary>
+            文本框
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.Editor.Select">
+            <summary>
+            下拉列表
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.Editor.Textarea">
+            <summary>
+            文本域
+            </summary>
+        </member>
+        <member name="T:OdataFluentUI.Data.Models.EditorType">
+            <summary>
+            编辑器类型
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.EditorType.Text">
+            <summary>
+            文本
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.EditorType.Number">
+            <summary>
+            数字
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.EditorType.Date">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.EditorType.Datetime">
+            <summary>
+            时间
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.EditorType.Checkbox">
+            <summary>
+            复选框
+            </summary>
+        </member>
         <member name="P:OdataFluentUI.Data.Models.EnumTypeConfig.EnumTypeConfigId">
             <summary>
             主键Id

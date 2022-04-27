@@ -35,13 +35,20 @@ namespace OdataFluentUI.Data.Infrastructure
 
         public List<EntityTypeConfig> GetEntityTypeConfigs(List<string> ids)
         {
-            List<ObjectId> _ids = new List<ObjectId>();
+            List<ObjectId> _ids = new();
             ids.ForEach(id =>
             {
                 _ids.Add(new ObjectId(id));
             });
             ILiteCollection<EntityTypeConfig> dataSet = _liteDatabase.GetCollection<EntityTypeConfig>("EntityTypeConfigs");
             List<EntityTypeConfig> entityTypeConfigs = dataSet.Query().Where(d => _ids.Contains(d.EntityTypeConfigId)).ToList();
+            return entityTypeConfigs;
+        }
+
+        public List<EntityTypeConfig> GetAllEntityTypeConfigs()
+        {
+            ILiteCollection<EntityTypeConfig> dataSet = _liteDatabase.GetCollection<EntityTypeConfig>("EntityTypeConfigs");
+            List<EntityTypeConfig> entityTypeConfigs = dataSet.Query().ToList();
             return entityTypeConfigs;
         }
 
@@ -75,13 +82,20 @@ namespace OdataFluentUI.Data.Infrastructure
 
         public List<EnumTypeConfig> GetEnumTypeConfigs(List<string> ids)
         {
-            List<ObjectId> _ids = new List<ObjectId>();
+            List<ObjectId> _ids = new();
             ids.ForEach(id =>
             {
                 _ids.Add(new ObjectId(id));
             });
             ILiteCollection<EnumTypeConfig> dataSet = _liteDatabase.GetCollection<EnumTypeConfig>("EnumTypeConfigs");
             List<EnumTypeConfig> enumTypeConfigs = dataSet.Query().Where(d => _ids.Contains(d.EnumTypeConfigId)).ToList();
+            return enumTypeConfigs;
+        }
+
+        public List<EnumTypeConfig> GetAllEnumTypeConfigs()
+        {
+            ILiteCollection<EnumTypeConfig> dataSet = _liteDatabase.GetCollection<EnumTypeConfig>("EnumTypeConfigs");
+            List<EnumTypeConfig> enumTypeConfigs = dataSet.Query().ToList();
             return enumTypeConfigs;
         }
 
@@ -115,13 +129,20 @@ namespace OdataFluentUI.Data.Infrastructure
 
         public List<EntitySetConfig> GetEntitySetConfigs(List<string> ids)
         {
-            List<ObjectId> _ids = new List<ObjectId>();
+            List<ObjectId> _ids = new();
             ids.ForEach(id =>
             {
                 _ids.Add(new ObjectId(id));
             });
             ILiteCollection<EntitySetConfig> dataSet = _liteDatabase.GetCollection<EntitySetConfig>("EntitySetConfigs");
             List<EntitySetConfig> entitySetConfigs = dataSet.Query().Where(d=> _ids.Contains(d.EntitySetConfigId)).ToList();
+            return entitySetConfigs;
+        }
+
+        public List<EntitySetConfig> GetAllEntitySetConfigs()
+        {
+            ILiteCollection<EntitySetConfig> dataSet = _liteDatabase.GetCollection<EntitySetConfig>("EntitySetConfigs");
+            List<EntitySetConfig> entitySetConfigs = dataSet.Query().ToList();
             return entitySetConfigs;
         }
 

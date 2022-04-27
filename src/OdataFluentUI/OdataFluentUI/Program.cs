@@ -1,6 +1,7 @@
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
+using System.Text.Json.Serialization;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -9,13 +10,23 @@ builder.Services.AddDbContext<WarehouseContext>(options =>
               options.UseSqlite(builder.Configuration.GetConnectionString("SQLiteConnection")).EnableSensitiveDataLogging());
 
 builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(System.Text.Json.JsonNamingPolicy.CamelCase));
+        //options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        //options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+
+
+    })
    .AddOData(opt => opt.EnableQueryFeatures(maxTopValue:500)
    .AddRouteComponents("odata", OdataFluentUI.OdataModelBuilder.ModelBuilder.GetEdmModel(), new DefaultODataBatchHandler()));
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options => {
+builder.Services
+    .AddSwaggerGen(options => {
     options.SwaggerDoc("odata", new OpenApiInfo() { Title = "OdataApi", Version = "v1" });
     options.SwaggerDoc("document", new OpenApiInfo() { Title = "WebApi", Version = "v1" });
     //设置要展示的接口
@@ -33,7 +44,7 @@ builder.Services.AddSwaggerGen(options => {
     });
     string basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);
     options.IncludeXmlComments(Path.Combine(basePath, "OdataFluentUI.xml"), true);
-    options.IncludeXmlComments(Path.Combine(basePath, "OdataFluentUI.Data.xml"), true); 
+    options.IncludeXmlComments(Path.Combine(basePath, "OdataFluentUI.Data.xml"), true);
 });
 
 builder.Services.AddHttpLogging(options =>

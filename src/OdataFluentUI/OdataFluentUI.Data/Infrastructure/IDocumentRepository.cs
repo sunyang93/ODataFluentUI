@@ -13,6 +13,8 @@ namespace OdataFluentUI.Data.Infrastructure
 
         List<EntityTypeConfig> GetEntityTypeConfigs(List<string> ids);
 
+        List<EntityTypeConfig> GetAllEntityTypeConfigs();
+
         bool DeleteEntityTypeConfig(string id);
         #endregion
 
@@ -25,6 +27,8 @@ namespace OdataFluentUI.Data.Infrastructure
 
         List<EnumTypeConfig> GetEnumTypeConfigs(List<string> ids);
 
+        List<EnumTypeConfig> GetAllEnumTypeConfigs();
+
         bool DeleteEnumTypeConfig(string id);
         #endregion
 
@@ -36,6 +40,8 @@ namespace OdataFluentUI.Data.Infrastructure
         EntitySetConfig GetEntitySetConfig(string id);
 
         List<EntitySetConfig> GetEntitySetConfigs(List<string> ids);
+
+        List<EntitySetConfig> GetAllEntitySetConfigs();
 
         bool DeleteEntitySetConfig(string id);
         #endregion

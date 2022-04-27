@@ -25,7 +25,7 @@ function mapperOdataMetadata(odataXml) {
         };
         // EntityType 
         for (let entityType of entityTypes) {
-            let entityT = { propertys: [] };
+            let entityT = { properties: [] };
             let entityName = entityType.attributes.Name.value;
             entityT.name = entityName;
             let Propertys = entityType.getElementsByTagName('Property');
@@ -48,10 +48,10 @@ function mapperOdataMetadata(odataXml) {
                 property.dataType = propertyAttributeType;
                 if (_property.attributes.hasOwnProperty('Nullable')) {
                     let propertyAttributeNullable = _property.attributes.Nullable.value;
-                    property.required = propertyAttributeNullable === "false" ? true : false;
+                    property.isRequired = propertyAttributeNullable === "false" ? true : false;
                 }
                 else {
-                    property.required = false;
+                    property.isRequired = false;
                 }
                 if (_property.attributes.hasOwnProperty('DefaultValue')) {
                     let propertyAttributeDefaultValue = _property.attributes.DefaultValue.value;
@@ -61,7 +61,7 @@ function mapperOdataMetadata(odataXml) {
                     let propertyAttributeMaxLength = _property.attributes.MaxLength.value;
                     property.maxLength = propertyAttributeMaxLength;
                 }
-                entityT.propertys.push(property);
+                entityT.properties.push(property);
             };
             let navigationPropertys = entityType.getElementsByTagName('NavigationProperty');
             if (navigationPropertys.length > 0) {

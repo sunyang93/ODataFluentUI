@@ -33,6 +33,12 @@
             <param name="ids">ids</param>
             <returns></returns>
         </member>
+        <member name="M:OdataFluentUI.Controllers.ConfigController.GetAllEntityTypeConfigsViewModel">
+            <summary>
+            查询所有的EntityTypeConfigs视图
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:OdataFluentUI.Controllers.ConfigController.DeleteEntityTypeConfig(System.String)">
             <summary>
             删除EntityTypeConfig
@@ -69,6 +75,12 @@
             <param name="ids">ids</param>
             <returns></returns>
         </member>
+        <member name="M:OdataFluentUI.Controllers.ConfigController.GetAlEnumTypeConfigsViewModel">
+            <summary>
+            查询EnumTypeConfig视图
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:OdataFluentUI.Controllers.ConfigController.DeleteEnumTypeConfig(System.String)">
             <summary>
             删除EnumTypeConfig
@@ -103,6 +115,12 @@
             查询EntitySetConfigs
             </summary>
             <param name="ids">ids</param>
+            <returns></returns>
+        </member>
+        <member name="M:OdataFluentUI.Controllers.ConfigController.GetAlEntitySetConfigsViewModel">
+            <summary>
+            查询EntitySetConfig视图
+            </summary>
             <returns></returns>
         </member>
         <member name="M:OdataFluentUI.Controllers.ConfigController.DeleteEntitySetConfig(System.String)">
@@ -145,6 +163,26 @@
         <member name="P:OdataFluentUI.ViewModels.EntitySetConfigViewModel.DisplayName">
             <summary>
             显示名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.ViewModels.EntityTypeConfigModel.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.ViewModels.EntityTypeConfigModel.DisplayName">
+            <summary>
+            显示名称
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.ViewModels.EntityTypeConfigModel.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.ViewModels.EntityTypeConfigModel.Keys">
+            <summary>
+            Entity主键
             </summary>
         </member>
         <member name="P:OdataFluentUI.ViewModels.EntityTypeConfigViewModel.Id">
