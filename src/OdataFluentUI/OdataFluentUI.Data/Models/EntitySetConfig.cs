@@ -71,6 +71,11 @@ namespace OdataFluentUI.Data.Models
         public string DisplayName { get; set; }
 
         /// <summary>
+        /// 原始数据类型
+        /// </summary>
+        public string OriginalDataType { get; set; }
+
+        /// <summary>
         /// 数据类型
         /// </summary>
         public ConfigDataType DataType { get; set; }
@@ -115,8 +120,24 @@ namespace OdataFluentUI.Data.Models
         /// </summary>
         Number,
         /// <summary>
+        /// 布尔
+        /// </summary>
+        Bool,
+        /// <summary>
+        /// 枚举
+        /// </summary>
+        Enum,
+        /// <summary>
+        /// 查找
+        /// </summary>
+        Search,
+        /// <summary>
         /// 日期
         /// </summary>
-        Date
+        Date,
+        /// <summary>
+        /// 时间
+        /// </summary>
+        Datetime,
     }
 }

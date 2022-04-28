@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>配置页</title>
+    <link href="../css/site.css" rel="stylesheet" />
+    <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-success">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">OdataFluentUI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="odata.html">
+                                Odata
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">设置</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="config-entitytype.html">EntityType</a></li>
+                                <li><a class="dropdown-item" href="config-enumtype.html">EnumType</a></li>
+                                <li><a class="dropdown-item" href="config-entityset.html">EntitySet</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="config.html">OdataMetadata</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="mt-2">
+        <div class="container-fluid">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="config-entitytype.html">EntityType</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="config-enumtype.html">EnumType</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="config-entityset.html">EntitySet</a>
+                </li>
+            </ul>
+            <div id="liveAlertPlaceholder">
+
+            </div>
+            <form id="enumTypeConfig">
+                <div class="row">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-danger m-1"
+                                title="删除" onclick="confirmDelete()" v-bind:class="{'btn btn-danger m-1':canEdit==false,'disabled':!canEdit}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                            </svg>
+                        </button>
+                        <button type="button" class="btn btn-warning text-white m-1"
+                                title="重置" onclick="resetToOriginalConfig()" v-bind:class="{'btn btn-warning text-white m-1':canEdit==false,'disabled':!canEdit}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+                            </svg>
+                        </button>
+                        <button type="button" class="btn btn-primary m-1"
+                                title="撤销" onclick="undo()" v-bind:class="{'btn btn-primary m-1':canEdit==false,'disabled':!canEdit}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z" />
+                            </svg>
+                        </button>
+                        <button type="button" class="btn btn-primary m-1"
+                                title="重做" onclick="redo()" v-bind:class="{'btn btn-primary m-1':canEdit==false,'disabled':!canEdit}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M14.854 4.854a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 4H3.5A2.5 2.5 0 0 0 1 6.5v8a.5.5 0 0 0 1 0v-8A1.5 1.5 0 0 1 3.5 5h9.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4z" />
+                            </svg>
+                        </button>
+                        <button type="button" class="btn btn-primary m-1"
+                                title="排序" onclick="sortTable()" v-bind:class="{'btn btn-primary m-1':canEdit==false,'disabled':!canEdit}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z" />
+                            </svg>
+                        </button>
+                        <button type="button" class="btn btn-primary m-1"
+                                title="保存" onclick="saveResource()" v-bind:class="{'btn btn-primary m-1':canEdit==false,'disabled':!canEdit}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-save" viewBox="0 0 16 16">
+                                <path d="M2 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9.5a1 1 0 0 0-1 1v7.293l2.646-2.647a.5.5 0 0 1 .708.708l-3.5 3.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L7.5 9.293V2a2 2 0 0 1 2-2H14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h2.5a.5.5 0 0 1 0 1H2z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="mb-3">
+                            <label class="col-form-label">EntityType</label>
+                            <select id="entitySetViewModels" class="form-select" onchange="setCurrentEnumType(this)">
+                                <option value="" selected>--请选择--</option>
+                                <option v-for="(vm,index) in configsViewModel" v-bind:value="vm.id">
+                                    {{vm.name}}[{{vm.displayName}}]
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="mb-3">
+                            <label class="col-form-label">显示名称</label>
+                            <input type="text" class="form-control" placeholder="displayName"
+                                   v-model="config.displayName" onchange="afterChange()">
+                        </div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="mb-3">
+                            <label class="col-form-label">描述</label>
+                            <input type="text" class="form-control" placeholder="description"
+                                   v-model="config.description" onchange="afterChange()">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-borderless text-center">
+                        <thead>
+                            <tr class="table-dark">
+                                <th scope="col">#</th>
+                                <th scope="col">名称</th>
+                                <th scope="col">显示名称</th>
+                                <th scope="col">值</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(property,index) in config.enums">
+                                <th scope="row">{{ index+1 }}</th>
+                                <td>
+                                    {{ property.name }}
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" placeholder="displayName"
+                                           v-model="property.displayName"
+                                           onchange="afterChange()" />
+                                </td>
+                                <td>{{ property.value }}</td>                                                                                                                          
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+                <!-- 排序 Modal -->
+                <div class="modal fade" id="sortModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">排序</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <ul id="sortItems" class="list-group">
+                                    <li class="list-group-item fs-6" v-for="(property,index) in config.enums">
+                                        <input type="hidden" v-bind:value="property.name" />
+                                        <span class="badge bg-primary" style="cursor: move;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-move" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M7.646.146a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 1.707V5.5a.5.5 0 0 1-1 0V1.707L6.354 2.854a.5.5 0 1 1-.708-.708l2-2zM8 10a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 14.293V10.5A.5.5 0 0 1 8 10zM.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708l-2-2zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8z" />
+                                            </svg>
+                                        </span>
+                                        {{ property.name }}[{{ property.displayName }}]
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                                <button type="button" class="btn btn-primary" onclick="applySort()">应用排序</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- 确认删除 Modal -->
+        <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">确认删除</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        确定要删除该EnumType的配置么？
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary" onclick="deleteResource()">确认</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="../js/app.js"></script>
+    <script src="../lib/vue/dist/vue.js"></script>
+    <script src="../lib/sortablejs/Sortable.js"></script>
+    <script>
+        'use strict';
+
+        const enumTypeVm = new Vue({
+            el: '#enumTypeConfig',
+            data: {
+                canEdit: false,
+                config: {},
+                configsViewModel: []
+            }
+        });
+
+        // 原始的配置
+        let originalConfig = {};
+
+        (function () {
+            getEnumTypeViewModel();
+        })();
+
+        // 查询EntitySetViewModel
+        function getEnumTypeViewModel() {
+            let enumTypeConfigsViewModelRequest = new Request(`${enumTypeConfigsUri}/viewModel`, {
+                method: "GET",
+            });
+            fetch(enumTypeConfigsViewModelRequest)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    else {
+                        throw new Error(`${response.status}:${response.statusText}`);
+                    }
+                })
+                .then(data => {
+                    enumTypeVm._data.configsViewModel = data;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alertNotic("Something went wrong", "danger");
+                });
+        }
+
+        // 查询enumTypeConfig
+        function setCurrentEnumType(e) {
+            if (e.value === "") {
+                enumTypeVm._data.canEdit = false;
+            }
+            else {
+                if (enumTypeVm._data.canEdit === false) {
+                    enumTypeVm._data.canEdit = true;
+                }
+            }
+            let enumTypeConfigsViewModelRequest = new Request(`${enumTypeConfigsUri}/${e.value}`, {
+                method: "GET",
+            });
+            fetch(enumTypeConfigsViewModelRequest)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    else {
+                        throw new Error(`${response.status}:${response.statusText}`);
+                    }
+                })
+                .then(data => {
+                    enumTypeVm._data.config = data;
+                    originalConfig = JSON.parse(JSON.stringify(data));
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alertNotic("Something went wrong", "danger");
+                });
+        }
+
+        // sortable
+        let el = document.getElementById('sortItems');
+        let sortable = Sortable.create(el, {
+            handle: '.badge',
+            animation: 150,
+        });
+
+        // memento
+        let undo_redo = {
+            undoStack: [],
+            redoStack: [],
+            edited: false
+        };
+
+        // 录入框内容改变事件
+        function afterChange() {
+            undo_redo.edited = true;
+            undo_redo.currentState = JSON.parse(JSON.stringify(enumTypeVm._data.config));
+            undo_redo.undoStack.unshift(JSON.parse(JSON.stringify(enumTypeVm._data.config)));
+            console.log(undo_redo);
+        }
+
+        // 撤销
+        function undo() {
+            if (undo_redo.undoStack.length > 0) {
+                let copyConfig = undo_redo.undoStack.shift();
+                if (copyConfig != undefined) {
+                    undo_redo.redoStack.unshift(copyConfig);
+                    enumTypeVm._data.config = JSON.parse(JSON.stringify(copyConfig));
+                }
+                console.log(undo_redo);
+            } else {
+                if (undo_redo.edited) {
+                    enumTypeVm._data.config = JSON.parse(JSON.stringify(originalConfig));
+                }
+                console.log(undo_redo);
+            }
+        }
+
+        // 重做
+        function redo() {
+            if (undo_redo.redoStack.length > 0) {
+                let copyConfig = undo_redo.redoStack.shift();
+                if (copyConfig != undefined) {
+                    undo_redo.undoStack.unshift(copyConfig);
+                    enumTypeVm._data.config = JSON.parse(JSON.stringify(copyConfig));
+                }
+                console.log(undo_redo);
+            }
+        }
+
+        // 重置
+        function resetToOriginalConfig() {
+            undo_redo = {
+                undoStack: [],
+                redoStack: [],
+                edited: false
+            };
+            enumTypeVm._data.config = JSON.parse(JSON.stringify(originalConfig));
+        }
+
+        var myModal = new bootstrap.Modal(document.getElementById('sortModal'));
+
+        // 弹出 排序 Modal
+        function sortTable() {
+            myModal.show();
+        }
+
+        // 应用排序
+        function applySort() {
+            let sortItems = el.getElementsByTagName('input');
+            let _properties = [];
+            for (let item of sortItems) {
+                _properties.push(enumTypeVm._data.config.enums.find(d => d.name === item.value));
+            }
+            enumTypeVm._data.config.enums = _properties;
+            myModal.hide();
+            afterChange();
+        }
+
+        var confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+        // 删除确认
+        function confirmDelete() {
+            confirmModal.show();
+        }
+
+        // 删除
+        function deleteResource() {
+            let enumTypeConfigsRequest = new Request(`${enumTypeConfigsUri}/${enumTypeVm.config.id}`, {
+                method: "DELETE",
+            });
+            fetch(enumTypeConfigsRequest)
+                .then(response => {
+                    if (response.ok) {
+                        return response.body;
+                    }
+                    else {
+                        throw new Error(`${response.status}:${response.statusText}`);
+                    }
+                })
+                .then(data => {
+                    confirmModal.hide();
+                    enumTypeVm._data.canEdit = false;
+                    document.getElementById("entitySetViewModels").value = '';
+                    enumTypeVm._data.config = {};
+                    originalConfig = {};
+                    getEnumTypeViewModel();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alertNotic("Something went wrong", "danger");
+                });
+        }
+
+        // 保存
+        function saveResource() {
+            let enumTypeConfigsRequest = new Request(`${enumTypeConfigsUri}/${enumTypeVm.config.id}`, {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(enumTypeVm._data.config)
+            });
+            fetch(enumTypeConfigsRequest)
+                .then(response => {
+                    if (response.ok) {
+                        return response.body;
+                    }
+                    else {
+                        throw new Error(`${response.status}:${response.statusText}`);
+                    }
+                })
+                .then(data => {
+                    alertNotic('保存成功!', 'success')
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alertNotic("Something went wrong", "danger");
+                });
+        }
+
+        // 通知
+        function alertNotic(message, type) {
+            var wrapper = document.createElement('div')
+            wrapper.innerHTML = '<div class="alert alert-' + type + ' mt-1 mb-1 alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+            document.getElementById('liveAlertPlaceholder').append(wrapper);
+            if (type === "success") {
+                setTimeout(function () {
+                    wrapper.innerHTML = '';
+                }, 2000);
+            }
+        }
+
+    </script>
+</body>
+</html>

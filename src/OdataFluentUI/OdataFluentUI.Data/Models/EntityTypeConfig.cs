@@ -64,9 +64,14 @@ namespace OdataFluentUI.Data.Models
         public string DataType { get; set; }
 
         /// <summary>
-        /// 描述
+        /// 是否为主键
         /// </summary>
-        public string Description { get; set; }
+        public bool IsPKey { get; set; }
+
+        /// <summary>
+        /// 是否为外键
+        /// </summary>
+        public bool IsFKey { get; set; }
 
         /// <summary>
         /// 编辑器

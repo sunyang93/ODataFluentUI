@@ -94,6 +94,11 @@
             显示名称
             </summary>
         </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.OriginalDataType">
+            <summary>
+            原始数据类型
+            </summary>
+        </member>
         <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.DataType">
             <summary>
             数据类型
@@ -139,9 +144,29 @@
             数字
             </summary>
         </member>
+        <member name="F:OdataFluentUI.Data.Models.ConfigDataType.Bool">
+            <summary>
+            布尔
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.ConfigDataType.Enum">
+            <summary>
+            枚举
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.ConfigDataType.Search">
+            <summary>
+            查找
+            </summary>
+        </member>
         <member name="F:OdataFluentUI.Data.Models.ConfigDataType.Date">
             <summary>
             日期
+            </summary>
+        </member>
+        <member name="F:OdataFluentUI.Data.Models.ConfigDataType.Datetime">
+            <summary>
+            时间
             </summary>
         </member>
         <member name="P:OdataFluentUI.Data.Models.EntityTypeConfig.EntityTypeConfigId">
@@ -192,6 +217,16 @@
         <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.Description">
             <summary>
             描述
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.IsPKey">
+            <summary>
+            是否为主键
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.IsFKey">
+            <summary>
+            是否为外键
             </summary>
         </member>
         <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.Editor">
@@ -456,7 +491,7 @@
         </member>
         <member name="T:OdataFluentUI.Data.SuperEntity">
             <summary>
-            超类
+            超级Entity
             </summary>
         </member>
         <member name="M:OdataFluentUI.Data.WarehouseContext.GenerateMaterials">
