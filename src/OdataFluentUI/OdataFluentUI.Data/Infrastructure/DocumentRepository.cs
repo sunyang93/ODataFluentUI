@@ -66,6 +66,13 @@ namespace OdataFluentUI.Data.Infrastructure
             return entityTypeConfigs;
         }
 
+        public EntityTypeConfig QueryEntityTypeConfigByName(string name)
+        {
+            ILiteCollection<EntityTypeConfig> dataSet = _liteDatabase.GetCollection<EntityTypeConfig>(nameof(EntityTypeConfig).Pluralize());
+            EntityTypeConfig entityTypeConfig = dataSet.Query().Where(d => d.Name == name).FirstOrDefault();
+            return entityTypeConfig;
+        }
+
         public bool UpdateEntityTypeConfig(EntityTypeConfig entityTypeConfig)
         {
             ILiteCollection<EntityTypeConfig> dataSet = _liteDatabase.GetCollection<EntityTypeConfig>(nameof(EntityTypeConfig).Pluralize());
@@ -111,6 +118,13 @@ namespace OdataFluentUI.Data.Infrastructure
             ILiteCollection<EnumTypeConfig> dataSet = _liteDatabase.GetCollection<EnumTypeConfig>(nameof(EnumTypeConfig).Pluralize());
             List<EnumTypeConfig> enumTypeConfigs = dataSet.Query().ToList();
             return enumTypeConfigs;
+        }
+
+        public EnumTypeConfig QueryEnumTypeConfigByName(string name)
+        {
+            ILiteCollection<EnumTypeConfig> dataSet = _liteDatabase.GetCollection<EnumTypeConfig>(nameof(EnumTypeConfig).Pluralize());
+            EnumTypeConfig enumTypeConfig = dataSet.Query().Where(d => d.Name == name).FirstOrDefault();
+            return enumTypeConfig;
         }
 
         public bool UpdateEnumTypeConfig(EnumTypeConfig enumTypeConfig)
@@ -167,6 +181,13 @@ namespace OdataFluentUI.Data.Infrastructure
             ILiteCollection<EntitySetConfig> dataSet = _liteDatabase.GetCollection<EntitySetConfig>(nameof(EntitySetConfig).Pluralize());
             List<EntitySetConfig> entitySetConfigs = dataSet.Query().ToList();
             return entitySetConfigs;
+        }
+
+        public EntitySetConfig QueryEntitySetConfigByName(string name)
+        {
+            ILiteCollection<EntitySetConfig> dataSet = _liteDatabase.GetCollection<EntitySetConfig>(nameof(EntitySetConfig).Pluralize());
+            EntitySetConfig entitySetConfig = dataSet.Query().Where(d => d.Name == name).FirstOrDefault();
+            return entitySetConfig;
         }
 
         public bool UpdateEntitySetConfig(EntitySetConfig entitySetConfig)

@@ -52,439 +52,495 @@
                             <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM3.527 11.85h-.893l-.823 1.439h-.036L.943 11.85H.012l1.227 1.983L0 15.85h.861l.853-1.415h.035l.85 1.415h.908l-1.254-1.992 1.274-2.007Zm.954 3.999v-2.66h.038l.952 2.159h.516l.946-2.16h.038v2.661h.715V11.85h-.8l-1.14 2.596h-.025L4.58 11.85h-.806v3.999h.706Zm4.71-.674h1.696v.674H8.4V11.85h.791v3.325Z" />
                         </svg>
                     </a>
-                    <div class="vr"></div>
                     <a id="odataMetadataJSON" class="btn btn-primary" href="#" target="_blank" title="OData元数据(JSON)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filetype-json" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M14 4.5V11h-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM4.151 15.29a1.176 1.176 0 0 1-.111-.449h.764a.578.578 0 0 0 .255.384c.07.049.154.087.25.114.095.028.201.041.319.041.164 0 .301-.023.413-.07a.559.559 0 0 0 .255-.193.507.507 0 0 0 .084-.29.387.387 0 0 0-.152-.326c-.101-.08-.256-.144-.463-.193l-.618-.143a1.72 1.72 0 0 1-.539-.214 1.001 1.001 0 0 1-.352-.367 1.068 1.068 0 0 1-.123-.524c0-.244.064-.457.19-.639.128-.181.304-.322.528-.422.225-.1.484-.149.777-.149.304 0 .564.05.779.152.217.102.384.239.5.41.12.17.186.359.2.566h-.75a.56.56 0 0 0-.12-.258.624.624 0 0 0-.246-.181.923.923 0 0 0-.37-.068c-.216 0-.387.05-.512.152a.472.472 0 0 0-.185.384c0 .121.048.22.144.3a.97.97 0 0 0 .404.175l.621.143c.217.05.406.12.566.211a1 1 0 0 1 .375.358c.09.148.135.335.135.56 0 .247-.063.466-.188.656a1.216 1.216 0 0 1-.539.439c-.234.105-.52.158-.858.158-.254 0-.476-.03-.665-.09a1.404 1.404 0 0 1-.478-.252 1.13 1.13 0 0 1-.29-.375Zm-3.104-.033a1.32 1.32 0 0 1-.082-.466h.764a.576.576 0 0 0 .074.27.499.499 0 0 0 .454.246c.19 0 .33-.055.422-.164.091-.11.137-.265.137-.466v-2.745h.791v2.725c0 .44-.119.774-.357 1.005-.237.23-.565.345-.985.345a1.59 1.59 0 0 1-.568-.094 1.145 1.145 0 0 1-.407-.266 1.14 1.14 0 0 1-.243-.39Zm9.091-1.585v.522c0 .256-.039.47-.117.641a.862.862 0 0 1-.322.387.877.877 0 0 1-.47.126.883.883 0 0 1-.47-.126.87.87 0 0 1-.32-.387 1.55 1.55 0 0 1-.117-.641v-.522c0-.258.039-.471.117-.641a.87.87 0 0 1 .32-.387.868.868 0 0 1 .47-.129c.177 0 .333.043.47.129a.862.862 0 0 1 .322.387c.078.17.117.383.117.641Zm.803.519v-.513c0-.377-.069-.701-.205-.973a1.46 1.46 0 0 0-.59-.63c-.253-.146-.559-.22-.916-.22-.356 0-.662.074-.92.22a1.441 1.441 0 0 0-.589.628c-.137.271-.205.596-.205.975v.513c0 .375.068.699.205.973.137.271.333.48.589.626.258.145.564.217.92.217.357 0 .663-.072.917-.217.256-.146.452-.355.589-.626.136-.274.205-.598.205-.973Zm1.29-.935v2.675h-.746v-3.999h.662l1.752 2.66h.032v-2.66h.75v4h-.656l-1.761-2.676h-.032Z" />
                         </svg>
                     </a>
-                    <div class="vr"></div>
                     <button class="btn btn-primary" title="解析元数据配置" onclick="queryOdataMetadata()">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-square" viewBox="0 0 16 16">
-                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-                            <path d="M6.854 4.646a.5.5 0 0 1 0 .708L4.207 8l2.647 2.646a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 0 1 .708 0zm2.292 0a.5.5 0 0 0 0 .708L11.793 8l-2.647 2.646a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708 0z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lightning-charge" viewBox="0 0 16 16">
+                            <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z" />
+                        </svg>
+                    </button>
+                    <button class="btn btn-primary" title="上载所有元数据配置" onclick="uploadAllOdataMetadata()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
                         </svg>
                     </button>
                 </div>
             </div>
-            <div id="configs" class="row">
-                <div class="col-auto">
-                    <div class="flex-shrink-0 p-3 bg-white">
-                        <a href="#" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
-                            <span class="fs-5 fw-semibold">OdataMetadata</span>
-                        </a>
-                        <ul class="list-unstyled ps-0">
-                            <li class="mb-1">
-                                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                                    EntityType
-                                </button>
-                                <div class="collapse show" id="home-collapse">
-                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li v-for="(entityType,index) in entityTypes">
-                                            <a href="#" class="link-dark rounded" v-bind:name="entityType.name" onclick="setCurrentEntityType(this)">
-                                            {{entityType.name}}[{{entityType.displayName}}]
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="mb-1">
-                                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
-                                    EnumType
-                                </button>
-                                <div class="collapse show" id="dashboard-collapse">
-                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li v-for="(enumType,index) in enumTypes">
-                                            <a href="#" class="link-dark rounded" v-bind:name="enumType.name" onclick="setCurrentEnumType(this)">
-                                            {{enumType.name}}[{{enumType.displayName}}]
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="mb-1">
-                                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
-                                    EntitySet
-                                </button>
-                                <div class="collapse show" id="orders-collapse">
-                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                        <li v-for="(entitySet,index) in entitySets">
-                                            <a href="#" class="link-dark rounded" v-bind:name="entitySet.name" onclick="setCurrentEntitySet(this)">
-                                            {{entitySet.name}}[{{entitySet.displayName}}]
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col">
-                    <div id="entityTypeDiv" class="d-none">
-                        <div class="input-group mt-3">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                            <button class="btn btn-primary" title="上载元数据配置">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
-                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                                    <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm">
-                                <div class="mb-3">
-                                    <label class="col-form-label">名称</label>
-                                    <input type="text" class="form-control" placeholder="name"
-                                           v-bind:value="currentEntityType.name" disabled>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="mb-3">
-                                    <label class="col-form-label">显示名称</label>
-                                    <input type="text" class="form-control" placeholder="displayName"
-                                           v-model="currentEntityType.displayName">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="mb-3">
-                                    <label class="col-form-label">描述</label>
-                                    <input type="text" class="form-control" placeholder="description"
-                                           v-model="currentEntityType.description">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover table-borderless text-center">
-                                <thead>
-                                    <tr class="table-dark">
-                                        <th scope="col">#</th>
-                                        <th scope="col">主键</th>
-                                        <th scope="col">外键</th>
-                                        <th scope="col">名称</th>
-                                        <th scope="col">显示名称</th>
-                                        <th scope="col">数据类型</th>
-                                        <th scope="col">最大长度</th>
-                                        <th scope="col">默认值</th>
-                                        <th scope="col">编辑器</th>
-                                        <th scope="col">编辑器类型</th>
-                                        <th scope="col">必填</th>
-                                        <th scope="col">只读</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="(property,index) in currentEntityType.properties">
-                                        <th scope="row">{{ index+1 }}</th>
-                                        <td v-if="property.isPKey">
-                                            <span class="badge bg-dark">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
-                                                    <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
-                                                    <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else>
-                                        </td>
-                                        <td v-if="property.isFKey">
-                                            <span class="badge bg-dark">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
-                                                    <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
-                                                    <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else>
-                                        </td>
-                                        <td>
-                                            {{ property.name }}
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" placeholder="displayName"
-                                                   v-model="property.displayName" />
-                                        </td>
-                                        <td>{{ property.dataType }}</td>
-                                        <td>{{ property.maxLength }}</td>
-                                        <td>{{ property.defaultValue }}</td>
-                                        <td v-if="property.editor==='input'">
-                                            输入框
-                                        </td>
-                                        <td v-else-if="property.editor==='select'">
-                                            下拉列表
-                                        </td>
-                                        <td v-else>
-                                        </td>
-                                        <td v-if="property.editorType==='text'">
-                                            <span class="badge bg-dark" title="文本">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-spellcheck" viewBox="0 0 16 16">
-                                                    <path d="M8.217 11.068c1.216 0 1.948-.869 1.948-2.31v-.702c0-1.44-.727-2.305-1.929-2.305-.742 0-1.328.347-1.499.889h-.063V3.983h-1.29V11h1.27v-.791h.064c.21.532.776.86 1.499.86zm-.43-1.025c-.66 0-1.113-.518-1.113-1.28V8.12c0-.825.42-1.343 1.098-1.343.684 0 1.075.518 1.075 1.416v.45c0 .888-.386 1.401-1.06 1.401zm-5.583 1.035c.767 0 1.201-.356 1.406-.737h.059V11h1.216V7.519c0-1.314-.947-1.783-2.11-1.783C1.355 5.736.75 6.42.69 7.27h1.216c.064-.323.313-.552.84-.552.527 0 .864.249.864.771v.464H2.346C1.145 7.953.5 8.568.5 9.496c0 .977.693 1.582 1.704 1.582zm.42-.947c-.44 0-.845-.235-.845-.718 0-.395.269-.684.84-.684h.991v.538c0 .503-.444.864-.986.864zm8.897.567c-.577-.4-.9-1.088-.9-1.983v-.65c0-1.42.894-2.338 2.305-2.338 1.352 0 2.119.82 2.139 1.806h-1.187c-.04-.351-.283-.776-.918-.776-.674 0-1.045.517-1.045 1.328v.625c0 .468.121.834.343 1.067l-.737.92z" />
-                                                    <path d="M14.469 9.414a.75.75 0 0 1 .117 1.055l-4 5a.75.75 0 0 1-1.116.061l-2.5-2.5a.75.75 0 1 1 1.06-1.06l1.908 1.907 3.476-4.346a.75.75 0 0 1 1.055-.117z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else-if="property.editorType==='number'">
-                                            <span class="badge bg-dark" title="数字">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-123" viewBox="0 0 16 16">
-                                                    <path d="M2.873 11.297V4.142H1.699L0 5.379v1.137l1.64-1.18h.06v5.961h1.174Zm3.213-5.09v-.063c0-.618.44-1.169 1.196-1.169.676 0 1.174.44 1.174 1.106 0 .624-.42 1.101-.807 1.526L4.99 10.553v.744h4.78v-.99H6.643v-.069L8.41 8.252c.65-.724 1.237-1.332 1.237-2.27C9.646 4.849 8.723 4 7.308 4c-1.573 0-2.36 1.064-2.36 2.15v.057h1.138Zm6.559 1.883h.786c.823 0 1.374.481 1.379 1.179.01.707-.55 1.216-1.421 1.21-.77-.005-1.326-.419-1.379-.953h-1.095c.042 1.053.938 1.918 2.464 1.918 1.478 0 2.642-.839 2.62-2.144-.02-1.143-.922-1.651-1.551-1.714v-.063c.535-.09 1.347-.66 1.326-1.678-.026-1.053-.933-1.855-2.359-1.845-1.5.005-2.317.88-2.348 1.898h1.116c.032-.498.498-.944 1.206-.944.703 0 1.206.435 1.206 1.07.005.64-.504 1.106-1.2 1.106h-.75v.96Z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else-if="property.editorType==='date'">
-                                            <span class="badge bg-dark" title="日期">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
-                                                    <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else-if="property.editorType==='datetime'">
-                                            <span class="badge bg-dark" title="时间">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
-                                                    <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z" />
-                                                    <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z" />
-                                                    <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else-if="property.editorType==='checkbox'">
-                                            <span class="badge bg-dark" title="复选框">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggle2-off" viewBox="0 0 16 16">
-                                                    <path d="M9 11c.628-.836 1-1.874 1-3a4.978 4.978 0 0 0-1-3h4a3 3 0 1 1 0 6H9z" />
-                                                    <path d="M5 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1A5 5 0 1 0 5 3a5 5 0 0 0 0 10z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else-if="property.editor==='select'">
-                                            <span class="badge bg-dark" title="下拉列表">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ol" viewBox="0 0 16 16">
-                                                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z" />
-                                                    <path d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else>
-                                        </td>
-                                        <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input float-none" type="checkbox"
-                                                       v-model="property.isRequired" />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input float-none" type="checkbox"
-                                                       v-model="property.isReadOnly" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
+            <div id="configs">
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="flex-shrink-0 p-3 bg-white">
+                            <a href="#" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                                <span class="fs-5 fw-semibold">OdataMetadata</span>
+                            </a>
+                            <ul class="list-unstyled ps-0">
+                                <li class="mb-1">
+                                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                                        EntityType
+                                    </button>
+                                    <div class="collapse show" id="home-collapse">
+                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                            <li v-for="(entityType,index) in entityTypes">
+                                                <a href="#" class="link-dark rounded" v-bind:name="entityType.name" onclick="setCurrentEntityType(this)">
+                                                    {{entityType.name}}[{{entityType.displayName}}]
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="mb-1">
+                                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="true">
+                                        EnumType
+                                    </button>
+                                    <div class="collapse show" id="dashboard-collapse">
+                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                            <li v-for="(enumType,index) in enumTypes">
+                                                <a href="#" class="link-dark rounded" v-bind:name="enumType.name" onclick="setCurrentEnumType(this)">
+                                                    {{enumType.name}}[{{enumType.displayName}}]
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="mb-1">
+                                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
+                                        EntitySet
+                                    </button>
+                                    <div class="collapse show" id="orders-collapse">
+                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                            <li v-for="(entitySet,index) in entitySets">
+                                                <a href="#" class="link-dark rounded" v-bind:name="entitySet.name" onclick="setCurrentEntitySet(this)">
+                                                    {{entitySet.name}}[{{entitySet.displayName}}]
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div id="enumTypeDiv" class="d-none">
-                        <div class="input-group mt-3">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                            <button class="btn btn-primary" title="上载元数据配置">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
-                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                                    <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm">
-                                <div class="mb-3">
-                                    <label class="col-form-label">名称</label>
-                                    <input type="text" class="form-control" placeholder="name"
-                                           v-bind:value="currentEnumType.name" disabled>
-                                </div>
+                    <div class="col">
+                        <div id="liveAlertPlaceholder"></div>
+                        <div id="entityTypeDiv" class="d-none">
+                            <div class="input-group mt-3">
+                                <span class="input-group-text" id="basic-addon1">EntityType</span>
+                                <input type="text" class="form-control" placeholder="名称/显示名称" aria-label="名称/显示名称" aria-describedby="basic-addon1">
+                                <button class="btn btn-primary" title="查找">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg>
+                                </button>
+                                <button class="btn btn-primary" title="上载元数据配置" onclick="uploadOdataMetadate()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                                        <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
+                                    </svg>
+                                </button>
                             </div>
-                            <div class="col-sm">
-                                <div class="mb-3">
-                                    <label class="col-form-label">显示名称</label>
-                                    <input type="text" class="form-control" placeholder="displayName"
-                                           v-model="currentEnumType.displayName">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label class="col-form-label">名称</label>
+                                        <input type="text" class="form-control" placeholder="name"
+                                               v-bind:value="currentEntityType.name" disabled>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="mb-3">
-                                    <label class="col-form-label">描述</label>
-                                    <input type="text" class="form-control" placeholder="description"
-                                           v-model="currentEnumType.description">
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label class="col-form-label">显示名称</label>
+                                        <input type="text" class="form-control" placeholder="displayName"
+                                               v-model="currentEntityType.displayName">
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover table-borderless text-center">
-                                <thead>
-                                    <tr class="table-dark">
-                                        <th scope="col">#</th>
-                                        <th scope="col">名称</th>
-                                        <th scope="col">显示名称</th>
-                                        <th scope="col">值</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="(property,index) in currentEnumType.enums">
-                                        <th scope="row">{{ index+1 }}</th>
-                                        <td>
-                                            {{ property.name }}
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" placeholder="displayName"
-                                                   v-model="property.displayName" />
-                                        </td>
-                                        <td>{{ property.value }}</td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
-                        </div>
-                    </div>
-                    <div id="entitySetDiv" class="d-none">
-                        <div class="input-group mt-3">
-                            <span class="input-group-text" id="basic-addon1">@</span>
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                            <button class="btn btn-primary" title="上载元数据配置">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
-                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                                    <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm">
-                                <div class="mb-3">
-                                    <label class="col-form-label">名称</label>
-                                    <input type="text" class="form-control" placeholder="name"
-                                           v-bind:value="currentEntitySet.name" disabled>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="mb-3">
-                                    <label class="col-form-label">显示名称</label>
-                                    <input type="text" class="form-control" placeholder="displayName"
-                                           v-model="currentEntitySet.displayName">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="mb-3">
-                                    <label class="col-form-label">描述</label>
-                                    <input type="text" class="form-control" placeholder="description"
-                                           v-model="currentEntitySet.description">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="mb-3">
-                                    <label class="col-form-label">显示</label><br />
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" placeholder="isVisible"
-                                               v-model="currentEntitySet.isVisible" />
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label class="col-form-label">描述</label>
+                                        <input type="text" class="form-control" placeholder="description"
+                                               v-model="currentEntityType.description">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover table-borderless text-center">
-                                <thead>
-                                    <tr class="table-dark">
-                                        <th scope="col">#</th>
-                                        <th scope="col">主键</th>
-                                        <th scope="col">外键</th>
-                                        <th scope="col">名称</th>
-                                        <th scope="col">显示名称</th>
-                                        <th scope="col">数据类型</th>
-                                        <th scope="col">排序</th>
-                                        <th scope="col">筛选</th>
-                                        <th scope="col">显示</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="(property,index) in currentEntitySet.properties">
-                                        <th scope="row">{{ index+1 }}</th>
-                                        <td v-if="property.isPKey">
-                                            <span class="badge bg-dark">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
-                                                    <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
-                                                    <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else>
-                                        </td>
-                                        <td v-if="property.isFKey">
-                                            <span class="badge bg-dark">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
-                                                    <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
-                                                    <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else>
-                                        </td>
-                                        <td>
-                                            {{ property.name }}
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" placeholder="displayName"
-                                                   v-model="property.displayName" />
-                                        </td>
-                                        <td v-if="property.dataType==='text'">
-                                            <span class="badge bg-dark" title="文本">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-spellcheck" viewBox="0 0 16 16">
-                                                    <path d="M8.217 11.068c1.216 0 1.948-.869 1.948-2.31v-.702c0-1.44-.727-2.305-1.929-2.305-.742 0-1.328.347-1.499.889h-.063V3.983h-1.29V11h1.27v-.791h.064c.21.532.776.86 1.499.86zm-.43-1.025c-.66 0-1.113-.518-1.113-1.28V8.12c0-.825.42-1.343 1.098-1.343.684 0 1.075.518 1.075 1.416v.45c0 .888-.386 1.401-1.06 1.401zm-5.583 1.035c.767 0 1.201-.356 1.406-.737h.059V11h1.216V7.519c0-1.314-.947-1.783-2.11-1.783C1.355 5.736.75 6.42.69 7.27h1.216c.064-.323.313-.552.84-.552.527 0 .864.249.864.771v.464H2.346C1.145 7.953.5 8.568.5 9.496c0 .977.693 1.582 1.704 1.582zm.42-.947c-.44 0-.845-.235-.845-.718 0-.395.269-.684.84-.684h.991v.538c0 .503-.444.864-.986.864zm8.897.567c-.577-.4-.9-1.088-.9-1.983v-.65c0-1.42.894-2.338 2.305-2.338 1.352 0 2.119.82 2.139 1.806h-1.187c-.04-.351-.283-.776-.918-.776-.674 0-1.045.517-1.045 1.328v.625c0 .468.121.834.343 1.067l-.737.92z" />
-                                                    <path d="M14.469 9.414a.75.75 0 0 1 .117 1.055l-4 5a.75.75 0 0 1-1.116.061l-2.5-2.5a.75.75 0 1 1 1.06-1.06l1.908 1.907 3.476-4.346a.75.75 0 0 1 1.055-.117z" />
-                                                </svg>
-                                            </span>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-borderless text-center">
+                                    <thead>
+                                        <tr class="table-dark">
+                                            <th scope="col">#</th>
+                                            <th scope="col">主键</th>
+                                            <th scope="col">外键</th>
+                                            <th scope="col">名称</th>
+                                            <th scope="col">显示名称</th>
+                                            <th scope="col">数据类型</th>
+                                            <th scope="col">最大长度</th>
+                                            <th scope="col">默认值</th>
+                                            <th scope="col">编辑器</th>
+                                            <th scope="col">编辑器类型</th>
+                                            <th scope="col">必填</th>
+                                            <th scope="col">只读</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(property,index) in currentEntityType.properties">
+                                            <th scope="row">{{ index+1 }}</th>
+                                            <td v-if="property.isPKey">
+                                                <span class="badge bg-dark">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                                                        <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                                                        <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else>
+                                            </td>
+                                            <td v-if="property.isFKey">
+                                                <span class="badge bg-dark">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                                                        <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                                                        <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else>
+                                            </td>
+                                            <td>
+                                                {{ property.name }}
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="displayName"
+                                                       v-model="property.displayName" />
+                                            </td>
+                                            <td>{{ property.dataType }}</td>
+                                            <td>{{ property.maxLength }}</td>
+                                            <td>{{ property.defaultValue }}</td>
+                                            <td v-if="property.editor==='input'">
+                                                输入框
+                                            </td>
+                                            <td v-else-if="property.editor==='select'">
+                                                下拉列表
+                                            </td>
+                                            <td v-else>
+                                            </td>
+                                            <td v-if="property.editorType==='text'">
+                                                <span class="badge bg-dark" title="文本">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-spellcheck" viewBox="0 0 16 16">
+                                                        <path d="M8.217 11.068c1.216 0 1.948-.869 1.948-2.31v-.702c0-1.44-.727-2.305-1.929-2.305-.742 0-1.328.347-1.499.889h-.063V3.983h-1.29V11h1.27v-.791h.064c.21.532.776.86 1.499.86zm-.43-1.025c-.66 0-1.113-.518-1.113-1.28V8.12c0-.825.42-1.343 1.098-1.343.684 0 1.075.518 1.075 1.416v.45c0 .888-.386 1.401-1.06 1.401zm-5.583 1.035c.767 0 1.201-.356 1.406-.737h.059V11h1.216V7.519c0-1.314-.947-1.783-2.11-1.783C1.355 5.736.75 6.42.69 7.27h1.216c.064-.323.313-.552.84-.552.527 0 .864.249.864.771v.464H2.346C1.145 7.953.5 8.568.5 9.496c0 .977.693 1.582 1.704 1.582zm.42-.947c-.44 0-.845-.235-.845-.718 0-.395.269-.684.84-.684h.991v.538c0 .503-.444.864-.986.864zm8.897.567c-.577-.4-.9-1.088-.9-1.983v-.65c0-1.42.894-2.338 2.305-2.338 1.352 0 2.119.82 2.139 1.806h-1.187c-.04-.351-.283-.776-.918-.776-.674 0-1.045.517-1.045 1.328v.625c0 .468.121.834.343 1.067l-.737.92z" />
+                                                        <path d="M14.469 9.414a.75.75 0 0 1 .117 1.055l-4 5a.75.75 0 0 1-1.116.061l-2.5-2.5a.75.75 0 1 1 1.06-1.06l1.908 1.907 3.476-4.346a.75.75 0 0 1 1.055-.117z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else-if="property.editorType==='number'">
+                                                <span class="badge bg-dark" title="数字">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-123" viewBox="0 0 16 16">
+                                                        <path d="M2.873 11.297V4.142H1.699L0 5.379v1.137l1.64-1.18h.06v5.961h1.174Zm3.213-5.09v-.063c0-.618.44-1.169 1.196-1.169.676 0 1.174.44 1.174 1.106 0 .624-.42 1.101-.807 1.526L4.99 10.553v.744h4.78v-.99H6.643v-.069L8.41 8.252c.65-.724 1.237-1.332 1.237-2.27C9.646 4.849 8.723 4 7.308 4c-1.573 0-2.36 1.064-2.36 2.15v.057h1.138Zm6.559 1.883h.786c.823 0 1.374.481 1.379 1.179.01.707-.55 1.216-1.421 1.21-.77-.005-1.326-.419-1.379-.953h-1.095c.042 1.053.938 1.918 2.464 1.918 1.478 0 2.642-.839 2.62-2.144-.02-1.143-.922-1.651-1.551-1.714v-.063c.535-.09 1.347-.66 1.326-1.678-.026-1.053-.933-1.855-2.359-1.845-1.5.005-2.317.88-2.348 1.898h1.116c.032-.498.498-.944 1.206-.944.703 0 1.206.435 1.206 1.07.005.64-.504 1.106-1.2 1.106h-.75v.96Z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else-if="property.editorType==='date'">
+                                                <span class="badge bg-dark" title="日期">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
+                                                        <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else-if="property.editorType==='datetime'">
+                                                <span class="badge bg-dark" title="时间">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16">
+                                                        <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z" />
+                                                        <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z" />
+                                                        <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else-if="property.editorType==='checkbox'">
+                                                <span class="badge bg-dark" title="复选框">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggle2-off" viewBox="0 0 16 16">
+                                                        <path d="M9 11c.628-.836 1-1.874 1-3a4.978 4.978 0 0 0-1-3h4a3 3 0 1 1 0 6H9z" />
+                                                        <path d="M5 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1A5 5 0 1 0 5 3a5 5 0 0 0 0 10z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else-if="property.editor==='select'">
+                                                <span class="badge bg-dark" title="下拉列表">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ol" viewBox="0 0 16 16">
+                                                        <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z" />
+                                                        <path d="M1.713 11.865v-.474H2c.217 0 .363-.137.363-.317 0-.185-.158-.31-.361-.31-.223 0-.367.152-.373.31h-.59c.016-.467.373-.787.986-.787.588-.002.954.291.957.703a.595.595 0 0 1-.492.594v.033a.615.615 0 0 1 .569.631c.003.533-.502.8-1.051.8-.656 0-1-.37-1.008-.794h.582c.008.178.186.306.422.309.254 0 .424-.145.422-.35-.002-.195-.155-.348-.414-.348h-.3zm-.004-4.699h-.604v-.035c0-.408.295-.844.958-.844.583 0 .96.326.96.756 0 .389-.257.617-.476.848l-.537.572v.03h1.054V9H1.143v-.395l.957-.99c.138-.142.293-.304.293-.508 0-.18-.147-.32-.342-.32a.33.33 0 0 0-.342.338v.041zM2.564 5h-.635V2.924h-.031l-.598.42v-.567l.629-.443h.635V5z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else>
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input float-none" type="checkbox"
+                                                           v-model="property.isRequired" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input float-none" type="checkbox"
+                                                           v-model="property.isReadOnly" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
 
-                                        </td>
-                                        <td v-else-if="property.dataType==='number'">
-                                            <span class="badge bg-dark" title="数字">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-123" viewBox="0 0 16 16">
-                                                    <path d="M2.873 11.297V4.142H1.699L0 5.379v1.137l1.64-1.18h.06v5.961h1.174Zm3.213-5.09v-.063c0-.618.44-1.169 1.196-1.169.676 0 1.174.44 1.174 1.106 0 .624-.42 1.101-.807 1.526L4.99 10.553v.744h4.78v-.99H6.643v-.069L8.41 8.252c.65-.724 1.237-1.332 1.237-2.27C9.646 4.849 8.723 4 7.308 4c-1.573 0-2.36 1.064-2.36 2.15v.057h1.138Zm6.559 1.883h.786c.823 0 1.374.481 1.379 1.179.01.707-.55 1.216-1.421 1.21-.77-.005-1.326-.419-1.379-.953h-1.095c.042 1.053.938 1.918 2.464 1.918 1.478 0 2.642-.839 2.62-2.144-.02-1.143-.922-1.651-1.551-1.714v-.063c.535-.09 1.347-.66 1.326-1.678-.026-1.053-.933-1.855-2.359-1.845-1.5.005-2.317.88-2.348 1.898h1.116c.032-.498.498-.944 1.206-.944.703 0 1.206.435 1.206 1.07.005.64-.504 1.106-1.2 1.106h-.75v.96Z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else-if="property.dataType==='date'">
-                                            <span class="badge bg-dark" title="日期">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
-                                                    <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
-                                                </svg>
-                                            </span>
-                                        </td>
-                                        <td v-else>
-                                        </td>
-                                        <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input float-none" type="checkbox" placeholder="isVisible"
-                                                       v-model="property.canSort" />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input float-none" type="checkbox" placeholder="isVisible"
-                                                       v-model="property.canFilter" />
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input float-none" type="checkbox" placeholder="isVisible"
-                                                       v-model="property.isVisible" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="enumTypeDiv" class="d-none">
+                            <div class="input-group mt-3">
+                                <span class="input-group-text" id="basic-addon1">EnumType</span>
+                                <input type="text" class="form-control" placeholder="名称/显示名称" aria-label="名称/显示名称" aria-describedby="basic-addon1">
+                                <button class="btn btn-primary" title="查找">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg>
+                                </button>
+                                <button class="btn btn-primary" title="上载元数据配置" onclick="uploadOdataMetadate()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                                        <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label class="col-form-label">名称</label>
+                                        <input type="text" class="form-control" placeholder="name"
+                                               v-bind:value="currentEnumType.name" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label class="col-form-label">显示名称</label>
+                                        <input type="text" class="form-control" placeholder="displayName"
+                                               v-model="currentEnumType.displayName">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label class="col-form-label">描述</label>
+                                        <input type="text" class="form-control" placeholder="description"
+                                               v-model="currentEnumType.description">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-borderless text-center">
+                                    <thead>
+                                        <tr class="table-dark">
+                                            <th scope="col">#</th>
+                                            <th scope="col">名称</th>
+                                            <th scope="col">显示名称</th>
+                                            <th scope="col">值</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(property,index) in currentEnumType.enums">
+                                            <th scope="row">{{ index+1 }}</th>
+                                            <td>
+                                                {{ property.name }}
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="displayName"
+                                                       v-model="property.displayName" />
+                                            </td>
+                                            <td>{{ property.value }}</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                        <div id="entitySetDiv" class="d-none">
+                            <div class="input-group mt-3">
+                                <span class="input-group-text" id="basic-addon1">EntitySet</span>
+                                <input type="text" class="form-control" placeholder="名称/显示名称" aria-label="名称/显示名称" aria-describedby="basic-addon1">
+                                <button class="btn btn-primary" title="查找">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                    </svg>
+                                </button>
+                                <button class="btn btn-primary" title="上载元数据配置" onclick="uploadOdataMetadate()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
+                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                                        <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label class="col-form-label">名称</label>
+                                        <input type="text" class="form-control" placeholder="name"
+                                               v-bind:value="currentEntitySet.name" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label class="col-form-label">显示名称</label>
+                                        <input type="text" class="form-control" placeholder="displayName"
+                                               v-model="currentEntitySet.displayName">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label class="col-form-label">描述</label>
+                                        <input type="text" class="form-control" placeholder="description"
+                                               v-model="currentEntitySet.description">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="mb-3">
+                                        <label class="col-form-label">显示</label><br />
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" placeholder="isVisible"
+                                                   v-model="currentEntitySet.isVisible" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover table-borderless text-center">
+                                    <thead>
+                                        <tr class="table-dark">
+                                            <th scope="col">#</th>
+                                            <th scope="col">主键</th>
+                                            <th scope="col">外键</th>
+                                            <th scope="col">名称</th>
+                                            <th scope="col">显示名称</th>
+                                            <th scope="col">数据类型</th>
+                                            <th scope="col">排序</th>
+                                            <th scope="col">筛选</th>
+                                            <th scope="col">显示</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(property,index) in currentEntitySet.properties">
+                                            <th scope="row">{{ index+1 }}</th>
+                                            <td v-if="property.isPKey">
+                                                <span class="badge bg-dark">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                                                        <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                                                        <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else>
+                                            </td>
+                                            <td v-if="property.isFKey">
+                                                <span class="badge bg-dark">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                                                        <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
+                                                        <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else>
+                                            </td>
+                                            <td>
+                                                {{ property.name }}
+                                            </td>
+                                            <td>
+                                                <input type="text" class="form-control" placeholder="displayName"
+                                                       v-model="property.displayName" />
+                                            </td>
+                                            <td v-if="property.dataType==='text'">
+                                                <span class="badge bg-dark" title="文本">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-spellcheck" viewBox="0 0 16 16">
+                                                        <path d="M8.217 11.068c1.216 0 1.948-.869 1.948-2.31v-.702c0-1.44-.727-2.305-1.929-2.305-.742 0-1.328.347-1.499.889h-.063V3.983h-1.29V11h1.27v-.791h.064c.21.532.776.86 1.499.86zm-.43-1.025c-.66 0-1.113-.518-1.113-1.28V8.12c0-.825.42-1.343 1.098-1.343.684 0 1.075.518 1.075 1.416v.45c0 .888-.386 1.401-1.06 1.401zm-5.583 1.035c.767 0 1.201-.356 1.406-.737h.059V11h1.216V7.519c0-1.314-.947-1.783-2.11-1.783C1.355 5.736.75 6.42.69 7.27h1.216c.064-.323.313-.552.84-.552.527 0 .864.249.864.771v.464H2.346C1.145 7.953.5 8.568.5 9.496c0 .977.693 1.582 1.704 1.582zm.42-.947c-.44 0-.845-.235-.845-.718 0-.395.269-.684.84-.684h.991v.538c0 .503-.444.864-.986.864zm8.897.567c-.577-.4-.9-1.088-.9-1.983v-.65c0-1.42.894-2.338 2.305-2.338 1.352 0 2.119.82 2.139 1.806h-1.187c-.04-.351-.283-.776-.918-.776-.674 0-1.045.517-1.045 1.328v.625c0 .468.121.834.343 1.067l-.737.92z" />
+                                                        <path d="M14.469 9.414a.75.75 0 0 1 .117 1.055l-4 5a.75.75 0 0 1-1.116.061l-2.5-2.5a.75.75 0 1 1 1.06-1.06l1.908 1.907 3.476-4.346a.75.75 0 0 1 1.055-.117z" />
+                                                    </svg>
+                                                </span>
+
+                                            </td>
+                                            <td v-else-if="property.dataType==='number'">
+                                                <span class="badge bg-dark" title="数字">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-123" viewBox="0 0 16 16">
+                                                        <path d="M2.873 11.297V4.142H1.699L0 5.379v1.137l1.64-1.18h.06v5.961h1.174Zm3.213-5.09v-.063c0-.618.44-1.169 1.196-1.169.676 0 1.174.44 1.174 1.106 0 .624-.42 1.101-.807 1.526L4.99 10.553v.744h4.78v-.99H6.643v-.069L8.41 8.252c.65-.724 1.237-1.332 1.237-2.27C9.646 4.849 8.723 4 7.308 4c-1.573 0-2.36 1.064-2.36 2.15v.057h1.138Zm6.559 1.883h.786c.823 0 1.374.481 1.379 1.179.01.707-.55 1.216-1.421 1.21-.77-.005-1.326-.419-1.379-.953h-1.095c.042 1.053.938 1.918 2.464 1.918 1.478 0 2.642-.839 2.62-2.144-.02-1.143-.922-1.651-1.551-1.714v-.063c.535-.09 1.347-.66 1.326-1.678-.026-1.053-.933-1.855-2.359-1.845-1.5.005-2.317.88-2.348 1.898h1.116c.032-.498.498-.944 1.206-.944.703 0 1.206.435 1.206 1.07.005.64-.504 1.106-1.2 1.106h-.75v.96Z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else-if="property.dataType==='date'">
+                                                <span class="badge bg-dark" title="日期">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
+                                                        <path d="M6.445 11.688V6.354h-.633A12.6 12.6 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                                                    </svg>
+                                                </span>
+                                            </td>
+                                            <td v-else>
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input float-none" type="checkbox" placeholder="isVisible"
+                                                           v-model="property.canSort" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input float-none" type="checkbox" placeholder="isVisible"
+                                                           v-model="property.canFilter" />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input float-none" type="checkbox" placeholder="isVisible"
+                                                           v-model="property.isVisible" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-
+                </div>
+                <!-- 合并 Modal -->
+                <div class="modal fade" id="mergeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-fullscreen">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">合并</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+    <!-- 提醒 Modal -->
+    <div class="modal fade" id="remindModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">提示</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    检测到同名的资源，请选择需要进行的操作
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="update()">更新</button>
+                    <button type="button" class="btn btn-primary" onclick="mergeThenUpdate()">合并</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="../js/app.js"></script>
     <script src="../js/odata.js"></script>
     <script src="../js/openapi.js"></script>
@@ -505,6 +561,8 @@
                 currentEntityType: {},
                 currentEnumType: {},
                 currentEntitySet: {},
+                currentEditResourceType: '',
+                resource: {},
             }
         });
 
@@ -515,19 +573,22 @@
         // 显示选中的EntityType
         function setCurrentEntityType(e) {
             showOrHideDiv("entityTypeDiv");
+            configVm._data.currentEditResourceType = "entityType";
             configVm._data.currentEntityType = configVm._data.entityTypes.find(d => d.name === e.name);
         }
 
         // 显示选中的EnumType
         function setCurrentEnumType(e) {
             showOrHideDiv("enumTypeDiv");
+            configVm._data.currentEditResourceType = "enumType";
             configVm._data.currentEnumType = configVm._data.enumTypes.find(d => d.name === e.name);
         }
 
         // 显示选中的EntitySet
         function setCurrentEntitySet(e) {
             showOrHideDiv("entitySetDiv");
-            configVm._data.currentEntitySet=configVm._data.entitySets.find(d => d.name === e.name);
+            configVm._data.currentEditResourceType = "entitySet";
+            configVm._data.currentEntitySet = configVm._data.entitySets.find(d => d.name === e.name);
         }
 
         // 显示或隐藏div
@@ -541,10 +602,17 @@
                 } else {
                     let hideDiv = document.getElementById(item);
                     if (!hideDiv.hasAttribute('class')) {
-                        hideDiv.setAttribute('class',"d-none");
+                        hideDiv.setAttribute('class', "d-none");
                     }
                 }
             })
+        }
+
+        // 上载所有元数据配置
+        function uploadAllOdataMetadata() {
+            uploadEnumTypeConfigs();
+            uploadEntityTypeConfigs();
+            uploadEntitySetConfigs();
         }
 
         // 上载EntityTypeConfigs
@@ -570,7 +638,34 @@
                 })
                 .catch((error) => {
                     console.error('Error:', error);
-                    alert("Something went wrong");
+                    alertNotic(error, "danger");
+                });
+        }
+
+        // 上载EntityTypeConfig
+        function uploadEntityTypeConfig() {
+            let entityTypeConfigsRequest = new Request(entityTypeConfigsUri, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify([configVm._data.currentEntityType])
+            });
+            fetch(entityTypeConfigsRequest)
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    else {
+                        throw new Error(`${response.status}:${response.statusText}`);
+                    }
+                })
+                .then(data => {
+                    alertNotic("上载成功", "success");
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alertNotic(error, "danger");
                 });
         }
 
@@ -593,11 +688,38 @@
                     }
                 })
                 .then(data => {
-
+                    return true;
                 })
                 .catch((error) => {
                     console.error('Error:', error);
-                    alert("Something went wrong");
+                    alertNotic(error, "danger");
+                });
+        }
+
+        // 上载EnumTypeConfig
+        function uploadEnumTypeConfig() {
+            let enumTypeConfigsRequest = new Request(enumTypeConfigsUri, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify([configVm._data.currentEnumType])
+            });
+            fetch(enumTypeConfigsRequest)
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    else {
+                        throw new Error(`${response.status}:${response.statusText}`);
+                    }
+                })
+                .then(data => {
+                    alertNotic("上载成功", "success");
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alertNotic(error, "danger");
                 });
         }
 
@@ -624,7 +746,34 @@
                 })
                 .catch((error) => {
                     console.error('Error:', error);
-                    alert("Something went wrong");
+                    alertNotic(error, "danger");
+                });
+        }
+
+        // 上载EntitySetConfig
+        function uploadEntitySetConfig() {
+            let entitySetConfigsRequest = new Request(entitySetConfigsUri, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify([configVm._data.currentEntitySet])
+            });
+            fetch(entitySetConfigsRequest)
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    else {
+                        throw new Error(`${response.status}:${response.statusText}`);
+                    }
+                })
+                .then(data => {
+                    alertNotic("上载成功", "success");
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alertNotic(error, "danger");
                 });
         }
 
@@ -735,7 +884,7 @@
                             name: prop.name,
                             displayName: prop.displayName,
                             originalDataType: prop.dataType,
-                            dataType: ["text", "number", "date","datetime"].includes(prop.editorType) ? prop.editorType : "text",
+                            dataType: ["text", "number", "date", "datetime"].includes(prop.editorType) ? prop.editorType : "text",
                             isPKey: et.keys.includes(prop.name),
                             isFKey: fKeys.includes(prop.name),
                             canSort: true,
@@ -756,6 +905,131 @@
             }
             console.log(odataSchemas);
         };
+
+        var remindModal = new bootstrap.Modal(document.getElementById('remindModal'));
+        // 上载OData Metadata元数据
+        function uploadOdataMetadate() {
+            let resourceUri = '';
+            let resourceName = '';
+            switch (configVm._data.currentEditResourceType) {
+                case "entityType":
+                    resourceUri = entityTypeConfigsUri;
+                    resourceName = configVm._data.currentEntityType.name;
+                    break;
+                case "enumType":
+                    resourceUri = enumTypeConfigsUri;
+                    resourceName = configVm._data.currentEnumType.name;
+                    break;
+                case "entitySet":
+                    resourceUri = entitySetConfigsUri;
+                    resourceName = configVm._data.currentEntitySet.name;
+                    break;
+                default:
+                    break;
+            }
+            let request = new Request(`${resourceUri}/name(${resourceName})`, {
+                method: "GET",
+            });
+            fetch(request)
+                .then(response => {
+                    if (response.ok) {
+                        remindModal.show();
+                        return response.json();
+                    }                    
+                    else {
+                        if (response.status === 404) {
+                            switch (configVm._data.currentEditResourceType) {
+                                case "entityType":
+                                    uploadEntityTypeConfig();
+                                    break;
+                                case "enumType":
+                                    uploadEnumTypeConfig();
+                                    break;
+                                case "entitySet":
+                                    uploadEntitySetConfig();
+                                    break;
+                                default:
+                                    break;
+                            }                                                                                  
+                        }
+                        else {  
+                            console.error('Error:', `${response.status}:${response.statusText}`);
+                            alertNotic(`${response.status}:${response.statusText}`, "danger");
+                        }
+                    }
+                })
+                .then(data => {
+                    if (data != undefined) {
+                        configVm._data.resource = data;
+                    }
+                })
+        }
+
+        // 更新
+        function update() {
+            let resourceUri = '';
+            let requestBody = '';
+            switch (configVm._data.currentEditResourceType) {
+                case "entityType":
+                    resourceUri = entityTypeConfigsUri;
+                    requestBody = JSON.stringify(configVm._data.currentEntityType);
+                    break;
+                case "enumType":
+                    resourceUri = enumTypeConfigsUri;
+                    requestBody = JSON.stringify(configVm._data.currentEnumType);
+                    break;
+                case "entitySet":
+                    resourceUri = entitySetConfigsUri;
+                    requestBody = JSON.stringify(configVm._data.currentEntitySet);
+                    break;
+                default:
+                    break;
+            }
+            let request = new Request(`${resourceUri}/${configVm._data.resource.id}`, {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: requestBody,
+            });
+            fetch(request)
+                .then(response => {
+                    if (response.ok) {
+                        return response.body;
+                    }
+                    else {
+                        throw new Error(`${response.status}:${response.statusText}`);
+                    }
+                })
+                .then(data => {
+                    remindModal.hide();
+                    alertNotic('更新成功!', 'success');
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alertNotic("Something went wrong", "danger");
+                });
+        }
+
+        var mergeModal = new bootstrap.Modal(document.getElementById('mergeModal'));
+        // 合并
+        function mergeThenUpdate() {
+            remindModal.hide();
+            mergeModal.show();
+        }
+
+        // 通知
+        function alertNotic(message, type) {
+            var wrapper = document.createElement('div')
+            wrapper.innerHTML = '<div class="alert alert-' + type + ' mt-1 mb-1 alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+            document.getElementById('liveAlertPlaceholder').append(wrapper);
+            if (type === "success") {
+                setTimeout(function () {
+                    wrapper.innerHTML = '';
+                }, 2000);
+            }
+        }
     </script>
 </body>
 </html>

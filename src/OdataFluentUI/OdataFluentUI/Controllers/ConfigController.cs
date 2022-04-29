@@ -103,6 +103,22 @@ public class ConfigController : ControllerBase
     }
 
     /// <summary>
+    /// 根据名称查询EntityTypeConfig
+    /// </summary>
+    /// <param name="name">名称</param>
+    /// <returns></returns>
+    [HttpGet(_entityTypeConfigRoute+ "/name({name})")]
+    public ActionResult<EntityTypeConfig> QueryEntityTypeConfigByName(string name)
+    {
+        EntityTypeConfig entityTypeConfig =_documentRepository.QueryEntityTypeConfigByName(name); 
+        if(entityTypeConfig == null)
+        {
+            return NotFound();
+        }
+        return Ok(entityTypeConfig);
+    }
+
+    /// <summary>
     /// 删除EntityTypeConfig
     /// </summary>
     /// <param name="id">id</param>
@@ -208,6 +224,22 @@ public class ConfigController : ControllerBase
     }
 
     /// <summary>
+    /// 根据名称查询EnumTypeConfig
+    /// </summary>
+    /// <param name="name">名称</param>
+    /// <returns></returns>
+    [HttpGet(_enumTypeConfigRoute + "/name({name})")]
+    public ActionResult<EnumTypeConfig> QueryEnumTypeConfigByName(string name)
+    {
+        EnumTypeConfig enumTypeConfig = _documentRepository.QueryEnumTypeConfigByName(name);
+        if (enumTypeConfig == null)
+        {
+            return NotFound();
+        }
+        return Ok(enumTypeConfig);
+    }
+
+    /// <summary>
     /// 删除EnumTypeConfig
     /// </summary>
     /// <param name="id">id</param>
@@ -310,6 +342,22 @@ public class ConfigController : ControllerBase
         List<EntitySetConfig> entitySetConfigs = _documentRepository.GetAllEntitySetConfigs();
         List<EntitySetConfigViewModel> viewModels = _mapper.Map<List<EntitySetConfigViewModel>>(entitySetConfigs);
         return Ok(viewModels);
+    }
+
+    /// <summary>
+    /// 根据名称查询EntitySetConfig
+    /// </summary>
+    /// <param name="name">名称</param>
+    /// <returns></returns>
+    [HttpGet(_entitySetConfigRoute + "/name({name})")]
+    public ActionResult<EntitySetConfig> QueryEntitySetConfigByName(string name)
+    {
+        EntitySetConfig entitySetConfig = _documentRepository.QueryEntitySetConfigByName(name);
+        if (entitySetConfig == null)
+        {
+            return NotFound();
+        }
+        return Ok(entitySetConfig);
     }
 
     /// <summary>

@@ -39,6 +39,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:OdataFluentUI.Controllers.ConfigController.QueryEntityTypeConfigByName(System.String)">
+            <summary>
+            根据名称查询EntityTypeConfig
+            </summary>
+            <param name="name">名称</param>
+            <returns></returns>
+        </member>
         <member name="M:OdataFluentUI.Controllers.ConfigController.DeleteEntityTypeConfig(System.String)">
             <summary>
             删除EntityTypeConfig
@@ -81,6 +88,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:OdataFluentUI.Controllers.ConfigController.QueryEnumTypeConfigByName(System.String)">
+            <summary>
+            根据名称查询EnumTypeConfig
+            </summary>
+            <param name="name">名称</param>
+            <returns></returns>
+        </member>
         <member name="M:OdataFluentUI.Controllers.ConfigController.DeleteEnumTypeConfig(System.String)">
             <summary>
             删除EnumTypeConfig
@@ -121,6 +135,13 @@
             <summary>
             查询EntitySetConfig视图
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:OdataFluentUI.Controllers.ConfigController.QueryEntitySetConfigByName(System.String)">
+            <summary>
+            根据名称查询EntitySetConfig
+            </summary>
+            <param name="name">名称</param>
             <returns></returns>
         </member>
         <member name="M:OdataFluentUI.Controllers.ConfigController.DeleteEntitySetConfig(System.String)">
