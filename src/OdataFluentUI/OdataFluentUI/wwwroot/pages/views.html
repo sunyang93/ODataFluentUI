@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>配置页</title>
+    <link href="../css/site.css" rel="stylesheet" />
+    <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <link href="../css/sidebars.css" rel="stylesheet" />
+    <link href="../lib/ag-grid-community/dist/styles/ag-grid.css" rel="stylesheet" />
+    <link href="../lib/ag-grid-community/dist/styles/ag-theme-alpine.css" rel="stylesheet" />
+    <script src="../lib/ag-grid-community/dist/ag-grid-community.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-success">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">OdataFluentUI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="odata.html">
+                                Odata
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">设置</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="config-entitytype.html">EntityType</a></li>
+                                <li><a class="dropdown-item" href="config-enumtype.html">EnumType</a></li>
+                                <li><a class="dropdown-item" href="config-entityset.html">EntitySet</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="config.html">OdataMetadata</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="mt-2">
+        <div class="container-fluid">
+            <div id="entitySets">
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="flex-shrink-0 p-3 bg-white">
+                            <a href="#" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+                                <span class="fs-5 fw-semibold">EntitySet</span>
+                            </a>
+                            <ul class="list-unstyled ps-0">
+                                <li class="mb-1">
+                                    <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="true">
+                                        EntitySet
+                                    </button>
+                                    <div class="collapse show" id="orders-collapse">
+                                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                            <li v-for="(entitySet,index) in configsViewModel">
+                                                <a href="#" class="link-dark rounded" v-bind:id="entitySet.id" v-bind:name="entitySet.name" onclick="setCurrentEntitySet(this)">
+                                                    {{entitySet.name}}[{{entitySet.displayName}}]
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div id="liveAlertPlaceholder"></div>
+                        <div class="col-xl input-group">
+                            <span class="input-group-text">Top</span>
+                            <input id="topOptions" type="number" class="form-control" value="15" min="1" placeholder="Top options">
+                            <span class="input-group-text">Skip</span>
+                            <input id="skipOptions" type="number" class="form-control" value="0" min="0" placeholder="Skip options" disabled>
+                            <span class="input-group-text">Page</span>
+                            <input id="pageOptions" type="number" class="form-control" value="1" min="1" placeholder="Page options">
+                            <button class="btn btn-outline-primary" type="button" onclick=" queryEntityDataset()" title="查询EntitySet">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
+                            </button>
+                            <span class="input-group-text">
+                                <span id="totalCountSpan" class="badge rounded-pill bg-primary">0</span>
+                            </span>
+                            <button class="btn btn-outline-primary" type="button" title="上一页" onclick="previousPage()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                                </svg>
+                            </button>
+                            <button class="btn btn-outline-primary" type="button" title="下一页" onclick="nextPage()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                </svg>
+                            </button>
+                            <button class="btn btn-outline-primary" type="button" title="新建">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-fill" viewBox="0 0 16 16">
+                                    <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
+                                </svg>
+                            </button>
+                            <button class="btn btn-outline-primary" type="button" title="查看">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                </svg>
+                            </button>
+                            <button class="btn btn-outline-warning" type="button" title="编辑">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                </svg>
+                            </button>
+                            <button class="btn btn-outline-danger" type="button" title="删除">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                </svg>
+                            </button>
+                            <button class="btn btn-primary" type="button" title="开发人员工具" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+                                    <path d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294l4-13zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0zm6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="myGrid" class="ag-theme-alpine h-100" style="min-height:600px"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <!-- offcanvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">开发人员工具</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <button class="btn btn-secondary form-control" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQueryUrl" aria-expanded="false" aria-controls="collapseQueryUrl">
+                Query Url
+            </button>
+            <div class="collapse show" id="collapseQueryUrl">
+                <div class="card card-body p-0">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="queryUrl" style="min-height:80px"></textarea>
+                        <label for="floatingTextarea">Query Url</label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-secondary form-control" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+                Filter
+            </button>
+            <div class="collapse show" id="collapseFilter">
+                <div class="card card-body p-0">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="filterOptions" style="min-height:80px"></textarea>
+                        <label for="filterOptions">Filter</label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-secondary form-control" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSelect" aria-expanded="false" aria-controls="collapseSelect">
+                Select
+            </button>
+            <div class="collapse show" id="collapseSelect">
+                <div class="card card-body p-0">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="selectOptions" style="min-height:80px"></textarea>
+                        <label for="selectOptions">Select</label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-secondary form-control" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrderBy" aria-expanded="false" aria-controls="collapseOrderBy">
+                OrderBy
+            </button>
+            <div class="collapse show" id="collapseOrderBy">
+                <div class="card card-body p-0">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="orderByOptions" style="min-height:80px"></textarea>
+                        <label for="orderByOptions">OrderBy</label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-secondary form-control" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResponseBody" aria-expanded="false" aria-controls="collapseResponseBody">
+                ResponseBody
+            </button>
+            <div class="collapse show" id="collapseResponseBody">
+                <div class="card card-body p-0">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="responseBody" style="min-height:300px"></textarea>
+                        <label for="orderByOptions">ResponseBody</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+
+        </div>
+    </div>
+   
+
+    <script src="../js/app.js"></script>
+    <script src="../lib/vue/dist/vue.js"></script>
+    <script src="../lib/odatajs/odatajs-4.0.0.js"></script>
+    <script>
+        'use strict';
+
+        const entitySetVm = new Vue({
+            el: '#entitySets',
+            data: {
+                configsViewModel: [],
+                currentEntitySet: "",
+            }
+        });
+
+        (function () {
+            getEntitySetViewModel();
+        })();
+
+        // 查询EntitySetViewModel
+        function getEntitySetViewModel() {
+            let entitySetConfigsViewModelRequest = new Request(`${entitySetConfigsUri}/viewModel`, {
+                method: "GET",
+            });
+            fetch(entitySetConfigsViewModelRequest)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    else {
+                        throw new Error(`${response.status}:${response.statusText}`);
+                    }
+                })
+                .then(data => {
+                    entitySetVm._data.configsViewModel = data;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alertNotic("Something went wrong", "danger");
+                });
+        }
+
+        // 查询EntitySetConfig
+        function setCurrentEntitySet(e) {
+            entitySetVm._data.currentEntitySet = e.name;
+
+            let entitySetConfigsViewModelRequest = new Request(`${entitySetConfigsUri}/${e.id}`, {
+                method: "GET",
+            });
+            fetch(entitySetConfigsViewModelRequest)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    else {
+                        throw new Error(`${response.status}:${response.statusText}`);
+                    }
+                })
+                .then(data => {
+                    columnDefs = [];
+                    let visibleProps = data.properties.map(d => {
+                        if (d.isVisible) {
+                            return d.name;
+                        }
+                    });
+                    document.getElementById('selectOptions').value = visibleProps.join(',');
+                    data.properties.forEach(function (column, index) {
+                        let columnDef = {
+                            headerName: column.displayName,
+                            minWidth: 160,
+                            field: column.name,
+                            sortable: column.canSort,
+                            filter: column.canFilter,
+                        };
+                        if (column.canFilter) {
+                            if (column.dataType === "text") {
+                                columnDef.filterParams = {
+                                    caseSensitive: true,
+                                    buttons: ['reset', 'apply'],
+                                }
+                            }
+                            else if (column.dataType === "number") {
+                                columnDef.filter = "agNumberColumnFilter";
+                                columnDef.filterParams = {
+                                    inRangeInclusive: true,
+                                    buttons: ['reset', 'apply'],
+                                }
+                            }
+                            else if (column.dataType === "date") {
+                                columnDef.filter = "agDateColumnFilter";
+                                columnDef.filterParams = {
+                                    browserDatePicker: true,
+                                    buttons: ['reset', 'apply'],
+                                }
+                            }
+                            else if (column.dataType === "datetime") {
+                                columnDef.filter = "agDateColumnFilter";
+                                columnDef.filterParams = {
+                                    browserDatePicker: false,
+                                    buttons: ['reset', 'apply'],
+                                }
+                            }
+                        }
+                        columnDefs.push(columnDef);
+                    })
+
+                    gridOptions.api.setColumnDefs(columnDefs);
+
+                    queryEntityDataset();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alertNotic(error, "danger");
+                });           
+        }
+
+        // Entity Dataset查询
+        function queryEntityDataset() {
+            let url = `${odataServiceUri}/${entitySetVm._data.currentEntitySet}`;
+            let top = document.getElementById("topOptions").value;
+            let page = Number.parseInt(document.getElementById("pageOptions").value);
+            let skip = (page - 1) * top;
+            document.getElementById("skipOptions").value = skip;
+            let uri = `${url}?$count=true&$top=${top}&$skip=${skip}`;
+            let orderBy = document.getElementById('orderByOptions').value.trim();
+            if (orderBy !== '') {
+                uri += `&$orderby=${orderBy}`;
+            }
+            let filter = document.getElementById('filterOptions').value.trim();
+            if (filter !== '') {
+                uri += `&$filter=${filter}`;
+            }
+            let select = document.getElementById('selectOptions').value.trim();
+            if (select !== '') {
+                uri += `&$select=${select}`;
+            }
+            document.getElementById('queryUrl').value = uri;
+            let request = {
+                requestUri: uri,
+                method: "GET",
+                headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true" }
+            };
+            odatajs.oData.request(
+                request,
+                function (data, response) {
+                    let count = data['@odata.count'];
+                    document.getElementById("totalCountSpan").innerHTML = count;
+                    gridOptions.api.setRowData(data['value']);
+                    document.getElementById("responseBody").innerHTML = JSON.stringify(data['value'], null, 2);
+                },
+                function (err) {
+                    alertNotic(err, "danger");
+                }
+            );
+        };
+
+        // specify the columns
+        let columnDefs = [];
+
+        // let the grid know which columns and what data to use
+        let gridOptions = {
+            columnDefs: columnDefs,
+            defaultColDef: {
+                unSortIcon: true,
+                resizable: true,
+                lockPosition: 'left',
+            },
+            postSortRows: params => {
+                console.log(params);
+            },
+            rowData: []
+        };
+
+        // lookup the container we want the Grid to use
+        const eGridDiv = document.querySelector('#myGrid');
+
+        // create the grid passing in the div to use together with the columns & data we want to use
+        new agGrid.Grid(eGridDiv, gridOptions);
+    </script>
+</body>
+</html>

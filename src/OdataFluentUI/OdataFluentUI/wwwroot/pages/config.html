@@ -545,7 +545,6 @@
     <script src="../js/odata.js"></script>
     <script src="../js/openapi.js"></script>
     <script src="../lib/vue/dist/vue.js"></script>
-    <script src="../lib/sortablejs/Sortable.js"></script>
     <script>
         'use strict';
         document.getElementById("odataUri").value = odataServiceUri;
@@ -1016,20 +1015,7 @@
         function mergeThenUpdate() {
             remindModal.hide();
             mergeModal.show();
-        }
-
-        // 通知
-        function alertNotic(message, type) {
-            var wrapper = document.createElement('div')
-            wrapper.innerHTML = '<div class="alert alert-' + type + ' mt-1 mb-1 alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
-
-            document.getElementById('liveAlertPlaceholder').append(wrapper);
-            if (type === "success") {
-                setTimeout(function () {
-                    wrapper.innerHTML = '';
-                }, 2000);
-            }
-        }
+        }        
     </script>
 </body>
 </html>
