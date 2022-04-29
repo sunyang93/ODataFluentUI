@@ -23,6 +23,12 @@ public class EntitySetConfigModel
     /// </summary>
     public bool IsVisible { get; set; }
 
+    /// <summary>
+    /// EntityType
+    /// </summary>
+    [Required]
+    public string EntityType { get; set; }
+
     public List<EntitySetConfigProperty> Properties { get; set; }
 }
 

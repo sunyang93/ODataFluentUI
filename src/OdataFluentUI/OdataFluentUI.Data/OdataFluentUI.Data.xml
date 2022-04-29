@@ -69,11 +69,6 @@
             显示名称
             </summary>
         </member>
-        <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.EntityType">
-            <summary>
-            EntityType
-            </summary>
-        </member>
         <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.Description">
             <summary>
             描述
@@ -82,6 +77,16 @@
         <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.IsVisible">
             <summary>
             是否可见
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.EntityType">
+            <summary>
+            EntityType
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.EntityTypeConfig">
+            <summary>
+            EntityTypeConfig
             </summary>
         </member>
         <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.Name">
@@ -214,11 +219,6 @@
             数据类型
             </summary>
         </member>
-        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.Description">
-            <summary>
-            描述
-            </summary>
-        </member>
         <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.IsPKey">
             <summary>
             是否为主键
@@ -232,6 +232,11 @@
         <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.Editor">
             <summary>
             编辑器
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.EnumTypeConfig">
+            <summary>
+            EnumTypeConfig
             </summary>
         </member>
         <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.EditorType">

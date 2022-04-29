@@ -5,6 +5,9 @@
 [ApiExplorerSettings(GroupName = "document")]
 public class ConfigController : ControllerBase
 {
+    private const string _entityTypeConfigRoute = "entityTypeConfigs";
+    private const string _enumTypeConfigRoute = "enumTypeConfigs";
+    private const string _entitySetConfigRoute = "entitySetConfigs";
     private readonly IDocumentRepository _documentRepository;
     private readonly IMapper _mapper;
     public ConfigController(IDocumentRepository documentRepository, IMapper mapper)
@@ -19,7 +22,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="entityTypeConfigs">EntityTypeConfigs</param>
     /// <returns></returns>
-    [HttpPost("entityTypeConfigs")]
+    [HttpPost(_entityTypeConfigRoute)]
     public ActionResult<EntityTypeConfig> CreateEntityTypeConfigs(List<EntityTypeConfigModel> entityTypeConfigs)
     {
         try
@@ -40,7 +43,7 @@ public class ConfigController : ControllerBase
     /// <param name="id">id</param>
     /// <param name="entityTypeConfig">EntityTypeConfig</param>
     /// <returns></returns>
-    [HttpPut("entityTypeConfigs/{id}")]
+    [HttpPut(_entityTypeConfigRoute+"/{id}")]
     public IActionResult UpdateEntityTypeConfig(string id, EntityTypeConfigModel entityTypeConfig)
     {
         EntityTypeConfig _entityTypeConfig = _documentRepository.GetEntityTypeConfig(id);
@@ -60,7 +63,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="id">id</param>
     /// <returns></returns>
-    [HttpGet("entityTypeConfigs/{id}", Name = "GetEntityTypeConfig")]
+    [HttpGet(_entityTypeConfigRoute+"/{id}", Name = "GetEntityTypeConfig")]
     public ActionResult<EntityTypeConfig> GetEntityTypeConfig(string id)
     {
         EntityTypeConfig entityTypeConfig = _documentRepository.GetEntityTypeConfig(id);
@@ -72,7 +75,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="ids">ids</param>
     /// <returns></returns>
-    [HttpGet("entityTypeConfigs", Name = "GetEntityTypeConfigs")]
+    [HttpGet(_entityTypeConfigRoute, Name = "GetEntityTypeConfigs")]
     public ActionResult<List<EntityTypeConfig>> GetEntityTypeConfigs([FromQuery] List<string> ids)
     {
         if (ids == null || ids.Count == 0)
@@ -91,7 +94,7 @@ public class ConfigController : ControllerBase
     /// 查询所有的EntityTypeConfigs视图
     /// </summary>
     /// <returns></returns>
-    [HttpGet("entityTypeConfigs/viewModel")]
+    [HttpGet(_entityTypeConfigRoute+"/viewModel")]
     public ActionResult<List<EntityTypeConfigViewModel>> GetAllEntityTypeConfigsViewModel()
     {
         List<EntityTypeConfig> entityTypeConfigs = _documentRepository.GetAllEntityTypeConfigs();
@@ -104,7 +107,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="id">id</param>
     /// <returns></returns>
-    [HttpDelete("entityTypeConfigs/{id}")]
+    [HttpDelete(_entityTypeConfigRoute+"/{id}")]
     public IActionResult DeleteEntityTypeConfig(string id)
     {
         if (_documentRepository.DeleteEntityTypeConfig(id))
@@ -124,7 +127,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="enumTypeConfigs">EnumTypeConfigs</param>
     /// <returns></returns>
-    [HttpPost("enumTypeConfigs")]
+    [HttpPost(_enumTypeConfigRoute)]
     public ActionResult<EnumTypeConfig> CreateEnumTypeConfigs(List<EnumTypeConfigModel> enumTypeConfigs)
     {
         try
@@ -145,7 +148,7 @@ public class ConfigController : ControllerBase
     /// <param name="id">id</param>
     /// <param name="enumTypeConfig">EnumTypeConfig</param>
     /// <returns></returns>
-    [HttpPut("enumTypeConfigs/{id}")]
+    [HttpPut(_enumTypeConfigRoute+"/{id}")]
     public IActionResult UpdateEnumTypeConfig(string id, EnumTypeConfigModel enumTypeConfig)
     {
         EnumTypeConfig _enumTypeConfig = _documentRepository.GetEnumTypeConfig(id);
@@ -165,7 +168,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="id">id</param>
     /// <returns></returns>
-    [HttpGet("enumTypeConfigs/{id}", Name = "GetEnumTypeConfig")]
+    [HttpGet(_enumTypeConfigRoute+"/{id}", Name = "GetEnumTypeConfig")]
     public ActionResult<EnumTypeConfig> GetEnumTypeConfig(string id)
     {
         EnumTypeConfig enumTypeConfig = _documentRepository.GetEnumTypeConfig(id);
@@ -177,7 +180,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="ids">ids</param>
     /// <returns></returns>
-    [HttpGet("enumTypeConfigs", Name = "GetEnumTypeConfigs")]
+    [HttpGet(_enumTypeConfigRoute, Name = "GetEnumTypeConfigs")]
     public ActionResult<List<EnumTypeConfig>> GetEnumTypeConfigs([FromQuery] List<string> ids)
     {
         if (ids == null || ids.Count == 0)
@@ -196,7 +199,7 @@ public class ConfigController : ControllerBase
     /// 查询EnumTypeConfig视图
     /// </summary>
     /// <returns></returns>
-    [HttpGet("enumTypeConfigs/viewModel")]
+    [HttpGet(_enumTypeConfigRoute+"/viewModel")]
     public ActionResult<List<EnumTypeConfigViewModel>> GetAlEnumTypeConfigsViewModel()
     {
         List<EnumTypeConfig> enumTypeConfigs = _documentRepository.GetAllEnumTypeConfigs();
@@ -209,7 +212,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="id">id</param>
     /// <returns></returns>
-    [HttpDelete("enumTypeConfigs/{id}")]
+    [HttpDelete(_enumTypeConfigRoute+"/{id}")]
     public IActionResult DeleteEnumTypeConfig(string id)
     {
         if (_documentRepository.DeleteEnumTypeConfig(id))
@@ -229,7 +232,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="entitySetConfigs">EntitySetConfigs</param>
     /// <returns></returns>
-    [HttpPost("entitySetConfigs")]
+    [HttpPost(_entitySetConfigRoute)]
     public ActionResult<EntitySetConfig> CreateEntitySetConfigs(List<EntitySetConfigModel> entitySetConfigs)
     {
         try
@@ -250,7 +253,7 @@ public class ConfigController : ControllerBase
     /// <param name="id">id</param>
     /// <param name="entitySetConfig">EntitySetConfig</param>
     /// <returns></returns>
-    [HttpPut("entitySetConfigs/{id}")]
+    [HttpPut(_entitySetConfigRoute+"/{id}")]
     public IActionResult UpdateEntitySetConfig(string id, EntitySetConfigModel entitySetConfig)
     {
         EntitySetConfig _entitySetConfig = _documentRepository.GetEntitySetConfig(id);
@@ -270,7 +273,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="id">id</param>
     /// <returns></returns>
-    [HttpGet("entitySetConfigs/{id}",Name = "GetEntitySetConfig")]
+    [HttpGet(_entitySetConfigRoute+"/{id}",Name = "GetEntitySetConfig")]
     public ActionResult<EntitySetConfig> GetEntitySetConfig(string id)
     {
         EntitySetConfig entitySetConfig = _documentRepository.GetEntitySetConfig(id);
@@ -282,7 +285,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="ids">ids</param>
     /// <returns></returns>
-    [HttpGet("entitySetConfigs", Name = "GetEntitySetConfigs")]
+    [HttpGet(_entitySetConfigRoute, Name = "GetEntitySetConfigs")]
     public ActionResult<List<EntitySetConfig>> GetEntitySetConfigs([FromQuery]List<string> ids)
     {
         if (ids == null || ids.Count == 0)
@@ -301,7 +304,7 @@ public class ConfigController : ControllerBase
     /// 查询EntitySetConfig视图
     /// </summary>
     /// <returns></returns>
-    [HttpGet("entitySetConfigs/viewModel")]
+    [HttpGet(_entitySetConfigRoute+"/viewModel")]
     public ActionResult<List<EnumTypeConfigViewModel>> GetAlEntitySetConfigsViewModel()
     {
         List<EntitySetConfig> entitySetConfigs = _documentRepository.GetAllEntitySetConfigs();
@@ -314,7 +317,7 @@ public class ConfigController : ControllerBase
     /// </summary>
     /// <param name="id">id</param>
     /// <returns></returns>
-    [HttpDelete("entitySetConfigs/{id}")]
+    [HttpDelete(_entitySetConfigRoute+"/{id}")]
     public IActionResult DeleteEntitySetConfig(string id)
     {
         if(_documentRepository.DeleteEntitySetConfig(id))

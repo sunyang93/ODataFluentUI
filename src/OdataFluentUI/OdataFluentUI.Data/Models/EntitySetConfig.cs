@@ -38,12 +38,6 @@ namespace OdataFluentUI.Data.Models
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// EntityType
-        /// </summary>
-        [Required]
-        public string EntityType { get; set; }
-
-        /// <summary>
         /// 描述
         /// </summary>
         public string Description { get; set; }
@@ -52,6 +46,18 @@ namespace OdataFluentUI.Data.Models
         /// 是否可见
         /// </summary>
         public bool IsVisible { get; set; }
+
+        /// <summary>
+        /// EntityType
+        /// </summary>
+        [Required]
+        public string EntityType { get; set; }
+
+        /// <summary>
+        /// EntityTypeConfig
+        /// </summary>
+        [BsonRef("EntityTypeConfigs")]
+        public EntityTypeConfig EntityTypeConfig { get; set; }
 
         public List<EntitySetConfigProperty> Properties { get; set; }
     }

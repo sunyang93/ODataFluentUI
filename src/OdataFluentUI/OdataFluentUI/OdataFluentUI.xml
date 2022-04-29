@@ -150,6 +150,11 @@
             是否可见
             </summary>
         </member>
+        <member name="P:OdataFluentUI.ViewModels.EntitySetConfigModel.EntityType">
+            <summary>
+            EntityType
+            </summary>
+        </member>
         <member name="P:OdataFluentUI.ViewModels.EntitySetConfigViewModel.Id">
             <summary>
             主键Id

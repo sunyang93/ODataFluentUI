@@ -79,6 +79,12 @@ namespace OdataFluentUI.Data.Models
         public Editor Editor { get; set; }
 
         /// <summary>
+        /// EnumTypeConfig
+        /// </summary>
+        [BsonRef("EnumTypeConfigs")]
+        public EnumTypeConfig EnumTypeConfig { get; set; }
+
+        /// <summary>
         /// 编辑器类型
         /// </summary>
         public EditorType? EditorType { get; set; }
