@@ -6,11 +6,9 @@
     <title>配置页</title>
     <link href="../css/site.css" rel="stylesheet" />
     <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <link href="../css/sidebars.css" rel="stylesheet" />
     <link href="../lib/ag-grid-community/dist/styles/ag-grid.css" rel="stylesheet" />
     <link href="../lib/ag-grid-community/dist/styles/ag-theme-alpine.css" rel="stylesheet" />
-    <script src="../lib/ag-grid-community/dist/ag-grid-community.min.js"></script>
 </head>
 <body>
     <header>
@@ -60,7 +58,7 @@
                                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                                             <li v-for="(entitySet,index) in configsViewModel">
                                                 <a href="#" class="link-dark rounded" v-bind:id="entitySet.id" v-bind:name="entitySet.name" onclick="setCurrentEntitySet(this)">
-                                                    {{entitySet.name}}[{{entitySet.displayName}}]
+                                                    {{entitySet.displayName}}
                                                 </a>
                                             </li>
                                         </ul>
@@ -72,8 +70,10 @@
                     <div class="col">
                         <div id="liveAlertPlaceholder"></div>
                         <div class="col-xl input-group">
+                            <span class="input-group-text">EntitySet</span>
+                            <input id="currentEntitySetName" type="text" class="form-control" disabled>
                             <span class="input-group-text">Top</span>
-                            <input id="topOptions" type="number" class="form-control" value="15" min="1" placeholder="Top options">
+                            <input id="topOptions" type="number" class="form-control" value="12" min="1" placeholder="Top options">
                             <span class="input-group-text">Skip</span>
                             <input id="skipOptions" type="number" class="form-control" value="0" min="0" placeholder="Skip options" disabled>
                             <span class="input-group-text">Page</span>
@@ -125,7 +125,7 @@
                                 </svg>
                             </button>
                         </div>
-                        <div id="myGrid" class="ag-theme-alpine h-100" style="min-height:600px"></div>
+                        <div id="myGrid" class="ag-theme-alpine h-100" style="min-height:550px"></div>
                     </div>
                 </div>
 
@@ -139,7 +139,7 @@
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <button class="btn btn-secondary form-control" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQueryUrl" aria-expanded="false" aria-controls="collapseQueryUrl">
+            <button class="btn btn-primary form-control text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQueryUrl" aria-expanded="false" aria-controls="collapseQueryUrl">
                 Query Url
             </button>
             <div class="collapse show" id="collapseQueryUrl">
@@ -150,7 +150,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-secondary form-control" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+            <button class="btn btn-primary form-control text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
                 Filter
             </button>
             <div class="collapse show" id="collapseFilter">
@@ -161,7 +161,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-secondary form-control" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSelect" aria-expanded="false" aria-controls="collapseSelect">
+            <button class="btn btn-primary form-control text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSelect" aria-expanded="false" aria-controls="collapseSelect">
                 Select
             </button>
             <div class="collapse show" id="collapseSelect">
@@ -172,7 +172,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-secondary form-control" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrderBy" aria-expanded="false" aria-controls="collapseOrderBy">
+            <button class="btn btn-primary form-control text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOrderBy" aria-expanded="false" aria-controls="collapseOrderBy">
                 OrderBy
             </button>
             <div class="collapse show" id="collapseOrderBy">
@@ -183,7 +183,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-secondary form-control" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResponseBody" aria-expanded="false" aria-controls="collapseResponseBody">
+            <button class="btn btn-primary form-control text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseResponseBody" aria-expanded="false" aria-controls="collapseResponseBody">
                 ResponseBody
             </button>
             <div class="collapse show" id="collapseResponseBody">
@@ -199,11 +199,26 @@
 
         </div>
     </div>
-   
+    <!--Toast-->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-messenger" viewBox="0 0 16 16">
+                    <path d="M0 7.76C0 3.301 3.493 0 8 0s8 3.301 8 7.76-3.493 7.76-8 7.76c-.81 0-1.586-.107-2.316-.307a.639.639 0 0 0-.427.03l-1.588.702a.64.64 0 0 1-.898-.566l-.044-1.423a.639.639 0 0 0-.215-.456C.956 12.108 0 10.092 0 7.76zm5.546-1.459-2.35 3.728c-.225.358.214.761.551.506l2.525-1.916a.48.48 0 0 1 .578-.002l1.869 1.402a1.2 1.2 0 0 0 1.735-.32l2.35-3.728c.226-.358-.214-.761-.551-.506L9.728 7.381a.48.48 0 0 1-.578.002L7.281 5.98a1.2 1.2 0 0 0-1.735.32z" />
+                </svg>
+                <strong class="me-auto" style="margin-left:4px"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
 
-    <script src="../js/app.js"></script>
+            </div>
+        </div>
+    </div>
+    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="../lib/ag-grid-community/dist/ag-grid-community.min.js"></script>
     <script src="../lib/vue/dist/vue.js"></script>
     <script src="../lib/odatajs/odatajs-4.0.0.js"></script>
+    <script src="../js/app.js"></script>
     <script>
         'use strict';
 
@@ -244,7 +259,9 @@
 
         // 查询EntitySetConfig
         function setCurrentEntitySet(e) {
+            ResetQueryOptions();
             entitySetVm._data.currentEntitySet = e.name;
+            document.getElementById('currentEntitySetName').value = e.innerText;
 
             let entitySetConfigsViewModelRequest = new Request(`${entitySetConfigsUri}/${e.id}`, {
                 method: "GET",
@@ -313,8 +330,33 @@
                 .catch((error) => {
                     console.error('Error:', error);
                     alertNotic(error, "danger");
-                });           
+                });
         }
+
+        // 重置查询选项
+        function ResetQueryOptions() {
+            document.getElementById("pageOptions").value = 1;
+            document.getElementById("skipOptions").value = 0;
+            document.getElementById('orderByOptions').value = '';
+            document.getElementById('filterOptions').value = '';
+            document.getElementById('selectOptions').value = '';
+        }
+
+        // 上一页
+        function previousPage() {
+            let page = Number.parseInt(document.getElementById("pageOptions").value);
+            if (page > 1) {
+                document.getElementById("pageOptions").value = (page - 1);
+                queryEntityDataset();
+            }
+        };
+
+        // 下一页
+        function nextPage() {
+            let page = Number.parseInt(document.getElementById("pageOptions").value);
+            document.getElementById("pageOptions").value = (page + 1);
+            queryEntityDataset();
+        };
 
         // Entity Dataset查询
         function queryEntityDataset() {

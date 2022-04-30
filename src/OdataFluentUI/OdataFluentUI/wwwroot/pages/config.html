@@ -6,7 +6,6 @@
     <title>配置页</title>
     <link href="../css/site.css" rel="stylesheet" />
     <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <link href="../css/sidebars.css" rel="stylesheet" />
 </head>
 <body>
@@ -25,7 +24,7 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">设置</a>
+                            <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Config</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="config-entitytype.html">EntityType</a></li>
                                 <li><a class="dropdown-item" href="config-enumtype.html">EnumType</a></li>
@@ -124,7 +123,6 @@
                         </div>
                     </div>
                     <div class="col">
-                        <div id="liveAlertPlaceholder"></div>
                         <div id="entityTypeDiv" class="d-none">
                             <div class="input-group mt-3">
                                 <span class="input-group-text" id="basic-addon1">EntityType</span>
@@ -511,7 +509,7 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                
+
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
@@ -541,10 +539,26 @@
             </div>
         </div>
     </div>
+    <!--Toast-->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-messenger" viewBox="0 0 16 16">
+                    <path d="M0 7.76C0 3.301 3.493 0 8 0s8 3.301 8 7.76-3.493 7.76-8 7.76c-.81 0-1.586-.107-2.316-.307a.639.639 0 0 0-.427.03l-1.588.702a.64.64 0 0 1-.898-.566l-.044-1.423a.639.639 0 0 0-.215-.456C.956 12.108 0 10.092 0 7.76zm5.546-1.459-2.35 3.728c-.225.358.214.761.551.506l2.525-1.916a.48.48 0 0 1 .578-.002l1.869 1.402a1.2 1.2 0 0 0 1.735-.32l2.35-3.728c.226-.358-.214-.761-.551-.506L9.728 7.381a.48.48 0 0 1-.578.002L7.281 5.98a1.2 1.2 0 0 0-1.735.32z" />
+                </svg>
+                <strong class="me-auto" style="margin-left:4px"></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                
+            </div>
+        </div>
+    </div>
+    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="../lib/vue/dist/vue.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/odata.js"></script>
     <script src="../js/openapi.js"></script>
-    <script src="../lib/vue/dist/vue.js"></script>
     <script>
         'use strict';
         document.getElementById("odataUri").value = odataServiceUri;
@@ -934,7 +948,7 @@
                     if (response.ok) {
                         remindModal.show();
                         return response.json();
-                    }                    
+                    }
                     else {
                         if (response.status === 404) {
                             switch (configVm._data.currentEditResourceType) {
@@ -949,9 +963,9 @@
                                     break;
                                 default:
                                     break;
-                            }                                                                                  
+                            }
                         }
-                        else {  
+                        else {
                             console.error('Error:', `${response.status}:${response.statusText}`);
                             alertNotic(`${response.status}:${response.statusText}`, "danger");
                         }
@@ -1015,7 +1029,7 @@
         function mergeThenUpdate() {
             remindModal.hide();
             mergeModal.show();
-        }        
+        }
     </script>
 </body>
 </html>
