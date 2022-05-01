@@ -14,9 +14,13 @@ function analysisOpenApiDocument(openApiDocument,jsonDoc) {
                     if (schemaValue.properties[_prop].hasOwnProperty('$ref')) {
                         let pathValues = schemaValue.properties[_prop]['$ref'].split('/');
                         let entityName = pathValues[pathValues.length - 1];
-                        prop.displayName = openApiDocument.components.schemas[entityName].description;
+                        if (openApiDocument.components.schemas[entityName].hasOwnProperty('description')) {
+                            prop.displayName = openApiDocument.components.schemas[entityName].description;
+                        }
                     } else {
-                        prop.displayName = schemaValue.properties[_prop].description;
+                        if (schemaValue.properties[_prop].hasOwnProperty('description')) {
+                            prop.displayName = schemaValue.properties[_prop].description;
+                        }
                     }
                 }
             }

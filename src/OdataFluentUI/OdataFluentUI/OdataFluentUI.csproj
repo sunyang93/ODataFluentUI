@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\font\" />
     <Folder Include="wwwroot\lib\" />
   </ItemGroup>
 

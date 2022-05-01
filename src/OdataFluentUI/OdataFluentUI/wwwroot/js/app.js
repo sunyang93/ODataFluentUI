@@ -1,9 +1,9 @@
 ﻿'use strict';
 
-const odataServiceUri = 'http://localhost:5201/odata';
+const odataServiceUri = `${location.origin}/odata`;
 
-const odataWebApiOpenApiDocumentUri = 'http://localhost:5201/swagger/odata/swagger.json';
-const webApiUri = 'http://localhost:5201/api/configs';
+const odataWebApiOpenApiDocumentUri = `${location.origin}/swagger/odata/swagger.json`;
+const webApiUri = `${location.origin}/api/configs`;
 
 const entityTypeConfigsUri = `${webApiUri}/entityTypeConfigs`;
 const enumTypeConfigsUri = `${webApiUri}/enumTypeConfigs`;
