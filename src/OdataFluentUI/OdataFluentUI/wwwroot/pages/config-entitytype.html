@@ -8,8 +8,8 @@
     <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body class="font-monospace">
-    <div>
-        <img class="img-fluid opacity-25 position-fixed" style="z-index:-1" src="../img/cole-searching.png" />
+    <div class="container">
+        <img class="img-fluid position-fixed" style="z-index:-1;opacity:0.1" src="../img/cole-welcome.png" />
     </div>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-success">
@@ -156,13 +156,17 @@
                     </div>
                     <div class="col-sm px-1">
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="显示名称" id="displayName" v-model="config.displayName"></textarea>
+                            <textarea class="form-control" placeholder="显示名称" id="displayName" 
+                                      v-model="config.displayName"
+                                      onchange="afterChange()"></textarea>
                             <label for="displayName">显示名称</label>
                         </div>
                     </div>
                     <div class="col-sm p-0">
                         <div class="form-floating">
-                            <textarea class="form-control" placeholder="描述" id="description" v-model="config.description"></textarea>
+                            <textarea class="form-control" placeholder="描述" id="description" 
+                                      v-model="config.description"
+                                      onchange="afterChange()"></textarea>
                             <label for="description">描述</label>
                         </div>
                     </div>

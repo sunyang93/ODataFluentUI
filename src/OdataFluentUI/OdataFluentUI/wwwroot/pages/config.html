@@ -10,8 +10,8 @@
     <link href="../css/sidebars.css" rel="stylesheet" />
 </head>
 <body class="font-monospace">
-    <div>
-        <img class="img-fluid opacity-25 position-fixed" style="z-index:-1" src="../img/cole-welcome.png" />
+    <div class="container">
+        <img class="img-fluid position-fixed" style="z-index:-1;opacity:0.1" src="../img/cole-welcome.png" />
     </div>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark bg-success">
@@ -585,7 +585,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="text-center">
-                                    <img width="500" src="../img/taxi-programming.png" />
+                                    <img class="img-fluid" width="520" src="../img/taxi-programming.png" />
                                 </div>
                                 <div class="progress m-auto w-50">
                                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
@@ -610,7 +610,7 @@
                             </div>
                             <div class="modal-body">
                                 <div class="text-center">
-                                    <img width="500" src="../img/cyborg-107.png" />
+                                    <img class="img-fluid" width="520" src="../img/taxi-programming.png" />
                                 </div>
                                 <div class="progress m-auto w-50">
                                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
@@ -970,11 +970,17 @@
                             }
                         }
                         if (config.keys.includes(property.name)) {
-                            property.isReadonly = true;
+                            property.isReadOnly = true;
                             property.isRequired = false;
                         }
                         else {
-                            property.isReadonly = false;
+                            if (['CreateTime', 'UpdateTime'].includes(property.name)) {
+                                property.isReadOnly = true;
+                                property.isRequired = false;
+                            }
+                            else {
+                                property.isReadOnly = false;
+                            }
                         }
                     };
                 };
@@ -1014,6 +1020,10 @@
                         };
                         prop.isPKey = property.isPKey;
                         prop.isFKey = property.isFKey;
+                        if (prop.isFKey) {
+                            prop.isRequired = true;
+                            prop.isReadOnly = false;
+                        }
                         if (prop.editorType === "checkbox") {
                             property.dataType = "bool";
                         }
