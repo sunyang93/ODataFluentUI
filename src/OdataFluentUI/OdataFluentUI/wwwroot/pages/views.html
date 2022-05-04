@@ -113,7 +113,7 @@
                     <div class="col">
                         <div class="input-group shadow mb-1">
                             <span class="input-group-text">EntitySet</span>
-                            <input id="currentEntitySetName" type="text" class="form-control" disabled>
+                            <input id="currentEntitySetName" type="text" class="form-control" v-bind:value="currentEntitySet.displayName" disabled>
                             <span class="input-group-text">
                                 <span>Total</span>
                                 <span id="totalCountSpan" class="badge rounded-pill bg-primary">0</span>
@@ -144,7 +144,7 @@
                                     <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3a.5.5 0 0 1 1 0z" />
                                 </svg>
                             </button>
-                            <button class="btn btn-primary" type="button" title="查看">
+                            <button class="btn btn-primary" type="button" title="查看" onclick="viewDetail()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
                                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
                                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
@@ -171,7 +171,28 @@
                         <div id="myGrid" class="ag-theme-alpine h-100" style="min-height:550px"></div>
                     </div>
                 </div>
-
+                <!-- View Modal -->
+                <div class="modal fade" id="viewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">详细信息</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <template v-for="property in currentEntityType.properties">
+                                    <div class="form-floating mt-3">
+                                        <textarea class="form-control" placeholder="Leave a comment here" v-bind:id="property.name">{{selectedEntityData[property.name]}}</textarea>
+                                        <label v-bind:for="property.name">{{property.displayName}}</label>
+                                    </div>
+                                </template>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -245,7 +266,7 @@
     <!--Toast-->
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
+            <div class="toast-header bg-primary text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-messenger" viewBox="0 0 16 16">
                     <path d="M0 7.76C0 3.301 3.493 0 8 0s8 3.301 8 7.76-3.493 7.76-8 7.76c-.81 0-1.586-.107-2.316-.307a.639.639 0 0 0-.427.03l-1.588.702a.64.64 0 0 1-.898-.566l-.044-1.423a.639.639 0 0 0-.215-.456C.956 12.108 0 10.092 0 7.76zm5.546-1.459-2.35 3.728c-.225.358.214.761.551.506l2.525-1.916a.48.48 0 0 1 .578-.002l1.869 1.402a1.2 1.2 0 0 0 1.735-.32l2.35-3.728c.226-.358-.214-.761-.551-.506L9.728 7.381a.48.48 0 0 1-.578.002L7.281 5.98a1.2 1.2 0 0 0-1.735.32z" />
                 </svg>
@@ -269,7 +290,9 @@
             el: '#entitySets',
             data: {
                 configsViewModel: [],
-                currentEntitySet: "",
+                currentEntitySet: {},
+                currentEntityType: {},
+                selectedEntityData: {}
             }
         });
 
@@ -303,9 +326,9 @@
         // 查询EntitySetConfig
         function setCurrentEntitySet(e) {
             ResetQueryOptions();
-            entitySetVm._data.currentEntitySet = e.name;
-            document.getElementById('currentEntitySetName').value = e.innerText;
+            entitySetVm._data.currentEntitySet = entitySetVm._data.configsViewModel.find(d => d.id === e.id);
 
+            // EntitySet
             let entitySetConfigsViewModelRequest = new Request(`${entitySetConfigsUri}/${e.id}`, {
                 method: "GET",
             });
@@ -374,6 +397,32 @@
                     console.error('Error:', error);
                     alertNotic(error, "danger");
                 });
+            // EntityType
+            setTimeout(function () { queryEntityTypeConfig()}, 2000);
+            
+        }
+
+        // 查询EntityTypeConfig
+        function queryEntityTypeConfig(){
+            let entityTypeConfigRequest = new Request(`${entityTypeConfigsUri}/${entitySetVm._data.currentEntitySet.entityTypeConfig.id}`, {
+                method: "GET",
+            });
+            fetch(entityTypeConfigRequest)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    else {
+                        throw new Error(`${response.status}:${response.statusText}`);
+                    }
+                })
+                .then(data => {
+                    entitySetVm._data.currentEntityType = data;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alertNotic("Something went wrong", "danger");
+                });
         }
 
         // 重置查询选项
@@ -403,7 +452,7 @@
 
         // Entity Dataset查询
         function queryEntityDataset() {
-            let url = `${odataServiceUri}/${entitySetVm._data.currentEntitySet}`;
+            let url = `${odataServiceUri}/${entitySetVm._data.currentEntitySet.name}`;
             let top = document.getElementById("topOptions").value;
             let page = Number.parseInt(document.getElementById("pageOptions").value);
             let skip = (page - 1) * top;
@@ -447,15 +496,21 @@
         // let the grid know which columns and what data to use
         let gridOptions = {
             columnDefs: columnDefs,
+            multiSortKey: 'ctrl',
             defaultColDef: {
                 unSortIcon: true,
                 resizable: true,
-                lockPosition: 'left',
+                //headerCheckboxSelection: isFirstColumn,
+                checkboxSelection: isFirstColumn,
             },
             postSortRows: params => {
                 console.log(params);
             },
-            rowData: []
+            rowData: [],
+            rowSelection: 'single', //multiple
+            rowMultiSelectWithClick: true,
+            onFilterModified: onFilterModified,
+            onFilterChanged: onFilterChanged,
         };
 
         // lookup the container we want the Grid to use
@@ -463,6 +518,69 @@
 
         // create the grid passing in the div to use together with the columns & data we want to use
         new agGrid.Grid(eGridDiv, gridOptions);
+
+
+        function getSelectedRows() {
+            const selectedNodes = gridOptions.api.getSelectedNodes()
+            const selectedData = selectedNodes.map(node => node.data)
+            return selectedData.map(d => d["@odata.id"]);
+        }
+
+        function isFirstColumn(params) {
+            var displayedColumns = params.columnApi.getAllDisplayedColumns();
+            var thisIsFirstColumn = displayedColumns[0] === params.column;
+            return thisIsFirstColumn;
+        }
+
+        function clearFilter() {
+            gridOptions.api.setFilterModel(null);
+        }
+
+        function onFilterChanged(e) {
+            console.log('onFilterChanged', e);
+            console.log('gridApi.getFilterModel() =>', e.api.getFilterModel());
+        }
+
+        function onFilterModified(e) {
+            console.log('onFilterModified', e);
+            console.log('filterInstance.getModel() =>', e.filterInstance.getModel());
+            console.log(
+                'filterInstance.getModelFromUi() =>',
+                e.filterInstance.getModelFromUi()
+            );
+        }
+
+        var viewModal = new bootstrap.Modal(document.getElementById('viewModal'));
+        // 查看
+        function viewDetail() {
+            let resourceUris = getSelectedRows();
+            if (resourceUris.length > 0) {
+                resourceUris.forEach(function (item, index) {
+                    queryEntityData(item);
+                });
+                viewModal.show();
+            } else {
+                alertNotic('请选择需要查看的数据',"warning");
+            }
+        }
+
+        // 查询Entity数据
+        function queryEntityData(entityUri) {
+            let request = {
+                requestUri: entityUri,
+                method: "GET",
+                headers: { Accept: "application/json;odata.metadata=full;odata.streaming=true", }
+            };
+            odatajs.oData.request(
+                request,
+                function (data, response) {
+                    entitySetVm._data.selectedEntityData = data;
+                },
+                function (err) {
+                    alertNotic("Something went wrong","danger");
+                }
+            );
+        }
     </script>
 </body>
 </html>

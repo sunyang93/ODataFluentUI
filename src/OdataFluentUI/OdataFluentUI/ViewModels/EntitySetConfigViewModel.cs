@@ -16,5 +16,7 @@ public class EntitySetConfigViewModel
     /// 显示名称
     /// </summary>
     public string DisplayName { get; set; }
+
+    public EntityTypeConfig EntityTypeConfig { get; set; }
 }
 

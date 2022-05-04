@@ -501,10 +501,10 @@
                     entityTypeVm._data.canEdit = true;
                 }
             }
-            let entityTypeConfigsViewModelRequest = new Request(`${entityTypeConfigsUri}/${e.value}`, {
+            let entityTypeConfigRequest = new Request(`${entityTypeConfigsUri}/${e.value}`, {
                 method: "GET",
             });
-            fetch(entityTypeConfigsViewModelRequest)
+            fetch(entityTypeConfigRequest)
                 .then(response => {
                     if (response.ok) {
                         return response.json();
