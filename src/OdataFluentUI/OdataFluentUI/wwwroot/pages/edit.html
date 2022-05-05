@@ -87,6 +87,13 @@
     <main role="main" class="mt-3">
         <div class="container">
             <div id="entityEdit" class="row">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="views.html">Views</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{entitySetConfig.displayName}}</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{editType}}</li>
+                    </ol>
+                </nav>
                 <template v-for="property in entitySetConfig.entityTypeConfigValue.properties">
                     <template v-if="property.editor==='input'">
                         <template v-if="property.editorType==='checkbox'">
@@ -178,7 +185,8 @@
             el: '#entityEdit',
             data: {
                 entitySetConfig: {},
-                entityData: {}
+                entityData: {},
+                editType:'新建',
             }
         });
 
@@ -190,6 +198,7 @@
                     queryEntityTypeConfig(params['entitySetId']);
                 }
                 if (params.hasOwnProperty('resourceUri')) {
+                    entityEditVm._data.editType = "编辑";
                     setTimeout(function () {
                         queryEntityData(params['resourceUri']);
                     }, 500)                    
