@@ -63,8 +63,8 @@ builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI(o =>
     {
@@ -73,7 +73,7 @@ if (app.Environment.IsDevelopment())
     });
 
     app.UseHttpLogging();
-}
+//}
 
 app.UseStaticFiles();
 
