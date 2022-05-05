@@ -59,6 +59,12 @@ namespace OdataFluentUI.Data.Models
         [BsonRef("EntityTypeConfigs")]
         public EntityTypeConfig EntityTypeConfig { get; set; }
 
+        /// <summary>
+        /// EntityTypeConfig
+        /// </summary>
+        [BsonIgnore]
+        public EntityTypeConfig EntityTypeConfigValue { get; set; }
+
         public List<EntitySetConfigProperty> Properties { get; set; }
     }
 

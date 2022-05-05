@@ -393,9 +393,9 @@
                                                 <select class="form-select add-new-edit-old"
                                                         v-bind:disabled="property.isReadOnly?'disabled':false"
                                                         v-bind:id="property.name">
-                                                    <option v-for="enumValue in property.enumValues"
+                                                    <option v-for="enumValue in property.enumTypeConfigValue.enums"
                                                             v-bind:value="enumValue.name">
-                                                        {{enumValue.name}}
+                                                        {{enumValue.displayName}}
                                                     </option>
                                                 </select>
                                             </div>

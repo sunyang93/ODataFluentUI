@@ -42,8 +42,16 @@ namespace OdataFluentUI.Data.Infrastructure
 
         public EntityTypeConfig GetEntityTypeConfig(string id)
         {
-            ILiteCollection<EntityTypeConfig> dataSet = _liteDatabase.GetCollection<EntityTypeConfig>(nameof(EntityTypeConfig).Pluralize());
+            ILiteCollection<EntityTypeConfig> dataSet = _liteDatabase.GetCollection<EntityTypeConfig>(nameof(EntityTypeConfig).Pluralize());           
             EntityTypeConfig entityTypeConfig = dataSet.FindById(new ObjectId(id));
+            ILiteCollection<EnumTypeConfig> _dataSet = _liteDatabase.GetCollection<EnumTypeConfig>(nameof(EnumTypeConfig).Pluralize());
+            entityTypeConfig.Properties.ForEach(property =>
+            {
+                if (property.EnumTypeConfig != null)
+                {
+                    property.EnumTypeConfigValue=_dataSet.FindById(property.EnumTypeConfig.EnumTypeConfigId);
+                }
+            });
             return entityTypeConfig;
         }
 
@@ -161,6 +169,10 @@ namespace OdataFluentUI.Data.Infrastructure
         {
             ILiteCollection<EntitySetConfig> dataSet = _liteDatabase.GetCollection<EntitySetConfig>(nameof(EntitySetConfig).Pluralize());
             EntitySetConfig entitySetConfig = dataSet.FindById(new ObjectId(id));
+            if (entitySetConfig.EntityTypeConfig != null)
+            {
+                entitySetConfig.EntityTypeConfigValue = GetEntityTypeConfig(entitySetConfig.EntityTypeConfig.Id);
+            }
             return entitySetConfig;
         }
 

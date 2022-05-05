@@ -89,6 +89,11 @@
             EntityTypeConfig
             </summary>
         </member>
+        <member name="P:OdataFluentUI.Data.Models.EntitySetConfig.EntityTypeConfigValue">
+            <summary>
+            EntityTypeConfig
+            </summary>
+        </member>
         <member name="P:OdataFluentUI.Data.Models.EntitySetConfigProperty.Name">
             <summary>
             名称
@@ -235,6 +240,11 @@
             </summary>
         </member>
         <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.EnumTypeConfig">
+            <summary>
+            EnumTypeConfig(引用类型)
+            </summary>
+        </member>
+        <member name="P:OdataFluentUI.Data.Models.EntityTypeConfigProperty.EnumTypeConfigValue">
             <summary>
             EnumTypeConfig
             </summary>
