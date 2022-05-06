@@ -69,7 +69,9 @@ WebApplication app = builder.Build();
     app.UseSwaggerUI(o =>
     {
         o.SwaggerEndpoint("/swagger/odata/swagger.json", "OdataApi");
+        o.SwaggerEndpoint("/swagger/odata/swagger.yaml", "OdataApi");
         o.SwaggerEndpoint("/swagger/document/swagger.json", "WebApi");
+        o.SwaggerEndpoint("/swagger/document/swagger.yaml", "WebApi");
     });
 
     app.UseHttpLogging();
