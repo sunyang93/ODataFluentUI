@@ -94,69 +94,75 @@
                         <li class="breadcrumb-item active" aria-current="page">{{editType}}</li>
                     </ol>
                 </nav>
-                <template v-for="property in entitySetConfig.entityTypeConfigValue.properties">
-                    <template v-if="property.editor==='input'">
-                        <template v-if="property.editorType==='checkbox'">
-                            <div class="mb-3 col-12 col-md-6 m-auto">
-                                <label class="form-check-label" v-bind:for="property.name">
-                                    {{ property.displayName }}
-                                </label>
-                                <input class="form-check-input add-new-edit-old" type="checkbox"
-                                       v-bind:disabled="property.isReadOnly?'disabled':false"
-                                       v-bind:id="property.name">
-                            </div>
+                <form class="needs-validation" novalidate>
+                    <template v-for="property in entitySetConfig.entityTypeConfigValue.properties">
+                        <template v-if="property.editor==='input'">
+                            <template v-if="property.editorType==='checkbox'">
+                                <div class="mb-3 col-12 col-s-6 m-auto">
+                                    <label class="form-check-label" v-bind:for="property.name">
+                                        {{ property.displayName }}
+                                    </label>
+                                    <input class="form-check-input add-new-edit-old" type="checkbox"
+                                           v-bind:disabled="property.isReadOnly?'disabled':false"
+                                           v-bind:id="property.name">
+                                </div>
+                            </template>
+                            <template v-else-if="property.editorType==='datetime'">
+                                <div class="mb-3 col-12 col-s-6">
+                                    <label class="form-label" v-bind:for="property.name">
+                                        {{ property.displayName }}
+                                        <template v-if="property.isRequired===true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                                                <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+                                            </svg>
+                                        </template>
+                                    </label>
+                                    <input class="form-control add-new-edit-old"
+                                           v-bind:type="property.editorType"
+                                           v-bind:disabled="property.isReadOnly?'disabled':false"
+                                           v-bind:id="property.name" />
+                                </div>
+                            </template>
+                            <template v-else>
+                                <div class="mb-3 col-12 col-s-6">
+                                    <label class="form-label" v-bind:for="property.name">
+                                        {{ property.displayName }}
+                                        <template v-if="property.isRequired===true">
+                                            <span title="必填字段">
+                                                <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                                                    <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
+                                                </svg>
+                                            </span>
+
+                                        </template>
+                                    </label>
+                                    <input v-bind:type="property.editorType" class="form-control add-new-edit-old"
+                                           v-bind:disabled="property.isReadOnly?'disabled':false"
+                                           v-bind:maxlength="property.maxLength"
+                                           v-bind:id="property.name" 
+                                           v-bind:required="property.isRequired?'required':false"/>
+                                </div>
+                            </template>
                         </template>
-                        <template v-else-if="property.editorType==='datetime'">
-                            <div class="mb-3 col-12 col-md-6">
+                        <template v-else-if="property.editor==='select'">
+                            <div class="mb-3 col-12 col-s-6">
                                 <label class="form-label" v-bind:for="property.name">
                                     {{ property.displayName }}
-                                    <template v-if="property.isRequired===true">
-                                        <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
-                                            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
-                                        </svg>
-                                    </template>
                                 </label>
-                                <input class="form-control add-new-edit-old"
-                                       v-bind:type="property.editorType"
-                                       v-bind:disabled="property.isReadOnly?'disabled':false"
-                                       v-bind:id="property.name" />
-                            </div>
-                        </template>
-                        <template v-else>
-                            <div class="mb-3 col-12 col-md-6">
-                                <label class="form-label" v-bind:for="property.name">
-                                    {{ property.displayName }}
-                                    <template v-if="property.isRequired===true">
-                                        <svg xmlns="http://www.w3.org/2000/svg" style="width:10px;color:red" width="16" height="16" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
-                                            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z" />
-                                        </svg>
-                                    </template>
-                                </label>
-                                <input v-bind:type="property.editorType" class="form-control add-new-edit-old"
-                                       v-bind:disabled="property.isReadOnly?'disabled':false"
-                                       v-bind:maxlength="property.maxLength"
-                                       v-bind:id="property.name" />
+                                <select class="form-select add-new-edit-old"
+                                        v-bind:disabled="property.isReadOnly?'disabled':false"
+                                        v-bind:id="property.name">
+                                    <option v-for="enumValue in property.enumTypeConfigValue.enums"
+                                            v-bind:value="enumValue.name">
+                                        {{enumValue.displayName}}
+                                    </option>
+                                </select>
                             </div>
                         </template>
                     </template>
-                    <template v-else-if="property.editor==='select'">
-                        <div class="mb-3 col-12 col-md-6">
-                            <label class="form-label" v-bind:for="property.name">
-                                {{ property.displayName }}
-                            </label>
-                            <select class="form-select add-new-edit-old"
-                                    v-bind:disabled="property.isReadOnly?'disabled':false"
-                                    v-bind:id="property.name">
-                                <option v-for="enumValue in property.enumTypeConfigValue.enums"
-                                        v-bind:value="enumValue.name">
-                                    {{enumValue.displayName}}
-                                </option>
-                            </select>
-                        </div>
-                    </template>
-                </template>
+                    <button type="button" class="btn btn-primary mb-3" onclick="addNewOrEditOldData()">保存</button>
+                </form>
             </div>
-            <button class="btn btn-primary mb-3" onclick="addNewOrEditOldData()">保存</button>
         </div>
     </main>
     <!--Toast-->
@@ -203,7 +209,26 @@
                         queryEntityData(params['resourceUri']);
                     }, 500)                    
                 }
-            }
+            };
+
+            //setTimeout(function () {
+            //    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            //    var forms = document.querySelectorAll('.needs-validation')
+
+            //    // Loop over them and prevent submission
+            //    Array.prototype.slice.call(forms)
+            //        .forEach(function (form) {
+            //            form.addEventListener('click', function (event) {
+            //                if (!form.checkValidity()) {
+            //                    event.preventDefault()
+            //                    event.stopPropagation()
+            //                    canSubmit = false;
+            //                }
+            //                canSubmit = true;
+            //                form.classList.add('was-validated')
+            //            }, false)
+            //        });
+            //}, 500);           
         })();
 
         // 查询EntityTypeConfig
@@ -268,6 +293,23 @@
 
         // 新建/编辑Entity数据
         function addNewOrEditOldData() {
+            let canSubmit = true;
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                        canSubmit = false;
+                    }
+                    form.classList.add('was-validated')
+                });
+
+            if (!canSubmit) {
+                return;
+            }
             let doms = document.getElementsByClassName('add-new-edit-old');
             let newEntity = {};
             for (let dom of doms) {
