@@ -472,6 +472,9 @@
 
         // Entity Dataset查询
         function queryEntityDataset() {
+            if (!entitySetVm._data.currentEntitySet.hasOwnProperty('name')) {
+                return false;
+            }
             let url = `${odataServiceUri}/${entitySetVm._data.currentEntitySet.name}`;
             let top = document.getElementById("topOptions").value;
             let page = Number.parseInt(document.getElementById("pageOptions").value);
@@ -523,13 +526,27 @@
                 //headerCheckboxSelection: isFirstColumn,
                 checkboxSelection: isFirstColumn,
             },
-            postSortRows: params => {
+            postSortRows: params => {               
                 console.log(params);
+                let sortItems = [];
+                params.columnApi.getColumnState().forEach(function (item, index) {
+                    if (item.sort != null) {
+                        sortItems.push(item);
+                    }
+                });
+                let orderByOptions = [];
+                sortItems.sort(function (a,b) {
+                    return a.sortIndex - b.sortIndex;
+                });
+                sortItems.forEach(function (item, index) {
+                    orderByOptions.push(`${item.colId} ${item.sort}`);
+                });
+                document.getElementById('orderByOptions').value = orderByOptions.join(',');
+                //queryEntityDataset();
             },
             rowData: [],
             rowSelection: 'single', //multiple
             rowMultiSelectWithClick: true,
-            onFilterModified: onFilterModified,
             onFilterChanged: onFilterChanged,
         };
 
@@ -556,18 +573,67 @@
             gridOptions.api.setFilterModel(null);
         }
 
-        function onFilterChanged(e) {
-            console.log('onFilterChanged', e);
-            console.log('gridApi.getFilterModel() =>', e.api.getFilterModel());
-        }
-
-        function onFilterModified(e) {
-            console.log('onFilterModified', e);
-            console.log('filterInstance.getModel() =>', e.filterInstance.getModel());
-            console.log(
-                'filterInstance.getModelFromUi() =>',
-                e.filterInstance.getModelFromUi()
-            );
+        function onFilterChanged(params) {
+            let filterModel = params.api.getFilterModel();
+            console.log(filterModel);
+            let filterOptions = [];
+            let keys = Object.keys(filterModel);
+            keys.forEach(function (item, index) {
+                switch (filterModel[item].type) {
+                    case "equals":
+                        if (filterModel[item].filterType === 'number')
+                            filterOptions.push(`${item} eq ${filterModel[item].filter}`);
+                        else
+                            filterOptions.push(`${item} eq '${filterModel[item].filter}'`);
+                        break;
+                    case "notEqual":
+                        if (filterModel[item].filterType === 'number')
+                            filterOptions.push(`${item} ne ${filterModel[item].filter}`);
+                        else
+                            filterOptions.push(`${item} ne '${filterModel[item].filter}'`);
+                        break;
+                    case "contains":
+                        filterOptions.push(`contains(${item},'${filterModel[item].filter}')`);
+                        break;
+                    case "notContains":
+                        filterOptions.push(`not contains(${item},'${filterModel[item].filter}')`);
+                        break;
+                    case "startsWith":
+                        filterOptions.push(`startsWith(${item},'${filterModel[item].filter}')`);
+                        break;
+                    case "endsWith":
+                        filterOptions.push(`endsWith(${item},'${filterModel[item].filter}')`);
+                        break;
+                    case "lessThan":
+                        filterOptions.push(`${item} lt ${filterModel[item].filter}`);
+                        break;
+                    case "lessThanOrEqual":
+                        filterOptions.push(`${item} le ${filterModel[item].filter}`);
+                        break;
+                    case "greaterThan":
+                        filterOptions.push(`${item} gt ${filterModel[item].filter}`);
+                        break;
+                    case "greaterThanOrEqual":
+                        filterOptions.push(`${item} ge ${filterModel[item].filter}`);
+                        break;
+                    case "inRange":
+                        filterOptions.push(`${item} ge ${filterModel[item].filter} and ${item} le ${filterModel[item].filterTo}`);
+                        break;
+                    case "blank":
+                        filterOptions.push(`${item} eq null`);
+                        break;
+                    case "notBlank":
+                        filterOptions.push(`${item} ne null`);
+                        break;
+                    case "empty":
+                        filterOptions.push(`${item} eq null`);
+                        break;
+                    default:
+                        break;
+                }
+            });
+            document.getElementById('filterOptions').value = filterOptions.join(' and ');
+            queryEntityDataset();
         }
 
         var viewModal = new bootstrap.Modal(document.getElementById('viewModal'));
