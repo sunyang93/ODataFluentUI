@@ -8,6 +8,7 @@
     <link href="../css/site.css" rel="stylesheet" />
     <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="../css/sidebars.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jointjs/3.4.4/joint.css" />
 </head>
 <body class="font-monospace">
     <div class="container">
@@ -606,17 +607,35 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">依赖关系图</h5>
+                                <div class="btn-group position-absolute" style="right:60px" role="group" aria-label="Basic mixed styles example">
+                                    <button type="button" class="btn btn-outline-primary" title="缩小" onclick="scaleUml('narrow')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-angle-contract" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M.172 15.828a.5.5 0 0 0 .707 0l4.096-4.096V14.5a.5.5 0 1 0 1 0v-3.975a.5.5 0 0 0-.5-.5H1.5a.5.5 0 0 0 0 1h2.768L.172 15.121a.5.5 0 0 0 0 .707zM15.828.172a.5.5 0 0 0-.707 0l-4.096 4.096V1.5a.5.5 0 1 0-1 0v3.975a.5.5 0 0 0 .5.5H14.5a.5.5 0 0 0 0-1h-2.768L15.828.879a.5.5 0 0 0 0-.707z" />
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary" title="放大" onclick="scaleUml('enlarge')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-angle-expand" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z" />
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary" title="复位" onclick="scaleUml('reset')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-record-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                            <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
-                                <div class="text-center">
+                            <div id="umlDiv" class="modal-body">
+                                <!--<div class="text-center">
                                     <img class="img-fluid" width="520" src="../img/taxi-programming.png" />
                                 </div>
                                 <div class="progress m-auto w-50">
                                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                                         施工中...
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
@@ -664,6 +683,10 @@
     </div>
     <script src="../lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="../lib/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jointjs/3.4.4/joint.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/odata.js"></script>
     <script src="../js/openapi.js"></script>
@@ -924,12 +947,12 @@
                 .then(response => response.text())
                 .then(data => {
                     let xmlDoc = (new DOMParser()).parseFromString(data, 'text/xml');
-                    let jsonDoc = mapperOdataMetadata(xmlDoc);
-                    generateEditorConfig(jsonDoc);
-                    searchOpenApi(jsonDoc);
-                    configVm._data.entityTypes = jsonDoc[0].entityTypes;
-                    configVm._data.enumTypes = jsonDoc[0].enumTypes;
-                    configVm._data.entitySets = jsonDoc[0].entityContainer.entitySets;
+                    let odataJsonDoc = mapperOdataMetadata(xmlDoc);
+                    generateEditorConfig(odataJsonDoc);
+                    searchOpenApi(odataJsonDoc);
+                    configVm._data.entityTypes = odataJsonDoc[0].entityTypes;
+                    configVm._data.enumTypes = odataJsonDoc[0].enumTypes;
+                    configVm._data.entitySets = odataJsonDoc[0].entityContainer.entitySets;                 
                 })
                 .catch((error) => {
                     console.error('Error:', error);
@@ -967,6 +990,12 @@
                             else {
                                 property.editor = 'select';
                                 property.enumValues = enumType.enums;
+                                property.enumTypeName = enumType.name;
+                                if (config.hasOwnProperty('navigationProperty')) {
+                                    config.navigationProperty.push({ name: enumType.name, type: `${odataSchemas.name}.${enumType.name}` });
+                                } else {
+                                    config.navigationProperty = [{ name: enumType.name, type: `${odataSchemas.name}.${enumType.name}` }];
+                                }
                             }
                         }
                         if (config.keys.includes(property.name)) {
@@ -1037,7 +1066,7 @@
             console.log(odataSchemas);
         };
 
-        var remindModal = new bootstrap.Modal(document.getElementById('remindModal'));
+        let remindModal = new bootstrap.Modal(document.getElementById('remindModal'));
         // 上载OData Metadata元数据
         function uploadOdataMetadate() {
             let resourceUri = '';
@@ -1142,13 +1171,147 @@
                 });
         }
 
-        var umlModal = new bootstrap.Modal(document.getElementById('umlModal'));
+        let umlModal = new bootstrap.Modal(document.getElementById('umlModal'));
+        var paper = null;
         // 依赖关系图
         function viewUmlModal() {
             umlModal.show();
+            if (paper != null)
+                return;
+            setTimeout(function () { createUml(); }, 1000);
         }
 
-        var mergeModal = new bootstrap.Modal(document.getElementById('mergeModal'));
+        // 创建UML
+        function createUml() {
+            let graph = new joint.dia.Graph();
+
+            let divWidth = document.getElementById('umlDiv').clientWidth;
+            let divHeight = document.getElementById('umlDiv').clientHeight;
+            paper=new joint.dia.Paper({
+                el: document.getElementById('umlDiv'),
+                width: divWidth,
+                height: divHeight,
+                gridSize: 10,
+                drawGrid: true,
+                model: graph
+            });
+
+            let uml = joint.shapes.uml;
+            let classes = {};
+            configVm._data.entityTypes.forEach(function (item, index) {
+                let attributes = [];
+                item.properties.forEach(function (_item, _index) {
+                    let attr = `${_item.name}: ${_item.dataType}`;
+                    let keyVs = [];
+                    if (_item.isPKey) {
+                        keyVs.push('PK');
+                    }
+                    if (_item.isFKey) {
+                        keyVs.push('FK');
+                    }
+                    if (keyVs.length > 0) {
+                        attr = `${_item.name}(${keyVs.join(',')}): ${_item.dataType}`;
+                    }
+                    attributes.push(attr);
+                });
+                let classItem = new uml.Class({
+                    position: { x: Math.random() * (divWidth-300), y: Math.random() * (divHeight-100) },
+                    size: { width: 300, height: 20 * item.properties.length },
+                    name: `${item.name}[${item.displayName}]`,
+                    attributes: attributes,
+                });
+                let classIns = {};
+                classIns[`${item.name}`] = classItem;
+                console.log(classIns);
+                classes = { ...classes, ...classIns };
+            });
+
+            configVm._data.enumTypes.forEach(function (item, index) {
+                let attributes = [];
+                item.enums.forEach(function (_item, _index) {
+                    let attr = _item.name;
+                    attributes.push(attr);
+                });
+                let classItem = new uml.Class({
+                    position: { x: Math.random() * (divWidth - 300), y: Math.random() * (divHeight - 100) },
+                    size: { width: 300, height: 24 * item.enums.length },
+                    name: `${item.name}[${item.displayName}]`,
+                    attributes: attributes,
+                    attrs: {
+                        '.uml-class-name-rect': {
+                            fill: '#feb662',
+                            stroke: '#ffffff',
+                            'stroke-width': 0.5
+                        },
+                        '.uml-class-attrs-rect': {
+                            fill: '#fdc886',
+                            stroke: '#fff',
+                            'stroke-width': 0.5
+                        },
+                        '.uml-class-methods-rect': {
+                            fill: '#fdc886',
+                            stroke: '#fff',
+                            'stroke-width': 0.5
+                        },
+                        '.uml-class-attrs-text': {
+                            ref: '.uml-class-attrs-rect',
+                            'ref-y': 0.5,
+                            'y-alignment': 'middle'
+                        },
+                        '.uml-class-methods-text': {
+                            ref: '.uml-class-methods-rect',
+                            'ref-y': 0.5,
+                            'y-alignment': 'middle'
+                        }
+                    }
+                });
+                let classIns = {};
+                classIns[`${item.name}`] = classItem;
+                console.log(classIns);
+                classes = { ...classes, ...classIns };
+            });
+
+            let relations = [];
+            configVm._data.entityTypes.forEach(function (item, index) {
+                if (item.hasOwnProperty('navigationProperty')) {
+                    item.navigationProperty.forEach(function (_item, _index) {
+                        let navTypeName = _item.type.split('.')[1];
+                        navTypeName = navTypeName.endsWith(')') ? navTypeName.substr(0, navTypeName.length - 1) : navTypeName;
+                        let relation = new uml.Aggregation({ source: { id: classes[item.name].id }, target: { id: classes[navTypeName].id } });
+                        relations.push(relation);
+                    })
+                }
+            });
+
+            Object.keys(classes).forEach(function (key) {
+                graph.addCell(classes[key]);
+            });
+
+            Object.keys(relations).forEach(function (key) {
+                graph.addCell(relations[key]);
+            });
+        }
+
+        let currentScale = 1;
+        // 缩放UML
+        function scaleUml(scaleType) {
+            switch (scaleType) {
+                case "narrow":
+                    currentScale -= 0.1;
+                    break;
+                case "enlarge":
+                    currentScale += 0.1;
+                    break;
+                case "reset":
+                    currentScale = 1;
+                    break;
+                default:
+                    break;
+            }
+            paper.scale(currentScale);
+        }
+
+        let mergeModal = new bootstrap.Modal(document.getElementById('mergeModal'));
         // 合并
         function mergeThenUpdate() {
             remindModal.hide();
