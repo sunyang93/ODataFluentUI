@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\pages\odata-aggrid.html" />
+    <Content Remove="wwwroot\pages\odata-handsontable.html" />
+    <Content Remove="wwwroot\pages\odata.html" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="ErikEJ.EntityFrameworkCore.DgmlBuilder" Version="6.0.0" />
     <PackageReference Include="Humanizer.Core" Version="2.14.1" />
