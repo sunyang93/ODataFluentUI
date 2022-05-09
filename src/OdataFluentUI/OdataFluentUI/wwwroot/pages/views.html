@@ -521,7 +521,6 @@
             odatajs.oData.request(
                 request,
                 function (data, response) {
-                    isRefresh = true;
                     let queryData = data['value'];
                     let count = data['@odata.count'];
                     document.getElementById("totalCountSpan").innerHTML = count;
@@ -534,7 +533,7 @@
                             if (queryData.length <= params.endRow) {
                                 lastRow = queryData.length;
                             }
-                            params.successCallback(queryData, lastRow);                         
+                            params.successCallback(queryData, lastRow);
                         },
                     };
                     gridOptions.api.setDatasource(dataSource);
