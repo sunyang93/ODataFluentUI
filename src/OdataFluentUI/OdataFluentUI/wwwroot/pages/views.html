@@ -124,11 +124,30 @@
                             <input id="skipOptions" type="number" class="form-control" value="0" min="0" placeholder="Skip options" disabled>
                             <span class="input-group-text">Page</span>
                             <input id="pageOptions" type="number" class="form-control" value="1" min="1" placeholder="Page options">
-                            <button class="btn btn-primary" type="button" onclick=" queryEntityDataset()" title="查询EntitySet">
+                            <button class="btn btn-primary" type="button" onclick=" queryEntityDataSet()" title="查询EntitySet">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                                 </svg>
                             </button>
+                            <div class="btn-group" role="group">
+                                <button id="btnGroupDrop1" type="button" title="查询选项" class="btn btn-primary dropdown-toggle" style="border-radius:0" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z" />
+                                    </svg>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <li>
+                                        <a class="dropdown-item" onclick="clearSort()" href="#">
+                                            清除所有排序
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" onclick="clearFilter()" href="#">
+                                            清除所有筛选
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                             <button class="btn btn-primary" type="button" title="上一页" onclick="previousPage()">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
@@ -411,7 +430,7 @@
 
                     gridOptions.api.setColumnDefs(columnDefs);
 
-                    queryEntityDataset();
+                    queryEntityDataSet();
                 })
                 .catch((error) => {
                     console.error('Error:', error);
@@ -459,7 +478,7 @@
             let page = Number.parseInt(document.getElementById("pageOptions").value);
             if (page > 1) {
                 document.getElementById("pageOptions").value = (page - 1);
-                queryEntityDataset();
+                queryEntityDataSet();
             }
         };
 
@@ -467,11 +486,11 @@
         function nextPage() {
             let page = Number.parseInt(document.getElementById("pageOptions").value);
             document.getElementById("pageOptions").value = (page + 1);
-            queryEntityDataset();
+            queryEntityDataSet();
         };
 
         // Entity Dataset查询
-        function queryEntityDataset() {
+        function queryEntityDataSet() {
             if (!entitySetVm._data.currentEntitySet.hasOwnProperty('name')) {
                 return false;
             }
@@ -502,10 +521,23 @@
             odatajs.oData.request(
                 request,
                 function (data, response) {
+                    isRefresh = true;
+                    let queryData = data['value'];
                     let count = data['@odata.count'];
                     document.getElementById("totalCountSpan").innerHTML = count;
-                    gridOptions.api.setRowData(data['value']);
-                    document.getElementById("responseBody").innerHTML = JSON.stringify(data['value'], null, 2);
+                    document.getElementById("responseBody").innerHTML = JSON.stringify(queryData, null, 2);
+
+                    const dataSource = {
+                        rowCount: undefined, // behave as infinite scroll
+                        getRows: function (params) {   
+                            let lastRow = -1;
+                            if (queryData.length <= params.endRow) {
+                                lastRow = queryData.length;
+                            }
+                            params.successCallback(queryData, lastRow);                         
+                        },
+                    };
+                    gridOptions.api.setDatasource(dataSource);
                 },
                 function (err) {
                     alertNotic(err, "danger");
@@ -515,7 +547,6 @@
 
         // specify the columns
         let columnDefs = [];
-
         // let the grid know which columns and what data to use
         let gridOptions = {
             columnDefs: columnDefs,
@@ -524,9 +555,10 @@
                 unSortIcon: true,
                 resizable: true,
                 //headerCheckboxSelection: isFirstColumn,
-                checkboxSelection: isFirstColumn,
+                //checkboxSelection: isFirstColumn,
             },
-            postSortRows: params => {               
+            rowModelType:'infinite',
+            onSortChanged: function (params) {
                 console.log(params);
                 let sortItems = [];
                 params.columnApi.getColumnState().forEach(function (item, index) {
@@ -542,11 +574,13 @@
                     orderByOptions.push(`${item.colId} ${item.sort}`);
                 });
                 document.getElementById('orderByOptions').value = orderByOptions.join(',');
-                //queryEntityDataset();
+                document.getElementById("pageOptions").value = 1;
+                document.getElementById("skipOptions").value = 0;
+                queryEntityDataSet();
             },
             rowData: [],
             rowSelection: 'single', //multiple
-            rowMultiSelectWithClick: true,
+            //rowMultiSelectWithClick: true,
             onFilterChanged: onFilterChanged,
         };
 
@@ -555,7 +589,6 @@
 
         // create the grid passing in the div to use together with the columns & data we want to use
         new agGrid.Grid(eGridDiv, gridOptions);
-
 
         function getSelectedRows() {
             const selectedNodes = gridOptions.api.getSelectedNodes()
@@ -569,8 +602,20 @@
             return thisIsFirstColumn;
         }
 
+        function clearSort() {
+            gridOptions.columnApi.applyColumnState({
+                defaultState: { sort: null },
+            });
+            document.getElementById("pageOptions").value = 1;
+            document.getElementById("skipOptions").value = 0;
+            queryEntityDataSet();
+        }
+
         function clearFilter() {
             gridOptions.api.setFilterModel(null);
+            document.getElementById("pageOptions").value = 1;
+            document.getElementById("skipOptions").value = 0;
+            queryEntityDataSet();
         }
 
         function onFilterChanged(params) {
@@ -633,7 +678,9 @@
                 }
             });
             document.getElementById('filterOptions').value = filterOptions.join(' and ');
-            queryEntityDataset();
+            document.getElementById("pageOptions").value = 1;
+            document.getElementById("skipOptions").value = 0;
+            queryEntityDataSet();
         }
 
         var viewModal = new bootstrap.Modal(document.getElementById('viewModal'));
@@ -674,7 +721,7 @@
                     request,
                     function (data, response) {
                         alertNotic('删除数据成功',"success");
-                        queryEntityDataset();
+                        queryEntityDataSet();
                     },
                     function (err) {
                         alertNotic("Something went wrong.","danger");
