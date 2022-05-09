@@ -7,6 +7,8 @@
     <link href="../css/site.css" rel="stylesheet" />
     <link href="../lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="../css/sidebars.css" rel="stylesheet" />
+    <link href="../css/visual.css" rel="stylesheet" />
+    <link href="../css/annotated.css" rel="stylesheet" />
 </head>
 <body class="font-monospace">
     <div class="container">
@@ -87,18 +89,31 @@
     <main role="main" class="mt-3">
         <div class="container">
             <div id="entityEdit" class="row">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="views.html">Views</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{entitySetConfig.displayName}}</li>
-                        <li class="breadcrumb-item active" aria-current="page">{{editType}}</li>
-                    </ol>
-                </nav>
-                <form class="needs-validation" novalidate>
+                <div class="row">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="views.html">Views</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{entitySetConfig.displayName}}</li>
+                                <li class="breadcrumb-item active" aria-current="page">{{editType}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn btn-primary" onclick="viewDiff()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-braces-asterisk" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C2.25 2 1.49 2.759 1.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6ZM14.886 7.9v.164c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456v-1.3c-1.114 0-1.49-.362-1.49-1.456V4.352C14.51 2.759 13.75 2 12.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6ZM7.5 11.5V9.207l-1.621 1.621-.707-.707L6.792 8.5H4.5v-1h2.293L5.172 5.879l.707-.707L7.5 6.792V4.5h1v2.293l1.621-1.621.707.707L9.208 7.5H11.5v1H9.207l1.621 1.621-.707.707L8.5 9.208V11.5h-1Z" />
+                            </svg>
+                            JsonDiffPatch
+                        </button>
+                    </div>
+                </div>
+
+                <form class="row needs-validation" novalidate>
                     <template v-for="property in entitySetConfig.entityTypeConfigValue.properties">
                         <template v-if="property.editor==='input'">
                             <template v-if="property.editorType==='checkbox'">
-                                <div class="mb-3 col-12 col-s-6 m-auto">
+                                <div class="mb-3 col-12 col-sm-6 m-auto">
                                     <label class="form-check-label" v-bind:for="property.name">
                                         {{ property.displayName }}
                                     </label>
@@ -108,7 +123,7 @@
                                 </div>
                             </template>
                             <template v-else-if="property.editorType==='datetime'">
-                                <div class="mb-3 col-12 col-s-6">
+                                <div class="mb-3 col-12 col-sm-6">
                                     <label class="form-label" v-bind:for="property.name">
                                         {{ property.displayName }}
                                         <template v-if="property.isRequired===true">
@@ -124,7 +139,7 @@
                                 </div>
                             </template>
                             <template v-else>
-                                <div class="mb-3 col-12 col-s-6">
+                                <div class="mb-3 col-12 col-sm-6">
                                     <label class="form-label" v-bind:for="property.name">
                                         {{ property.displayName }}
                                         <template v-if="property.isRequired===true">
@@ -139,13 +154,13 @@
                                     <input v-bind:type="property.editorType" class="form-control add-new-edit-old"
                                            v-bind:disabled="property.isReadOnly?'disabled':false"
                                            v-bind:maxlength="property.maxLength"
-                                           v-bind:id="property.name" 
-                                           v-bind:required="property.isRequired?'required':false"/>
+                                           v-bind:id="property.name"
+                                           v-bind:required="property.isRequired?'required':false" />
                                 </div>
                             </template>
                         </template>
                         <template v-else-if="property.editor==='select'">
-                            <div class="mb-3 col-12 col-s-6">
+                            <div class="mb-3 col-12 col-sm-6">
                                 <label class="form-label" v-bind:for="property.name">
                                     {{ property.displayName }}
                                 </label>
@@ -165,6 +180,32 @@
             </div>
         </div>
     </main>
+    <!-- JsonDiffPatch Modal -->
+    <div class="modal fade" id="jsonDiffPatchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">JsonDiffPatch</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row overflow-auto" style="border:1px solid black">
+                        <div class="col-4 bg-secondary text-white p-2" style="border-right:1px solid black">Visual</div>
+                        <div class="col-4 bg-primary text-white p-2" style="border-right:1px solid black">Json</div>
+                        <div class="col-4 bg-success text-white p-2">Json(Annotated)</div>
+                        <div id="visual" class="col-4" style="border-right:1px solid black"></div>
+                        <div class="col-4" style="border-right:1px solid black">
+                            <textarea id="json" class="w-100 h-100" readonly></textarea>
+                        </div>
+                        <div id="annotated" class="col-4"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--Toast-->
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
         <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
@@ -176,13 +217,14 @@
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <div class="toast-body">
-
+               
             </div>
         </div>
     </div>
     <script src="../lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="../lib/vue/dist/vue.js"></script>
     <script src="../lib/odatajs/odatajs-4.0.0.js"></script>
+    <script type='text/javascript' src="https://cdn.jsdelivr.net/npm/jsondiffpatch/dist/jsondiffpatch.umd.min.js"></script>
     <script src="../js/app.js"></script>
     <script>
         'use strict';
@@ -192,7 +234,7 @@
             data: {
                 entitySetConfig: {},
                 entityData: {},
-                editType:'新建',
+                editType: '新建',
             }
         });
 
@@ -207,28 +249,9 @@
                     entityEditVm._data.editType = "编辑";
                     setTimeout(function () {
                         queryEntityData(params['resourceUri']);
-                    }, 500)                    
+                    }, 500)
                 }
             };
-
-            //setTimeout(function () {
-            //    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            //    var forms = document.querySelectorAll('.needs-validation')
-
-            //    // Loop over them and prevent submission
-            //    Array.prototype.slice.call(forms)
-            //        .forEach(function (form) {
-            //            form.addEventListener('click', function (event) {
-            //                if (!form.checkValidity()) {
-            //                    event.preventDefault()
-            //                    event.stopPropagation()
-            //                    canSubmit = false;
-            //                }
-            //                canSubmit = true;
-            //                form.classList.add('was-validated')
-            //            }, false)
-            //        });
-            //}, 500);           
         })();
 
         // 查询EntityTypeConfig
@@ -291,25 +314,8 @@
             );
         }
 
-        // 新建/编辑Entity数据
-        function addNewOrEditOldData() {
-            let canSubmit = true;
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.querySelectorAll('.needs-validation')
-            // Loop over them and prevent submission
-            Array.prototype.slice.call(forms)
-                .forEach(function (form) {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                        canSubmit = false;
-                    }
-                    form.classList.add('was-validated')
-                });
-
-            if (!canSubmit) {
-                return;
-            }
+        // 组装新建/编辑后的Entity数据
+        function packageNewEntityData() {
             let doms = document.getElementsByClassName('add-new-edit-old');
             let newEntity = {};
             for (let dom of doms) {
@@ -333,6 +339,29 @@
                     newEntity = { ...newEntity, ...prop };
                 }
             }
+            return newEntity;
+        }
+
+        // 新建/编辑Entity数据
+        function addNewOrEditOldData() {
+            let canSubmit = true;
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                        canSubmit = false;
+                    }
+                    form.classList.add('was-validated')
+                });
+
+            if (!canSubmit) {
+                return;
+            }
+            let newEntity = packageNewEntityData();
             if (params.hasOwnProperty('resourceUri')) {
                 let isChanged = false;
                 let changedEntity = {};
@@ -375,14 +404,47 @@
                 odatajs.oData.request(
                     request,
                     function (data, response) {
-                        alertNotic('新建数据成功','success');
+                        alertNotic('新建数据成功', 'success');
                     },
                     function (err) {
-                        alertNotic("Something went wrong.",'danger');
+                        alertNotic("Something went wrong.", 'danger');
                     }
-                );              
+                );
             }
         };
+
+        var jsonDiffPatchModal = new bootstrap.Modal(document.getElementById('jsonDiffPatchModal'));
+        // 查看JsonDiffPatch
+        function viewDiff() {
+            let newEntity = packageNewEntityData();
+            let isChanged = false;
+            let changedEntity = {};
+            for (let key in newEntity) {
+                if (newEntity[key] !== entityOriginalValue[key]) {
+                    let prop = {};
+                    prop[key] = newEntity[key];
+                    changedEntity = { ...changedEntity, ...prop };
+                    isChanged = true;
+                }
+            }
+            if (!isChanged) {
+                alert('未检测到任何修改');
+                return;
+            }
+
+            jsonDiffPatchModal.show();
+
+            var delta = jsondiffpatch.diff(entityOriginalValue, newEntity);
+
+            // beautiful html diff
+            document.getElementById('visual').innerHTML = jsondiffpatch.formatters.html.format(delta, entityOriginalValue);
+
+            // self-explained json
+            document.getElementById('json').innerHTML=JSON.stringify(delta, null, 2);
+
+            // self-explained json
+            document.getElementById('annotated').innerHTML = jsondiffpatch.formatters.annotated.format(delta, entityOriginalValue);
+        }
 
         function queryStrings() {
             let url = location.href;
