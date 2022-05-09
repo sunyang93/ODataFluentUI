@@ -96,7 +96,7 @@
                     <a class="nav-link" href="config-entityset.html">EntitySet</a>
                 </li>
             </ul>
-            <form id="entityTypeConfig" class="mt-1">
+            <form id="entityTypeConfig" class="mt-1" v-cloak>
                 <div class="btn-group w-100" role="group">
                     <button type="button" class="btn btn-primary"
                             title="删除" onclick="confirmDelete()" v-bind:class="{'btn btn-primary':canEdit==false,'disabled':!canEdit}">
