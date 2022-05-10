@@ -22,7 +22,7 @@ public class StorageRackController : ODataController
     [HttpGet("StorageRacks({key})")]
     public IActionResult GetOneStorageRack(int key)
     {
-        IQueryable<StorageRack>? storageRacks = _warehouseContext.StorageRacks.Include(d=>d.CargoSpaces).Where(p => p.StorageRackId == key);
+        IQueryable<StorageRack> storageRacks = _warehouseContext.StorageRacks.Include(d=>d.CargoSpaces).Where(p => p.StorageRackId == key);
 
         if (!storageRacks.Any())
         {
@@ -55,7 +55,7 @@ public class StorageRackController : ODataController
             return BadRequest(ModelState);
         }
 
-        StorageRack? currentStorageRack = await _warehouseContext.StorageRacks
+        StorageRack currentStorageRack = await _warehouseContext.StorageRacks
             .FirstOrDefaultAsync(p => p.StorageRackId == key);
 
         if (currentStorageRack == null)
@@ -73,7 +73,7 @@ public class StorageRackController : ODataController
     [HttpDelete("StorageRacks({key})")]
     public async Task<IActionResult> DeleteStorageRack(int key)
     {
-        StorageRack? currentStorageRack = await _warehouseContext.StorageRacks
+        StorageRack currentStorageRack = await _warehouseContext.StorageRacks
             .FirstOrDefaultAsync(p => p.StorageRackId == key);
 
         if (currentStorageRack == null)

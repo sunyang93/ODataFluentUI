@@ -22,7 +22,7 @@ public class MaterialController : ODataController
     [HttpGet("Materials({key})")]
     public IActionResult GetOneMaterial(int key)
     {
-        IQueryable<Material>? Materials = _warehouseContext.Materials.Where(p => p.MaterialId == key);
+        IQueryable<Material> Materials = _warehouseContext.Materials.Where(p => p.MaterialId == key);
 
         if (!Materials.Any())
         {
@@ -55,7 +55,7 @@ public class MaterialController : ODataController
             return BadRequest(ModelState);
         }
 
-        Material? currentMaterial = await _warehouseContext.Materials
+        Material currentMaterial = await _warehouseContext.Materials
             .FirstOrDefaultAsync(p => p.MaterialId == key);
 
         if (currentMaterial == null)
@@ -73,7 +73,7 @@ public class MaterialController : ODataController
     [HttpDelete("Materials({key})")]
     public async Task<IActionResult> DeleteMaterial(int key)
     {
-        Material? currentMaterial = await _warehouseContext.Materials
+        Material currentMaterial = await _warehouseContext.Materials
             .FirstOrDefaultAsync(p => p.MaterialId == key);
 
         if (currentMaterial == null)

@@ -44,7 +44,7 @@ public class CargoSpaceController : ODataController
     [HttpGet("CargoSpaces({key})")]
     public IActionResult GetOneCargoSpace(int key)
     {
-        IQueryable<CargoSpace>? cargoSpaces = _warehouseContext.CargoSpaces.Where(p => p.CargoSpaceId == key);
+        IQueryable<CargoSpace> cargoSpaces = _warehouseContext.CargoSpaces.Where(p => p.CargoSpaceId == key);
 
         if (!cargoSpaces.Any())
         {
@@ -58,7 +58,7 @@ public class CargoSpaceController : ODataController
     [HttpGet("CargoSpaces({key})/StorageRack")]
     public IActionResult GetOneCargoSpaceStorageRack(int key)
     {
-        CargoSpace? cargoSpaces = _warehouseContext.CargoSpaces.Include(d => d.StorageRack).FirstOrDefault(p => p.CargoSpaceId == key);
+        CargoSpace cargoSpaces = _warehouseContext.CargoSpaces.Include(d => d.StorageRack).FirstOrDefault(p => p.CargoSpaceId == key);
 
         if (cargoSpaces == null)
         {
@@ -91,7 +91,7 @@ public class CargoSpaceController : ODataController
             return BadRequest(ModelState);
         }
 
-        CargoSpace? currentCargoSpace = await _warehouseContext.CargoSpaces
+        CargoSpace currentCargoSpace = await _warehouseContext.CargoSpaces
             .FirstOrDefaultAsync(p => p.CargoSpaceId == key);
 
         if (currentCargoSpace == null)
@@ -109,7 +109,7 @@ public class CargoSpaceController : ODataController
     [HttpDelete("CargoSpaces({key})")]
     public async Task<IActionResult> DeleteCargoSpace(int key)
     {
-        CargoSpace? currentCargoSpace = await _warehouseContext.CargoSpaces
+        CargoSpace currentCargoSpace = await _warehouseContext.CargoSpaces
             .FirstOrDefaultAsync(p => p.CargoSpaceId == key);
 
         if (currentCargoSpace == null)

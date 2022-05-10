@@ -41,7 +41,7 @@ public class InventoryController : ODataController
     [HttpGet("Inventory(Batch={key1},MaterialId={key2})")]
     public IActionResult GetOneInventory(string key1, int key2)
     {
-        IQueryable<Inventory>? inventorys = _warehouseContext.Inventorys.Include(d=>d.Material).Where(p => p.MaterialId == key2 && p.Batch == key1);
+        IQueryable<Inventory> inventorys = _warehouseContext.Inventorys.Include(d=>d.Material).Where(p => p.MaterialId == key2 && p.Batch == key1);
         if (!inventorys.Any())
         {
             return NotFound();
@@ -54,7 +54,7 @@ public class InventoryController : ODataController
     [HttpGet("Inventories(Batch={key1},MaterialId={key2})/Material")]
     public IActionResult GetOneInventoryMaterial(string key1, int key2)
     {
-        Inventory? inventory = _warehouseContext.Inventorys.Include(d => d.Material).FirstOrDefault(p => p.MaterialId == key2 && p.Batch == key1);
+        Inventory inventory = _warehouseContext.Inventorys.Include(d => d.Material).FirstOrDefault(p => p.MaterialId == key2 && p.Batch == key1);
         if (inventory == null)
         {
             return NotFound();
@@ -86,7 +86,7 @@ public class InventoryController : ODataController
             return BadRequest(ModelState);
         }
 
-        Inventory? currentInventory = await _warehouseContext.Inventorys
+        Inventory currentInventory = await _warehouseContext.Inventorys
             .FirstOrDefaultAsync(p => p.MaterialId == key2 && p.Batch == key1);
 
         if (currentInventory == null)
@@ -104,7 +104,7 @@ public class InventoryController : ODataController
     [HttpDelete("Inventories(Batch={key1},MaterialId={key2})")]
     public async Task<IActionResult> DeleteInventory(string key1, int key2)
     {
-        Inventory? currentInventory = await _warehouseContext.Inventorys
+        Inventory currentInventory = await _warehouseContext.Inventorys
             .FirstOrDefaultAsync(p => p.MaterialId == key2 && p.Batch == key1);
 
         if (currentInventory == null)

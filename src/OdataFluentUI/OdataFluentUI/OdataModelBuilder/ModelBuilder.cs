@@ -4,7 +4,7 @@ public class ModelBuilder
 {
     public static IEdmModel GetEdmModel()
     {
-        ODataConventionModelBuilder? builder = new();
+        ODataConventionModelBuilder builder = new();
         builder.Namespace = "Warehouse";
         builder.ContainerName = "WarehouseContainer";
 

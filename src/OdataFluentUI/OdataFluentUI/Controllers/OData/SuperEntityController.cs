@@ -22,7 +22,7 @@ public class SuperEntityController : ODataController
     [HttpGet("SuperEntities({key})")]
     public IActionResult GetOneSuperEntity(int key)
     {
-        IQueryable<SuperEntity>? superEntities = _warehouseContext.SuperEntities.Where(p => p.SuperEntityId == key);
+        IQueryable<SuperEntity> superEntities = _warehouseContext.SuperEntities.Where(p => p.SuperEntityId == key);
 
         if (!superEntities.Any())
         {
@@ -55,7 +55,7 @@ public class SuperEntityController : ODataController
             return BadRequest(ModelState);
         }
 
-        SuperEntity? currentSuperEntity = await _warehouseContext.SuperEntities
+        SuperEntity currentSuperEntity = await _warehouseContext.SuperEntities
             .FirstOrDefaultAsync(p => p.SuperEntityId == key);
 
         if (currentSuperEntity == null)
@@ -73,7 +73,7 @@ public class SuperEntityController : ODataController
     [HttpDelete("SuperEntities({key})")]
     public async Task<IActionResult> DeleteSuperEntity(int key)
     {
-        SuperEntity? currentSuperEntity = await _warehouseContext.SuperEntities
+        SuperEntity currentSuperEntity = await _warehouseContext.SuperEntities
             .FirstOrDefaultAsync(p => p.SuperEntityId == key);
 
         if (currentSuperEntity == null)
