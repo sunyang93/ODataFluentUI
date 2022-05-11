@@ -190,14 +190,10 @@
                 </div>
                 <div class="modal-body">
                     <div class="row overflow-auto" style="border:1px solid black">
-                        <div class="col-4 bg-secondary text-white p-2" style="border-right:1px solid black">Visual</div>
-                        <div class="col-4 bg-primary text-white p-2" style="border-right:1px solid black">Json</div>
-                        <div class="col-4 bg-success text-white p-2">Json(Annotated)</div>
-                        <div id="visual" class="col-4" style="border-right:1px solid black"></div>
-                        <div class="col-4" style="border-right:1px solid black">
-                            <textarea id="json" class="w-100 h-100" readonly></textarea>
-                        </div>
-                        <div id="annotated" class="col-4"></div>
+                        <div class="col-6 bg-secondary text-white p-2" style="border-right:1px solid black">Visual</div>
+                        <div class="col-6 bg-success text-white p-2">Json(Annotated)</div>
+                        <div id="visual" class="col-6" style="border-right:1px solid black"></div>
+                        <div id="annotated" class="col-6"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -438,9 +434,6 @@
 
             // beautiful html diff
             document.getElementById('visual').innerHTML = jsondiffpatch.formatters.html.format(delta, entityOriginalValue);
-
-            // self-explained json
-            document.getElementById('json').innerHTML=JSON.stringify(delta, null, 2);
 
             // self-explained json
             document.getElementById('annotated').innerHTML = jsondiffpatch.formatters.annotated.format(delta, entityOriginalValue);
