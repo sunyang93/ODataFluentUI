@@ -89,11 +89,12 @@ namespace OdataFluentUI.Data.Infrastructure
         #endregion
 
         #region EnumType
-        public void CreateEnumTypeConfigs(List<EnumTypeConfig> enumTypeConfigs)
+        public List<EnumTypeConfig> CreateEnumTypeConfigs(List<EnumTypeConfig> enumTypeConfigs)
         {
             ILiteCollection<EnumTypeConfig> dataSet = _liteDatabase.GetCollection<EnumTypeConfig>(nameof(EnumTypeConfig).Pluralize());
             dataSet.EnsureIndex(x => x.Name, true);
             dataSet.InsertBulk(enumTypeConfigs);
+            return enumTypeConfigs;
         }
 
         public bool DeleteEnumTypeConfig(string id)

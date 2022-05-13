@@ -21,7 +21,7 @@ namespace OdataFluentUI.Data.Infrastructure
         #endregion
 
         #region EnumType
-        void CreateEnumTypeConfigs(List<EnumTypeConfig> enumTypeConfigs);
+        List<EnumTypeConfig> CreateEnumTypeConfigs(List<EnumTypeConfig> enumTypeConfigs);
 
         bool UpdateEnumTypeConfig(EnumTypeConfig enumTypeConfig);
 
