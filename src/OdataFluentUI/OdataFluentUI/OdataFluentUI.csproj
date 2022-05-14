@@ -13,12 +13,17 @@
     <Content Remove="wwwroot\pages\odata-handsontable.html" />
     <Content Remove="wwwroot\pages\odata.html" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Protos\config.proto" />
+  </ItemGroup>
     <ItemGroup>
 	    <Protobuf Include="Protos\config.proto" GrpcServices="Server" />
     </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="ErikEJ.EntityFrameworkCore.DgmlBuilder" Version="6.0.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
     <PackageReference Include="Humanizer.Core" Version="2.14.1" />
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.3">

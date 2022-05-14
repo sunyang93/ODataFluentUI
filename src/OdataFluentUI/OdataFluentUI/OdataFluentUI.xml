@@ -256,5 +256,85 @@
             显示名称
             </summary>
         </member>
+        <member name="T:GrpcService.ConfigReflection">
+            <summary>Holder for reflection information generated from Protos/config.proto</summary>
+        </member>
+        <member name="P:GrpcService.ConfigReflection.Descriptor">
+            <summary>File descriptor for Protos/config.proto</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumType.NameFieldNumber">
+            <summary>Field number for the "name" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumType.DisplayNameFieldNumber">
+            <summary>Field number for the "displayName" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumType.ValueFieldNumber">
+            <summary>Field number for the "value" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumTypeConfigModel.NameFieldNumber">
+            <summary>Field number for the "name" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumTypeConfigModel.DisplayNameFieldNumber">
+            <summary>Field number for the "display_name" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumTypeConfigModel.DescriptionFieldNumber">
+            <summary>Field number for the "description" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumTypeConfigModel.EnumsFieldNumber">
+            <summary>Field number for the "enums" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumTypeConfigRequest.ItemsFieldNumber">
+            <summary>Field number for the "items" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumTypeConfig.IdFieldNumber">
+            <summary>Field number for the "id" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumTypeConfig.NameFieldNumber">
+            <summary>Field number for the "name" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumTypeConfig.DisplayNameFieldNumber">
+            <summary>Field number for the "display_name" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumTypeConfig.DescriptionFieldNumber">
+            <summary>Field number for the "description" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumTypeConfig.EnumsFieldNumber">
+            <summary>Field number for the "enums" field.</summary>
+        </member>
+        <member name="F:GrpcService.GrpcEnumTypeConfigResponse.ItemsFieldNumber">
+            <summary>Field number for the "items" field.</summary>
+        </member>
+        <member name="F:GrpcService.Query.IdFieldNumber">
+            <summary>Field number for the "id" field.</summary>
+        </member>
+        <member name="T:GrpcService.Config">
+            <summary>
+            The greeting service definition.
+            </summary>
+        </member>
+        <member name="P:GrpcService.Config.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:GrpcService.Config.ConfigBase">
+            <summary>Base class for server-side implementations of Config</summary>
+        </member>
+        <member name="M:GrpcService.Config.ConfigBase.CreateEnumTypeConfigs(GrpcService.GrpcEnumTypeConfigRequest,Grpc.Core.ServerCallContext)">
+            <summary>
+            Sends a greeting
+            </summary>
+            <param name="request">The request received from the client.</param>
+            <param name="context">The context of the server-side call handler being invoked.</param>
+            <returns>The response to send back to the client (wrapped by a task).</returns>
+        </member>
+        <member name="M:GrpcService.Config.BindService(GrpcService.Config.ConfigBase)">
+            <summary>Creates service definition that can be registered with a server</summary>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="M:GrpcService.Config.BindService(Grpc.Core.ServiceBinderBase,GrpcService.Config.ConfigBase)">
+            <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
+            Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+            <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
     </members>
 </doc>

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using GrpcService;
 
 namespace OdataFluentUI.Profiles
 {
@@ -12,6 +13,9 @@ namespace OdataFluentUI.Profiles
             CreateMap<EnumTypeConfig, EnumTypeConfigViewModel>();
             CreateMap<EntitySetConfigModel, EntitySetConfig>();
             CreateMap<EntitySetConfig, EntitySetConfigViewModel>();
+            // gRPC
+            CreateMap<EnumTypeConfig, GrpcEnumTypeConfig>();
+            CreateMap<EnumType, GrpcEnumType>();
         }
     }
 }

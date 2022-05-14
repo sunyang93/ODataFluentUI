@@ -1,3 +1,4 @@
+using GrpcService.Services;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
@@ -60,11 +61,13 @@ builder.Services.AddScoped<LiteDatabase>((provider) =>
 });
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 
+builder.Services.AddGrpc();
+
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
+if (app.Environment.IsDevelopment())
+{
     app.UseSwagger();
     app.UseSwaggerUI(o =>
     {
@@ -74,13 +77,15 @@ WebApplication app = builder.Build();
         o.SwaggerEndpoint("/swagger/document/swagger.yaml", "WebApi");
     });
 
-    app.UseHttpLogging();
-//}
+    //app.UseHttpLogging();
+}
 
 app.UseStaticFiles();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGrpcService<ConfigService>();
 
 app.Run();
