@@ -62,9 +62,10 @@ builder.Services.AddScoped<LiteDatabase>((provider) =>
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 
 builder.Services.AddGrpc();
+builder.Services.AddGrpcReflection();
 
 WebApplication app = builder.Build();
-
+app.MapGrpcReflectionService();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
