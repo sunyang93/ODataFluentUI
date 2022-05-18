@@ -31,3 +31,21 @@ function alertNotic(message, type) {
     var toast = new bootstrap.Toast(toastLiveExample)
     toast.show()
 }
+
+// 获取查询字符串
+function queryStrings() {
+    let url = location.href;
+    if (url.indexOf('?') != -1) {
+        let obj = {};
+        let arr = url.slice(url.indexOf('?') + 1).split('&');
+        arr.forEach(item => {
+            let param = item.split('=');
+            obj[param[0]] = param[1];
+        })
+        console.log(obj);
+        return obj;
+    } else {
+        console.log('没有参数');
+        return null;
+    }
+}
