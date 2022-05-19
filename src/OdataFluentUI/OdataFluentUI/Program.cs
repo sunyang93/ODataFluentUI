@@ -61,11 +61,11 @@ builder.Services.AddScoped<LiteDatabase>((provider) =>
 });
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 
-builder.Services.AddGrpc();
-builder.Services.AddGrpcReflection();
+//builder.Services.AddGrpc();
+//builder.Services.AddGrpcReflection();
 
 WebApplication app = builder.Build();
-app.MapGrpcReflectionService();
+//app.MapGrpcReflectionService();
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
@@ -81,7 +81,7 @@ app.MapGrpcReflectionService();
     //app.UseHttpLogging();
 //}
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
@@ -89,6 +89,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGrpcService<ConfigService>();
+//app.MapGrpcService<ConfigService>();
 
 app.Run();
