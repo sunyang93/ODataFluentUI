@@ -67,8 +67,8 @@ builder.Services.AddGrpcReflection();
 WebApplication app = builder.Build();
 app.MapGrpcReflectionService();
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
     app.UseSwaggerUI(o =>
     {
@@ -79,7 +79,9 @@ if (app.Environment.IsDevelopment())
     });
 
     //app.UseHttpLogging();
-}
+//}
+
+app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
