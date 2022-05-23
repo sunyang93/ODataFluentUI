@@ -20,7 +20,7 @@ builder.Services.AddControllers()
 
 
     })
-   .AddOData(opt => opt.EnableQueryFeatures(maxTopValue:500)
+   .AddOData(opt => opt.EnableQueryFeatures(maxTopValue:1000)
    .AddRouteComponents("odata", OdataFluentUI.OdataModelBuilder.ModelBuilder.GetEdmModel(), new DefaultODataBatchHandler()));
 
 

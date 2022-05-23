@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\pages\odata-aggrid.html" />
-    <Content Remove="wwwroot\pages\odata-handsontable.html" />
     <Content Remove="wwwroot\pages\odata.html" />
   </ItemGroup>
 

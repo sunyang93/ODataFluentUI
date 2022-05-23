@@ -55,7 +55,7 @@
     {
       "library": "ag-grid-community@27.3.0",
       "destination": "wwwroot/lib/ag-grid-community/",
-      "files": [           
+      "files": [
         "dist/styles/ag-theme-alpine/icons/aggregation.svg",
         "dist/styles/ag-theme-alpine/icons/arrows.svg",
         "dist/styles/ag-theme-alpine/icons/asc.svg",
@@ -469,6 +469,57 @@
       "files": [
         "Sortable.js",
         "Sortable.min.js"
+      ]
+    },
+    {
+      "library": "handsontable@12.0.1",
+      "destination": "wwwroot/lib/handsontable/",
+      "files": [
+        "dist/handsontable.css",
+        "dist/handsontable.full.css",
+        "dist/handsontable.full.js",
+        "dist/handsontable.full.min.css",
+        "dist/handsontable.full.min.js",
+        "dist/handsontable.js",
+        "dist/handsontable.min.css",
+        "dist/handsontable.min.js",
+        "dist/README.md",
+        "dist/languages/all.js",
+        "dist/languages/all.min.js",
+        "dist/languages/ar-AR.js",
+        "dist/languages/ar-AR.min.js",
+        "dist/languages/de-CH.js",
+        "dist/languages/de-CH.min.js",
+        "dist/languages/de-DE.js",
+        "dist/languages/de-DE.min.js",
+        "dist/languages/en-US.js",
+        "dist/languages/en-US.min.js",
+        "dist/languages/es-MX.js",
+        "dist/languages/es-MX.min.js",
+        "dist/languages/fr-FR.js",
+        "dist/languages/fr-FR.min.js",
+        "dist/languages/it-IT.js",
+        "dist/languages/it-IT.min.js",
+        "dist/languages/ja-JP.js",
+        "dist/languages/ja-JP.min.js",
+        "dist/languages/ko-KR.js",
+        "dist/languages/ko-KR.min.js",
+        "dist/languages/lv-LV.js",
+        "dist/languages/lv-LV.min.js",
+        "dist/languages/nb-NO.js",
+        "dist/languages/nb-NO.min.js",
+        "dist/languages/nl-NL.js",
+        "dist/languages/nl-NL.min.js",
+        "dist/languages/pl-PL.js",
+        "dist/languages/pl-PL.min.js",
+        "dist/languages/pt-BR.js",
+        "dist/languages/pt-BR.min.js",
+        "dist/languages/ru-RU.js",
+        "dist/languages/ru-RU.min.js",
+        "dist/languages/zh-CN.js",
+        "dist/languages/zh-CN.min.js",
+        "dist/languages/zh-TW.js",
+        "dist/languages/zh-TW.min.js"
       ]
     }
   ]

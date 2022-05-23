@@ -19,7 +19,7 @@ const entityVm = new Vue({
 let metadata = { _xml: null, _json: null };
 
 // ODataApi地址
-const defaultOdataApiUrl = 'http://localhost:5201/odata';
+const defaultOdataApiUrl = 'https://localhost:5202/odata';
 document.getElementById('odataUri').value = defaultOdataApiUrl;
 const defaultOdataApiMetadataUrl = `${defaultOdataApiUrl}/$metadata`;
 document.getElementById('odataMetadataXML').setAttribute('href', defaultOdataApiMetadataUrl);
@@ -57,14 +57,14 @@ hot.addHook('afterColumnSort', function (currentSortConfig, destinationSortConfi
         let orderByOptions = currentOrderByOptions.split(',');
         for (let option of orderByOptions) {
             if (currentSortConfig.length > 0) {
-                let propertyName = entityVm.currentEntityType.propertys[currentSortConfig[0].column].name;
+                let propertyName = entityVm.currentEntityType.properties[currentSortConfig[0].column].name;
                 let orderByOption = `${propertyName} ${currentSortConfig[0].sortOrder}`;
                 if (option.toLowerCase() === orderByOption.toLowerCase()) {
                     orderByOptions.splice(orderByOptions.indexOf(option), 1);
                 }
             }
             if (destinationSortConfigs.length > 0) {
-                let propertyName = entityVm.currentEntityType.propertys[destinationSortConfigs[0].column].name;
+                let propertyName = entityVm.currentEntityType.properties[destinationSortConfigs[0].column].name;
                 let orderByOption = `${propertyName} ${destinationSortConfigs[0].sortOrder}`;
                 orderByOptions.push(orderByOption);
             }
@@ -72,7 +72,7 @@ hot.addHook('afterColumnSort', function (currentSortConfig, destinationSortConfi
         document.getElementById('orderByOptions').value = orderByOptions.join(',');
     }
     else {
-        let propertyName = entityVm.currentEntityType.propertys[destinationSortConfigs[0].column].name;
+        let propertyName = entityVm.currentEntityType.properties[destinationSortConfigs[0].column].name;
         let orderByOption = `${propertyName} ${destinationSortConfigs[0].sortOrder}`;
         document.getElementById('orderByOptions').value = orderByOption;
     }
@@ -87,7 +87,7 @@ hot.addHook("afterColumnMove", function (movedColumns, finalIndex, dropIndex, mo
     console.log(movePossible);
     console.log(orderChanged);
     if (orderChanged) {
-        let duplicatedEntityPropertys = entityVm._data.currentEntityType.propertys.slice();       
+        let duplicatedEntityproperties = entityVm._data.currentEntityType.properties.slice();       
     }
 });
 
@@ -98,7 +98,7 @@ hot.addHook('afterFilter', function (conditionsStack) {
     let filterOptions = [];
 
     for (let conditionStack of conditionsStack) {        
-        let property = entityVm.currentEntityType.propertys[conditionStack.column];
+        let property = entityVm.currentEntityType.properties[conditionStack.column];
         let propertyName = property.name;
         let propertyEditorType = property.editorType;
         for (let condition of conditionStack.conditions) {
@@ -253,7 +253,7 @@ function onEntityTypeChange(e) {
             // handsontable
             entityVm._data.handsontable.colHeaders = [];
             columns: entityVm._data.handsontable.columns = [];
-            for (let prop of entityVm._data.currentEntityType.propertys) {
+            for (let prop of entityVm._data.currentEntityType.properties) {
                 entityVm._data.handsontable.colHeaders.push(`${prop.displayName}[${prop.name}]`);
                 let column = { data: prop.name, filteringCaseSensitive: true};
                 if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(prop.dataType)) {
@@ -435,7 +435,7 @@ function queryEntityData(entityUri) {
                 if (dom.type === 'checkbox') {
                     dom.checked = propValue;
                 }
-                let canPostProp = entityVm._data.currentEntityType.propertys.find(d => d.name == propId && !d.readonly);
+                let canPostProp = entityVm._data.currentEntityType.properties.find(d => d.name == propId && !d.readonly);
                 if (canPostProp !== undefined) {
                     let prop = {};
                     prop[propId] = propValue;
@@ -460,13 +460,13 @@ function addNewOrEditOldData() {
         if (dom.type === 'checkbox') {
             propValue = dom.checked;
         }
-        let canPostProp = entityVm._data.currentEntityType.propertys.find(d => d.name == propId && !d.readonly);
+        let canPostProp = entityVm._data.currentEntityType.properties.find(d => d.name == propId && !d.readonly);
         if (canPostProp !== undefined) {
             let prop = {};
-            if (['Edm.Decimal', 'Edm.Double'].includes(entityVm._data.currentEntityType.propertys.find(d => d.name === propId).dataType)) {
+            if (['Edm.Decimal', 'Edm.Double'].includes(entityVm._data.currentEntityType.properties.find(d => d.name === propId).dataType)) {
                 prop[propId] = Number.parseFloat(propValue);
             }
-            else if (['Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single'].includes(entityVm._data.currentEntityType.propertys.find(d => d.name === propId).dataType)) {
+            else if (['Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single'].includes(entityVm._data.currentEntityType.properties.find(d => d.name === propId).dataType)) {
                 prop[propId] = Number.parseInt(propValue);
             }
             else {
@@ -594,7 +594,7 @@ function generateEditorConfig(odataSchemas, printLog = true) {
         for (let config of configs) {
             config.displayName = config.name;
             config.remark = '';
-            for (let property of config.propertys) {
+            for (let property of config.properties) {
                 property.displayName = property.name;
                 property.editor = 'input';
                 if (['Edm.Decimal', 'Edm.Double', 'Edm.Int16', 'Edm.Int32', 'Edm.Int64', 'Edm.Single',].includes(property.dataType)) {
