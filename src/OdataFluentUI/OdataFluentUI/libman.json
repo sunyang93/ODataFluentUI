@@ -521,6 +521,13 @@
         "dist/languages/zh-TW.js",
         "dist/languages/zh-TW.min.js"
       ]
+    },
+    {
+      "library": "msgpack-lite@0.1.26",
+      "destination": "wwwroot/lib/msgpack-lite/",
+      "files": [
+        "dist/msgpack.min.js"
+      ]
     }
   ]
 }

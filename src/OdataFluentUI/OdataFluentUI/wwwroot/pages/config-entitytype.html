@@ -455,6 +455,7 @@
     <script src="../lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../lib/vue/dist/vue.js"></script>
     <script src="../lib/sortablejs/Sortable.min.js"></script>
+    <script src="../lib/msgpack-lite/dist/msgpack.min.js"></script>
     <script src="../js/app.js"></script>
     <script>
         'use strict';
@@ -479,10 +480,13 @@
         function getEntityTypeViewModel() {
             let entityTypeConfigsViewModelRequest = new Request(`${entityTypeConfigsUri}/viewModel`, {
                 method: "GET",
+                //appcept: "application/x-msgpack"
+                appcept: "application/json"
             });
             fetch(entityTypeConfigsViewModelRequest)
                 .then(response => {
                     if (response.ok) {
+                        //return response.arrayBuffer();
                         return response.json();
                     }
                     else {
@@ -490,6 +494,9 @@
                     }
                 })
                 .then(data => {
+                    //let array = new Uint8Array(data);
+                    //let _data = msgpack.decode(array);
+                    //entityTypeVm._data.configsViewModel = _data;
                     entityTypeVm._data.configsViewModel = data;
                 })
                 .catch((error) => {

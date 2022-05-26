@@ -3,23 +3,30 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Reflection;
 using System.Text.Json.Serialization;
+using MessagePack;
+using MessagePack.Resolvers;
+using MessagePack.AspNetCoreMvcFormatter;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<WarehouseContext>(options =>
               options.UseSqlite(builder.Configuration.GetConnectionString("SQLiteConnection")).EnableSensitiveDataLogging());
-
 builder.Services.AddControllers()
-    .AddJsonOptions(options =>
-    {
-        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(System.Text.Json.JsonNamingPolicy.CamelCase));
-        //options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
-        //options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-        options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-
-
-    })
+   //.AddMvcOptions(option =>
+   //{
+   //    option.OutputFormatters.Clear();
+   //    option.OutputFormatters.Add(new MessagePackOutputFormatter(ContractlessStandardResolver.Options));
+   //    option.InputFormatters.Clear();
+   //    option.InputFormatters.Add(new MessagePackInputFormatter(ContractlessStandardResolver.Options));
+   //})
+   .AddJsonOptions(options =>
+   {
+       options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(System.Text.Json.JsonNamingPolicy.CamelCase));
+       //options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+       //options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+       options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+   })
    .AddOData(opt => opt.EnableQueryFeatures(maxTopValue:1000)
    .AddRouteComponents("odata", OdataFluentUI.OdataModelBuilder.ModelBuilder.GetEdmModel(), new DefaultODataBatchHandler()));
 
@@ -78,7 +85,7 @@ WebApplication app = builder.Build();
         o.SwaggerEndpoint("/swagger/document/swagger.yaml", "WebApi");
     });
 
-    //app.UseHttpLogging();
+//app.UseHttpLogging();
 //}
 
 //app.UseHttpsRedirection();
