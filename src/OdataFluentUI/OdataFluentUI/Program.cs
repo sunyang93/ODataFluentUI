@@ -12,14 +12,19 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<WarehouseContext>(options =>
               options.UseSqlite(builder.Configuration.GetConnectionString("SQLiteConnection")).EnableSensitiveDataLogging());
-builder.Services.AddControllers()
-   //.AddMvcOptions(option =>
-   //{
-   //    option.OutputFormatters.Clear();
-   //    option.OutputFormatters.Add(new MessagePackOutputFormatter(ContractlessStandardResolver.Options));
-   //    option.InputFormatters.Clear();
-   //    option.InputFormatters.Add(new MessagePackInputFormatter(ContractlessStandardResolver.Options));
-   //})
+builder.Services.AddControllers(option =>
+    {
+        //option.InputFormatters.Clear();
+        option.InputFormatters.Add(new MessagePackInputFormatter(ContractlessStandardResolver
+            .Options
+            //.WithCompression(MessagePackCompression.Lz4BlockArray)
+            .WithSecurity(MessagePackSecurity.UntrustedData)));
+        //option.OutputFormatters.Clear();
+        option.OutputFormatters.Add(new MessagePackOutputFormatter(ContractlessStandardResolver
+            .Options
+            //.WithCompression(MessagePackCompression.Lz4BlockArray)
+            .WithSecurity(MessagePackSecurity.UntrustedData)));
+    })
    .AddJsonOptions(options =>
    {
        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter(System.Text.Json.JsonNamingPolicy.CamelCase));

@@ -480,24 +480,28 @@
         function getEntityTypeViewModel() {
             let entityTypeConfigsViewModelRequest = new Request(`${entityTypeConfigsUri}/viewModel`, {
                 method: "GET",
-                //appcept: "application/x-msgpack"
-                appcept: "application/json"
+                headers: {
+                    accept: "application/x-msgpack",
+                    //accept: "application/json",
+                }
             });
             fetch(entityTypeConfigsViewModelRequest)
                 .then(response => {
                     if (response.ok) {
-                        //return response.arrayBuffer();
-                        return response.json();
+                        return response.arrayBuffer();
+                        //return response.json();
                     }
                     else {
                         throw new Error(`${response.status}:${response.statusText}`);
                     }
                 })
                 .then(data => {
-                    //let array = new Uint8Array(data);
-                    //let _data = msgpack.decode(array);
-                    //entityTypeVm._data.configsViewModel = _data;
-                    entityTypeVm._data.configsViewModel = data;
+                    // 进行MessagePack解码
+                    let array = new Uint8Array(data);
+                    console.log("compressed data", array); 
+                    let _data = msgpack.decode(array);
+                    entityTypeVm._data.configsViewModel = _data;
+                    //entityTypeVm._data.configsViewModel = data;
                 })
                 .catch((error) => {
                     console.error('Error:', error);
